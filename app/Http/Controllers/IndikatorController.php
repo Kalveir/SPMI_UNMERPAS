@@ -59,7 +59,7 @@ class IndikatorController extends Controller
      */
     public function edit($indikator)
     {
-        $indikator= Indikator::find(decrypt($indikator));
+        $indikator= Indikator::find($indikator);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
         return view('admin.indikator.edit_indikator', compact('indikator','standard'));
     }
@@ -69,7 +69,7 @@ class IndikatorController extends Controller
      */
     public function update(Request $request, $indikator)
     {
-        $indikator= Indikator::find(decrypt($indikator));
+        $indikator= Indikator::find($indikator);
         $indikator->pegawai_id = Auth::user()->id;
         $indikator->standard_id = $request->standar_id;
         $indikator->isi = $request->isi;

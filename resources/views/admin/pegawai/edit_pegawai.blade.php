@@ -7,7 +7,7 @@
 @section('container')
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">EditData Pegawai</h4>
+        <h4 class="card-title">Edit Data Pegawai</h4>
     </div>
     <div class="card-body">
         <form action="{{ route('pegawai.update', ($pegawai->id)) }}" method="post">

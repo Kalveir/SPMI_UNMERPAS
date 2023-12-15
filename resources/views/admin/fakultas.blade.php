@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-    Contoh
+    SPMI | Fakultas
 @endsection
 
 @section('container')

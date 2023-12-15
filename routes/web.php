@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookdocsController;
+use App\Http\Controllers\BookmanualController;
+use App\Http\Controllers\BookstandardController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\PegawaiController;
@@ -12,6 +16,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,8 +35,20 @@ Route::get('/', function () {
 Route::get('/index', function(){
     return view('index');
 });
-Route::resource('standard',StandardController::class);
-Route::resource('fakultas',FakultasController::class);
-Route::resource('prodi',ProdiController::class);
-Route::resource('jabatan',JabatanController::class);
-Route::resource('pegawai',UserController::class);
+Route::resource('dashboard', DashboardController::class)->middleware('auth');
+Route::resource('standard',StandardController::class)->middleware('auth');
+Route::resource('fakultas',FakultasController::class)->middleware('auth');
+Route::resource('prodi',ProdiController::class)->middleware('auth');
+Route::resource('jabatan',JabatanController::class)->middleware('auth');
+Route::resource('pegawai',UserController::class)->middleware('auth');
+Route::resource('jenis',JenisController::class)->middleware('auth');
+Route::resource('nilai', NilaiController::class)->middleware('auth');
+Route::resource('bookmanual',BookmanualController::class)->middleware('auth');
+Route::resource('bookstandard',BookstandardController::class)->middleware('auth');
+Route::resource('indikator', IndikatorController::class)->middleware('auth');
+Route::resource('bookdocs',BookdocsController::class)->middleware('auth');
+
+//manajemen Login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login/auth', [LoginController::class, 'Authlogin'])->middleware('guest');
+Route::post('/logout', [LoginController::class,'Logout'])->middleware('auth');

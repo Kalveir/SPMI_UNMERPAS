@@ -21,7 +21,7 @@ class bookmanual extends Model
     }
     public function jenis()
     {
-        return $this->belongsTo(jenis::class);
+        return $this->belongsTo(jenis::class, 'jenis');
     }
 }
 
