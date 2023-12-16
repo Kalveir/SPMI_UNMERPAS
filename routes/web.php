@@ -33,8 +33,8 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function(){
-    return view('index');
-});
+    return view('container');
+})->middleware('auth');
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 Route::resource('standard',StandardController::class)->middleware('auth');
 Route::resource('fakultas',FakultasController::class)->middleware('auth');

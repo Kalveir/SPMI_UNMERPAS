@@ -148,19 +148,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="/assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="/dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="/dist/js/custom.min.js"></script>
     <!-- this page js -->
     <script src="/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="/assets/extra-libs/multicheck/jquery.multicheck.js"></script>

@@ -8,7 +8,6 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Daftar Program Studi</h5>
-        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
             <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
                 Tambah Standarisasi
             </button>
@@ -107,7 +106,7 @@
         <div class="modal-content">
             <!-- Header Modal -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Program Studi</h4>
+                <h4 class="modal-title">Tambah Standarisasi</h4>
                 <button type="button" class="close"
                     data-dismiss="modal">&times;</button>
             </div>
@@ -115,26 +114,24 @@
             <!-- Body Modal -->
             <div class="modal-body">
                 <!-- Form Input -->
-                <form action="{{ route('prodi.store') }}" method="post">
+                <form action="{{ route('standard.store') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Nama Prodi :</label>
+                        <label for="nama">Standarisasi :</label>
                         <input type="text" name="nama" id="nama"
                             class="form-control"
-                            placeholder="Masukkan Nama Program Studi"
+                            placeholder="Masukan Standarisasi"
                             required>
                     </div>
-                    <div class="form-group">
-                        <label for="fakultas_id">Fakultas :</label>
-                        <select class="form-select" id="fakultas_id"
-                            name="fakultas_id">
-                            @foreach ($fakultas as $fkt)
-                                <option value="{{ $fkt->id }}">
-                                    {{ $fkt->nama }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <div class="col-md-6 mb-4">
+                      <fieldset class="form-group">
+                          <label for="basicInput">Status :</label>
+                          <select class="form-select" id="basicSelect" name="status">
+                              <option value="1">Aktif</option>
+                              <option value="0">Tidak Aktif</option>
+                          </select>
+                      </fieldset>
+                  </div>
                     <!-- Footer Modal -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -146,25 +143,13 @@
             </div>
         </div>
     </div>
+    {{-- end modal --}}
 </div>
     {{-- end modal --}}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="/assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="/dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="/dist/js/custom.min.js"></script>
     <!-- this page js -->
     <script src="/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
