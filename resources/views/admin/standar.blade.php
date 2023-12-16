@@ -1,13 +1,13 @@
 @extends('layout.main')
 
 @section('title')
-    SPMI | Program Studi
+    SPMI | Standard
 @endsection
 
 @section('container')
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Daftar Program Studi</h5>
+        <h5 class="card-title">Daftar Standarisasi</h5>
             <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
                 Tambah Standarisasi
             </button>
