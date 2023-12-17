@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookdocsController;
@@ -47,6 +48,7 @@ Route::resource('bookmanual',BookmanualController::class)->middleware('auth');
 Route::resource('bookstandard',BookstandardController::class)->middleware('auth');
 Route::resource('indikator', IndikatorController::class)->middleware('auth');
 Route::resource('bookdocs',BookdocsController::class)->middleware('auth');
+Route::resource('berkas',BerkasController::class)->middleware('auth');
 
 //manajemen Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
