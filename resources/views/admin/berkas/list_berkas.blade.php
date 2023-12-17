@@ -20,6 +20,7 @@
                         <th>Indikator</th>
                         <th>Standard</th>
                         <th>Program Studi</th>
+                        <th>Komentar</th>
                         <th>Nilai</th>
                         <th>Aksi</th>
                     </tr>
@@ -32,6 +33,7 @@
                             <td>{{ $brks->indikator->indikator }}</td>
                             <td>{{ $brks->indikator->standard->nama }}</td>
                             <td>{{ $brks->prodi->nama }}</td>
+                            <td>{{ $brks->komentar }}</td>
                             <td>{{ $brks->nilai }}</td>
                             <td>
                                 <form action="{{ route('berkas.destroy', $brks->id) }}" method="POST"

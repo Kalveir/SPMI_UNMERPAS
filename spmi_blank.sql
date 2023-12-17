@@ -144,6 +144,7 @@ CREATE TABLE `pengisian` (
   `indikator_id` int(6) DEFAULT NULL,
   `pegawai_id` int(6) DEFAULT NULL,
   `program_studi` int(3) DEFAULT NULL,
+  `komentar` varchar(255) DEFAULT NULL,
   `nilai` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_pengisian_indikator` (`indikator_id`),
@@ -167,7 +168,25 @@ CREATE TABLE `pengisian_berkas` (
   KEY `fk_program_studi_id` (`program_studi_id`),
   KEY `fk_indikator_id`(`indikator_id`),
   CONSTRAINT `fk_pengisian_berkas_pegawai` FOREIGN KEY (`pegawai_id`) REFERENCES `pegawai` (`id`),
-  CONSTRAINT `fk_pengisian_berkas_pindikator` FOREIGN KEY (`pengisian_id`) REFERENCES `indikator` (`id`),
   CONSTRAINT `fk_program_studi` FOREIGN KEY (`program_studi_id`) REFERENCES `program_studi` (`id`),
   CONSTRAINT `fk_indikator_id` FOREIGN KEY (`indikator_id`) REFERENCES `indikator` (`id`)
 );
+-- CREATE TABLE `pengisian_berkas` (
+--   `id` int(9) NOT NULL AUTO_INCREMENT,
+--   `indikator_id` int(6) DEFAULT NULL,
+--   `pengisian_id` int(3) DEFAULT NULL,
+--   `program_studi_id` int(4) DEFAULT NULL,
+--   `pegawai_id` int(4) DEFAULT NULL,
+--   `jenis` varchar(50) DEFAULT NULL,
+--   `nama_file` varchar(255) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- );
+--   KEY `fk_pengisian_berkas_pindikator`(`pengisian_id`),
+--   KEY `fk_pengisian_berkas_pegawai` (`pegawai_id`),
+--   KEY `fk_program_studi_id` (`program_studi_id`),
+--   KEY `fk_indikator_id`(`indikator_id`),
+--   CONSTRAINT `fk_pengisian_berkas_pegawai` FOREIGN KEY (`pegawai_id`) REFERENCES `pegawai` (`id`),
+--   CONSTRAINT `fk_pengisian_berkas_pindikator` FOREIGN KEY (`pengisian_id`) REFERENCES `pengisian` (`id`),
+--   CONSTRAINT `fk_program_studi` FOREIGN KEY (`program_studi_id`) REFERENCES `program_studi` (`id`),
+--   CONSTRAINT `fk_indikator_id` FOREIGN KEY (`indikator_id`) REFERENCES `indikator` (`id`)
+-- );

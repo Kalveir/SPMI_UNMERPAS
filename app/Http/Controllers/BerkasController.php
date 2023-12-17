@@ -39,24 +39,43 @@ class BerkasController extends Controller
         $pengisian->program_studi =  Auth::user()->prodi_id;
         $pengisian->indikator_id =  $request->indikator_id;
         $pengisian->nilai = 0;
-        
+        $pengisian->save();
+
+        $id = Pengisian::max('id');
+        $pengisian_id = $id;
+
         $penetapan = $request->file('penetapan');
+        $pelaksanaan = $request->file('pelaksanaan');
         foreach($penetapan as $pnt){
             $original = $pnt->getClientOriginalName();
+            $nama_file = now()->format('d-m-Y').'_'.$pengisian_id.'_'.$original;
             $pengisian_berkas = new pengisian_berkas;
 
-            $pengisian_berkas->nama_file = $original;
-            $pnt->storeAs('Berkas',$original);
+            $pengisian_berkas->nama_file = $nama_file;
+            $pnt->storeAs('Berkas',$nama_file);
 
             $pengisian_berkas->jenis = 'Penetapan';
-            $pengisian_berkas->pengisian_id = $pengisian->id;;
+            $pengisian_berkas->pengisian_id = $pengisian_id;
             $pengisian_berkas->pegawai_id = Auth::user()->id;
             $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
             $pengisian_berkas->indikator_id =  $request->indikator_id;
             $pengisian_berkas->save();
         }
+        foreach($pelaksanaan as $plk){
+            $original = $plk->getClientOriginalName();
+            $nama_file = now()->format('d-m-Y').'_'.$pengisian_id.'_'.$original;
+            $pengisian_berkas = new pengisian_berkas;
 
-        $pengisian->save();
+            $pengisian_berkas->nama_file = $nama_file;
+            $plk->storeAs('Berkas',$nama_file);
+
+            $pengisian_berkas->jenis = 'Pelaksanaan';
+            $pengisian_berkas->pengisian_id = $pengisian_id;
+            $pengisian_berkas->pegawai_id = Auth::user()->id;
+            $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
+            $pengisian_berkas->indikator_id =  $request->indikator_id;
+            $pengisian_berkas->save();
+        }
 
         return redirect()->route('berkas.index');
 
