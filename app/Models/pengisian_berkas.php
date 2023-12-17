@@ -11,6 +11,10 @@ class pengisian_berkas extends Model
     public $timestamps = false;
     use HasFactory;
 
+    public function pengisian_berkas(){
+        return $this->belongsTo(User::class,'pengisian_id');
+    }
+
     // public function indikator(){
     //     return $this->belongsTo(indikator::class); 
     // }

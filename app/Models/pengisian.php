@@ -22,4 +22,8 @@ class pengisian extends Model
     public function prodi(){
         return $this->belongsTo(prodi::class, 'program_studi');
     }
+
+    public function pengisian_berkas(){
+        return $this->hasMany(pengisian_berkas::class);
+    }
 }
