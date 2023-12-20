@@ -9,6 +9,7 @@ class pengisian_berkas extends Model
 {
     protected $table = 'pengisian_berkas';
     public $timestamps = false;
+    protected $fillable = ['nama_file','jenis','pengisian_id','pegawai_id','program_studi_id','indikator_id'];
     use HasFactory;
 
     public function pengisian_berkas(){

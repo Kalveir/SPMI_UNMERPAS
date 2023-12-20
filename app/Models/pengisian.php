@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class pengisian extends Model
 {
     protected $table = 'pengisian';
+    protected $fillable = ['pegawai_id', 'program_studi', 'indikator_id', 'nilai'];
     public $timestamps = false;
     use HasFactory;
 
@@ -15,9 +16,12 @@ class pengisian extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function indikator(){
-        return $this->belongsTo(indikator::class);
-    }
+     public function indikator(){
+         return $this->belongsTo(indikator::class);
+     }
+    //public function indikator(){
+        //return $this->hasMany(indikator::class);
+    //}
 
     public function prodi(){
         return $this->belongsTo(prodi::class, 'program_studi');
@@ -26,4 +30,5 @@ class pengisian extends Model
     public function pengisian_berkas(){
         return $this->hasMany(pengisian_berkas::class);
     }
+
 }

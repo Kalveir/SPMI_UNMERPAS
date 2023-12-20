@@ -29,7 +29,7 @@
                                 <button class="btn icon icon-left btn-warning"data-toggle="modal"
                                     data-target="#update_modal{{ $fkt->id }}"><i
                                         data-feather="alert-triangle"></i>Edit</button>
-                                <form action="{{ route('fakultas.destroy', encrypt($fkt->id)) }}" method="POST"
+                                <form action="{{ route('fakultas.destroy', $fkt->id) }}" method="POST"
                                     class="d-inline">
                                     @csrf
                                     @method('DELETE')

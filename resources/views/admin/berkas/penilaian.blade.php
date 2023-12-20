@@ -24,9 +24,6 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Daftar Berkas</h5>
-        <a class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-            <span>Tambah Indikator</span>
-        </a>
         <div class="table-responsive">
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead class=text-left">
@@ -52,7 +49,7 @@
                             <td>{{ $brks->prodi->nama }}</td>
                             <td>{{ $brks->indikator->indikator }}</td>
                             <td>{{ $brks->indikator->standard->nama }}</td>
-                            {{-- penetapan --}}
+                            {{-- penetapana --}}
                              <td>
                                 @foreach ($brks->pengisian_berkas as $file_berkas)
                                 <div class="file-item d-flex align-items-left" >
@@ -61,21 +58,11 @@
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penetapan." }}</a>
                                         </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                        
                                         </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
+                                        
                                     @endif
+                                </div>
                                 @endforeach
                                 <br>
                                 
@@ -87,19 +74,12 @@
                                     @if ($file_berkas->jenis == 'Pelaksanaan')
                                         <div class="col-auto" style="padding: 5px;">
                                             <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pelaksanaan." }}</a>
+                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pelaksanaan" }}</a>
                                         </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                        
                                         </div>
-                                    </div>
                                     @endif
+                                </div>
                                 @endforeach
                                 <br>
                                 
@@ -113,21 +93,10 @@
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Evaluasi" }}</a>
                                         </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                        
                                         </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
                                     @endif
+                                </div>
                                 <br>
                                 @endforeach
                                 
@@ -141,21 +110,10 @@
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Peningkatan" }}</a>
                                         </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                        
                                         </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
                                     @endif
+                                </div>
                                 <br>
                                 @endforeach
                                 
@@ -169,21 +127,10 @@
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penilaian" }}</a>
                                         </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                        
                                         </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
                                     @endif
+                                </div>
                                 <br>
                                 @endforeach
                                 
@@ -214,42 +161,7 @@
             </table>
         </div>
     </div>
-    <div class="modal" id="input_modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-    
-                <!-- Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Indikator</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-    
-                <!-- Body Modal -->
-                <div class="modal-body">
-                    <!-- Form Input -->
-                    <form action="{{route('berkas.addIndikator')}}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label for="nama">Pilih Indikator : </label>
-                            <select class="form-select" aria-label="Default select example" id="indikator_id" name="indikator_id" autofocus>
-                                @foreach ($indikator as $indk)
-                                    <option value="{{ $indk->id }}">
-                                        {{ $indk->indikator }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                </div>
-    
-                <!-- Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
 </div>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>

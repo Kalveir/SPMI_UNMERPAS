@@ -49,6 +49,9 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                     href="/berkas" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
                         class="hide-menu">Pengisian Berkas</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href="/penilaian" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                        class="hide-menu">Penilaian</span></a></li>
                 
         </nav>
         <!-- End Sidebar navigation -->

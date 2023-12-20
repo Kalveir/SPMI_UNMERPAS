@@ -19,4 +19,8 @@ class indikator extends Model
     {
         return $this->belongsTo(standard::class);
     }
+    public function pengisian()
+    {
+        return $this->belongsTo(pengisian::class);
+    }
 }

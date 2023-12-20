@@ -162,6 +162,7 @@ CREATE TABLE `pengisian_berkas` (
   `program_studi_id` int(4) DEFAULT NULL,
   `pegawai_id` int(4) DEFAULT NULL,
   `jenis` varchar(50) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
   `nama_file` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_pengisian_berkas_pegawai` (`pegawai_id`),

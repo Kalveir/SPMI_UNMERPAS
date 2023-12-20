@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-    Upload Berkas
+    SPMI| Upload Berkas
 @endsection
 
 @section('container')
@@ -12,36 +12,38 @@
         <h4 class="card-title">Upload Berkas</h4>
     </div>
     <div class="card-body">
-        <form action="{{ route('berkas.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('berkas.upload_file', $pengisian->id) }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="col-md-6 mb-4">
-                <fieldset class="form-group">
-                    <label for="formFile"><h5>1. Indikator :</h5></label>
-                    <select class="form-select" aria-label="Default select example" id="indikator_id" name="indikator_id" autofocus>
-                        @foreach ($indikator as $indk)
-                            <option value="{{ $indk->id }}">
-                                {{ $indk->indikator }}
-                            </option>
-                        @endforeach
-                    </select>
-                </fieldset>
-            </div>
-            <h5>2. Upload Berkas</h4>
-            <br>
+            {{-- @method('PUT') --}}
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
-                    <label for="formFile" class="form-label"><h6>1. Penetapan :</h6></label>
-                    <br>
-                    <input type="file" class="form-controll" id="formFile" required data-max-file-size="5MB" name="penetapan[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
+                    <fieldset class="form-group">
+                        <label for="basicInput"><h5>1. Jenis File :</h5></label>
+                        {{-- <label for="basicInput">2.  Jenis :</label> --}}
+                        <select class="form-select" id="jenis" name="jenis">
+                                <option>Penetapan</option>
+                                <option>Pelaksanaan</option>
+                                <option>Evaluasi</option>
+                                <option>Peningkatan</option>
+                                <option>Pengendalian</option>
+                        </select>
+                    </fieldset>
                 </div>
             </div>
-            <div class="col-md-6 row-md-15">
+            <h5>3. Upload Berkas</h4>
+            <div class="col-md-15row-md-15">
                 <div class="form-group">
-                    <label for="formFile" class="form-label"><h6>2 Pelaksanaan :</h6></label>
-                    <br>
-                    <input type="file" class="form-controll" id="formFile" required data-max-file-size="5MB" name="pelaksanaan[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
+                    <input type="file" class="form-controll" id="formFile" required data-max-file-size="5MB" name="nama_file[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
                 </div>
             </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="basicInput">Deskripsi :</label>
+                    <input id="deskripsi" type="hidden" name="deskripsi" required>
+                    <trix-editor input="deskripsi"></trix-editor>
+                </div>
+            </div>
+
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
