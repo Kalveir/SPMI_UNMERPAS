@@ -10,7 +10,7 @@
         <h4 class="card-title">Edit Data Pegawai</h4>
     </div>
     <div class="card-body">
-        <form action="{{ route('berkas.update', $berkas->id) }}" method="post">
+        <form action="{{ route('pegawai.update', $pegawai->id) }}" method="post">
             @csrf
             @method('PUT')
             <div class="col-md-6">

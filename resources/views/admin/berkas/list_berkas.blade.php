@@ -27,191 +27,191 @@
         <a class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
             <span>Tambah Indikator</span>
         </a>
-        <div class="table-responsive">
-            <table id="zero_config" class="table table-striped table-bordered">
-                <thead class=text-left">
-                    <tr>
-                        <th>No</th>
-                        <th>Program Studi</th>
-                        <th>Indikator</th>
-                        <th>Standard</th>
-                        <th>Penetapan</th>
-                        <th>Pelaksanaan</th>
-                        <th>Evaluasi</th>
-                        <th>Peningkatan</th>
-                        <th>Pengendalian</th>
-                        <th>Komentar</th>
-                        <th>Nilai</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($berkas as $brks)
+        <div class="row table-responsive">
+            <div class="col">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead class=text-left">
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $brks->prodi->nama }}</td>
-                            <td>{{ $brks->indikator->indikator }}</td>
-                            <td>{{ $brks->indikator->standard->nama }}</td>
-                            {{-- penetapan --}}
-                             <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Penetapan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penetapan." }}</a>
-                                        </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
-                                    @endif
-                                @endforeach
-                                <br>
-                                
-                            </td>
-                            {{-- pelaksanaan --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Pelaksanaan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pelaksanaan." }}</a>
-                                        </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    @endif
-                                @endforeach
-                                <br>
-                                
-                            </td>
-                            {{-- evaluasi --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Evaluasi')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Evaluasi" }}</a>
-                                        </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
-                                    @endif
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            {{-- Peningkatan --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Peningkatan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Peningkatan" }}</a>
-                                        </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
-                                    @endif
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            {{-- Pengendalian --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Pengendalian')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penilaian" }}</a>
-                                        </div>
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3" style="padding: 5px;">
-                                        <strong>Deskripsi : </strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
-                                    @endif
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            <td>{{ $brks->komentar }}</td>
-                            <td>{{ $brks->nilai }}</td>
-                            <td>
-                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                            data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false"></button>
-                                <div class="dropdown-menu">
-                                    <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
-                                        @csrf
-                                        <button class="dropdown-item" type="submit"><i
-                                            class="mdi mdi-file"></i>Upload Berkas</button>
-                                    </form>
-                                    <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="dropdown-item" type="submit"><i
-                                            class="fas fa-trash"></i>Hapus</button>
-                                    </form>
-                                </div>
-                            </td>
+                            <th>No</th>
+                            <th>Program Studi</th>
+                            <th>Indikator</th>
+                            <th>Standard</th>
+                            <th>Penetapan</th>
+                            <th>Pelaksanaan</th>
+                            <th>Evaluasi</th>
+                            <th>Peningkatan</th>
+                            <th>Pengendalian</th>
+                            <th>Komentar</th>
+                            <th>Nilai</th>
+                            <th>Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($berkas as $brks)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $brks->prodi->nama }}</td>
+                                <td>{{ $brks->indikator->indikator }}</td>
+                                <td>{{ $brks->indikator->standard->nama }}</td>
+                                {{-- penetapan --}}
+                                 <td>
+                                    @foreach ($brks->pengisian_berkas as $file_berkas)
+                                    <div class="file-item d-flex align-items-left" >
+                                        @if ($file_berkas->jenis == 'Penetapan')
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <i class="fas fa-file"></i>
+                                                <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                                <div class="text-wrap text-justify" style="max-width: 165px;">
+                                                    <strong>Deskripsi :</strong>
+                                                    {!! $file_berkas->deskripsi !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                    
+                                </td>
+                                {{-- pelaksanaan --}}
+                                <td>
+                                    @foreach ($brks->pengisian_berkas as $file_berkas)
+                                    <div class="file-item d-flex align-items-left" >
+                                        @if ($file_berkas->jenis == 'Pelaksanaan')
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <i class="fas fa-file"></i>
+                                                <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ $file_berkas->nama_file }}</a>
+                                                <div class="text-wrap text-justify" style="max-width: 165px;">
+                                                    <strong>Deskripsi :</strong>
+                                                    {!! $file_berkas->deskripsi !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                </td>
+                                {{-- evaluasi --}}
+                                <td>
+                                    @foreach ($brks->pengisian_berkas as $file_berkas)
+                                    <div class="file-item d-flex align-items-left" >
+                                        @if ($file_berkas->jenis == 'Evaluasi')
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <i class="fas fa-file"></i>
+                                                <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ $file_berkas->nama_file}}</a>
+                                                <div class="text-wrap text-justify" style="max-width: 165px;">
+                                                    <strong>Deskripsi :</strong>
+                                                    {!! $file_berkas->deskripsi !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                    
+                                </td>
+                                {{-- Peningkatan --}}
+                                <td>
+                                    @foreach ($brks->pengisian_berkas as $file_berkas)
+                                    <div class="file-item d-flex align-items-left" >
+                                        @if ($file_berkas->jenis == 'Peningkatan')
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <i class="fas fa-file"></i>
+                                                <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                                <div class="text-wrap text-justify" style="max-width: 162px;">
+                                                    <strong>Deskripsi :</strong>
+                                                    {!! $file_berkas->deskripsi !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                    
+                                </td>
+                                {{-- Pengendalian --}}
+                                <td>
+                                    @foreach ($brks->pengisian_berkas as $file_berkas)
+                                    <div class="file-item d-flex align-items-left" >
+                                        @if ($file_berkas->jenis == 'Pengendalian')
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <i class="fas fa-file"></i>
+                                                <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                                <div class="text-wrap text-justify" style="max-width: 165px;">
+                                                    <strong>Deskripsi :</strong>
+                                                    {!! $file_berkas->deskripsi !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto" style="padding: 5px;">
+                                                <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                    
+                                </td>
+                                <td>{{ $brks->komentar }}</td>
+                                <td>{{ $brks->nilai }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"></button>
+                                    <div class="dropdown-menu">
+                                        <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
+                                            @csrf
+                                            <button class="dropdown-item" type="submit"><i
+                                                class="mdi mdi-file"></i>Upload Berkas</button>
+                                        </form>
+                                        <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="dropdown-item" type="submit"><i
+                                                class="fas fa-trash"></i>Hapus</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="modal" id="input_modal">

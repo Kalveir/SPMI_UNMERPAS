@@ -44,119 +44,127 @@
                 </thead>
                 <tbody>
                     @foreach ($berkas as $brks)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $brks->prodi->nama }}</td>
-                            <td>{{ $brks->indikator->indikator }}</td>
-                            <td>{{ $brks->indikator->standard->nama }}</td>
-                            {{-- penetapana --}}
-                             <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Penetapan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penetapan." }}</a>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $brks->prodi->nama }}</td>
+                        <td>{{ $brks->indikator->indikator }}</td>
+                        <td>{{ $brks->indikator->standard->nama }}</td>
+                        {{-- penetapan --}}
+                         <td>
+                            @foreach ($brks->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Penetapan')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penetapan." }}</a>
+                                        <div class="text-wrap overflow-auto">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
                                         </div>
-                                        
+                                    </div>
+                                    
+                                @endif
+                            </div>
+                            @endforeach
+                            
+                        </td>
+                        {{-- pelaksanaan --}}
+                        <td>
+                            @foreach ($brks->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Pelaksanaan')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pelaksanaan." }}</a>
+                                        <div class="text-wrap overflow-auto">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
                                         </div>
-                                        
-                                    @endif
-                                </div>
-                                @endforeach
-                                <br>
-                                
-                            </td>
-                            {{-- pelaksanaan --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Pelaksanaan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pelaksanaan" }}</a>
+                                    </div>
+                                    
+                                @endif
+                            </div>
+                            @endforeach
+                        </td>
+                        {{-- evaluasi --}}
+                        <td>
+                            @foreach ($brks->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Evaluasi')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Evaluasi." }}</a>
+                                        <div class="text-wrap overflow-auto">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
                                         </div>
-                                        
+                                    </div>
+                                    
+                                @endif
+                            </div>
+                            @endforeach
+                            
+                        </td>
+                        {{-- Peningkatan --}}
+                        <td>
+                            @foreach ($brks->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Peningkatan')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Peningkatan." }}</a>
+                                        <div class="white-space: nowrap; text-overflow: ellipsis;">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
                                         </div>
-                                    @endif
-                                </div>
-                                @endforeach
-                                <br>
-                                
-                            </td>
-                            {{-- evaluasi --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Evaluasi')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Evaluasi" }}</a>
+                                    </div>
+                                    
+                                @endif
+                            </div>
+                            @endforeach
+                            
+                        </td>
+                        {{-- Pengendalian --}}
+                        <td>
+                            @foreach ($brks->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Pengendalian')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Pengendalian." }}</a>
+                                        <div class="text-wrap overflow-auto">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
                                         </div>
-                                        
-                                        </div>
-                                    @endif
-                                </div>
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            {{-- Peningkatan --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Peningkatan')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Peningkatan" }}</a>
-                                        </div>
-                                        
-                                        </div>
-                                    @endif
-                                </div>
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            {{-- Pengendalian --}}
-                            <td>
-                                @foreach ($brks->pengisian_berkas as $file_berkas)
-                                <div class="file-item d-flex align-items-left" >
-                                    @if ($file_berkas->jenis == 'Pengendalian')
-                                        <div class="col-auto" style="padding: 5px;">
-                                            <i class="fas fa-file"></i>
-                                            <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ substr($file_berkas->nama_file,0, 8)."_Penilaian" }}</a>
-                                        </div>
-                                        
-                                        </div>
-                                    @endif
-                                </div>
-                                <br>
-                                @endforeach
-                                
-                            </td>
-                            <td>{{ $brks->komentar }}</td>
-                            <td>{{ $brks->nilai }}</td>
-                            <td>
-                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                            data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false"></button>
-                                <div class="dropdown-menu">
-                                    <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
-                                        @csrf
-                                        <button class="dropdown-item" type="submit"><i
-                                            class="mdi mdi-file"></i>Upload Berkas</button>
-                                    </form>
-                                    <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="dropdown-item" type="submit"><i
-                                            class="fas fa-trash"></i>Hapus</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
+                                    </div>
+                                    
+                                @endif
+                            </div>
+                            @endforeach
+                            
+                        </td>
+                        <td>{{ $brks->komentar }}</td>
+                        <td>{{ $brks->nilai }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false"></button>
+                            <div class="dropdown-menu">
+                                <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item" type="submit"><i
+                                        class="mdi mdi-file"></i>Upload Berkas</button>
+                                </form>
+                                <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="dropdown-item" type="submit"><i
+                                        class="fas fa-trash"></i>Hapus</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
