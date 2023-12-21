@@ -187,7 +187,11 @@
                                     @endforeach
                                     
                                 </td>
-                                <td>{{ $brks->komentar }}</td>
+                                <td>
+                                    <div class="text-wrap text-justify" style="max-width: 165px;">
+                                        {!! $brks->komentar !!}
+                                    </div>
+                                </td>
                                 <td>{{ $brks->nilai }}</td>
                                 <td>
                                     <button type="button" class="btn btn-primary dropdown-toggle"

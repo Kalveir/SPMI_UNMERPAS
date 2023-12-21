@@ -66,6 +66,9 @@ Route::delete('/delete-indikator/{id}',[BerkasController::class, 'hapusIndikator
 Route::post('/add-file/{id}', [BerkasController::class, 'addFile'])->name('berkas.addFile')->middleware('auth');
 Route::post('/upload-file/{id}',[BerkasController::class, 'uploadFile'])->name('berkas.upload_file')->middleware('auth');
 Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
+Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
+Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
+Route::put('/update-nilai/{id}', [BerkasController::class, 'updateNilai'])->name('berkas.updateNilai')->middleware('auth');
 
 
 Route::post('/upload_file/{id}',[FileController::class, 'upload_file'])->middleware('auth');

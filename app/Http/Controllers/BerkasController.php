@@ -93,4 +93,19 @@ class BerkasController extends Controller
         $berkas = Pengisian::get();
         return view('admin.berkas.list_berkas', compact('berkas'));
     }
+
+    public function addNilai($id)
+    {
+        $pengisian = Pengisian::find($id);
+        return view('admin.berkas.tambah_nilai', compact('pengisian'));
+    }
+    public function updateNilai(Request $request, $id)
+    {
+        $pengisian = Pengisian::find($id);
+        $pengisian->nilai = $request->nilai;
+        $pengisian->komentar = $request->komentar;
+        $pengisian->save();
+
+        return redirect()->route('penilaian.index');
+    }
 }
