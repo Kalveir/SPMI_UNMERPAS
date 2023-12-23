@@ -7,19 +7,11 @@
             <!-- ============================================================== -->
             <a class="navbar-brand" href="index.html">
                 <!-- Logo icon -->
-                <b class="logo-icon ps-2">
-                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                    <!-- Dark Logo icon -->
-                    <img src="/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
-
-                </b>
-                <!--End Logo icon -->
-                <!-- Logo text -->
-                <span class="logo-text">
-                    <!-- dark Logo text -->
-                    <img src="/assets/images/logo-text.png" alt="homepage" class="light-logo" />
-
-                </span>
+                <img src="/assets/images/logo-icon.png"
+                     alt="AdminLTE Logo"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">SPMI UNMERPAS</span>
                 <!-- Logo icon -->
                 <!-- <b class="logo-icon"> -->
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
