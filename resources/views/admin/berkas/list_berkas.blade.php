@@ -196,7 +196,7 @@
                                 <td>
                                     <button type="button" class="btn btn-primary dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false"></button>
+                                                aria-expanded="false"><i class="mdi mdi-pencil-box"></i></button>
                                     <div class="dropdown-menu">
                                         <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
                                             @csrf

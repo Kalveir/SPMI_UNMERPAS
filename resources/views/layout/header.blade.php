@@ -7,11 +7,11 @@
             <!-- ============================================================== -->
             <a class="navbar-brand" href="index.html">
                 <!-- Logo icon -->
-                <img src="/assets/images/logo-icon.png"
+                <img src="/assets/images/unmer.png" width="55"
                      alt="AdminLTE Logo"
                      class="brand-image img-circle elevation-3"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light">SPMI UNMERPAS</span>
+                <span class="brand-text font-weight-light"><strong>SPMI UNMERPAS</strong></span>
                 <!-- Logo icon -->
                 <!-- <b class="logo-icon"> -->
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->

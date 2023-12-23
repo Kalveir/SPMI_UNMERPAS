@@ -32,7 +32,7 @@
                             <td>{{ $bkm->jenis}}</td>
                             <td>
                                 <a href="{{ asset('storage/SOP/' . $bkm->nama_file) }}" target="_blank">
-                                    <button class="btn btn-primary">Berkas</button>
+                                    <button class="btn btn-primary"><i class="mdi mdi-cloud-download"></i> Berkas</button>
                                 </a>
                             </td>
                             <td>

@@ -8,49 +8,49 @@
                         href="/dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                             class="hide-menu">Dashboard</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/fakultas" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
+                        href="/fakultas" aria-expanded="false"><i class="mdi mdi-flag"></i><span
                             class="hide-menu">Fakultas</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/prodi" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
                             class="hide-menu">Program Studi</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/jabatan" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
+                        href="/jabatan" aria-expanded="false"><i class="mdi mdi-tie"></i><span
                             class="hide-menu">Jabatan</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/pegawai" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                        href="/pegawai" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
                             class="hide-menu">Pegawai</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/standard" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                        href="/standard" aria-expanded="false"><i class="mdi mdi-developer-board"></i><span
                             class="hide-menu">Standard</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-book-open-page-variant"></i><span
                             class="hide-menu">Book</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="/bookmanual" class="sidebar-link"><i
-                                    class="mdi mdi-note-outline"></i><span class="hide-menu"> Book Manual
+                                    class="mdi mdi-book"></i><span class="hide-menu"> Book Manual
                                 </span></a></li>
                         <li class="sidebar-item"><a href="/bookstandard" class="sidebar-link"><i
-                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Book Standard
+                                    class="mdi mdi-book-open"></i><span class="hide-menu"> Book Standard
                                 </span></a></li>
                         <li class="sidebar-item"><a href="/bookdocs" class="sidebar-link"><i
-                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Book Docs
+                                    class="mdi mdi-library-books"></i><span class="hide-menu"> Book Docs
                                 </span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/indikator" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                    href="/indikator" aria-expanded="false"><i class="mdi mdi-scale-balance"></i><span
                         class="hide-menu">Indikator</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/jenis" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                    href="/jenis" aria-expanded="false"><i class="mdi mdi-chart-gantt"></i><span
                         class="hide-menu">Jenis</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                     href="/nilai" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
                         class="hide-menu">Nilai</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/berkas" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                    href="/berkas" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
                         class="hide-menu">Pengisian Berkas</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/penilaian" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                    href="/penilaian" aria-expanded="false"><i class="mdi mdi-widgets"></i><span
                         class="hide-menu">Penilaian</span></a></li>
                 
         </nav>

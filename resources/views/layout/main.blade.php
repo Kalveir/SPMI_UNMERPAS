@@ -14,7 +14,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>@yield('title')</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/unmer.png">
     <!-- Custom CSS -->
     <link href="/assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="/assets/extra-libs/calendar/calendar.css" rel="stylesheet" />

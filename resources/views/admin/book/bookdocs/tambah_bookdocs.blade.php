@@ -28,6 +28,8 @@
                                 <option>Penetapan</option>
                                 <option>Pelaksanaan</option>
                                 <option>Evaluasi</option>
+                                <option>Peningkatan</option>
+                                <option>Pengendalian</option>
                         </select>
                     </fieldset>
                 </div>

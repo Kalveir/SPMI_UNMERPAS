@@ -29,6 +29,7 @@
                 <thead class=text-left">
                     <tr>
                         <th>No</th>
+                        <th>Nama Kaprodi</th>
                         <th>Program Studi</th>
                         <th>Indikator</th>
                         <th>Standard</th>
@@ -46,6 +47,7 @@
                     @foreach ($berkas as $brks)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $brks->pegawai->nama }}</td>
                                 <td>{{ $brks->prodi->nama }}</td>
                                 <td>{{ $brks->indikator->indikator }}</td>
                                 <td>{{ $brks->indikator->standard->nama }}</td>
