@@ -7,18 +7,26 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                             class="hide-menu">Dashboard</span></a></li>
+                @can('kelola fakultas')
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/fakultas" aria-expanded="false"><i class="mdi mdi-flag"></i><span
                             class="hide-menu">Fakultas</span></a></li>
+                @endcan
+                @can('kelola prodi')
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/prodi" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
                             class="hide-menu">Program Studi</span></a></li>
+                @endcan
+                @can('kelola jabatan')
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/jabatan" aria-expanded="false"><i class="mdi mdi-tie"></i><span
                             class="hide-menu">Jabatan</span></a></li>
+                @endcan
+                @can('kelola pegawai')
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/pegawai" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
                             class="hide-menu">Pegawai</span></a></li>
+                @endcan
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/standard" aria-expanded="false"><i class="mdi mdi-developer-board"></i><span
                             class="hide-menu">Standard</span></a></li>

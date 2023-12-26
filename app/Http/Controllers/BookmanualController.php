@@ -75,7 +75,7 @@ class BookmanualController extends Controller
     public function update(Request $request, $bookmanual)
     {
         $bookmanual = Bookmanual::find($bookmanual);
-        $bookmanual->pegawai_id = Auth::user()->id;
+        // $bookmanual->pegawai_id = Auth::user()->id;
         $bookmanual->ruanglingkup = $request->ruanglingkup;
         $bookmanual->standard_id = $request->standar_id;
         $bookmanual->jenis = $request->jenis;

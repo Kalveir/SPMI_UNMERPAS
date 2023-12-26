@@ -70,7 +70,7 @@ class IndikatorController extends Controller
     public function update(Request $request, $indikator)
     {
         $indikator= Indikator::find($indikator);
-        $indikator->pegawai_id = Auth::user()->id;
+        // $indikator->pegawai_id = Auth::user()->id;
         $indikator->standard_id = $request->standar_id;
         $indikator->isi = $request->isi;
         $indikator->strategi = $request->strategi;

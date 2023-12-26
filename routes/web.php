@@ -19,7 +19,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
 use App\Http\Controllers\PenilaianController;
-
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,12 @@ use App\Http\Controllers\PenilaianController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/woy', function () {
+    $role = Role::first();
+    $role->givePermissionTo('kelola jabatan');
+    dd($role);
+
 });
 
 Route::get('/index', function(){

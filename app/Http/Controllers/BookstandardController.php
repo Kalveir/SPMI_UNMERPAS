@@ -73,7 +73,7 @@ class BookstandardController extends Controller
     public function update(Request $request, $bookstandar)
     {
         $bookstandar = Bookstandar::find($bookstandar);
-        $bookstandar->pegawai_id = Auth::user()->id;
+        // $bookstandar->pegawai_id = Auth::user()->id;
         $bookstandar->standard_id = $request->standar_id;
         $bookstandar->visi_misi = $request->visi_misi;
         $bookstandar->tujuan = $request->tujuan;
