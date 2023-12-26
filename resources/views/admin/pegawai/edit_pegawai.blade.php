@@ -36,8 +36,8 @@
                         <select class="form-select" id="jabatan_id" name="jabatan_id">
                             @foreach ($jabatan as $jbt)
                             <option value="{{ $jbt->id }}"
-                                {{ $pegawai->jabatan_id == $jbt->id ? 'selected' : '' }}>
-                                {{ $jbt->nama }}
+                                {{ $pegawai->hasRole($jbt->name) == $jbt->id ? 'selected' : '' }}>
+                                {{ $jbt->name }}
                             @endforeach
                         </select>
                     </fieldset>

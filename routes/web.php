@@ -49,7 +49,6 @@ Route::resource('dashboard', DashboardController::class)->middleware('auth');
 Route::resource('standard',StandardController::class)->middleware('auth');
 Route::resource('fakultas',FakultasController::class)->middleware('auth');
 Route::resource('prodi',ProdiController::class)->middleware('auth');
-Route::resource('jabatan',JabatanController::class)->middleware('auth');
 Route::resource('pegawai',UserController::class)->middleware('auth');
 Route::resource('jenis',JenisController::class)->middleware('auth');
 Route::resource('nilai', NilaiController::class)->middleware('auth');
@@ -60,11 +59,11 @@ Route::resource('bookdocs',BookdocsController::class)->middleware('auth');
 Route::resource('penilaian',PenilaianController::class)->middleware('auth');
 
 
-//manajemen Login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
-Route::post('/login/auth', [LoginController::class, 'Authlogin'])->middleware('guest');
-Route::post('/logout', [LoginController::class,'Logout'])->middleware('auth');
-
+//manajemen jabatan
+Route::get('/jabatan',[JabatanController::class, 'index'])->name('jabatan.index')->middleware('auth');
+Route::put('/update_jabatan/{id}',[JabatanController::class, 'update'])->name('jabatan.update')->middleware('auth');
+Route::post('/add-jabatan', [JabatanController::class, 'store'])->name('jabatan.store')->middleware('auth');
+Route::delete('/delete-jabatan/{id}',[JabatanController::class, 'destroy'])->name('jabatan.destroy')->middleware('auth');
 //manajemen File
 Route::get('/berkas',[BerkasController::class, 'listBerkas'])->name('berkas.index')->middleware('auth');
 Route::post('/add-indikator', [BerkasController::class, 'addIndikator'])->name('berkas.addIndikator')->middleware('auth');
@@ -76,5 +75,9 @@ Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berk
 Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
 Route::put('/update-nilai/{id}', [BerkasController::class, 'updateNilai'])->name('berkas.updateNilai')->middleware('auth');
 
+//manajemen Login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login/auth', [LoginController::class, 'Authlogin'])->middleware('guest');
+Route::post('/logout', [LoginController::class,'Logout'])->middleware('auth');
 
-Route::post('/upload_file/{id}',[FileController::class, 'upload_file'])->middleware('auth');
+

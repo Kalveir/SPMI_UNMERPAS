@@ -24,7 +24,7 @@
                     @foreach ($jabatan as $jbt)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $jbt->nama }}</td>
+                            <td>{{ $jbt->name }}</td>
                             <td>
                                 <button class="btn icon icon-left btn-warning"data-toggle="modal"
                                     data-target="#update_modal{{ $jbt->id }}"><i
@@ -60,7 +60,7 @@
                                             <div class="form-group">
                                                 <label for="nama">Nama Jabatan: </label>
                                                 <input type="text" name="nama"
-                                                    value="{{ $jbt->nama }}" id="nama"
+                                                    value="{{ $jbt->name }}" id="nama"
                                                     class="form-control" placeholder="Masukkan Nama Jabatan"
                                                     required="required">
 

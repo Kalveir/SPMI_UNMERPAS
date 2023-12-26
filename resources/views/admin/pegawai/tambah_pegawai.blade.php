@@ -32,7 +32,7 @@
                         <select class="form-select" id="jabatan_id" name="jabatan_id">
                             @foreach ($jabatan as $jbt)
                                 <option value="{{ $jbt->id }}">
-                                    {{ $jbt->nama }}
+                                    {{ $jbt->name }}
                                 </option>
                             @endforeach
                         </select>

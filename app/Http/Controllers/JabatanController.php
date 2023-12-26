@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jabatan;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+
+
 
 class JabatanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $jabatan = Jabatan::get();
+        $jabatan = Role::get();
         return view('admin.jabatan',compact('jabatan'));
     }
 
@@ -29,16 +29,14 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        $jabatan = new Jabatan;
-        $jabatan->nama = $request->nama;
-        $jabatan->save();
+        Role::create(['name'=>$request->nama]);
         return redirect()->route('jabatan.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(jabatan $jabatan)
+    public function show($id)
     {
         //
     }
@@ -46,7 +44,7 @@ class JabatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(jabatan $jabatan)
+    public function edit( $id)
     {
         //
     }
@@ -56,8 +54,8 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $jabatan)
     {
-        $jabatan = Jabatan::find($jabatan);
-        $jabatan->nama = $request->nama;
+        $jabatan = Role::findById($jabatan);
+        $jabatan->name = $request->nama;
         $jabatan->save();
         return redirect()->route('jabatan.index');
     }
@@ -67,7 +65,7 @@ class JabatanController extends Controller
      */
     public function destroy($jabatan)
     {
-        $jabatan = Jabatan::find($jabatan);
+        $jabatan = Role::findById($jabatan);
         $jabatan->delete();
         return redirect()->route('jabatan.index'); 
     }

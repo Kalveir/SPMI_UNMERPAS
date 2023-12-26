@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\jabatan;
+use Spatie\Permission\Models\Role;
 use App\Models\prodi;
-use App\Models\pengisian_berkas;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $pegawai = User::get();
+        $pegawai = User::with('roles')->get();
         return view('admin.pegawai.pegawai', compact('pegawai'));
     }
 
@@ -24,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $jabatan = Jabatan::get();
+        $jabatan = Role::get();
         $prodi = Prodi::get();
         return view('admin.pegawai.tambah_pegawai', compact('jabatan','prodi'));
     }
@@ -34,14 +33,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = new User;
-        $pegawai->nama = $request->nama;
-        $pegawai->email = $request->email;
-        $pegawai->password = bcrypt($request->password);
-        $pegawai->jabatan_id = $request->jabatan_id;
-        $pegawai->prodi_id = $request->prodi_id;
-        $pegawai->status = $request->status;
-        $pegawai->save();
+        $user = User::create([
+            'prodi_id' => $request->prodi_id,
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'status' => $request->status,
+        ]);
+
+        $role = Role::findById($request->jabatan_id);
+        $user->assignRole($role);
         return redirect()->route('pegawai.index');
     }
 
@@ -59,7 +60,7 @@ class UserController extends Controller
     public function edit($user)
     {
         $pegawai = User::find($user);
-        $jabatan = Jabatan::get();
+        $jabatan = Role::get();
         $prodi = Prodi::get();
         return view('admin.pegawai.edit_pegawai', compact('pegawai','jabatan', 'prodi'));
     }
@@ -72,21 +73,25 @@ class UserController extends Controller
         $pegawai = User::find($user);
         if (!empty($request->password ))
         {
-            $pegawai->nama = $request->nama;
-            $pegawai->email = $request->email;
-            $pegawai->password = bcrypt($request->password);
-            $pegawai->jabatan_id = $request->jabatan_id;
-            $pegawai->prodi_id = $request->prodi_id;
-            $pegawai->status = $request->status;
-            $pegawai->save();
-            return redirect()->route('pegawai.index'); 
+            $pegawai->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'prodi_id' => $request->prodi_id,
+                'status' => $request->status,
+            ]);
+            $role = Role::findById($request->jabatan_id);
+            $pegawai->syncRoles([$role]);
+            return redirect()->route('pegawai.index');
         }else{
-            $pegawai->nama = $request->nama;
-            $pegawai->email = $request->email;
-            $pegawai->jabatan_id = $request->jabatan_id;
-            $pegawai->prodi_id = $request->prodi_id;
-            $pegawai->status = $request->status;
-            $pegawai->save();
+            $pegawai->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'prodi_id' => $request->prodi_id,
+                'status' => $request->status,
+            ]);
+            $role = Role::findById($request->jabatan_id);
+            $pegawai->syncRoles([$role]);
             return redirect()->route('pegawai.index'); 
         }
     }
@@ -97,6 +102,7 @@ class UserController extends Controller
     public function destroy($user)
     {
         $pegawai = User::find($user);
+        $pegawai->syncRoles([]);
         $pegawai->delete();
         return redirect()->route('pegawai.index');
     }

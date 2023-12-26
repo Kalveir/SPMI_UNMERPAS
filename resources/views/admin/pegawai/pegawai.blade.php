@@ -17,8 +17,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Jabatan</th>
                         <th>Program Studi</th>
+                        <th>Jabatan</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -28,8 +28,12 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $pgw->nama }}</td>
-                            <td>{{ $pgw->jabatan->nama }}</td>
                             <td>{{ $pgw->prodi->nama }}</td>
+                                <td>
+                                    @foreach ($pgw->roles as $role )
+                                        {{ $role->name }}                                    
+                                    @endforeach
+                                </td>
                             <td>
                                 @if ($pgw->status == 1)
                                     <span class="badge bg-success">Aktif</span>

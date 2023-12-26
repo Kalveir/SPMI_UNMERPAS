@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Contracts\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 
@@ -16,11 +17,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable,HasRoles;
     protected $table = 'pegawai';
     public $timestamps = false;
+    protected $fillable = ['prodi_id','nama', 'email','password', 'status'];
 
-    // public function jabatan()
-    // {
-    //     return $this->belongsTo(jabatan::class);
-    // }
+
+    public function role()
+    {
+        return $this->BelongsToMany(Role::class,'model_has_roles','model_id','role_id');
+    }
     public function prodi()
     {
         return $this->belongsTo(prodi::class);
