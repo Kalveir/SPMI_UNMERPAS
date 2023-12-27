@@ -37,7 +37,7 @@ Route::get('/', function () {
 });
 Route::get('/woy', function () {
     $role = Role::first();
-    $role->givePermissionTo('kelola jabatan');
+    $role->givePermissionTo('kelola standard','kelola bookmanual','kelola bookstandard','kelola bookdocs','kelola indikator', 'kelola jenis','kelola nilai','kelola berkas','kelola penilaian');
     dd($role);
 
 });
@@ -61,9 +61,11 @@ Route::resource('penilaian',PenilaianController::class)->middleware('auth');
 
 //manajemen jabatan
 Route::get('/jabatan',[JabatanController::class, 'index'])->name('jabatan.index')->middleware('auth');
-Route::put('/update_jabatan/{id}',[JabatanController::class, 'update'])->name('jabatan.update')->middleware('auth');
 Route::post('/add-jabatan', [JabatanController::class, 'store'])->name('jabatan.store')->middleware('auth');
+Route::get('/jabatan-tambah',[JabatanController::class, 'create'])->name('jabatan.create')->middleware('auth');
 Route::delete('/delete-jabatan/{id}',[JabatanController::class, 'destroy'])->name('jabatan.destroy')->middleware('auth');
+Route::get('/edit-jabatan/{id}',[JabatanController::class, 'edit'])->name('jabatan.edit')->middleware('auth');
+Route::put('/update-jabatan/{id}', [JabatanController::class, 'update'])->name('jabatan.update')->middleware('auth');
 //manajemen File
 Route::get('/berkas',[BerkasController::class, 'listBerkas'])->name('berkas.index')->middleware('auth');
 Route::post('/add-indikator', [BerkasController::class, 'addIndikator'])->name('berkas.addIndikator')->middleware('auth');
@@ -71,7 +73,6 @@ Route::delete('/delete-indikator/{id}',[BerkasController::class, 'hapusIndikator
 Route::post('/add-file/{id}', [BerkasController::class, 'addFile'])->name('berkas.addFile')->middleware('auth');
 Route::post('/upload-file/{id}',[BerkasController::class, 'uploadFile'])->name('berkas.upload_file')->middleware('auth');
 Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
-Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
 Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
 Route::put('/update-nilai/{id}', [BerkasController::class, 'updateNilai'])->name('berkas.updateNilai')->middleware('auth');
 

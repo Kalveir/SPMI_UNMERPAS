@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 
@@ -13,7 +14,7 @@ class JabatanController extends Controller
     public function index()
     {
         $jabatan = Role::get();
-        return view('admin.jabatan',compact('jabatan'));
+        return view('admin.jabatan.jabatan',compact('jabatan'));
     }
 
     /**
@@ -21,7 +22,8 @@ class JabatanController extends Controller
      */
     public function create()
     {
-
+        $permission = Permission::all();
+        return view('admin.jabatan.tambah_jabatan',compact('permission'));
     }
 
     /**
@@ -29,7 +31,12 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        Role::create(['name'=>$request->nama]);
+        $permission = $request->akses;
+        $role = Role::create(['name'=>$request->nama]);
+        foreach ($permission as $permisi){
+            $permisi = Permission::firstOrCreate(['name'=>$permisi]);
+            $role->givePermissionTo($permisi);
+        }
         return redirect()->route('jabatan.index');
     }
 
@@ -46,7 +53,10 @@ class JabatanController extends Controller
      */
     public function edit( $id)
     {
-        //
+        $jabatan = Role::findById($id);
+        $permission = Permission::all();
+        return view('admin.jabatan.edit_jabatan',compact('jabatan','permission'));
+        
     }
 
     /**
@@ -54,9 +64,16 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $jabatan)
     {
-        $jabatan = Role::findById($jabatan);
-        $jabatan->name = $request->nama;
-        $jabatan->save();
+        $role = Role::findById($jabatan);
+
+        // Update the role's name if needed
+        $role->update([
+            'name' => $request->nama,
+        ]);
+
+        // Sync the permissions for the role
+        $permissions = $request->akses; // assuming 'akses' is the name attribute of your select field
+        $role->syncPermissions($permissions);
         return redirect()->route('jabatan.index');
     }
 
@@ -66,6 +83,7 @@ class JabatanController extends Controller
     public function destroy($jabatan)
     {
         $jabatan = Role::findById($jabatan);
+        $jabatan->syncPermissions([]);
         $jabatan->delete();
         return redirect()->route('jabatan.index'); 
     }

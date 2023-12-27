@@ -106,6 +106,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    
     <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="/dist/js/jquery.ui.touch-punch-improved.js"></script>
     <script src="/dist/js/jquery-ui.min.js"></script>
