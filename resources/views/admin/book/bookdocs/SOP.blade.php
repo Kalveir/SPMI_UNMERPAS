@@ -1,15 +1,15 @@
 @extends('.layout.main')
 
 @section('title')
-    SPMI | Buku Docs
+    SPMI | SOP
 @endsection
 
 @section('container')
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Daftar BookDocs</h5>
-        <a href="{{ route('bookdocs.create') }}" class="btn btn-success mb-3">
-            <span>Tambah Buku Docs</span>
+        <h5 class="card-title">Daftar SOP</h5>
+        <a href="{{ route('SOP.create') }}" class="btn btn-success mb-3">
+            <span>Tambah SOP</span>
         </a>
         <div class="table-responsive">
             <table id="zero_config" class="table table-striped table-bordered">
@@ -24,26 +24,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($bookdocs as $bkm)
+                    @foreach ($sop as $sp)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $bkm->nama }}</td>
-                            <td>{{ $bkm->standard->nama}}</td>
-                            <td>{{ $bkm->jenis}}</td>
+                            <td>{{ $sp->nama }}</td>
+                            <td>{{ $sp->standard->nama}}</td>
+                            <td>{{ $sp->jenis}}</td>
                             <td>
-                                <a href="{{ asset('storage/SOP/' . $bkm->nama_file) }}" target="_blank">
+                                <a href="{{ asset('storage/SOP/' . $sp->nama_file) }}" target="_blank">
                                     <button class="btn btn-primary"><i class="mdi mdi-cloud-download"></i> Berkas</button>
                                 </a>
                             </td>
                             <td>
-                                <form action="{{ route('bookdocs.edit', $bkm->id) }}"
+                                <form action="{{ route('SOP.edit', $sp->id) }}"
                                     class="d-inline">
                                     @csrf
                                     <button class="btn icon icon-left btn-warning"><i
                                             data-feather="alert-triangle"></i>
                                         Edit</button>
                                 </form>
-                                <form action="{{ route('bookdocs.destroy', $bkm->id) }}" method="POST"
+                                <form action="{{ route('SOP.destroy', $sp->id) }}" method="POST"
                                     class="d-inline">
                                     @csrf
                                     @method('DELETE')

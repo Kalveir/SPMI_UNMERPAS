@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label for="basicInput">Nama Pengguna</label>
                     <input type="text" class="form-control" id="basicInput" name="nama"
-                        value="{{ $pegawai->nama }}" required>
+                        value="{{ $pegawai->nama }}" required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="basicInput">Email</label>

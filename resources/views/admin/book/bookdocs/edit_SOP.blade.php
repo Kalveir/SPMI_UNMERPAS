@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-    Edit Buku Docs
+    Edit Formulir
 @endsection
 
 @section('container')
@@ -9,22 +9,22 @@
 <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Edit Buku Docs</h4>
+        <h4 class="card-title">Edit Formulir</h4>
     </div>
     <div class="card-body">
-        <form action="{{ route('bookdocs.update', $bookdocs->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('formulir.update', $sop->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT');
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
                     <label for="basicInput">Nama :</label>
-                    <input type="text" class="form-control" id="basicInput" value="{{ $bookdocs->nama }}" name="nama" required>
+                    <input type="text" class="form-control" id="basicInput" value="{{ $sop->nama }}" name="nama" required>
                 </div>
             </div>
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
                     <label for="basicInput">Jenis :</label>
-                    <input type="text" class="form-control" id="basicInput" value="{{ $bookdocs->jenis }}" name="jenis" required>
+                    <input type="text" class="form-control" id="basicInput" value="{{ $sop->jenis }}" name="jenis" required>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
@@ -33,7 +33,7 @@
                     <select class="form-select" id="standar_id" name="standar_id">
                         @foreach ($standard as $std)
                             <option value="{{ $std->id }}"
-                                {{ $bookdocs->standard_id == $std->id ? 'selected' : '' }}>
+                                {{ $sop->standard_id == $std->id ? 'selected' : '' }}>
                                 {{ $std->nama }}
                         @endforeach
                     </select>

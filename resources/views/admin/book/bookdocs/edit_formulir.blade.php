@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-    Tambah Buku Docs
+    Edit Formulir
 @endsection
 
 @section('container')
@@ -9,29 +9,22 @@
 <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Tambah Buku Docs</h4>
+        <h4 class="card-title">Edit Formulir</h4>
     </div>
     <div class="card-body">
-        <form action="{{ route('bookdocs.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('formulir.update', $formulir->id) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT');
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
                     <label for="basicInput">Nama :</label>
-                    <input type="text" class="form-control" id="basicInput" name="nama" required autofocus>
+                    <input type="text" class="form-control" id="basicInput" value="{{ $formulir->nama }}" name="nama" required>
                 </div>
             </div>
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
-                    <fieldset class="form-group">
-                        <label for="basicInput">Jenis :</label>
-                        <select class="form-select" id="jenis" name="jenis">
-                                <option>Penetapan</option>
-                                <option>Pelaksanaan</option>
-                                <option>Evaluasi</option>
-                                <option>Peningkatan</option>
-                                <option>Pengendalian</option>
-                        </select>
-                    </fieldset>
+                    <label for="basicInput">Jenis :</label>
+                    <input type="text" class="form-control" id="basicInput" value="{{ $formulir->jenis }}" name="jenis" required>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
@@ -39,18 +32,18 @@
                     <label for="basicInput">Standar :</label>
                     <select class="form-select" id="standar_id" name="standar_id">
                         @foreach ($standard as $std)
-                            <option value="{{ $std->id }}">
+                            <option value="{{ $std->id }}"
+                                {{ $formulir->standard_id == $std->id ? 'selected' : '' }}>
                                 {{ $std->nama }}
-                            </option>
                         @endforeach
                     </select>
                 </fieldset>
             </div>
             <div class="col-md-6 row-md-15">
                 <div class="form-group">
-                    <label for="formFile" class="form-label">Upload Dokumen :</label>
-                    <br>
-                    <input type="file" class="form-controll" id="formFile" required data-max-file-size="5MB" name="nama_file" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png">
+                    <label for="basicInput">Upload Dokumen :</label>
+                    <span>*opsional</span>
+                    <input type="file" class="with-validation-filepond" data-max-file-size="50MB" name="nama_file">
                 </div>
             </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>

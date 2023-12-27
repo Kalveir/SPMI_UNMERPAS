@@ -55,9 +55,22 @@ Route::resource('nilai', NilaiController::class)->middleware('auth');
 Route::resource('bookmanual',BookmanualController::class)->middleware('auth');
 Route::resource('bookstandard',BookstandardController::class)->middleware('auth');
 Route::resource('indikator', IndikatorController::class)->middleware('auth');
-Route::resource('bookdocs',BookdocsController::class)->middleware('auth');
 Route::resource('penilaian',PenilaianController::class)->middleware('auth');
 
+//manejemen formulir
+Route::get('/formulir',[BookdocsController::class, 'indexformulir'])->name('formulir.index')->middleware('auth');
+Route::get('/tambah-formulir',[BookdocsController::class, 'tambahFormulir'])->name('formulir.create')->middleware('auth');
+Route::post('/upload-formulir',[BookdocsController::class,'uploadFormulir'])->name('formulir.store')->middleware('auth');
+Route::get('/edit-formulir/{id}',[BookdocsController::class,'editFormulir'])->name('formulir.edit')->middleware('auth');
+Route::put('/update-formulir/{id}',[BookdocsController::class, 'updateFormulir'])->name('formulir.update')->middleware('auth');
+Route::delete('/hapus-formulir/{id}',[BookdocsController::class, 'hapusFormulir'])->name('formulir.destroy')->middleware('auth');
+//manejemen SOP
+Route::get('/SOP',[BookdocsController::class, 'indexSOP'])->name('SOP.index')->middleware('auth');
+Route::get('/tambah-SOP',[BookdocsController::class, 'tambahSOP'])->name('SOP.create')->middleware('auth');
+Route::post('/upload-SOP',[BookdocsController::class,'uploadSOP'])->name('SOP.store')->middleware('auth');
+Route::get('/edit-SOP/{id}',[BookdocsController::class,'editSOP'])->name('SOP.edit')->middleware('auth');
+Route::put('/update-SOP/{id}',[BookdocsController::class, 'updateSOP'])->name('SOP.update')->middleware('auth');
+Route::delete('/hapus-SOP/{id}',[BookdocsController::class, 'hapusSOP'])->name('SOP.destroy')->middleware('auth');
 
 //manajemen jabatan
 Route::get('/jabatan',[JabatanController::class, 'index'])->name('jabatan.index')->middleware('auth');
@@ -66,6 +79,7 @@ Route::get('/jabatan-tambah',[JabatanController::class, 'create'])->name('jabata
 Route::delete('/delete-jabatan/{id}',[JabatanController::class, 'destroy'])->name('jabatan.destroy')->middleware('auth');
 Route::get('/edit-jabatan/{id}',[JabatanController::class, 'edit'])->name('jabatan.edit')->middleware('auth');
 Route::put('/update-jabatan/{id}', [JabatanController::class, 'update'])->name('jabatan.update')->middleware('auth');
+
 //manajemen File
 Route::get('/berkas',[BerkasController::class, 'listBerkas'])->name('berkas.index')->middleware('auth');
 Route::post('/add-indikator', [BerkasController::class, 'addIndikator'])->name('berkas.addIndikator')->middleware('auth');

@@ -3,108 +3,150 @@
 namespace App\Http\Controllers;
 
 use App\Models\bookdocs;
-use App\Models\jenis;
 use App\Models\standard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
 
 class BookdocsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function indexformulir()
     {
-        $bookdocs = Bookdocs::get();
-        return view('admin.book.bookdocs.bookdocs', compact('bookdocs'));
+        $formulir = Bookdocs::where('jenis_file', 'formulir')->get();
+        return view('admin.book.bookdocs.formulir', compact('formulir'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambahFormulir()
     {
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        return view('admin.book.bookdocs.tambah_bookdocs',compact('standard'));
+        return view('admin.book.bookdocs.tambah_formulir',compact('standard'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function uploadFormulir(Request $request)
     {
-        $bookdocs = new Bookdocs;
-        $file = $request->file('nama_file')->store('SOP');
+        $formulir = new Bookdocs;
+        $file = $request->file('nama_file')->store('Formulir');
         $name_file =  $request->file('nama_file')->hashName();
-        $bookdocs->nama = $request->nama;
-        $bookdocs->jenis = $request->jenis;
-        $bookdocs->standard_id = $request->standar_id;
-        $bookdocs->nama_file = $name_file;
-        $bookdocs->save();
+        $formulir->nama = $request->nama;
+        $formulir->jenis = $request->jenis;
+        $formulir->jenis_file = 'formulir';
+        $formulir->standard_id = $request->standar_id;
+        $formulir->nama_file = $name_file;
+        $formulir->save();
 
-        return redirect()->route('bookdocs.index');
+        return redirect()->route('formulir.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(bookdocs $bookdocs)
+    public function editFormulir($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($bookdocs)
-    {
-        $bookdocs = Bookdocs::find($bookdocs);
+        $formulir = Bookdocs::find($id);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        return view('admin.book.bookdocs.edit_bookdocs', compact('bookdocs','standard'));
+        return view('admin.book.bookdocs.edit_formulir', compact('formulir','standard'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $bookdocs)
+    public function updateFormulir(Request $request, $id)
     {
-        $bookdocs = Bookdocs::find($bookdocs);
+        $formulir = Bookdocs::find($id);
         if (!empty($request->nama_file )){
-            $filepath = public_path('storage/SOP/' . $bookdocs->nama_file);
+            $filepath = public_path('storage/Formulir/' . $formulir->nama_file);
             if (file_exists($filepath)){
                 unlink($filepath);
             }
-            $bookdocs->nama = $request->nama;
-            $bookdocs->jenis = $request->jenis;
-            $bookdocs->standard_id = $request->standar_id;
-            $file = $request->file('nama_file')->store('SOP');
+            $formulir->nama = $request->nama;
+            $formulir->jenis = $request->jenis;
+            $formulir->standard_id = $request->standar_id;
+            $file = $request->file('nama_file')->store('Formulir');
             $name_file =  $request->file('nama_file')->hashName();
-            $bookdocs->nama_file = $name_file;
-            $bookdocs->save();
-            return redirect()->route('bookdocs.index');
+            $formulir->nama_file = $name_file;
+            $formulir->save();
+            return redirect()->route('formulir.index');
 
         }else{
-            $bookdocs->nama = $request->nama;
-            $bookdocs->jenis = $request->jenis;
-            $bookdocs->standard_id = $request->standar_id;
-            $bookdocs->save();
-            return redirect()->route('bookdocs.index');
+            $formulir->nama = $request->nama;
+            $formulir->jenis = $request->jenis;
+            $formulir->standard_id = $request->standar_id;
+            $formulir->save();
+            return redirect()->route('formulir.index');
         }
-
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($bookdocs)
+    public function hapusFormulir($id)
     {
-        $bookdocs = Bookdocs::find($bookdocs);
-        $filepath = public_path('storage/SOP/' . $bookdocs->nama_file);
+        $formulir = Bookdocs::find($id);
+        $filepath = public_path('storage/Formulir/' . $formulir->nama_file);
         if (file_exists($filepath)){
             unlink($filepath);
         }
-        $bookdocs->delete();
-        return redirect()->route('bookdocs.index');
+        $formulir->delete();
+        return redirect()->route('formulir.index');
+    }
+
+
+    public function indexSOP()
+    {
+        $sop = Bookdocs::where('jenis_file', 'SOP')->get();
+        return view('admin.book.bookdocs.SOP', compact('sop'));
+    }
+
+    public function tambahSOP()
+    {
+        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        return view('admin.book.bookdocs.tambah_SOP',compact('standard'));
+    }
+
+    public function uploadSOP(Request $request)
+    {
+        $sop = new Bookdocs();
+        $file = $request->file('nama_file')->store('SOP');
+        $name_file =  $request->file('nama_file')->hashName();
+        $sop->nama = $request->nama;
+        $sop->jenis = $request->jenis;
+        $sop->jenis_file = 'SOP';
+        $sop->standard_id = $request->standar_id;
+        $sop->nama_file = $name_file;
+        $sop->save();
+
+        return redirect()->route('SOP.index');
+    }
+
+    public function editSOP($id)
+    {
+        $sop = Bookdocs::find($id);
+        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        return view('admin.book.bookdocs.edit_SOP', compact('sop','standard'));
+    }
+
+    public function updateSOP(Request $request, $id)
+    {
+        $sop = Bookdocs::find($id);
+        if (!empty($request->nama_file )){
+            $filepath = public_path('storage/SOP/' . $sop->nama_file);
+            if (file_exists($filepath)){
+                unlink($filepath);
+            }
+            $sop->nama = $request->nama;
+            $sop->jenis = $request->jenis;
+            $sop->standard_id = $request->standar_id;
+            $file = $request->file('nama_file')->store('SOP');
+            $name_file =  $request->file('nama_file')->hashName();
+            $sop->nama_file = $name_file;
+            $sop->save();
+            return redirect()->route('SOP.index');
+
+        }else{
+            $sop->nama = $request->nama;
+            $sop->jenis = $request->jenis;
+            $sop->standard_id = $request->standar_id;
+            $sop->save();
+            return redirect()->route('SOP.index');
+        }
+    }
+    public function hapusSOP($id)
+    {
+        $sop = Bookdocs::find($id);
+        $filepath = public_path('storage/SOP/' . $sop->nama_file);
+        if (file_exists($filepath)){
+            unlink($filepath);
+        }
+        $sop->delete();
+        return redirect()->route('SOP.index');
     }
 }

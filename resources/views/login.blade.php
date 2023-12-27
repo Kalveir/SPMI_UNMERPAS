@@ -61,7 +61,7 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="fas fa-user"></i>
+                                                <i class="fa fas fa-user" style="font-size: 30px;"></i>
                                             </span>
                                         </div>
                                         <input type="email" class="form-control  form-control-lg" placeholder="Username" aria-label="Username" name="email" required autofocus>
@@ -71,7 +71,7 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="fas fa-lock"></i>
+                                                <i class="fas fa-lock" style="font-size: 30px;"></i>
                                             </span>
                                         </div>
                                         <input type="password" class="form-control form-control-lg" placeholder="Password" name="password" aria-label="Password" required>
