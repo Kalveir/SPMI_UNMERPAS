@@ -23,8 +23,7 @@ class IndikatorController extends Controller
      */
     public function create()
     {
-        // $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        $standard = Standard::get();
+        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
         return view('admin.indikator.tambah_indikator', compact('standard'));
     }
 
@@ -62,6 +61,7 @@ class IndikatorController extends Controller
     {
         $indikator= Indikator::find($indikator);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $this->authorize('aksesIndikator',$indikator);
         return view('admin.indikator.edit_indikator', compact('indikator','standard'));
     }
 

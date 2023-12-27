@@ -64,6 +64,7 @@ class BookstandardController extends Controller
     {
         $bookstandar = Bookstandar::find($bookstandar);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $this->authorize('aksesbookStandard',$bookstandar);
         return view('admin.book.bookstandard.edit_bookstandard', compact('bookstandar','standard')); 
     }
 
