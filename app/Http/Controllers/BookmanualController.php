@@ -66,6 +66,7 @@ class BookmanualController extends Controller
     {
         $bookmanual = Bookmanual::find($bookmanual);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $this->authorize('aksesbookManual',$bookmanual);
         return view('admin.book.bookmanual.edit_bookmanual', compact('bookmanual','standard')); 
     }
 

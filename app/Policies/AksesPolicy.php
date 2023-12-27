@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\bookmanual;
 use App\Models\bookstandar;
 use App\Models\indikator;
+use App\Models\standard;
 use App\Models\User;
 
 class AksesPolicy
@@ -21,6 +22,16 @@ class AksesPolicy
     {
 
         return $user->id == $bookstandar->pegawai_id;
+    }
+    public function aksesbookManual(User $user, bookmanual $bookmanual)
+    {
+
+        return $user->id == $bookmanual->pegawai_id;
+    }
+
+    public function aksesStandard(User $user, standard $standard)
+    {
+        return $user->id == $standard->pegawai_id;
     }
     
     public function __construct()
