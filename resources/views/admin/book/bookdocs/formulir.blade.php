@@ -8,19 +8,23 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Daftar Formulir</h5>
+        @can('kelola bookdocs')
         <a href="{{ route('formulir.create') }}" class="btn btn-success mb-3">
             <span>Tambah Formulir</span>
         </a>
+        @endcan
         <div class="table-responsive">
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama File</th>
-                        <th>Jenis</th>
                         <th>Standard</th>
+                        <th>Jenis</th>
                         <th>Berkas</th>
-                        <th>Aksi</th>
+                        @can('kelola bookdocs')
+                        <th>Aksi</th> 
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +39,7 @@
                                     <button class="btn btn-primary"><i class="mdi mdi-cloud-download"></i> Berkas</button>
                                 </a>
                             </td>
+                            @can('kelola bookdocs')
                             <td>
                                 <form action="{{ route('formulir.edit', $frm->id) }}"
                                     class="d-inline">
@@ -51,8 +56,9 @@
                                             data-feather="alert-circle"></i>
                                         Hapus
                                     </button>
-                                </form>
+                                </form> 
                             </td>
+                            @endcan
                         </tr>
                     @endforeach
                 </tbody>
@@ -61,6 +67,9 @@
 
     </div>
 </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- this page js -->
     <script src="/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
