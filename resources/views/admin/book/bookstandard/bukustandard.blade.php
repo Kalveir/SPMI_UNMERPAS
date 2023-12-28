@@ -44,22 +44,24 @@
                                 @endif
                             </td>
                             <td>
-                                <form action="{{ route('bookstandard.edit', $bst->id) }}"
-                                    class="d-inline">
-                                    @csrf
-                                    <button class="btn icon icon-left btn-warning"><i
-                                            data-feather="alert-triangle"></i>
-                                        Edit</button>
-                                </form>
-                                <form action="{{ route('bookstandard.destroy', $bst->id) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn icon icon-left btn-danger"><i
-                                            data-feather="alert-circle"></i>
-                                        Hapus
-                                    </button>
-                                </form>
+                                <div class="d-flex center-content-between">
+                                    <form action="{{ route('bookstandard.edit', $bst->id) }}"
+                                        class="d-inline">
+                                        @csrf
+                                        <button class="btn icon icon-left btn-warning"><i
+                                                data-feather="alert-triangle"></i>
+                                            Edit</button>
+                                    </form>
+                                    <form action="{{ route('bookstandard.destroy', $bst->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn icon icon-left btn-danger"><i
+                                                data-feather="alert-circle"></i>
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

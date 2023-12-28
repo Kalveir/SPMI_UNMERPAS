@@ -13,7 +13,8 @@ class BerkasController extends Controller
 {
     public function listBerkas()
     {
-        $indikator = Indikator::get();
+        // $indikator = Indikator::get();
+        $indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
         $berkas = Pengisian::where('pegawai_id', Auth::user()->id)->get();
         return view('admin.berkas.list_berkas', compact('berkas','indikator'));
     }

@@ -15,7 +15,7 @@ class BookmanualController extends Controller
      */
     public function index()
     {
-        $bookmanual = Bookmanual::where('pegawai_id', Auth::user()->id)->get();
+        $bookmanual = Bookmanual::get();
         return view('admin.book.bookmanual.bukumanual',compact('bookmanual'));
     }
 
@@ -54,9 +54,12 @@ class BookmanualController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(bookmanual $bookmanual)
+    public function show($bookmanual)
     {
-        //
+        $bookmanual = Bookmanual::find($bookmanual);
+        $standard = Standard::get();
+        return view('admin.book.bookmanual.show_bookmanual',compact('bookmanual','standard'));
+
     }
 
     /**
@@ -66,7 +69,6 @@ class BookmanualController extends Controller
     {
         $bookmanual = Bookmanual::find($bookmanual);
         $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        $this->authorize('aksesbookManual',$bookmanual);
         return view('admin.book.bookmanual.edit_bookmanual', compact('bookmanual','standard')); 
     }
 

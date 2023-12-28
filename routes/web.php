@@ -19,6 +19,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
 use App\Http\Controllers\PenilaianController;
+use App\Models\bookmanual;
 use Spatie\Permission\Models\Role;
 
 /*
@@ -65,8 +66,16 @@ Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
 Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');
 });
+
+
+Route::get('/bookmanual',[BookmanualController::class,'index'])->name('bookmanual.index')->middleware('auth');
+Route::get('/bookmanual/{id}/show',[BookmanualController::class,'show'])->name('bookmanual.show')->middleware('auth');
+
 Route::middleware(['auth', 'can:kelola bookmanual'])->group(function () {
-    Route::resource('bookmanual',BookmanualController::class)->middleware('auth');  
+    Route::get('/bookmanual/create',[BookmanualController::class,'create'])->name('bookmanual.create')->middleware('auth');
+    Route::post('/bookmanual/store',[BookmanualController::class,'store'])->name('bookmanual.store')->middleware('auth');
+    Route::get('/bookmanual/{id}/edit',[BookmanualController::class,'edit'])->name('bookmanual.edit')->middleware('auth');
+    Route::delete('bookmanual/{id}/destroy',[BookmanualController::class,'destroy'])->name('bookmanual.destroy')->middleware('auth');
 });
 Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
     Route::resource('bookstandard',BookstandardController::class)->middleware('auth'); 
@@ -113,6 +122,8 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::post('/add-file/{id}', [BerkasController::class, 'addFile'])->name('berkas.addFile')->middleware('auth');
     Route::post('/upload-file/{id}',[BerkasController::class, 'uploadFile'])->name('berkas.upload_file')->middleware('auth');
     Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
+});
+Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
     Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [BerkasController::class, 'updateNilai'])->name('berkas.updateNilai')->middleware('auth');
 });
