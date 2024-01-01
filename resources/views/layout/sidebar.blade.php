@@ -1,78 +1,159 @@
-<aside class="left-sidebar" data-sidebarbg="skin5">
-    <!-- Sidebar scroll-->
-    <div class="scroll-sidebar" >
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav" class="pt-4">
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                            class="hide-menu">Dashboard</span></a></li>
-                @can('kelola fakultas')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/fakultas" aria-expanded="false"><i class="mdi mdi-flag"></i><span
-                            class="hide-menu">Fakultas</span></a></li>
-                @endcan
-                @can('kelola prodi')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/prodi" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
-                            class="hide-menu">Program Studi</span></a></li>
-                @endcan
-                @can('kelola jabatan')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/jabatan" aria-expanded="false"><i class="mdi mdi-tie"></i><span
-                            class="hide-menu">Jabatan</span></a></li>
-                @endcan
-                @can('kelola pegawai')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/pegawai" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
-                            class="hide-menu">Pegawai</span></a></li>
-                @endcan
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/standard" aria-expanded="false"><i class="mdi mdi-developer-board"></i><span
-                            class="hide-menu">Standard</span></a></li> 
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/bookmanual" aria-expanded="false"><i class="mdi mdi-book"></i><span
-                        class="hide-menu">Book Manual</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/bookstandard" aria-expanded="false"><i class="mdi mdi-book-open"></i><span
-                        class="hide-menu">Book Standard</span></a></li>
-                
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-book-open-page-variant"></i><span
-                            class="hide-menu">Book Docs</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/SOP" class="sidebar-link"><i
-                                    class="mdi mdi-book-open-variant"></i><span class="hide-menu"> SOP
-                                </span></a></li>
-                        <li class="sidebar-item"><a href="/formulir" class="sidebar-link"><i
-                                    class="mdi mdi-library-books"></i><span class="hide-menu"> Formulir
-                                </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/indikator" aria-expanded="false"><i class="mdi mdi-scale-balance"></i><span
-                        class="hide-menu">Indikator</span></a></li>
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+			
+  <div class="sidebar-wrapper scrollbar scrollbar-inner">
+    <div class="sidebar-content">
+      <div class="user">
+        <div class="avatar-sm float-left mr-2">
+          <img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+        </div>
+        <div class="info">
+          <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+            <span>
+              {{ Auth::user()->nama }}
+              <span class="user-level">{{ Auth::user()->roles->first()->name}}</span>
+              <span class="caret"></span>
+            </span>
+          </a>
+          <div class="clearfix"></div>
 
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/jenis" aria-expanded="false"><i class="mdi mdi-chart-gantt"></i><span
-                        class="hide-menu">Jenis</span></a></li>
-
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/nilai" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
-                        class="hide-menu">Nilai</span></a></li>
-                @can('kelola berkas')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/berkas" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
-                        class="hide-menu">Pengisian Berkas</span></a></li>
-                @endcan
-                @can('kelola penilaian')
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="/penilaian" aria-expanded="false"><i class="mdi mdi-widgets"></i><span
-                        class="hide-menu">Penilaian</span></a></li>
-                @endcan
-                
-        </nav>
-        <!-- End Sidebar navigation -->
+          <div class="collapse in" id="collapseExample">
+            <ul class="nav">
+              <li>
+                <a href="#profile">
+                  <span class="link-collapse">My Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="#edit">
+                  <span class="link-collapse">Edit Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="#settings">
+                  <span class="link-collapse">Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="#settings">
+                  <span class="link-collapse">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul class="nav nav-primary">
+        
+        <li class="nav-item">
+          <a href="/dashboard" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        @can('kelola fakultas')
+        <li class="nav-item">
+          <a href="/fakultas" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Fakultas</p>
+          </a>
+        </li>
+        @endcan
+        @can('kelola prodi')
+        <li class="nav-item">
+          <a href="/prodi" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Program Studi</p>
+          </a>
+        </li>
+        @endcan
+        @can('kelola jabatan')
+        <li class="nav-item">
+          <a href="/jabatan" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Jabatan</p>
+          </a>
+        </li>
+        @endcan
+        <li class="nav-item">
+          <a href="/standard" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Standard</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/bookmanual" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Buku manual</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/bookstandard" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Buku Standard</p>
+          </a>
+        </li>
+        {{-- <li class="nav-section">
+          <span class="sidebar-mini-icon">
+            <i class="fa fa-ellipsis-h"></i>
+          </span>
+          <h4 class="text-section">Components</h4>
+        </li> --}}
+        <li class="nav-item">
+          <a data-toggle="collapse" href="#base">
+            <i class="fas fa-layer-group"></i>
+            <p>Book Dokumentasi</p>
+            <span class="caret"></span>
+          </a>
+          <div class="collapse" id="base">
+            <ul class="nav nav-collapse">
+              <li>
+                <a href="/SOP">
+                  <span class="sub-item">SOP</span>
+                </a>
+              </li>
+              <li>
+                <a href="/formulir">
+                  <span class="sub-item">Formulir</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/indikator" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Indikator</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/jenis" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Jenis</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/nilai" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Bobot Nilai</p>
+          </a>
+        </li>
+        @can('kelola berkas')
+        <li class="nav-item">
+          <a href="/berkas" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Pengisian Berkas</p>
+          </a>
+        </li>
+        @endcan
+        @can('kelola penilaian')
+        <li class="nav-item">
+          <a href="/penilaian" class="collapsed" aria-expanded="false">
+            <i class="fas fa-home"></i>
+            <p>Penilaian</p>
+          </a>
+        </li>
+        @endcan
+      </ul>
     </div>
-    <!-- End Sidebar scroll-->
-</aside>
+  </div>
+</div>

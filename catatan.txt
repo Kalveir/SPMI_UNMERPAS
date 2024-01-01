@@ -1,0 +1,4 @@
+pembatasan tombol upload
+pembatasan tombol pengendalian
+pembatasan tombol audit
+pemabatasan tombol pengisian

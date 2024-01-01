@@ -43,31 +43,42 @@ Route::get('/', function () {
 
 // });
 
-// Route::get('/index', function(){
-//     return view('container');
-// })->middleware('auth');
+Route::get('/index', function(){
+    return view('container');
+});
+Route::get('/table', function(){
+    return view('tabel');
+});
 
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
+
+//manejemen fakultas
 Route::middleware(['auth', 'can:kelola fakultas'])->group(function () {
     Route::resource('fakultas',FakultasController::class)->middleware('auth');
 });
-Route::middleware(['auth', 'can:kelola standard'])->group(function () {
-    Route::resource('standard',StandardController::class)->middleware('auth');   
-});
+//manajemen prodi
 Route::middleware(['auth', 'can:kelola prodi'])->group(function () {
     Route::resource('prodi',ProdiController::class)->middleware('auth');
 });
+//manajemen standard
+Route::middleware(['auth', 'can:kelola standard'])->group(function () {
+    Route::resource('standard',StandardController::class)->middleware('auth');   
+});
+//manajemen pegawai
 Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
 });
+//manajemen kelola jenis
 Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
     Route::resource('jenis',JenisController::class)->middleware('auth');
 });
+//manajemen kelola nilai
 Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');
 });
 
 
+//manajemen buku manual
 Route::get('/bookmanual',[BookmanualController::class,'index'])->name('bookmanual.index')->middleware('auth');
 Route::get('/bookmanual/{id}/show',[BookmanualController::class,'show'])->name('bookmanual.show')->middleware('auth');
 
@@ -75,14 +86,23 @@ Route::middleware(['auth', 'can:kelola bookmanual'])->group(function () {
     Route::get('/bookmanual/create',[BookmanualController::class,'create'])->name('bookmanual.create')->middleware('auth');
     Route::post('/bookmanual/store',[BookmanualController::class,'store'])->name('bookmanual.store')->middleware('auth');
     Route::get('/bookmanual/{id}/edit',[BookmanualController::class,'edit'])->name('bookmanual.edit')->middleware('auth');
+    Route::put('/bookmanual/{id}/update',[BookmanualController::class,'update'])->name('bookmanual.update')->middleware('auth');
     Route::delete('bookmanual/{id}/destroy',[BookmanualController::class,'destroy'])->name('bookmanual.destroy')->middleware('auth');
 });
-Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
-    Route::resource('bookstandard',BookstandardController::class)->middleware('auth'); 
+
+//manajemen buku standard
+Route::get('/bookstandard',[BookstandardController::class, 'index'])->name('bookstandard.index')->middleware('auth'); 
+// Route::get('/bookstandard/{id}/show',[BookstandardController::class, 'show'])->show('bookstandard.show')->middleware('auth');
+Route::middleware(['auth', 'can:kelola buku standard'])->group(function () {
+    Route::get('/bookstandard/create',[BookstandardController::class,'create'])->name('bookstandard.create')->middleware('auth');
+    Route::post('/bookstandard/store',[BookstandardController::class,'store'])->name('bookstandard.store')->middleware('auth');
+    Route::get('/bookstandard/{id}/edit',[BookstandardController::class,'edit'])->name('bookstandard.edit')->middleware('auth');
+    Route::put('/bookstandard/{id}/update',[BookstandardController::class,'update'])->name('bookstandard.update')->middleware('auth');
+    Route::delete('/bookstandard/{id}/destroy',[BookstandardController::class,'destroy'])->name('bookstandard.destroy')->middleware('auth');
 });
-Route::middleware(['auth', 'can:kelola indikator'])->group(function () {
-    Route::resource('indikator', IndikatorController::class)->middleware('auth');
-});
+Route::resource('indikator', IndikatorController::class)->middleware('auth');
+// Route::middleware(['auth', 'can:kelola indikator'])->group(function () {
+// });
 Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
     Route::resource('penilaian',PenilaianController::class)->middleware('auth');
 });
