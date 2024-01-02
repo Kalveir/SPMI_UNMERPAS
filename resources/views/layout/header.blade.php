@@ -22,6 +22,19 @@
   <!-- Navbar Header -->
   <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
     
+    <div class="container-fluid">
+      <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+
+        <li class="nav-item hidden-caret">
+          <form action="/logout" method="post">
+            @csrf
+            <button class="btn btn-primary type="submit"><i
+                class="fas fa-sign-out-alt"></i> Logout</button>
+        </form>
+          </a>
+        </li>
+      </ul>
+    </div>
     {{-- <div class="container-fluid">
       <div class="collapse" id="search-nav">
         <form class="navbar-left navbar-form nav-search mr-md-3">

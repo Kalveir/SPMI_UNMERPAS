@@ -40,7 +40,7 @@ Daftar SOP
                     <td>{{ $sp->jenis}}</td>
                     <td>
                         <a href="{{ asset('storage/SOP/' . $sp->nama_file) }}" target="_blank">
-                            <button class="btn btn-primary"><i class="mdi mdi-cloud-download"></i> Berkas</button>
+                            <button class="btn btn-primary"><i class="fas fa-download"></i> Berkas</button>
                         </a>
                     </td>
                     @can('kelola bookdocs')
@@ -50,16 +50,15 @@ Daftar SOP
                                 class="d-inline">
                                 @csrf
                                 <button class="btn icon icon-left btn-warning"><i
-                                        data-feather="alert-triangle"></i>
-                                    Edit</button>
+                                        data-feather="alert-triangle" class="fas fa-edit"></i>
+                                </button>
                             </form>
                             <form action="{{ route('SOP.destroy', $sp->id) }}" method="POST"
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn icon icon-left btn-danger"><i
-                                        data-feather="alert-circle"></i>
-                                    Hapus
+                                        data-feather="alert-circle" class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
                         </div>

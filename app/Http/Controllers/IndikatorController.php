@@ -14,7 +14,8 @@ class IndikatorController extends Controller
      */
     public function index()
     {
-        $indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
+        // $indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
+        $indikator = Indikator::get();
         return view('admin.indikator.indikator', compact('indikator'));
     }
 
@@ -60,8 +61,9 @@ class IndikatorController extends Controller
     public function edit($indikator)
     {
         $indikator= Indikator::find($indikator);
-        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        $this->authorize('aksesIndikator',$indikator);
+        // $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $standard = Standard::get();
+        // $this->authorize('aksesIndikator',$indikator);
         return view('admin.indikator.edit_indikator', compact('indikator','standard'));
     }
 

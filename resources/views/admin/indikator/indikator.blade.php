@@ -53,16 +53,15 @@ Daftar Indikator
                                 class="d-inline">
                                 @csrf
                                 <button class="btn icon icon-left btn-warning"><i
-                                        data-feather="alert-triangle"></i>
-                                    Edit</button>
+                                        data-feather="alert-triangle" class="fas fa-edit"></i>
+                                </button>
                             </form>
                             <form action="{{ route('indikator.destroy', $idk->id) }}" method="POST"
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn icon icon-left btn-danger"><i
-                                        data-feather="alert-circle"></i>
-                                    Hapus
+                                        data-feather="alert-circle" class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
                         </div>

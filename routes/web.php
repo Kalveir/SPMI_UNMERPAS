@@ -43,12 +43,12 @@ Route::get('/', function () {
 
 // });
 
-Route::get('/index', function(){
-    return view('container');
-});
-Route::get('/table', function(){
-    return view('tabel');
-});
+// Route::get('/index', function(){
+//     return view('container');
+// });
+// Route::get('/table', function(){
+//     return view('tabel');
+// });
 
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 

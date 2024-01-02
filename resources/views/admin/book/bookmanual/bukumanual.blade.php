@@ -46,18 +46,18 @@ Daftar Buku Manual
                             @can('kelola bookmanual')
                             <form action="{{ route('bookmanual.edit', $bkm->id) }}" method="GET" class="mb-2">
                                 @csrf
-                                <button class="btn icon icon-left btn-warning"><i data-feather="alert-triangle"></i>Edit</button>
+                                <button class="btn icon icon-left btn-warning"><i data-feather="alert-triangle" class="fas fa-edit"></i></button>
                             </form>
                             @endcan
                             <form action="{{ route('bookmanual.show', $bkm->id) }}" method="GET" class="mb-2">
                                 @csrf
-                                <button class="btn icon icon-left btn-info"><i data-feather="alert-triangle"></i>Detail</button>
+                                <button class="btn icon icon-left btn-info"><i data-feather="alert-triangle" class="fas fa-eye"></i></button>
                             </form>
                             @can('kelola bookmanual')
                             <form action="{{ route('bookmanual.destroy', $bkm->id) }}" method="POST" class="mb-2">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn icon icon-left btn-danger"><i data-feather="alert-circle"></i>Hapus</button>
+                                <button class="btn icon icon-left btn-danger"><i data-feather="alert-circle" class="fas fa-trash-alt"></i></button>
                             </form>
                             @endcan
                         </div>

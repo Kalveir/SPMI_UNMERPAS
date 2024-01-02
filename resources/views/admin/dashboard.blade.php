@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('tittle')
-Contoh
+Dashboard
 @endsection
 @section('judul')
 Judul

@@ -53,7 +53,7 @@
         @can('kelola fakultas')
         <li class="nav-item">
           <a href="/fakultas" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-flag"></i>
             <p>Fakultas</p>
           </a>
         </li>
@@ -61,7 +61,7 @@
         @can('kelola prodi')
         <li class="nav-item">
           <a href="/prodi" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-project-diagram"></i>
             <p>Program Studi</p>
           </a>
         </li>
@@ -69,26 +69,34 @@
         @can('kelola jabatan')
         <li class="nav-item">
           <a href="/jabatan" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-solid fa-crown"></i>
             <p>Jabatan</p>
+          </a>
+        </li>
+        @endcan
+        @can('kelola pegawai')
+        <li class="nav-item">
+          <a href="/pegawai" class="collapsed" aria-expanded="false">
+            <i class="fas fa-solid fa-users"></i>
+            <p>Pegawai</p>
           </a>
         </li>
         @endcan
         <li class="nav-item">
           <a href="/standard" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-th-list"></i>
             <p>Standard</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="/bookmanual" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-book-reader"></i>
             <p>Buku manual</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="/bookstandard" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-book"></i>
             <p>Buku Standard</p>
           </a>
         </li>
@@ -121,7 +129,7 @@
         </li>
         <li class="nav-item">
           <a href="/indikator" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-tasks"></i>
             <p>Indikator</p>
           </a>
         </li>
@@ -133,14 +141,14 @@
         </li>
         <li class="nav-item">
           <a href="/nilai" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-tachometer-alt"></i>
             <p>Bobot Nilai</p>
           </a>
         </li>
         @can('kelola berkas')
         <li class="nav-item">
           <a href="/berkas" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-file-alt"></i>
             <p>Pengisian Berkas</p>
           </a>
         </li>
@@ -148,7 +156,7 @@
         @can('kelola penilaian')
         <li class="nav-item">
           <a href="/penilaian" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-file-signature"></i>
             <p>Penilaian</p>
           </a>
         </li>
