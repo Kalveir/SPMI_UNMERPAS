@@ -10,9 +10,11 @@ Daftar Buku Standard
 @section('container')
 <div class="card">
   <div class="card-header">
+    @can('kelola buku standard')
     <a href="{{ route('bookstandard.create') }}" class="btn btn-success mb-3">
         <span>Tambah Buku Standard</span>
     </a>
+    @endcan
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -39,6 +41,7 @@ Daftar Buku Standard
                     </td>
                     <td>
                         <div class="d-flex center-content-between">
+                            @can('kelola buku standard')
                             <form action="{{ route('bookstandard.edit', $bst->id) }}"
                                 class="d-inline">
                                 @csrf
@@ -46,6 +49,15 @@ Daftar Buku Standard
                                         data-feather="alert-triangle" class="fas fa-edit"></i>
                                 </button>
                             </form>
+                            @endcan
+                            <form action="#"
+                                class="d-inline">
+                                @csrf
+                                <button class="btn icon icon-left btn-primary"><i
+                                        data-feather="alert-triangle" class="fas fa-eye"></i>
+                                </button>
+                            </form>
+                            @can('kelola buku standard')
                             <form action="{{ route('bookstandard.destroy', $bst->id) }}" method="POST"
                                 class="d-inline">
                                 @csrf
@@ -55,6 +67,7 @@ Daftar Buku Standard
                                 
                                 </button>
                             </form>
+                            @endcan
                         </div>
                     </td>
                 </tr>

@@ -15,7 +15,8 @@ class BookstandardController extends Controller
      */
     public function index()
     {
-        $bookstandar = Bookstandar::where('pegawai_id', Auth::user()->id)->get();
+        // $bookstandar = Bookstandar::where('pegawai_id', Auth::user()->id)->get();
+        $bookstandar = Bookstandar::get();
         return view('admin.book.bookstandard.bukustandard',compact('bookstandar'));
     }
 

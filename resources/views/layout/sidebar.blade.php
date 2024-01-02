@@ -23,21 +23,6 @@
                   <span class="link-collapse">My Profile</span>
                 </a>
               </li>
-              <li>
-                <a href="#edit">
-                  <span class="link-collapse">Edit Profile</span>
-                </a>
-              </li>
-              <li>
-                <a href="#settings">
-                  <span class="link-collapse">Settings</span>
-                </a>
-              </li>
-              <li>
-                <a href="#settings">
-                  <span class="link-collapse">Logout</span>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -139,12 +124,14 @@
             <p>Jenis</p>
           </a>
         </li>
+        @can('kelola nilai')
         <li class="nav-item">
           <a href="/nilai" class="collapsed" aria-expanded="false">
             <i class="fas fa-tachometer-alt"></i>
             <p>Bobot Nilai</p>
           </a>
         </li>
+        @endcan
         @can('kelola berkas')
         <li class="nav-item">
           <a href="/berkas" class="collapsed" aria-expanded="false">
