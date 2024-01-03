@@ -13,6 +13,6 @@ class prodi extends Model
 
     public function fakultas()
     {
-        return $this->belongsTo(Fakultas::class);
+        return $this->belongsTo(fakultas::class);
     }
 }

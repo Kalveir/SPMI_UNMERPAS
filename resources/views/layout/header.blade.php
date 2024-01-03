@@ -28,7 +28,7 @@
         <li class="nav-item hidden-caret">
           <form action="/logout" method="post">
             @csrf
-            <button class="btn btn-primary type="submit"><i
+            <button class="btn btn-danger type="submit"><i
                 class="fas fa-sign-out-alt"></i> Logout</button>
         </form>
           </a>

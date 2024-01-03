@@ -19,6 +19,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\ProfileController;
 use App\Models\bookmanual;
 use Spatie\Permission\Models\Role;
 
@@ -51,6 +52,10 @@ Route::get('/', function () {
 // });
 
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
+
+// manajemen profil
+Route::get('/profile/{id}', [ProfileController::class, 'ProfilInfo'])->name('profile.ProfilInfo')->middleware('auth');
+Route::put('/profile/{id}/update', [ProfileController::class, 'UpdateProfil'])->name('profile.update')->middleware('auth');
 
 //manejemen fakultas
 Route::middleware(['auth', 'can:kelola fakultas'])->group(function () {

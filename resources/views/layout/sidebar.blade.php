@@ -19,9 +19,10 @@
           <div class="collapse in" id="collapseExample">
             <ul class="nav">
               <li>
-                <a href="#profile">
-                  <span class="link-collapse">My Profile</span>
-                </a>
+                  <a href="{{ route('profile.ProfilInfo',Auth::user()->id) }}">
+                    @csrf
+                    <span class="link-collapse">My Profile</span>
+                  </a>
               </li>
             </ul>
           </div>
