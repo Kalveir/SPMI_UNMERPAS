@@ -26,39 +26,36 @@ Tambah Pegawai
                 <input type="text" class="form-control" id="basicInput" name="password" required>
             </div>
             <br>
-            <div class="col-md-6 mb-4">
-                <fieldset class="form-group">
-                    <label for="basicInput">Jabatan :</label>
-                    <select class="form-control" id="jabatan_id" name="jabatan_id">
-                        @foreach ($jabatan as $jbt)
-                            <option value="{{ $jbt->id }}">
-                                {{ $jbt->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </fieldset>
-            </div>
-            <div class="col-md-6 mb-4">
-                <fieldset class="form-group">
-                    <label for="basicInput">Program Studi : </label>
-                    <select class="form-control" id="prodi_id" name="prodi_id">
-                        @foreach ($prodi as $prd)
-                            <option value="{{ $prd->id }}">
-                                {{ $prd->nama }}
-                            </option>
-                        @endforeach
-                    </select>
-                </fieldset>
-            </div>
-            <div class="col-md-6 mb-4">
-                <fieldset class="form-group">
-                    <label for="basicInput">Status :</label>
-                    <select class="form-control" id="basicSelect" name="status">
-                        <option value="1">Aktif</option>
-                        <option value="0">Tidak Aktif</option>
-                    </select>
-                </fieldset>
-            </div>
+
+            <fieldset class="form-group">
+                <label for="basicInput">Jabatan :</label>
+                <select class="form-control" id="jabatan_id" name="jabatan_id">
+                    @foreach ($jabatan as $jbt)
+                        <option value="{{ $jbt->id }}">
+                            {{ $jbt->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="basicInput">Program Studi : </label>
+                <select class="form-control" id="prodi_id" name="prodi_id">
+                    @foreach ($prodi as $prd)
+                        <option value="{{ $prd->id }}">
+                            {{ $prd->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="basicInput">Status :</label>
+                <select class="form-control" id="basicSelect" name="status">
+                    <option value="1">Aktif</option>
+                    <option value="0">Tidak Aktif</option>
+                </select>
+            </fieldset>
             <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
   </div>

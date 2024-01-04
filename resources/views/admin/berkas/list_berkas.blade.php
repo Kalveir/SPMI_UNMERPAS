@@ -26,10 +26,9 @@ Daftar Berkas
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
                 <th>Evaluasi</th>
-                <th>Peningkatan</th>
-                <th>Pengendalian</th>
                 <th>Komentar</th>
-                <th>Nilai</th>
+                <th>Pengendalian</th>
+                <th>Peningkatan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -53,6 +52,7 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
+                                @if ($brks->aksi_code == 0)
                                 <div class="col-auto" style="padding: 5px;">
                                     <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
                                         @csrf
@@ -62,6 +62,7 @@ Daftar Berkas
                                         </button>
                                     </form>
                                 </div>
+                                @endif
                             @endif
                         </div>
                         @endforeach
@@ -80,6 +81,7 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
+                                @if ($brks->aksi_code == 0)
                                 <div class="col-auto" style="padding: 5px;">
                                     <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
                                         @csrf
@@ -89,18 +91,26 @@ Daftar Berkas
                                         </button>
                                     </form>
                                 </div>
+                                @endif
                             @endif
                         </div>
                         @endforeach
                     </td>
                     {{-- evaluasi --}}
+                    <td>{{ $brks->nilai }}</td>
+                    <td>
+                        <div class="text-wrap text-justify" style="max-width: 500px;">
+                            {!! $brks->komentar !!}
+                        </div>
+                    </td>
+                    {{-- Pengendalian --}}
                     <td>
                         @foreach ($brks->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
-                            @if ($file_berkas->jenis == 'Evaluasi')
+                            @if ($file_berkas->jenis == 'Pengendalian')
                                 <div class="col-auto" style="padding: 5px;">
                                     <i class="fas fa-file"></i>
-                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ $file_berkas->nama_file}}</a>
+                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
                                     <div class="text-wrap text-justify" style="max-width: 500px;">
                                         <strong>Deskripsi :</strong>
                                         {!! $file_berkas->deskripsi !!}
@@ -147,58 +157,44 @@ Daftar Berkas
                         @endforeach
                         
                     </td>
-                    {{-- Pengendalian --}}
                     <td>
-                        @foreach ($brks->pengisian_berkas as $file_berkas)
-                        <div class="file-item d-flex align-items-left" >
-                            @if ($file_berkas->jenis == 'Pengendalian')
-                                <div class="col-auto" style="padding: 5px;">
-                                    <i class="fas fa-file"></i>
-                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                    <div class="text-wrap text-justify" style="max-width: 500px;">
-                                        <strong>Deskripsi :</strong>
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
-                                </div>
-                                <div class="col-auto" style="padding: 5px;">
-                                    <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                        {{-- belum bisa di nilai --}}
+                        @if ($brks->aksi_code == 0)
+                        <div class="d-flex center-content-between">
+
+                            <form action="{{ route('berkas.valid',$brks->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                <button class="btn btn-success"><i
+                                        data-feather="alert-triangle" class="fas fa-check-square"></i>
+                                        <span>Validasi</span>
+                                </button>
+                            </form>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-warning dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"><i class="fas fa-edit"></i>
+                                            <span>Edit</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
+                                        @csrf
+                                        <button class="dropdown-item" type="submit"><i
+                                            class="fas fa-file-upload"></i><span> Upload Berkas</span></button>
+                                    </form>
+                                    <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                        <button class="dropdown-item" type="submit"><i
+                                            class="fas fa-trash"></i>Hapus</button>
                                     </form>
                                 </div>
-                            @endif
-                        </div>
-                        @endforeach
-                        
-                    </td>
-                    <td>
-                        <div class="text-wrap text-justify" style="max-width: 500px;">
-                            {!! $brks->komentar !!}
-                        </div>
-                    </td>
-                    <td>{{ $brks->nilai }}</td>
-                    <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-warning dropdown-toggle"
-                                        data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false"><i class="fas fa-edit"></i></button>
-                            <div class="dropdown-menu">
-                                <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
-                                    @csrf
-                                    <button class="dropdown-item" type="submit"><i
-                                        class="fas fa-file-upload"></i><span> Upload Berkas</span></button>
-                                </form>
-                                <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="dropdown-item" type="submit"><i
-                                        class="fas fa-trash"></i>Hapus</button>
-                                </form>
                             </div>
                         </div>
+                        {{-- fix di nilai --}}
+                        @elseif ($brks->aksi_code == 1)
+                        <button class="btn btn-danger">Berkas Tersimpan</button>
+                        @endif
                     </td>
                 </tr>
             @endforeach

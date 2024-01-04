@@ -10,7 +10,7 @@ Daftar Buku Standard
 @section('container')
 <div class="card">
   <div class="card-header">
-    @can('kelola buku standard')
+    @can('kelola bookstandard')
     <a href="{{ route('bookstandard.create') }}" class="btn btn-success mb-3">
         <span>Tambah Buku Standard</span>
     </a>
@@ -41,7 +41,7 @@ Daftar Buku Standard
                     </td>
                     <td>
                         <div class="d-flex center-content-between">
-                            @can('kelola buku standard')
+                            @can('kelola bookstandard')
                             <form action="{{ route('bookstandard.edit', $bst->id) }}"
                                 class="d-inline">
                                 @csrf
@@ -50,14 +50,14 @@ Daftar Buku Standard
                                 </button>
                             </form>
                             @endcan
-                            <form action="#"
+                            <form action="{{ route('bookstandard.show', $bst->id) }}"
                                 class="d-inline">
                                 @csrf
                                 <button class="btn icon icon-left btn-primary"><i
                                         data-feather="alert-triangle" class="fas fa-eye"></i>
                                 </button>
                             </form>
-                            @can('kelola buku standard')
+                            @can('kelola bookstandard')
                             <form action="{{ route('bookstandard.destroy', $bst->id) }}" method="POST"
                                 class="d-inline">
                                 @csrf

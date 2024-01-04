@@ -143,10 +143,40 @@
         @endcan
         @can('kelola penilaian')
         <li class="nav-item">
-          <a href="/penilaian" class="collapsed" aria-expanded="false">
+          <a data-toggle="collapse" href="#penilaian">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian</p>
+            <span class="caret"></span>
           </a>
+          <div class="collapse" id="penilaian">
+            <ul class="nav nav-collapse">
+              <li>
+                <a href="/penilaian/informatika">
+                  <span class="sub-item">Teknik Informatika</span>
+                </a>
+              </li>
+              <li>
+                <a href="/penilaian/RPL">
+                  <span class="sub-item">Rekayasa Perangkat Lunak</span>
+                </a>
+              </li>
+              <li>
+                <a href="/penilaian/Manajemen">
+                  <span class="sub-item">Manajemen</span>
+                </a>
+              </li>
+              <li>
+                <a href="/penilaian/Hukum">
+                  <span class="sub-item">Hukum</span>
+                </a>
+              </li>
+              <li>
+                <a href="/penilaian/Argoteknologi">
+                  <span class="sub-item">Argoteknologi</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         @endcan
       </ul>

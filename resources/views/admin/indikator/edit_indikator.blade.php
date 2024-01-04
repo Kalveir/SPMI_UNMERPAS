@@ -52,7 +52,7 @@ Edit Indikator
         <div class="col-md-6 row-md-10">
             <div class="form-group">
                 <label for="basicInput">Target :</label>
-                <input type="text" value="{{ $indikator->target }}" class="form-control" id="basicInput" name="target" required>
+                <input type="number" value="{{ $indikator->target }}" class="form-control" id="basicInput" name="target" required>
             </div>
         </div>
         <div class="col-md-6 mb-4">

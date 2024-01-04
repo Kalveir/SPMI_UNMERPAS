@@ -15,10 +15,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NilaiBerkasController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
-use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\ProfileController;
 use App\Models\bookmanual;
 use Spatie\Permission\Models\Role;
@@ -97,8 +97,9 @@ Route::middleware(['auth', 'can:kelola bookmanual'])->group(function () {
 
 //manajemen buku standard
 Route::get('/bookstandard',[BookstandardController::class, 'index'])->name('bookstandard.index')->middleware('auth'); 
-// Route::get('/bookstandard/{id}/show',[BookstandardController::class, 'show'])->show('bookstandard.show')->middleware('auth');
-Route::middleware(['auth', 'can:kelola buku standard'])->group(function () {
+Route::get('/bookstandard/{id}/show',[BookstandardController::class, 'show'])->name('bookstandard.show')->middleware('auth'); 
+
+Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
     Route::get('/bookstandard/create',[BookstandardController::class,'create'])->name('bookstandard.create')->middleware('auth');
     Route::post('/bookstandard/store',[BookstandardController::class,'store'])->name('bookstandard.store')->middleware('auth');
     Route::get('/bookstandard/{id}/edit',[BookstandardController::class,'edit'])->name('bookstandard.edit')->middleware('auth');
@@ -106,16 +107,17 @@ Route::middleware(['auth', 'can:kelola buku standard'])->group(function () {
     Route::delete('/bookstandard/{id}/destroy',[BookstandardController::class,'destroy'])->name('bookstandard.destroy')->middleware('auth');
 });
 Route::resource('indikator', IndikatorController::class)->middleware('auth');
+// Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
+
+// });
 // Route::middleware(['auth', 'can:kelola indikator'])->group(function () {
 // });
-Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
-    Route::resource('penilaian',PenilaianController::class)->middleware('auth');
-});
 
 Route::get('/formulir',[BookdocsController::class, 'indexformulir'])->name('formulir.index')->middleware('auth');
 Route::get('/SOP',[BookdocsController::class, 'indexSOP'])->name('SOP.index')->middleware('auth');
-//manejemen formulir
+
 Route::middleware(['auth', 'can:kelola bookdocs'])->group(function () {
+    //manejemen formulir
     Route::get('/tambah-formulir',[BookdocsController::class, 'tambahFormulir'])->name('formulir.create')->middleware('auth');
     Route::post('/upload-formulir',[BookdocsController::class,'uploadFormulir'])->name('formulir.store')->middleware('auth');
     Route::get('/edit-formulir/{id}',[BookdocsController::class,'editFormulir'])->name('formulir.edit')->middleware('auth');
@@ -147,10 +149,16 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::post('/add-file/{id}', [BerkasController::class, 'addFile'])->name('berkas.addFile')->middleware('auth');
     Route::post('/upload-file/{id}',[BerkasController::class, 'uploadFile'])->name('berkas.upload_file')->middleware('auth');
     Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
+    Route::post('berkas/validasi/{id}',[BerkasController::class,'validasiBerkas'])->name('berkas.valid')->middleware('auth');
 });
 Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
-    Route::get('/add-nilai/{id}', [BerkasController::class, 'addNilai'])->name('berkas.addNilai')->middleware('auth');
-    Route::put('/update-nilai/{id}', [BerkasController::class, 'updateNilai'])->name('berkas.updateNilai')->middleware('auth');
+    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->middleware('auth');
+    Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->middleware('auth');
+    Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->middleware('auth');
+    Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->middleware('auth');
+    Route::get('/penilaian/Argoteknologi',[NilaiBerkasController::class, 'PenilaianArgoteknologi'])->middleware('auth');
+    Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
+    Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
 });
 
 //manajemen Login

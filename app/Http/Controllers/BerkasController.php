@@ -27,6 +27,8 @@ class BerkasController extends Controller
                 'program_studi' => Auth::user()->prodi_id,
                 'indikator_id' => $request->indikator_id,
                 'nilai' => 0,
+                'tahun' => now()->format('Y'),
+                'aksi_code'=> 0,
             ]
         );
         return redirect()->route('berkas.index');
@@ -89,24 +91,11 @@ class BerkasController extends Controller
 
     }
 
-    public function listPenilaian()
+    public function validasiBerkas($id)
     {
-        $berkas = Pengisian::get();
-        return view('admin.berkas.list_berkas', compact('berkas'));
-    }
-
-    public function addNilai($id)
-    {
-        $pengisian = Pengisian::find($id);
-        return view('admin.berkas.tambah_nilai', compact('pengisian'));
-    }
-    public function updateNilai(Request $request, $id)
-    {
-        $pengisian = Pengisian::find($id);
-        $pengisian->nilai = $request->nilai;
-        $pengisian->komentar = $request->komentar;
-        $pengisian->save();
-
-        return redirect()->route('penilaian.index');
+        $berkas = Pengisian::find($id);
+        $berkas->aksi_code = 1;
+        $berkas->save();
+        return redirect()->route('berkas.index');
     }
 }

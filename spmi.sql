@@ -235,8 +235,10 @@ CREATE TABLE `pengisian` (
   `indikator_id` int(6) DEFAULT NULL,
   `pegawai_id` int(6) DEFAULT NULL,
   `program_studi` int(3) DEFAULT NULL,
+  `nilai` int(3) DEFAULT NULL,
   `komentar` varchar(255) DEFAULT NULL,
-  `nilai` int(3) DEFAULT NULL
+  `tahun` int(4) DEFAULT NULL,
+  `aksi_code` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

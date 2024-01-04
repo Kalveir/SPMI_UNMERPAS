@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class pengisian extends Model
 {
     protected $table = 'pengisian';
-    protected $fillable = ['pegawai_id', 'program_studi', 'indikator_id', 'nilai'];
+    protected $fillable = ['pegawai_id', 'program_studi', 'indikator_id', 'nilai','aksi_code','tahun'];
     public $timestamps = false;
     use HasFactory;
 
     public function pegawai(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'pegawai_id');
     }
 
      public function indikator(){

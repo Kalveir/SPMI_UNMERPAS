@@ -53,9 +53,11 @@ class BookstandardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(bookstandar $bookstandar)
+    public function show($bookstandar)
     {
-        //
+        $bookstandar = Bookstandar::find($bookstandar);
+        $standard = Standard::get();
+        return view('admin.book.bookstandard.show_bookstandard',compact('bookstandar'));
     }
 
     /**

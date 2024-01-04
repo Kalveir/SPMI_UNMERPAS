@@ -10,9 +10,11 @@ Daftar Indikator
 @section('container')
 <div class="card">
   <div class="card-header">
+    @can('kelola indikator')
     <a href="{{ route('indikator.create') }}" class="btn btn-success mb-3">
         <span>Tambah Indikator</span>
     </a>
+    @endcan
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -27,7 +29,9 @@ Daftar Indikator
                 <th>Satuan</th>
                 <th>Target</th>
                 <th>Status</th>
+                @can('kelola indikator')
                 <th>Aksi</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -47,6 +51,7 @@ Daftar Indikator
                             <span class="badge badge-danger">Tidak Aktif</span>
                         @endif
                     </td>
+                    @can('kelola indikator')
                     <td>
                         <div class="d-flex center-content-between">
                             <form action="{{ route('indikator.edit', $idk->id) }}"
@@ -66,6 +71,7 @@ Daftar Indikator
                             </form>
                         </div>
                     </td>
+                    @endcan
                 </tr>
             @endforeach
         </tbody>
