@@ -7,9 +7,7 @@ use App\Http\Controllers\BookdocsController;
 use App\Http\Controllers\BookmanualController;
 use App\Http\Controllers\BookstandardController;
 use App\Http\Controllers\FakultasController;
-use App\Http\Controllers\FileController;
 use App\Http\Controllers\IndikatorController;
-use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JabatanController;
@@ -17,10 +15,9 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NilaiBerkasController;
 use App\Http\Controllers\NilaiController;
-use App\Http\Controllers\StandarController;
 use App\Http\Controllers\StandardController;
+use App\Http\Controllers\AudhitorController;
 use App\Http\Controllers\ProfileController;
-use App\Models\bookmanual;
 use Spatie\Permission\Models\Role;
 
 /*
@@ -37,6 +34,15 @@ use Spatie\Permission\Models\Role;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/hey', function () {
+//     $roles = ['Audhitor Informatika','Audhitor RPL', 'Audhitor Manajemen','Audhitor Hukum','Audhitor Argoteknologi'];
+//     foreach ($roles as $rol)
+//     {
+//         Role::create(['name'=> $rol]);
+//     }
+//     dd('anjay');
+
+// });
 // Route::get('/woy', function () {
 //     $role = Role::first();
 //     $role->givePermissionTo('kelola standard','kelola bookmanual','kelola bookstandard','kelola bookdocs','kelola indikator', 'kelola jenis','kelola nilai','kelola berkas','kelola penilaian');
@@ -151,15 +157,21 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
     Route::post('berkas/validasi/{id}',[BerkasController::class,'validasiBerkas'])->name('berkas.valid')->middleware('auth');
 });
+//penilaian
 Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
-    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->middleware('auth');
-    Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->middleware('auth');
-    Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->middleware('auth');
-    Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->middleware('auth');
-    Route::get('/penilaian/Argoteknologi',[NilaiBerkasController::class, 'PenilaianArgoteknologi'])->middleware('auth');
+    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->name('informatika.index')->middleware('auth');
+    Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->name('rpl.index')->middleware('auth');
+    Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');
+    Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->name('hukum.index')->middleware('auth');
+    Route::get('/penilaian/Argoteknologi',[NilaiBerkasController::class, 'Penilaiagroteknologi'])->name('agro.index')->middleware('auth');
     Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
 });
+
+//manajemen audhitor
+Route::get('/audhitor',[AudhitorController::class,'listAudhitor'])->name('audhitor.index')->middleware('auth');
+Route::get('/tambah-audhitor',[AudhitorController::class,'addAudhitor'])->name('audhitor.create')->middleware('auth');
+Route::post('/add_audhitor',[AudhitorController::class, 'storeAudhitor'])->name('audhitor.store')->middleware('auth');
 
 //manajemen Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');

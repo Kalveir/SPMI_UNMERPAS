@@ -193,7 +193,7 @@ Daftar Berkas
                         </div>
                         {{-- fix di nilai --}}
                         @elseif ($brks->aksi_code == 1)
-                        <button class="btn btn-danger">Berkas Tersimpan</button>
+                        <button class="btn btn-danger">Proses Penilaian</button>
                         @endif
                     </td>
                 </tr>

@@ -27,6 +27,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(prodi::class);
     }
+    public function scopeHasSingleRole($query)
+    {
+    return $query->with('roles') // Eager load roles
+                 ->whereHas('roles', function ($query) {
+                     $query->havingRaw('count(*) = 1')->groupBy('id');
+                 });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

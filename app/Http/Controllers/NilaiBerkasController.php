@@ -49,13 +49,29 @@ class NilaiBerkasController extends Controller
     public function updateNilai(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        $indikator_nilai = nilai::where('id',$pengisian->indikator_id)->first();
-        $penilaian = $indikator_nilai->nilai*$request->nilai;
+        $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
+        $penilaian = $indikator_nilai->nilai - $request->nilai;
+
         $pengisian->nilai = $penilaian;
         $pengisian->komentar = $request->komentar;
         $pengisian->aksi_code = 2;
-        $pengisian->save();
 
-        return redirect()->back();
+        if ($pengisian->program_studi == 1) {
+            $redirectRoute = 'informatika.index';
+        } elseif ($pengisian->program_studi == 2) {
+            $redirectRoute = 'rpl.index';
+        }elseif ($pengisian->program_studi == 3) {
+            $redirectRoute = 'manajemen.index';
+        }elseif ($pengisian->program_studi == 4) {
+            $redirectRoute = 'hukum.index';
+        }elseif ($pengisian->program_studi == 5) {
+            $redirectRoute = 'agro.index';
+        }
+        
+
+        $pengisian->save();
+        return redirect()->route($redirectRoute);
+
+
     }
 }
