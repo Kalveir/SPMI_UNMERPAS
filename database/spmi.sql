@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 14 Jan 2024 pada 00.32
+-- Waktu pembuatan: 27 Des 2023 pada 04.09
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -89,10 +89,7 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id`, `nama`) VALUES
-(1, 'Teknologi Informasi'),
-(3, 'Ekonomi'),
-(4, 'Hukum'),
-(5, 'Pertanian');
+(1, 'Teknologi Informasi');
 
 -- --------------------------------------------------------
 
@@ -186,9 +183,7 @@ CREATE TABLE `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
-(2, 'App\\Models\\User', 3),
-(2, 'App\\Models\\User', 10),
-(2, 'App\\Models\\User', 11);
+(2, 'App\\Models\\User', 3);
 
 -- --------------------------------------------------------
 
@@ -227,9 +222,7 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`id`, `prodi_id`, `nama`, `email`, `password`, `status`, `created_at`, `remember_token`) VALUES
 (1, 1, 'Wijaya', 'wijaya@gmail.com', '$2y$12$DS0DYkp7cp7BJVtjjX2DIOSBwC0EOWzZpOZ5iJq.xA/h1PgyL/Ehy', 1, NULL, NULL),
-(3, 1, 'William', 'wiliam@gmail.com', '$2y$12$HTFQJ3HDjkq11HvTNZ.cResJo1/VHy15dwA3ly7kTyxpUXulnl5i2', 1, NULL, NULL),
-(10, 3, 'Lusi', 'lusi@gmail.com', '$2y$12$KNgBlfEobBB5jWTP4EfB/.ceRJw193hOb3d.3GJLXfExWsEyvRs/u', 1, NULL, NULL),
-(11, 2, 'musthofa', 'musthofa@gmail.com', '$2y$12$PpyTGP1WRn/8J3c.gax2xOHVRhHCgBU0LnwYDu1Vmd6h5NopN4bC6', 1, NULL, NULL);
+(3, 1, 'William ucok', 'wiliam@gmail.com', '$2y$12$HTFQJ3HDjkq11HvTNZ.cResJo1/VHy15dwA3ly7kTyxpUXulnl5i2', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +235,6 @@ CREATE TABLE `pengisian` (
   `indikator_id` int(6) DEFAULT NULL,
   `pegawai_id` int(6) DEFAULT NULL,
   `program_studi` int(3) DEFAULT NULL,
-  `audhitor` int(3) DEFAULT NULL,
   `nilai` int(3) DEFAULT NULL,
   `komentar` varchar(255) DEFAULT NULL,
   `tahun` int(4) DEFAULT NULL,
@@ -335,11 +327,7 @@ CREATE TABLE `program_studi` (
 --
 
 INSERT INTO `program_studi` (`id`, `fakultas_id`, `nama`) VALUES
-(1, 1, 'Teknik Informatika'),
-(2, 1, 'Rekayasa Perangkat Lunak'),
-(3, 3, 'Manajemen'),
-(4, 4, 'Hukum'),
-(5, 5, 'Argoteknologi');
+(1, 1, 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -362,12 +350,7 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'web', '2023-12-25 20:32:45', '2023-12-26 00:58:52'),
 (2, 'Ketua Program Studi', 'web', '2023-12-25 20:35:44', '2023-12-25 20:35:44'),
-(4, 'LPPM', 'web', '2023-12-26 19:09:00', '2023-12-26 19:49:41'),
-(6, 'Audhitor Informatika', 'web', '2024-01-06 20:24:49', '2024-01-06 20:24:49'),
-(7, 'Audhitor RPL', 'web', '2024-01-06 20:24:49', '2024-01-06 20:24:49'),
-(8, 'Audhitor Manajemen', 'web', '2024-01-06 20:24:50', '2024-01-06 20:24:50'),
-(9, 'Audhitor Hukum', 'web', '2024-01-06 20:24:50', '2024-01-06 20:24:50'),
-(10, 'Audhitor Agroteknologi', 'web', '2024-01-06 20:24:50', '2024-01-13 05:01:32');
+(4, 'LPPM', 'web', '2023-12-26 19:09:00', '2023-12-26 19:49:41');
 
 -- --------------------------------------------------------
 
@@ -398,7 +381,6 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (10, 1),
 (11, 1),
 (12, 1),
-(12, 2),
 (13, 1),
 (13, 4);
 
@@ -511,7 +493,6 @@ ALTER TABLE `pengisian`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_pengisian_indikator` (`indikator_id`),
   ADD KEY `fk_pengisian_pegawai` (`pegawai_id`),
-  ADD KEY `fk_pengisian_audhitor` (`audhitor`),
   ADD KEY `program_studi` (`program_studi`);
 
 --
@@ -592,7 +573,7 @@ ALTER TABLE `bookstandard`
 -- AUTO_INCREMENT untuk tabel `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `indikator`
@@ -628,13 +609,13 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengisian`
 --
 ALTER TABLE `pengisian`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengisian_berkas`
@@ -658,13 +639,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `program_studi`
 --
 ALTER TABLE `program_studi`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `standard`
@@ -738,7 +719,6 @@ ALTER TABLE `pegawai`
 -- Ketidakleluasaan untuk tabel `pengisian`
 --
 ALTER TABLE `pengisian`
-  ADD CONSTRAINT `fk_pengisian_audhitor` FOREIGN KEY (`audhitor`) REFERENCES `pegawai` (`id`),
   ADD CONSTRAINT `fk_pengisian_indikator` FOREIGN KEY (`indikator_id`) REFERENCES `indikator` (`id`),
   ADD CONSTRAINT `fk_pengisian_pegawai` FOREIGN KEY (`pegawai_id`) REFERENCES `pegawai` (`id`),
   ADD CONSTRAINT `pengisian_fk_prodi` FOREIGN KEY (`program_studi`) REFERENCES `program_studi` (`id`);

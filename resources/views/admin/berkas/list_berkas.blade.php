@@ -25,6 +25,7 @@ Daftar Berkas
                 <th>Standard</th>
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
+                <th>Audhitor</th>
                 <th>Evaluasi</th>
                 <th>Komentar</th>
                 <th>Pengendalian</th>
@@ -97,6 +98,8 @@ Daftar Berkas
                         @endforeach
                     </td>
                     {{-- evaluasi --}}
+                    <td hidden>{{ $brks->pegawai->nama }}</td>
+                    <td>{{ $brks->audhitor }}</td>
                     <td>{{ $brks->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="max-width: 500px;">
@@ -194,6 +197,8 @@ Daftar Berkas
                         {{-- fix di nilai --}}
                         @elseif ($brks->aksi_code == 1)
                         <button class="btn btn-danger">Proses Penilaian</button>
+                        @elseif ($brks->aksi_code == 2)
+                        <button class="btn btn-info">Penilaian Selesai</button>
                         @endif
                     </td>
                 </tr>

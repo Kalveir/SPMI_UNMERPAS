@@ -118,7 +118,7 @@ Daftar Penilaian Berkas
                             @endforeach
                             
                         </td>
-                        <td>
+                        <td>@if ($brks->aksi_code == 1)
                             <form action="{{ route('penilaian.addNilai', $brks->id) }}"
                                 class="d-inline">
                                 @csrf
@@ -126,6 +126,9 @@ Daftar Penilaian Berkas
                                         data-feather="alert-triangle"></i>
                                     Penilaian</button>
                             </form>
+                            @elseif ($brks->aksi_code == 2)
+                            <button class="btn btn-success">Penilaian Tersimpan</button>
+                            @endif
                         </td>
                     </tr>
                     @endif

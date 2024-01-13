@@ -54,6 +54,7 @@ class NilaiBerkasController extends Controller
 
         $pengisian->nilai = $penilaian;
         $pengisian->komentar = $request->komentar;
+        $pengisian->audhitor = Auth::user()->id;
         $pengisian->aksi_code = 2;
 
         if ($pengisian->program_studi == 1) {
