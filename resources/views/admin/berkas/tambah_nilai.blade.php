@@ -48,7 +48,7 @@ Tambah Penilaian
             <div class="form-group">
                 <label for="basicInput">Komentar :</label>
                 <input id="deskripsi" type="hidden" value="{{ $pengisian->komentar }}" name="komentar" required autofocus>
-                <trix-editor input="deskripsi"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
             </div>
         </div>
         

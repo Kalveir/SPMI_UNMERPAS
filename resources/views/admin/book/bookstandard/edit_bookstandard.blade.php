@@ -19,14 +19,14 @@ Edit Buku Standard
             <div class="form-group">
                 <label for="basicInput"><h3>1. Visi Misi :</h3></label>
                 <input id="visi_misi" type="hidden" name="visi_misi" value="{!! $bookstandar->visi_misi !!}">
-                <trix-editor input="visi_misi"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="visi_misi" style="height: 150px"></trix-editor>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>2. Rasional :</h3></label>
                 <input id="rasional" type="hidden" name="rasional" value="{!! $bookstandar->rasional !!}">
-                <trix-editor input="rasional"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="rasional" style="height: 150px"></trix-editor>
             </div>
         </div>
             <div class="col-md-6 mb-4">
@@ -45,29 +45,30 @@ Edit Buku Standard
                 <div class="form-group">
                     <label for="basicInput"><h3>4. Subjek :</h3></label>
                     <input id="subjek" type="hidden" name="subjek" value="{!! $bookstandar->subjek !!}">
-                    <trix-editor input="subjek"></trix-editor>
+                    <trix-editor placeholder="Input text here..." input="subjek" style="height: 150px"></trix-editor>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>5.Definisi Istilah :</h3></label>
                     <input id="definisi_istilah" type="hidden" name="definisi_istilah" value="{!! $bookstandar->definisi_istilah !!}">
-                    <trix-editor input="definisi_istilah"></trix-editor>
+                    <trix-editor placeholder="Input text here..." input="definisi_istilah" style="height: 150px"></trix-editor>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>6. Tujuan :</h3></label>
                     <input id="tujuan" type="hidden" name="tujuan" value="{!! $bookstandar->tujuan !!}">
-                    <trix-editor input="tujuan"></trix-editor>
+                    <trix-editor placeholder="Input text here..." input="tujuan" style="height: 150px"></trix-editor>
                 </div>
             </div>
             
             
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
-                    <label for="basicInput"><h3>7. Status :</h3></label>
-                    <select class="form-select" id="basicSelect" name="status">
+                <fieldset class="f
+                    <label for="basicInput">7. Status :</label>
+                    <select class="form-control" id="basicSelect" name="status">
                         <option value="1" @if ($bookstandar->status == 1) selected @endif>Aktif</option>
                         <option value="0" @if ($bookstandar->status == 0) selected @endif>Tidak Aktif</option>
                     </select>

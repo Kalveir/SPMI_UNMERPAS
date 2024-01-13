@@ -72,8 +72,8 @@ class JabatanController extends Controller
         ]);
 
         // Sync the permissions for the role
-        $permissions = $request->akses; // assuming 'akses' is the name attribute of your select field
-        $role->syncPermissions($permissions);
+        // $permissions = $request->akses;
+        // $role->syncPermissions($permissions);
         return redirect()->route('jabatan.index');
     }
 

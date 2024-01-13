@@ -16,7 +16,7 @@ Tambah Bobot Nilai
             <div class="form-group">
                 <label for="basicInput">1. Deskripsi :</label>
                 <input id="deskripsi" type="hidden" name="deskripsi" required="required">
-                <trix-editor input="deskripsi"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
             </div>
         <div>
         <fieldset class="form-group">

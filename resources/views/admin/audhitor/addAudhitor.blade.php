@@ -6,10 +6,14 @@ Audhitor
 Tambah Audhitor
 @endsection
 @section('container')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="card">
     <div class="card-header">
     </div>
     <div class="card-body">
+        {{-- <form action="{{ route('audhitor.store') }}" method="POST">
+            @csrf
+        </form> --}}
         <div class="col-md-6">
             <fieldset class="form-group">
                 <label for="basicInput">Pilih Auditor :</label>
@@ -22,19 +26,20 @@ Tambah Audhitor
                 </select>
             </fieldset>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tableModal" title="Open User Selection Modal">
-                Daftar Pegawai
+                Seleksi Pegawai
             </button>                
 
             <table class="table" id="mainTable">
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Nama</th>
                         <th>Program Studi</th>
                         <th>Jabatan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="tabelutama">
+                <tbody id="tabelutama" name="data_tabel">
                     <!-- Main table content will be populated dynamically -->
                 </tbody>
             </table>
@@ -86,27 +91,30 @@ Tambah Audhitor
     </div>
   </div>
   <script>
-    // Fungsi untuk memilih data dari modal dan menampilkannya di tabel utama
-    function pilihData(namaData) 
-    {
-        // Periksa apakah data sudah ada di tabel utama
-        if (!isDataExists(namaData)) 
-        {
+    function pilihData(namaData) {
+    // Periksa apakah data sudah ada di tabel utama
+        if (!isDataExists(namaData)) {
             namaDatas = namaData.split(',');
+
             // Buat baris HTML untuk data terpilih
-            var newRow = "<tr><td>" + (document.getElementById("mainTable").rows.length + 0) + "</td><td class='id_users' hidden>" + namaDatas[0] +"</td><td>" + namaDatas[1] + "</td><td>" + namaDatas[2] +"</td><td>" + namaDatas[3] + "</td><td><button class='btn btn-danger' onclick='hapusData(this)'>Hapus</button></td></tr>";
+            var newRow = "<tr><td>" + (document.getElementById("mainTable").rows.length + 0) + "</td><td class='id_users' hidden>" + namaDatas[0] + "</td><td>" + namaDatas[1] + "</td><td>" + namaDatas[2] + "</td><td>" + namaDatas[3] + "</td><td><button class='btn btn-danger' onclick='hapusData(this)'>Hapus</button></td></tr>";
+
             // Tambahkan baris ke tabel utama
             $("#mainTable").append(newRow);
+        } else {
+            // Data sudah ada, mungkin berikan pesan atau lakukan tindakan lain
+            alert("Data sudah ada");
         }
+
         // Tutup modal
         $("#tableModal").modal("hide");
     }
 
-    // Fungsi untuk memeriksa apakah data sudah ada di tabel utama
+// Fungsi untuk memeriksa apakah data sudah ada di tabel utama
     function isDataExists(namaData) {
         var exists = false;
-        $("#tabelutama td:nth-child(2)").each(function () {
-            if ($(this).text() === namaData) {
+        $("#mainTable td:nth-child(2)").each(function () {
+            if ($(this).text().trim() === namaData.split(',')[0].trim()) {
                 exists = true;
                 return false; // Keluar dari loop jika data sudah ditemukan
             }
@@ -120,34 +128,45 @@ Tambah Audhitor
         var row = button.closest("tr");
         row.remove();
     }
+
     function ambilData() 
     {
         var data = [];
-        $("#tabelutama tr").each(function (){
+        const jabatan_id = $("#jabatan_id").val();
+
+        $("#tabelutama tr").each(function () {
             var rowData = {};
-            $(this).find(".id_users").each(function (){
+            $(this).find(".id_users").each(function () {
                 rowData['id_users'] = $(this).text();
             });
             data.push(rowData);
         });
-        console.log(data);
+
+        // Menambahkan token CSRF ke dalam data yang dikirim
+        var token = $('meta[name="csrf-token"]').attr('content');
+        data._token = token;
+
+        $.ajax({
+            type: "POST",
+            url: "{{ route('audhitor.store') }}",
+            data: {
+                data: data,
+                jabatan_id: jabatan_id,
+                _token: token
+            },
+            dataType: 'json',
+            success: function (response) {
+                $('#in').val(response.data.value);
+            },
+            error: function (xhr, status, error) {
+                console.error("Gagal:", error);
+            }
+        });
     }
 
-    // function kirimData(data)
-    // {
-    //     $.ajax({
-    //         url = '/add_audhitor',
-    //         type = 'POST',
-    //         data = {data_user = data},
-    //         succes:function(response){
-    //             console.log(response);
-    //         }
-    //         error:function(error){
-    //             console.log(error);
-    //         }
 
-    //     });
-    // }
+
 </script>
+
 
 @endsection

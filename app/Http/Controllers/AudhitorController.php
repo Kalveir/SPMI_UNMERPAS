@@ -22,6 +22,6 @@ class AudhitorController extends Controller
 
     public function storeAudhitor(Request $request)
     {
-        return $request->all();
+        return response()->json(['data' => $request->all()], 200);
     }
 }

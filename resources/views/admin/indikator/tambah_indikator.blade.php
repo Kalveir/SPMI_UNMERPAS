@@ -13,9 +13,9 @@ Tambah Indikator
     <form action="{{ route('indikator.store') }}" method="post">
         @csrf
         <div class="col-md-6 row-md-15">
-            <div class="form-group">
-                <label for="basicInput">Isi :</label>
-                <input type="text" class="form-control" id="basicInput" name="isi" required autofocus>
+            <div class="form-group" >
+                <label for="exampleFormControlTextarea1">Isi :</label>
+                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="isi" rows="3" required autofocus>
             </div>
         </div>
         <div class="col-md-6 row-md-10">

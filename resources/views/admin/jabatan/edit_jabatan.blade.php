@@ -23,7 +23,7 @@ Edit Jabatan
             </div>
             <div class="form-group">
                 <label for="nama">Hak Akses:</label>
-                <select class="form-select" id="multiple-select-field" data-placeholder="Pilih Akses" multiple required name="akses[]">
+                <select class="form-select" id="multiple-select-field" data-placeholder="Pilih Akses" multiple name="akses[]">
                     @foreach ($permission as $prs)
                         <option value="{{ $prs->name }}" {{ $jabatan->hasPermissionTo($prs) ? 'selected' : '' }}>{{ $prs->name }}</option>
                     @endforeach

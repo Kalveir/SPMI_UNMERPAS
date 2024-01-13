@@ -18,21 +18,21 @@ Tambah Buku Manual
             <div class="form-group">
                 <label for="basicInput"><h3>1. Visi Misi :</h3></label>
                 <input id="visi_misi" type="hidden" name="visi_misi" required>
-                <trix-editor input="visi_misi"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="visi_misi" style="height: 150px"></trix-editor>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>2. Tujuan :</h3></label>
                 <input id="tujuan" type="hidden" name="tujuan" required>
-                <trix-editor input="tujuan"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="tujuan" style="height: 150px"></trix-editor>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>3. Ruang Lingkup :</h3></label>
                 <input id="ruanglingkup" type="hidden" name="ruanglingkup" required>
-                <trix-editor input="ruanglingkup"></trix-editor>
+                <trix-editor placeholder="Input text here..." input="ruanglingkup" style="height: 150px"></trix-editor>
             </div>
         </div>
             <div class="col-md-6 mb-4">
@@ -63,14 +63,14 @@ Tambah Buku Manual
                 <div class="form-group">
                     <label for="basicInput"><h3>6. Definisi Istilah :</h3></label>
                     <input id="definisi_istilah" type="hidden" name="definisi_istilah" required>
-                    <trix-editor input="definisi_istilah"></trix-editor>
+                    <trix-editor placeholder="Input text here..." input="definisi_istilah" style="height: 150px"></trix-editor>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>7. Tahapan :</h3></label>
                     <input id="tahapan" type="hidden" name="tahapan" required>
-                    <trix-editor input="tahapan"></trix-editor>
+                    <trix-editor placeholder="Input text here..." input="tahapan" style="height: 150px"></trix-editor>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
