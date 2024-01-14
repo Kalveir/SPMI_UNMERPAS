@@ -33,6 +33,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
         $user = User::create([
             'prodi_id' => $request->prodi_id,
             'nama' => $request->nama,

@@ -58,7 +58,7 @@ Daftar Pegawai
                             @csrf
                             @method('DELETE')
                             <button class="btn icon icon-left btn-danger"><i
-                                    data-feather="alert-circle" class="fas fa-edit"></i>
+                                    data-feather="alert-circle" class="fas fa-trash"></i>
                             </button>
                         </form>
                     </td>

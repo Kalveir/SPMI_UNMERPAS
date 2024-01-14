@@ -113,7 +113,6 @@
 
                 // Tambahkan baris ke tabel utama
                 $("#mainTable").append(newRow);
-                updateFormData();
             } else {
                 // Data sudah ada, mungkin berikan pesan atau lakukan tindakan lain
                 alert("Data sudah ada");
@@ -139,25 +138,41 @@
         function hapusData(button) {
             var row = button.closest("tr");
             row.remove();
-            updateFormData();
-        }
-
-        function updateFormData() {
-            var array_data = [];
-            // Ambil data dari setiap baris tabel
-            $("#mainTable tbody tr").each(function() {
-                var id_users = $(this).find('td:eq(1)').text().trim();
-                // Konversi nilai id_users ke integer
-                var id_users_integer = parseInt(id_users, 10);
-
-                // Pastikan bahwa ID yang diambil sesuai dengan struktur yang diharapkan
-                array_data.push(id_users_integer);
-            });
-
-            // Perbarui nilai input tersembunyi dengan data sebagai array langsung
-            $("#data_tabel_input").val(JSON.stringify(array_data));
         }
         
+        // function ambilData() {
+        //     var data = [];
+        //     const jabatan_id = $("#jabatan_id").val();
+
+        //     $("#tabelutama tr").each(function() {
+        //         var rowData = {};
+        //         $(this).find(".id_users").each(function() {
+        //             rowData['id_users'] = $(this).text();
+        //         });
+        //         data.push(rowData);
+        //     });
+
+        //     // Menambahkan token CSRF ke dalam data yang dikirim
+        //     var token = $('meta[name="csrf-token"]').attr('content');
+        //     data._token = token;
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "{{ route('audhitor.store') }}",
+        //         data: {
+        //             data: data,
+        //             jabatan_id: jabatan_id,
+        //             _token: token
+        //         },
+        //         dataType: 'json',
+        //         success: function(response) {
+        //             console.log(response);
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error("Gagal:", error);
+        //         }
+        //     });
+        // }
     </script>
 
 

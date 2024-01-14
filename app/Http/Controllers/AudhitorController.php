@@ -22,9 +22,19 @@ class AudhitorController extends Controller
 
     public function storeAudhitor(Request $request)
     {
-        return response()->json([
-            'data' => $request->all(),
-            'jabatan_id' => $request->jabatan_id
-        ], 200);
+        $jabatan_id = $request->input('jabatan_id');
+        $data_tabel = json_decode($request->input('data_tabel'), true);
+        $id_users_array = [];
+
+        if (is_array($data_tabel)) {
+            foreach ($data_tabel as $data) {
+                $id_users = $data;
+                $id_users_array[] = $id_users;
+                
+            }
+            return $id_users_array;
+        }
+
+
     }
 }
