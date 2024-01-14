@@ -1,5 +1,5 @@
 <div class="sidebar sidebar-style-2" data-background-color="dark2">
-			
+
   <div class="sidebar-wrapper scrollbar scrollbar-inner">
     <div class="sidebar-content">
       <div class="user">
@@ -29,7 +29,7 @@
         </div>
       </div>
       <ul class="nav nav-primary">
-        
+
         <li class="nav-item">
           <a href="/dashboard" class="collapsed" aria-expanded="false">
             <i class="fas fa-home"></i>

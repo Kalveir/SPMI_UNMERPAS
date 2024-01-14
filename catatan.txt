@@ -2,3 +2,4 @@ pembatasan tombol upload
 pembatasan tombol pengendalian
 pembatasan tombol audit
 pemabatasan tombol pengisian
+$2y$12$FaIy0EfE1TfxuwhDskp34.lGE3f1d2/zZuLE6axiUg6u.KW2SkKAW
