@@ -23,6 +23,7 @@ Daftar Penilaian Berkas
                 <th>Standard</th>
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
+                <th>Audhitor</th>
                 <th>Evaluasi</th>
                 <th>Komentar</th>
                 <th>Pengendalian</th>
@@ -74,6 +75,7 @@ Daftar Penilaian Berkas
                             </div>
                             @endforeach
                         </td>
+                        <td>{{ $brks->auditor->nama }}</td>
                         {{-- evaluasi --}}
                         <td>{{ $brks->nilai }}</td>
                         {{-- komentar --}}
@@ -82,6 +84,7 @@ Daftar Penilaian Berkas
                                 {!! $brks->komentar !!}
                             </div>
                         </td>
+                        
                         {{-- Pengendalian --}}
                         <td>
                             @foreach ($brks->pengisian_berkas as $file_berkas)

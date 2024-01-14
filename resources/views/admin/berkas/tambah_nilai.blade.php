@@ -16,7 +16,7 @@ Tambah Penilaian
         <div class="col-md-6 row-md-15">
             <div class="form-group">
                 <label for="basicInput">Nama Ketua Program Studi :</label>
-                <input type="text"  value="{{ $pengisian->pegawai->nama }}" class="form-control" id="basicInput" name="" required readonly>
+                <input type="text"  value="" class="form-control" id="basicInput" name="" required readonly>
             </div>
         </div>
         <div class="col-md-6 row-md-15">

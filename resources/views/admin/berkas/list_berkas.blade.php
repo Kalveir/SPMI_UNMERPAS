@@ -25,7 +25,7 @@ Daftar Berkas
                 <th>Standard</th>
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
-                <th>Audhitor</th>
+                <th>Auditor</th>
                 <th>Evaluasi</th>
                 <th>Komentar</th>
                 <th>Pengendalian</th>
@@ -99,7 +99,7 @@ Daftar Berkas
                     </td>
                     {{-- evaluasi --}}
                     <td hidden>{{ $brks->pegawai->nama }}</td>
-                    <td>{{ $brks->audhitor }}</td>
+                    <td>{{ $brks->auditor->nama }}</td>
                     <td>{{ $brks->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="max-width: 500px;">

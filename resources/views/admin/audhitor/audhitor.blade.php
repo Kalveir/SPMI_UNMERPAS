@@ -28,9 +28,25 @@ Daftar Audhitor
             </tr>
         </thead>
         <tbody>
+            @foreach ($pegawai_audhitor as $audhitor)
                 <tr>
-                    
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $audhitor['user']->nama }}</td> 
+                    <td>{{ $audhitor['user']->prodi->nama }}</td>
+                    <td>{{ $audhitor['jabatanRole'] }}</td>
+                    <td>{{ $audhitor['audhitorRole'] }}</td>
+                    <td> 
+                      <form action="{{ route('audhitor.destroy', $audhitor['user']->id) }}" method="POST"
+                        class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn icon icon-left btn-danger"><i
+                                data-feather="alert-circle" class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
                 </tr>
+            @endforeach
         </tbody>
       </table>
     </div>

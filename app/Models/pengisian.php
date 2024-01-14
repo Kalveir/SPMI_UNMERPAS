@@ -15,7 +15,7 @@ class pengisian extends Model
     public function pegawai(){
         return $this->belongsTo(User::class,'pegawai_id');
     }
-    public function audhitor(){
+    public function auditor(){
         return $this->belongsTo(User::class,'audhitor');
     }
 

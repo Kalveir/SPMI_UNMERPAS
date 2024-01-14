@@ -10,7 +10,29 @@ class AudhitorController extends Controller
 {
     public function listAudhitor()
     {
-        return view('admin.audhitor.audhitor');
+        $pegawai_audhitor = [];
+        $users = User::with('roles')->get();
+
+        foreach ($users as $user) {
+            // Dapatkan nama peran pengguna
+            $roles = $user->getRoleNames();
+    
+            // Cek apakah pengguna memiliki lebih dari satu peran
+            if (count($roles) > 1) {
+                // Ambil role kedua
+                $jabatanRole = $roles[0];
+                $audhtiorRole = $roles[1];
+    
+                // Susun data pengguna yang memiliki lebih dari satu peran
+                $pegawai_audhitor[] = [
+                    'user' => $user,
+                    'audhitorRole' => $audhtiorRole,
+                    'jabatanRole' => $jabatanRole,
+                ];
+            }
+        }
+
+        return view('admin.audhitor.audhitor',compact('pegawai_audhitor'));
     }
 
     public function addAudhitor()
@@ -24,17 +46,31 @@ class AudhitorController extends Controller
     {
         $jabatan_id = $request->input('jabatan_id');
         $data_tabel = json_decode($request->input('data_tabel'), true);
-        $id_users_array = [];
+
+        $role = Role::findById($jabatan_id);
 
         if (is_array($data_tabel)) {
             foreach ($data_tabel as $data) {
                 $id_users = $data;
-                $id_users_array[] = $id_users;
-                
+                $pegawai = User::find($id_users); // Assuming your user model is named User
+                if ($pegawai) {
+                    $pegawai->assignRole($role);
+                }
             }
-            return $id_users_array;
         }
+        return redirect()->route('audhitor.index');
 
 
+    }
+
+    public function destroyAudhitor($id)
+    {
+        $user = User::with('roles')->find($id);
+        if ($user) {
+            $roleToRemove = $user->roles[1]->name;
+            $user->removeRole($roleToRemove);
+            $user->save();
+        }
+        return redirect()->route('audhitor.index');
     }
 }
