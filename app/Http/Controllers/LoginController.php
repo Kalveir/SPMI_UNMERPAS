@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    public function Authlogin(Request $request):RedirectResponse
+    public function Authlogin(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required'],
@@ -25,13 +25,11 @@ class LoginController extends Controller
         ]);
 
         // $credential = $request->only('email','password');
-        if (Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
-        }else
-        {
+        } else {
             return back()->with('loginError', 'Login Failde !');
         }
     }
@@ -40,5 +38,4 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/');
     }
-
 }
