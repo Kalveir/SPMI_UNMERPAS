@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $jabatan = Role::get();
+        $jabatan = Role::where('name','not like','%auditor%')->get();
         $prodi = Prodi::get();
         return view('admin.pegawai.tambah_pegawai', compact('jabatan','prodi'));
     }
@@ -33,7 +33,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
         $user = User::create([
             'prodi_id' => $request->prodi_id,
             'nama' => $request->nama,
@@ -61,7 +60,7 @@ class UserController extends Controller
     public function edit($user)
     {
         $pegawai = User::find($user);
-        $jabatan = Role::get();
+        $jabatan = Role::where('name','not like','%auditor%')->get();
         $prodi = Prodi::get();
         return view('admin.pegawai.edit_pegawai', compact('pegawai','jabatan', 'prodi'));
     }

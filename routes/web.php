@@ -163,7 +163,7 @@ Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
     Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->name('rpl.index')->middleware('auth');
     Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');
     Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->name('hukum.index')->middleware('auth');
-    Route::get('/penilaian/Argoteknologi',[NilaiBerkasController::class, 'Penilaiagroteknologi'])->name('agro.index')->middleware('auth');
+    Route::get('/penilaian/Agroteknologi',[NilaiBerkasController::class, 'PenilaianAgroteknologi'])->name('agro.index')->middleware('auth');
     Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
 });

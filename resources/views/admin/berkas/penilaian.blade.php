@@ -26,13 +26,11 @@ Daftar Penilaian Berkas
                 <th>Audhitor</th>
                 <th>Evaluasi</th>
                 <th>Komentar</th>
-                <th>Pengendalian</th>
-                <th>Peningkatan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($berkas as $brks)
+            @foreach ($berkas_nilai as $brks)
                     @if ($brks->aksi_code != 0)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
@@ -75,7 +73,7 @@ Daftar Penilaian Berkas
                             </div>
                             @endforeach
                         </td>
-                        <td>{{ $brks->auditor->nama }}</td>
+                        <td>{{ optional($brks->auditor)->nama }}</td>
                         {{-- evaluasi --}}
                         <td>{{ $brks->nilai }}</td>
                         {{-- komentar --}}
@@ -85,43 +83,8 @@ Daftar Penilaian Berkas
                             </div>
                         </td>
                         
-                        {{-- Pengendalian --}}
                         <td>
-                            @foreach ($brks->pengisian_berkas as $file_berkas)
-                            <div class="file-item d-flex align-items-left" >
-                                @if ($file_berkas->jenis == 'Pengendalian')
-                                    <div class="col-auto" style="padding: 5px;">
-                                        <i class="fas fa-file"></i>
-                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                        <div class="text-wrap text-justify" style="max-width: 500px;">
-                                            <strong>Deskripsi :</strong>
-                                            {!! $file_berkas->deskripsi !!}
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                            @endforeach
-                            
-                        </td>
-                        {{-- Peningkatan --}}
-                        <td>
-                            @foreach ($brks->pengisian_berkas as $file_berkas)
-                            <div class="file-item d-flex align-items-left" >
-                                @if ($file_berkas->jenis == 'Peningkatan')
-                                    <div class="col-auto" style="padding: 5px;">
-                                        <i class="fas fa-file"></i>
-                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                        <div class="text-wrap text-justify" style="max-width: 500px;">
-                                            <strong>Deskripsi :</strong>
-                                            {!! $file_berkas->deskripsi !!}
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                            @endforeach
-                            
-                        </td>
-                        <td>@if ($brks->aksi_code == 1)
+                            @if ($brks->aksi_code == 1)
                             <form action="{{ route('penilaian.addNilai', $brks->id) }}"
                                 class="d-inline">
                                 @csrf
@@ -129,7 +92,7 @@ Daftar Penilaian Berkas
                                         data-feather="alert-triangle"></i>
                                     Penilaian</button>
                             </form>
-                            @elseif ($brks->aksi_code == 2)
+                            @elseif ($brks->aksi_code > 1)
                             <button class="btn btn-success">Penilaian Tersimpan</button>
                             @endif
                         </td>

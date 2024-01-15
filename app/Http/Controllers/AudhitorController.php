@@ -37,8 +37,8 @@ class AudhitorController extends Controller
 
     public function addAudhitor()
     {
-        $roles = Role::where('name', 'like', 'Audhitor%')->get();
-        $single_role = User::hasSingleRole()->get();
+        $roles = Role::where('name', 'like', 'Auditor%')->get();
+        $single_role = User::all()->filter(fn($user)=>$user->roles->count()== 1);
         return view('admin.audhitor.addAudhitor', compact('roles', 'single_role'));
     }
 
@@ -67,7 +67,7 @@ class AudhitorController extends Controller
     {
         $user = User::with('roles')->find($id);
         if ($user) {
-            $roleToRemove = $user->roles[1]->name;
+            $roleToRemove = $user->roles[0]->name;
             $user->removeRole($roleToRemove);
             $user->save();
         }

@@ -34,15 +34,15 @@ Daftar Berkas
             </tr>
         </thead>
         <tbody>
-            @foreach ($berkas as $brks)
+            @foreach ($berkas as $bkst)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $brks->prodi->nama }}</td>
-                    <td>{{ $brks->indikator->indikator }}</td>
-                    <td>{{ $brks->indikator->standard->nama }}</td>
+                    <td>{{ $bkst->prodi->nama }}</td>
+                    <td>{{ $bkst->indikator->indikator }}</td>
+                    <td>{{ $bkst->indikator->standard->nama }}</td>
                     {{-- penetapan --}}
                      <td>
-                        @foreach ($brks->pengisian_berkas as $file_berkas)
+                        @foreach ($bkst->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Penetapan')
                                 <div class="col-auto" style="padding: 5px;">
@@ -53,7 +53,7 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                @if ($brks->aksi_code == 0)
+                                @if ($bkst->aksi_code == 0)
                                 <div class="col-auto" style="padding: 5px;">
                                     <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
                                         @csrf
@@ -71,7 +71,7 @@ Daftar Berkas
                     </td>
                     {{-- pelaksanaan --}}
                     <td>
-                        @foreach ($brks->pengisian_berkas as $file_berkas)
+                        @foreach ($bkst->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Pelaksanaan')
                                 <div class="col-auto" style="padding: 5px;">
@@ -82,7 +82,7 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                @if ($brks->aksi_code == 0)
+                                @if ($bkst->aksi_code == 0)
                                 <div class="col-auto" style="padding: 5px;">
                                     <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
                                         @csrf
@@ -98,17 +98,16 @@ Daftar Berkas
                         @endforeach
                     </td>
                     {{-- evaluasi --}}
-                    <td hidden>{{ $brks->pegawai->nama }}</td>
-                    <td>{{ $brks->auditor->nama }}</td>
-                    <td>{{ $brks->nilai }}</td>
+                    <td>{{ optional($bkst->auditor)->nama }}</td>
+                    <td>{{ $bkst->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="max-width: 500px;">
-                            {!! $brks->komentar !!}
+                            {!! $bkst->komentar !!}
                         </div>
                     </td>
                     {{-- Pengendalian --}}
                     <td>
-                        @foreach ($brks->pengisian_berkas as $file_berkas)
+                        @foreach ($bkst->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Pengendalian')
                                 <div class="col-auto" style="padding: 5px;">
@@ -135,7 +134,7 @@ Daftar Berkas
                     </td>
                     {{-- Peningkatan --}}
                     <td>
-                        @foreach ($brks->pengisian_berkas as $file_berkas)
+                        @foreach ($bkst->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Peningkatan')
                                 <div class="col-auto" style="padding: 5px;">
@@ -162,17 +161,8 @@ Daftar Berkas
                     </td>
                     <td>
                         {{-- belum bisa di nilai --}}
-                        @if ($brks->aksi_code == 0)
+                        @if ($bkst->aksi_code == 0)
                         <div class="d-flex center-content-between">
-
-                            <form action="{{ route('berkas.valid',$brks->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                <button class="btn btn-success"><i
-                                        data-feather="alert-triangle" class="fas fa-check-square"></i>
-                                        <span>Validasi</span>
-                                </button>
-                            </form>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-warning dropdown-toggle"
                                             data-toggle="dropdown" aria-haspopup="true"
@@ -180,12 +170,12 @@ Daftar Berkas
                                             <span>Edit</span>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <form action="{{ route('berkas.addFile',$brks->id) }}" method="POST">
+                                    <form action="{{ route('berkas.addFile',$bkst->id) }}" method="POST">
                                         @csrf
                                         <button class="dropdown-item" type="submit"><i
                                             class="fas fa-file-upload"></i><span> Upload Berkas</span></button>
                                     </form>
-                                    <form action="{{ route('berkas.delete',$brks->id) }}" method="POST">
+                                    <form action="{{ route('berkas.delete',$bkst->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="dropdown-item" type="submit"><i
@@ -193,11 +183,19 @@ Daftar Berkas
                                     </form>
                                 </div>
                             </div>
+                            <form action="{{ route('berkas.valid',$bkst->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                <button class="btn btn-success"><i
+                                        data-feather="alert-triangle" class="fas fa-check-square"></i>
+                                        <span>Validasi</span>
+                                </button>
+                            </form>
                         </div>
                         {{-- fix di nilai --}}
-                        @elseif ($brks->aksi_code == 1)
+                        @elseif ($bkst->aksi_code == 1)
                         <button class="btn btn-danger">Proses Penilaian</button>
-                        @elseif ($brks->aksi_code == 2)
+                        @elseif ($bkst->aksi_code == 2)
                         <button class="btn btn-info">Penilaian Selesai</button>
                         @endif
                     </td>

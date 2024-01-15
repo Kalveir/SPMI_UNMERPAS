@@ -72,7 +72,7 @@
         <li class="nav-item">
           <a href="/audhitor" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-user-tie"></i>
-            <p>Audhitor</p>
+            <p>Auditor</p>
           </a>
         </li>
         @endcan
@@ -179,8 +179,8 @@
                 </a>
               </li>
               <li>
-                <a href="/penilaian/Argoteknologi">
-                  <span class="sub-item">Argoteknologi</span>
+                <a href="/penilaian/Agroteknologi">
+                  <span class="sub-item">Agroteknologi</span>
                 </a>
               </li>
             </ul>

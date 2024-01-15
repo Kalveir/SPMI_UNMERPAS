@@ -12,33 +12,33 @@ class NilaiBerkasController extends Controller
 {
     public function PenilaianInformatika()
     {
-        $berkas = Pengisian::where('program_studi',1)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas','indikator'));
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianRPL()
     {
-        $berkas = Pengisian::where('program_studi',2)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas','indikator'));
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianManajemen()
     {
-        $berkas = Pengisian::where('program_studi',3)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas','indikator'));
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianHukum()
     {
-        $berkas = Pengisian::where('program_studi',4)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas','indikator'));
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
-    public function PenilaianArgoteknologi()
+    public function PenilaianAgroteknologi()
     {
-        $berkas = Pengisian::where('program_studi',5)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas','indikator'));
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
 
     public function addNilai($id)

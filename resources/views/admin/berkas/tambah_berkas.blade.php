@@ -40,7 +40,7 @@ Upload Berkas
         </div>
         <div class="col-md-8">
             <input id="deskripsi" type="hidden" name="deskripsi" required>
-            <trix-editor input="deskripsi"></trix-editor>
+            <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
         </div>
         <br>
         <br>

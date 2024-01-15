@@ -34,9 +34,7 @@ Daftar Pegawai
                     <td>{{ $pgw->nama }}</td>
                     <td>{{ $pgw->prodi->nama }}</td>
                         <td>
-                            @foreach ($pgw->roles as $role )
-                                {{ $role->name }}                                    
-                            @endforeach
+                            {{$pgw->roles->first()->name}}
                         </td>
                     <td>
                         @if ($pgw->status == 1)
