@@ -15,31 +15,36 @@ class NilaiBerkasController extends Controller
     {
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
+        $prodi = 'Informatika';
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianRPL()
     {
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
+        $prodi = 'Rekayasa Perangkat Lunak';
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianManajemen()
     {
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
+        $prodi = 'Manajemen';
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianHukum()
     {
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
+        $prodi = 'Hukum';
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianAgroteknologi()
     {
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
-        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
+        $prodi = 'Agroteknologi';
+        return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
 
     public function addNilai($id)

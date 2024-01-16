@@ -4,7 +4,7 @@ Penilaian Berkas
 @endsection
 
 @section('judul')
-Daftar Penilaian Berkas
+Penilaian Berkas Program Studi {{ $prodi }}
 @endsection
 
 @section('container')

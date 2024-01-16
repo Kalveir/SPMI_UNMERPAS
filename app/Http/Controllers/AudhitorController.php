@@ -14,23 +14,31 @@ class AudhitorController extends Controller
         $users = User::with('roles')->get();
 
         foreach ($users as $user) {
-            // Dapatkan nama peran pengguna
             $roles = $user->getRoleNames();
-    
-            // Cek apakah pengguna memiliki lebih dari satu peran
+        
             if (count($roles) > 1) {
-                // Ambil role kedua
-                $jabatanRole = $roles[0];
-                $audhtiorRole = $roles[1];
-    
-                // Susun data pengguna yang memiliki lebih dari satu peran
-                $pegawai_audhitor[] = [
-                    'user' => $user,
-                    'audhitorRole' => $audhtiorRole,
-                    'jabatanRole' => $jabatanRole,
-                ];
+
+                $audhitorRole = null;
+                $jabatanRole = null;
+        
+                foreach ($roles as $role) {
+                    if (strpos($role, 'Auditor') !== false) {
+                        $audhitorRole = $role;
+                    } else {
+                        $jabatanRole = $role;
+                    }
+                }
+        
+                if ($audhitorRole !== null) {
+                    $pegawai_audhitor[] = [
+                        'user' => $user,
+                        'audhitorRole' => $audhitorRole,
+                        'jabatanRole' => $jabatanRole,
+                    ];
+                }
             }
         }
+        
 
         return view('admin.audhitor.audhitor',compact('pegawai_audhitor'));
     }
@@ -67,10 +75,16 @@ class AudhitorController extends Controller
     {
         $user = User::with('roles')->find($id);
         if ($user) {
-            $roleToRemove = $user->roles[0]->name;
-            $user->removeRole($roleToRemove);
+
+            $rolesToRemove = $user->roles->filter(function ($role) {
+                return str_contains($role->name, 'Auditor');
+            });
+            foreach ($rolesToRemove as $role) {
+                $user->removeRole($role->name);
+            }
+        
             $user->save();
+            return redirect()->route('audhitor.index');
         }
-        return redirect()->route('audhitor.index');
     }
 }

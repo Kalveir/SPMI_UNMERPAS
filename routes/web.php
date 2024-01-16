@@ -77,7 +77,7 @@ Route::middleware(['auth', 'can:kelola standard'])->group(function () {
     Route::resource('standard',StandardController::class)->middleware('auth');   
 });
 //manajemen pegawai
-Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
+Route::middleware(['auth', ])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
 });
 //manajemen kelola jenis
@@ -169,7 +169,7 @@ Route::middleware(['auth', 'role:Auditor Manajemen'])->group(function(){
     Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');
 });
 Route::middleware(['auth', 'role:Auditor Informatika'])->group(function(){
-    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->name('informatika.index')->middleware('auth');
+    Route::get('/penilaian/Informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->name('informatika.index')->middleware('auth');
 });
 Route::middleware(['auth', 'role:Auditor RPL'])->group(function(){
     Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->name('rpl.index')->middleware('auth');

@@ -118,7 +118,6 @@ Daftar Berkas
                             @endif
                         </div>
                         @endforeach
-                        
                     </td>
                     {{-- Peningkatan --}}
                     <td>
@@ -171,14 +170,15 @@ Daftar Berkas
                                     </form>
                                 </div>
                             </div>
-                            <form action="{{ route('berkas.valid',$bkst->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                <button class="btn btn-success"><i
-                                        data-feather="alert-triangle" class="fas fa-check-square"></i>
+                            @if ($bkst->pengisian_berkas->where('jenis', 'Penetapan')->isNotEmpty() && $bkst->pengisian_berkas->where('jenis', 'Pelaksanaan')->isNotEmpty())
+                                <form action="{{ route('berkas.valid', $bkst->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button class="btn btn-success">
+                                        <i data-feather="alert-triangle" class="fas fa-check-square"></i>
                                         <span>Validasi</span>
-                                </button>
-                            </form>
+                                    </button>
+                                </form>
+                            @endif
                         </div>
                         {{-- fix di nilai --}}
                         @elseif ($bkst->aksi_code == 1)

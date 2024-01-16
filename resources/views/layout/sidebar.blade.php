@@ -149,53 +149,47 @@
           </a>
         </li>
         @endcan
+        @role('Auditor Informatika')
         <li class="nav-item">
-          <a data-toggle="collapse" href="#penilaian">
+          <a href="/penilaian/Informatika" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
-            <p>Penilaian</p>
-            <span class="caret"></span>
+            <p>Penilaian Informatika</p>
           </a>
-          <div class="collapse" id="penilaian">
-
-            <ul class="nav nav-collapse">
-              @role('Auditor Informatika')
-              <li>
-                <a href="/penilaian/informatika">
-                  <span class="sub-item">Teknik Informatika</span>
-                </a>
-              </li>
-              @endrole
-              @role('Auditor RPL')
-              <li>
-                <a href="/penilaian/RPL">
-                  <span class="sub-item">Rekayasa Perangkat Lunak</span>
-                </a>
-              </li>
-              @endrole
-              @role('Auditor Manajemen')
-              <li>
-                <a href="/penilaian/Manajemen">
-                  <span class="sub-item">Manajemen</span>
-                </a>
-              </li>
-              @endrole
-              @role('Auditor Hukum')
-              <li>
-                <a href="/penilaian/Hukum">
-                  <span class="sub-item">Hukum</span>
-                </a>
-              </li>
-              @endrole
-              @role('Auditor Agroteknologi')
-              <li>
-                <a href="/penilaian/Agroteknologi">
-                  <span class="sub-item">Agroteknologi</span>
-                </a>
-              </li>
-              @endrole
-            </ul>
-          </div>
         </li>
+        @endrole
+        @role('Auditor RPL')
+        <li class="nav-item">
+          <a href="/penilaian/RPL" class="collapsed" aria-expanded="false">
+            <i class="fas fa-file-signature"></i>
+            <p>Penilaian RPL</p>
+          </a>
+        </li>
+        @endrole
+        @role('Auditor Manajemen')
+        <li class="nav-item">
+          <a href="/penilaian/Manajemen" class="collapsed" aria-expanded="false">
+            <i class="fas fa-file-signature"></i>
+            <p>Penilaian Manajemen</p>
+          </a>
+        </li>
+        @endrole
+        @role('Auditor Hukum')
+        <li class="nav-item">
+          <a href="/penilaian/Hukum" class="collapsed" aria-expanded="false">
+            <i class="fas fa-file-signature"></i>
+            <p>Penilaian Hukum</p>
+          </a>
+        </li>
+        @endrole
+        @role('Auditor Agroteknologi')
+        <li class="nav-item">
+          <a href="/penilaian/Agroteknologi" class="collapsed" aria-expanded="false">
+            <i class="fas fa-file-signature"></i>
+            <p>Penilaian Agroteknologi</p>
+          </a>
+        </li>
+        @endrole
+
         @role('LPPM')
         <li class="nav-item">
           <a data-toggle="collapse" href="#pengendalian">
