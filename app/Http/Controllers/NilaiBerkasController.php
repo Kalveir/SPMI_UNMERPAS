@@ -10,33 +10,34 @@ use Illuminate\Http\Request;
 
 class NilaiBerkasController extends Controller
 {
+    // tolong tambahkan tahun sekarang
     public function PenilaianInformatika()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianRPL()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianManajemen()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianHukum()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }
     public function PenilaianAgroteknologi()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->get();
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',0)->get();
         $indikator = indikator::get();
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator'));
     }

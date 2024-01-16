@@ -56,6 +56,12 @@ class BerkasController extends Controller
         return view('admin.berkas.tambah_berkas', compact('pengisian'));
     }
 
+    public function addPeningkatan($id)
+    {
+        $pengisian = Pengisian::find($id);
+        return view('admin.berkas.tambah_peningkatan',compact('pengisian'));
+    }
+
     public function uploadFile(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
@@ -69,6 +75,29 @@ class BerkasController extends Controller
             $fl->storeAs('Berkas',$nama_file);
 
             $pengisian_berkas->jenis = $request->jenis;
+            $pengisian_berkas->pengisian_id = $pengisian->id;
+            $pengisian_berkas->pegawai_id = Auth::user()->id;
+            $pengisian_berkas->deskripsi = $request->deskripsi;
+            $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
+            $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
+            $pengisian_berkas->save();
+        }
+        return redirect()->route('berkas.index');
+    }
+
+    public function uploadPeningkatan(Request $request, $id)
+    {
+        $pengisian = Pengisian::find($id);
+        $file = $request->file('nama_file');
+        foreach($file as $fl){
+            $original = $fl->getClientOriginalName();
+            $nama_file = now()->format('dmY').'_'.$original;
+
+            $pengisian_berkas = new pengisian_berkas;
+            $pengisian_berkas->nama_file = $nama_file;
+            $fl->storeAs('Berkas',$nama_file);
+
+            $pengisian_berkas->jenis = 'Peningkatan';
             $pengisian_berkas->pengisian_id = $pengisian->id;
             $pengisian_berkas->pegawai_id = Auth::user()->id;
             $pengisian_berkas->deskripsi = $request->deskripsi;

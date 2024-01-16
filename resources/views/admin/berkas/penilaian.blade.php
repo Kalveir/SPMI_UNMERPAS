@@ -93,7 +93,7 @@ Daftar Penilaian Berkas
                                     Penilaian</button>
                             </form>
                             @elseif ($brks->aksi_code > 1)
-                            <button class="btn btn-success">Penilaian Tersimpan</button>
+                            <button class="btn btn-outline-success">Penilaian Tersimpan</button>
                             @endif
                         </td>
                     </tr>

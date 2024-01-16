@@ -187,6 +187,42 @@
           </div>
         </li>
         @endcan
+        <li class="nav-item">
+          <a data-toggle="collapse" href="#pengendalian">
+            <i class="fas fa-file-signature"></i>
+            <p>Pengendalian</p>
+            <span class="caret"></span>
+          </a>
+          <div class="collapse" id="pengendalian">
+            <ul class="nav nav-collapse">
+              <li>
+                <a href="/pengendalian/informatika">
+                  <span class="sub-item">Teknik Informatika</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pengendalian/RPL">
+                  <span class="sub-item">Rekayasa Perangkat Lunak</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pengendalian/Manajemen">
+                  <span class="sub-item">Manajemen</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pengendalian/Hukum">
+                  <span class="sub-item">Hukum</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pengendalian/Agroteknologi">
+                  <span class="sub-item">Agroteknologi</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

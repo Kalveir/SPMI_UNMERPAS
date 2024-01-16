@@ -17,6 +17,7 @@ use App\Http\Controllers\NilaiBerkasController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StandardController;
 use App\Http\Controllers\AudhitorController;
+use App\Http\Controllers\PengendalianController;
 use App\Http\Controllers\ProfileController;
 use Spatie\Permission\Models\Role;
 
@@ -153,7 +154,9 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::post('/add-indikator', [BerkasController::class, 'addIndikator'])->name('berkas.addIndikator')->middleware('auth');
     Route::delete('/delete-indikator/{id}',[BerkasController::class, 'hapusIndikator'])->name('berkas.delete')->middleware('auth');
     Route::post('/add-file/{id}', [BerkasController::class, 'addFile'])->name('berkas.addFile')->middleware('auth');
+    Route::post('/add-peningkatan/{id}', [BerkasController::class, 'addPeningkatan'])->name('berkas.peningkatan')->middleware('auth');
     Route::post('/upload-file/{id}',[BerkasController::class, 'uploadFile'])->name('berkas.upload_file')->middleware('auth');
+    Route::post('/upload-peningkatan/{id}',[BerkasController::class, 'uploadPeningkatan'])->name('berkas.upload_peningkatan')->middleware('auth');
     Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
     Route::post('berkas/validasi/{id}',[BerkasController::class,'validasiBerkas'])->name('berkas.valid')->middleware('auth');
 });
@@ -167,6 +170,16 @@ Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
     Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
 });
+
+//pengendalian
+Route::get('/pengendalian/informatika',[PengendalianController::class, 'PengendalianInformatika'])->name('prodi_informatika.index')->middleware('auth');
+Route::get('/pengendalian/RPL',[PengendalianController::class, 'PengendalianRPL'])->name('prodi_rpl.index')->middleware('auth');
+Route::get('/pengendalian/Manajemen',[PengendalianController::class, 'PengendalianManajemen'])->name('prodi_manajemen.index')->middleware('auth');
+Route::get('/pengendalian/Hukum',[PengendalianController::class, 'PengendalianHukum'])->name('prodi_hukum.index')->middleware('auth');
+Route::get('/pengendalian/Agroteknologi',[PengendalianController::class, 'PengendalianAgroteknologi'])->name('prodi_agroteknologi.index')->middleware('auth');
+Route::get('/tambah-pengendalian/{id}',[PengendalianController::class,'addPengendalian'])->name('pengendalian.edit')->middleware('auth');
+Route::post('/pengendalian/update/{id}',[PengendalianController::class, 'updatePengendalian'])->name('pengendalian.update')->middleware('auth');
+
 
 //manajemen audhitor
 Route::get('/audhitor',[AudhitorController::class,'listAudhitor'])->name('audhitor.index')->middleware('auth');
