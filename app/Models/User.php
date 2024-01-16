@@ -19,6 +19,10 @@ class User extends Authenticatable
     protected $fillable = ['prodi_id','nama', 'email','password', 'status'];
 
 
+    // public function hasAnyRole($roles)
+    // {
+    //     return in_array($this->role, explode(',', $roles));
+    // }
     public function role()
     {
         return $this->BelongsToMany(Role::class,'model_has_roles','model_id','role_id');

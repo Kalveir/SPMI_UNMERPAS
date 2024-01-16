@@ -148,8 +148,8 @@ Route::middleware(['auth', 'can:kelola jabatan'])->group(function () {
     Route::put('/update-jabatan/{id}', [JabatanController::class, 'update'])->name('jabatan.update')->middleware('auth');
 });
 
+//manajemen File
 Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
-    //manajemen File
     Route::get('/berkas',[BerkasController::class, 'listBerkas'])->name('berkas.index')->middleware('auth');
     Route::post('/add-indikator', [BerkasController::class, 'addIndikator'])->name('berkas.addIndikator')->middleware('auth');
     Route::delete('/delete-indikator/{id}',[BerkasController::class, 'hapusIndikator'])->name('berkas.delete')->middleware('auth');
@@ -161,24 +161,36 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::post('berkas/validasi/{id}',[BerkasController::class,'validasiBerkas'])->name('berkas.valid')->middleware('auth');
 });
 //penilaian
-Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
-    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->name('informatika.index')->middleware('auth');
-    Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->name('rpl.index')->middleware('auth');
-    Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');
-    Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->name('hukum.index')->middleware('auth');
-    Route::get('/penilaian/Agroteknologi',[NilaiBerkasController::class, 'PenilaianAgroteknologi'])->name('agro.index')->middleware('auth');
+Route::middleware(['auth', 'role:Auditor Informatika,Auditor Manajemen,Auditor RPL,Auditor Hukum,Auditor Agroteknologi'])->group(function(){
     Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
 });
+Route::middleware(['auth', 'role:Auditor Manajemen'])->group(function(){
+    Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');
+});
+Route::middleware(['auth', 'role:Auditor Informatika'])->group(function(){
+    Route::get('/penilaian/informatika',[NilaiBerkasController::class, 'PenilaianInformatika'])->name('informatika.index')->middleware('auth');
+});
+Route::middleware(['auth', 'role:Auditor RPL'])->group(function(){
+    Route::get('/penilaian/RPL',[NilaiBerkasController::class, 'PenilaianRPL'])->name('rpl.index')->middleware('auth');
+});
+Route::middleware(['auth', 'role:Auditor Hukum'])->group(function(){
+    Route::get('/penilaian/Hukum',[NilaiBerkasController::class, 'PenilaianHukum'])->name('hukum.index')->middleware('auth');
+});
+Route::middleware(['auth', 'role:Auditor Agroteknologi'])->group(function(){
+    Route::get('/penilaian/Agroteknologi',[NilaiBerkasController::class, 'PenilaianAgroteknologi'])->name('agro.index')->middleware('auth');
+});
 
 //pengendalian
-Route::get('/pengendalian/informatika',[PengendalianController::class, 'PengendalianInformatika'])->name('prodi_informatika.index')->middleware('auth');
-Route::get('/pengendalian/RPL',[PengendalianController::class, 'PengendalianRPL'])->name('prodi_rpl.index')->middleware('auth');
-Route::get('/pengendalian/Manajemen',[PengendalianController::class, 'PengendalianManajemen'])->name('prodi_manajemen.index')->middleware('auth');
-Route::get('/pengendalian/Hukum',[PengendalianController::class, 'PengendalianHukum'])->name('prodi_hukum.index')->middleware('auth');
-Route::get('/pengendalian/Agroteknologi',[PengendalianController::class, 'PengendalianAgroteknologi'])->name('prodi_agroteknologi.index')->middleware('auth');
-Route::get('/tambah-pengendalian/{id}',[PengendalianController::class,'addPengendalian'])->name('pengendalian.edit')->middleware('auth');
-Route::post('/pengendalian/update/{id}',[PengendalianController::class, 'updatePengendalian'])->name('pengendalian.update')->middleware('auth');
+Route::middleware(['auth', 'role:LPPM'])->group(function(){
+    Route::get('/pengendalian/informatika',[PengendalianController::class, 'PengendalianInformatika'])->name('prodi_informatika.index')->middleware('auth');
+    Route::get('/pengendalian/RPL',[PengendalianController::class, 'PengendalianRPL'])->name('prodi_rpl.index')->middleware('auth');
+    Route::get('/pengendalian/Manajemen',[PengendalianController::class, 'PengendalianManajemen'])->name('prodi_manajemen.index')->middleware('auth');
+    Route::get('/pengendalian/Hukum',[PengendalianController::class, 'PengendalianHukum'])->name('prodi_hukum.index')->middleware('auth');
+    Route::get('/pengendalian/Agroteknologi',[PengendalianController::class, 'PengendalianAgroteknologi'])->name('prodi_agroteknologi.index')->middleware('auth');
+    Route::get('/tambah-pengendalian/{id}',[PengendalianController::class,'addPengendalian'])->name('pengendalian.edit')->middleware('auth');
+    Route::post('/pengendalian/update/{id}',[PengendalianController::class, 'updatePengendalian'])->name('pengendalian.update')->middleware('auth');
+});
 
 
 //manajemen audhitor

@@ -149,7 +149,6 @@
           </a>
         </li>
         @endcan
-        @can('kelola penilaian')
         <li class="nav-item">
           <a data-toggle="collapse" href="#penilaian">
             <i class="fas fa-file-signature"></i>
@@ -157,36 +156,47 @@
             <span class="caret"></span>
           </a>
           <div class="collapse" id="penilaian">
+
             <ul class="nav nav-collapse">
+              @role('Auditor Informatika')
               <li>
                 <a href="/penilaian/informatika">
                   <span class="sub-item">Teknik Informatika</span>
                 </a>
               </li>
+              @endrole
+              @role('Auditor RPL')
               <li>
                 <a href="/penilaian/RPL">
                   <span class="sub-item">Rekayasa Perangkat Lunak</span>
                 </a>
               </li>
+              @endrole
+              @role('Auditor Manajemen')
               <li>
                 <a href="/penilaian/Manajemen">
                   <span class="sub-item">Manajemen</span>
                 </a>
               </li>
+              @endrole
+              @role('Auditor Hukum')
               <li>
                 <a href="/penilaian/Hukum">
                   <span class="sub-item">Hukum</span>
                 </a>
               </li>
+              @endrole
+              @role('Auditor Agroteknologi')
               <li>
                 <a href="/penilaian/Agroteknologi">
                   <span class="sub-item">Agroteknologi</span>
                 </a>
               </li>
+              @endrole
             </ul>
           </div>
         </li>
-        @endcan
+        @role('LPPM')
         <li class="nav-item">
           <a data-toggle="collapse" href="#pengendalian">
             <i class="fas fa-file-signature"></i>
@@ -223,6 +233,7 @@
             </ul>
           </div>
         </li>
+        @endrole
       </ul>
     </div>
   </div>
