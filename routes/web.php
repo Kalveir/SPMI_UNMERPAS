@@ -77,7 +77,7 @@ Route::middleware(['auth', 'can:kelola standard'])->group(function () {
     Route::resource('standard',StandardController::class)->middleware('auth');   
 });
 //manajemen pegawai
-Route::middleware(['auth', ])->group(function () {
+Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
 });
 //manajemen kelola jenis
