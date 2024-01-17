@@ -68,14 +68,14 @@
           </a>
         </li>
         @endcan
-        @can('kelola pegawai')
+        @role('LPPM')
         <li class="nav-item">
-          <a href="/audhitor" class="collapsed" aria-expanded="false">
+          <a href="/auditor" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-user-tie"></i>
             <p>Auditor</p>
           </a>
         </li>
-        @endcan
+        @endrole
         <li class="nav-item">
           <a href="/standard" class="collapsed" aria-expanded="false">
             <i class="fas fa-th-list"></i>

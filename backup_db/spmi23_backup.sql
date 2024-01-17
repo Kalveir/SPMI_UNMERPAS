@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 17 Jan 2024 pada 15.33
+-- Waktu pembuatan: 14 Jan 2024 pada 00.32
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -185,7 +185,10 @@ CREATE TABLE `model_has_roles` (
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
-(1, 'App\\Models\\User', 1);
+(1, 'App\\Models\\User', 1),
+(2, 'App\\Models\\User', 3),
+(2, 'App\\Models\\User', 10),
+(2, 'App\\Models\\User', 11);
 
 -- --------------------------------------------------------
 
@@ -223,7 +226,10 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id`, `prodi_id`, `nama`, `email`, `password`, `status`, `created_at`, `remember_token`) VALUES
-(1, 1, 'Wijaya', 'wijaya@gmail.com', '$2y$12$DS0DYkp7cp7BJVtjjX2DIOSBwC0EOWzZpOZ5iJq.xA/h1PgyL/Ehy', 1, NULL, NULL);
+(1, 1, 'Wijaya', 'wijaya@gmail.com', '$2y$12$DS0DYkp7cp7BJVtjjX2DIOSBwC0EOWzZpOZ5iJq.xA/h1PgyL/Ehy', 1, NULL, NULL),
+(3, 1, 'William', 'wiliam@gmail.com', '$2y$12$HTFQJ3HDjkq11HvTNZ.cResJo1/VHy15dwA3ly7kTyxpUXulnl5i2', 1, NULL, NULL),
+(10, 3, 'Lusi', 'lusi@gmail.com', '$2y$12$KNgBlfEobBB5jWTP4EfB/.ceRJw193hOb3d.3GJLXfExWsEyvRs/u', 1, NULL, NULL),
+(11, 2, 'musthofa', 'musthofa@gmail.com', '$2y$12$PpyTGP1WRn/8J3c.gax2xOHVRhHCgBU0LnwYDu1Vmd6h5NopN4bC6', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -333,7 +339,7 @@ INSERT INTO `program_studi` (`id`, `fakultas_id`, `nama`) VALUES
 (2, 1, 'Rekayasa Perangkat Lunak'),
 (3, 3, 'Manajemen'),
 (4, 4, 'Hukum'),
-(5, 5, 'Agroteknologi');
+(5, 5, 'Argoteknologi');
 
 -- --------------------------------------------------------
 
@@ -355,13 +361,13 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'web', '2023-12-25 20:32:45', '2023-12-26 00:58:52'),
-(6, 'Auditor Informatika', 'web', '2024-01-06 20:24:49', '2024-01-15 03:27:12'),
-(7, 'Auditor RPL', 'web', '2024-01-06 20:24:49', '2024-01-15 03:27:24'),
-(8, 'Auditor Manajemen', 'web', '2024-01-06 20:24:50', '2024-01-15 03:27:34'),
-(9, 'Auditor Hukum', 'web', '2024-01-06 20:24:50', '2024-01-15 03:27:44'),
-(10, 'Auditor Agroteknologi', 'web', '2024-01-06 20:24:50', '2024-01-15 03:27:54'),
-(11, 'LPPM', 'web', '2024-01-17 07:32:39', '2024-01-17 07:32:39'),
-(12, 'Ketua Program Studi', 'web', '2024-01-17 07:33:01', '2024-01-17 07:33:01');
+(2, 'Ketua Program Studi', 'web', '2023-12-25 20:35:44', '2023-12-25 20:35:44'),
+(4, 'LPPM', 'web', '2023-12-26 19:09:00', '2023-12-26 19:49:41'),
+(6, 'Audhitor Informatika', 'web', '2024-01-06 20:24:49', '2024-01-06 20:24:49'),
+(7, 'Audhitor RPL', 'web', '2024-01-06 20:24:49', '2024-01-06 20:24:49'),
+(8, 'Audhitor Manajemen', 'web', '2024-01-06 20:24:50', '2024-01-06 20:24:50'),
+(9, 'Audhitor Hukum', 'web', '2024-01-06 20:24:50', '2024-01-06 20:24:50'),
+(10, 'Audhitor Agroteknologi', 'web', '2024-01-06 20:24:50', '2024-01-13 05:01:32');
 
 -- --------------------------------------------------------
 
@@ -384,21 +390,17 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (3, 1),
 (4, 1),
 (5, 1),
-(5, 11),
+(5, 4),
 (6, 1),
-(6, 11),
 (7, 1),
-(7, 11),
 (8, 1),
-(8, 11),
 (9, 1),
-(9, 11),
 (10, 1),
 (11, 1),
-(11, 11),
 (12, 1),
-(12, 12),
-(13, 1);
+(12, 2),
+(13, 1),
+(13, 4);
 
 -- --------------------------------------------------------
 
@@ -626,13 +628,13 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengisian`
 --
 ALTER TABLE `pengisian`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengisian_berkas`
@@ -662,7 +664,7 @@ ALTER TABLE `program_studi`
 -- AUTO_INCREMENT untuk tabel `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `standard`

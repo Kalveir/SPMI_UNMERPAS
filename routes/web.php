@@ -194,7 +194,7 @@ Route::middleware(['auth', 'role:LPPM'])->group(function(){
 
 
 //manajemen audhitor
-Route::get('/audhitor',[AudhitorController::class,'listAudhitor'])->name('audhitor.index')->middleware('auth');
+Route::get('/auditor',[AudhitorController::class,'listAudhitor'])->name('audhitor.index')->middleware('auth');
 Route::get('/tambah-audhitor',[AudhitorController::class,'addAudhitor'])->name('audhitor.create')->middleware('auth');
 Route::post('/add_audhitor',[AudhitorController::class, 'storeAudhitor'])->name('audhitor.store')->middleware('auth');
 Route::delete('/hapus_audhitor/{id}',[AudhitorController::class, 'destroyAudhitor'])->name('audhitor.destroy')->middleware('auth');
