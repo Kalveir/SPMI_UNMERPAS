@@ -56,7 +56,7 @@ class NilaiBerkasController extends Controller
     public function updateNilai(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
+        // $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
 
         $pengisian->nilai = $request->nilai;
         $pengisian->komentar = $request->komentar;
