@@ -57,9 +57,8 @@ class NilaiBerkasController extends Controller
     {
         $pengisian = Pengisian::find($id);
         $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
-        $penilaian = $indikator_nilai->nilai * $request->nilai;
 
-        $pengisian->nilai = $penilaian;
+        $pengisian->nilai = $request->nilai;
         $pengisian->komentar = $request->komentar;
         $pengisian->audhitor = Auth::user()->id;
         $pengisian->aksi_code = 2;

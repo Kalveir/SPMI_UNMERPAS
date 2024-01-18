@@ -40,7 +40,7 @@ Tambah Penilaian
         <div class="col-md-6 row-md-15">
             <div class="form-group">
                 <label for="basicInput">Nilai :</label>
-                <input type="number"  value="{{ $pengisian->nilai }}" class="form-control" id="basicInput" name="nilai" required>
+                <input type="number"  value="{{ $pengisian->nilai }}" class="form-control" id="basicInput" name="nilai" required max="100">
             </div>
         </div>
 
