@@ -72,10 +72,7 @@ Route::middleware(['auth', 'can:kelola fakultas'])->group(function () {
 Route::middleware(['auth', 'can:kelola prodi'])->group(function () {
     Route::resource('prodi',ProdiController::class)->middleware('auth');
 });
-//manajemen standard
-Route::middleware(['auth', 'can:kelola standard'])->group(function () {
-    Route::resource('standard',StandardController::class)->middleware('auth');   
-});
+
 //manajemen pegawai
 Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
@@ -88,9 +85,24 @@ Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
 Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');
 });
+//manajemen standard
+Route::middleware(['auth', 'can:kelola standard'])->group(function () {
+    Route::resource('standard',StandardController::class)->middleware('auth');   
+});
+
+Route::middleware(['auth','can:kelola indikator'])->group(function(){
+    Route::get('/indikator',[IndikatorController::class,'index'])->name('indikator.index')->middleware('auth');
+    Route::get('/indikator/create', [IndikatorController::class,'create'])->name('indikator.create')->middleware('auth');
+    Route::post('/indikator/store',[IndikatorController::class,'store'])->name('indikator.store')->middleware('auth');
+    Route::get('/indikator/{id}/edit',[IndikatorController::class,'edit'])->name('indikator.edit')->middleware('auth');
+    Route::put('/indikator/{id}/update',[IndikatorController::class,'update'])->name('indikator.update')->middleware('auth');
+    Route::delete('/indikator/{id}/destroy',[IndikatorController::class,'destroy'])->name('indikator.destroy')->middleware('auth');
+
+});
 
 
 //manajemen buku manual
+
 Route::get('/bookmanual',[BookmanualController::class,'index'])->name('bookmanual.index')->middleware('auth');
 Route::get('/bookmanual/{id}/show',[BookmanualController::class,'show'])->name('bookmanual.show')->middleware('auth');
 
@@ -113,7 +125,7 @@ Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
     Route::put('/bookstandard/{id}/update',[BookstandardController::class,'update'])->name('bookstandard.update')->middleware('auth');
     Route::delete('/bookstandard/{id}/destroy',[BookstandardController::class,'destroy'])->name('bookstandard.destroy')->middleware('auth');
 });
-Route::resource('indikator', IndikatorController::class)->middleware('auth');
+
 // Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
 
 // });

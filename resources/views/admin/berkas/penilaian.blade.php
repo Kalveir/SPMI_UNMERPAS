@@ -88,12 +88,20 @@ Penilaian Berkas Program Studi {{ $prodi }}
                             <form action="{{ route('penilaian.addNilai', $brks->id) }}"
                                 class="d-inline">
                                 @csrf
-                                <button class="btn icon icon-left btn-info"><i
-                                        data-feather="alert-triangle"></i>
-                                    Penilaian</button>
+                                <button class="btn btn-warning">
+                                    <span class="btn-label">
+                                        <i class="fas fa-pen-square"></i>
+                                    </span>
+                                    Proses Penilaian
+                                </button>
                             </form>
                             @elseif ($brks->aksi_code > 1)
-                            <button class="btn btn-outline-success">Penilaian Tersimpan</button>
+                            <button class="btn btn-info">
+                                <span class="btn-label">
+                                    <i class="fa fa-info"></i>
+                                </span>
+                                Penilaian Tersimpan
+                            </button>
                             @endif
                         </td>
                     </tr>

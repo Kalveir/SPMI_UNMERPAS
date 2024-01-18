@@ -182,13 +182,29 @@ Daftar Berkas
                         </div>
                         {{-- fix di nilai --}}
                         @elseif ($bkst->aksi_code == 1)
-                        <button class="btn btn-outline-danger">Proses Penilaian</button>
+                        <button class="btn btn-warning">
+                            <span class="btn-label">
+                                <i class="fa fa-exclamation-circle"></i>
+                            </span>
+                            Proses Penilaian
+                        </button>
+                        {{-- <button class="btn btn-outline-danger">Proses Penilaian</button> --}}
                         @elseif ($bkst->aksi_code == 2)
-                        <button class="btn btn-outline-info">Penilaian Selesai</button>
+                        <button class="btn btn-success">
+                            <span class="btn-label">
+                                <i class="fa fa-check"></i>
+                            </span>
+                            Penilaian Selesai
+                        </button>
                         @elseif ($bkst->aksi_code == 3)
                         <form action="{{ route('berkas.peningkatan',$bkst->id) }}" method="POST">
                             @csrf
-                            <button class="btn btn-primary">Peningkatan</button>
+                            <button class="btn btn-primary">
+                                <span class="btn-label">
+                                    <i class="fas fa-file-upload"></i>
+                                </span>
+                                Peningkatan
+                            </button>
                         </form>
                         @endif
                     </td>

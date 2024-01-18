@@ -5,6 +5,7 @@ use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
 use App\Models\nilai;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,7 @@ class NilaiBerkasController extends Controller
     {
         $pengisian = Pengisian::find($id);
         $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
-        $penilaian = $indikator_nilai->nilai - $request->nilai;
+        $penilaian = $indikator_nilai->nilai * $request->nilai;
 
         $pengisian->nilai = $penilaian;
         $pengisian->komentar = $request->komentar;

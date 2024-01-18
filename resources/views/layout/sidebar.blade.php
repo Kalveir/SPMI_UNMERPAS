@@ -76,12 +76,14 @@
           </a>
         </li>
         @endrole
+        @can('kelola standard')
         <li class="nav-item">
           <a href="/standard" class="collapsed" aria-expanded="false">
             <i class="fas fa-th-list"></i>
             <p>Standard</p>
           </a>
         </li>
+        @endcan
         <li class="nav-item">
           <a href="/bookmanual" class="collapsed" aria-expanded="false">
             <i class="fas fa-book-reader"></i>
@@ -121,18 +123,22 @@
             </ul>
           </div>
         </li>
+        @can('kelola indikator')
         <li class="nav-item">
           <a href="/indikator" class="collapsed" aria-expanded="false">
             <i class="fas fa-tasks"></i>
             <p>Indikator</p>
           </a>
         </li>
+        @endcan
+        @can('kelola jenis')
         <li class="nav-item">
           <a href="/jenis" class="collapsed" aria-expanded="false">
             <i class="fas fa-home"></i>
             <p>Jenis</p>
           </a>
         </li>
+        @endcan
         @can('kelola nilai')
         <li class="nav-item">
           <a href="/nilai" class="collapsed" aria-expanded="false">

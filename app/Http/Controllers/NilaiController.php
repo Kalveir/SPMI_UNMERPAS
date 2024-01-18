@@ -23,7 +23,8 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        $indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
+        $indikator = Indikator::get();
+        //$indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
         return view('admin.nilai.tambah_nilai', compact('indikator'));
     }
 
