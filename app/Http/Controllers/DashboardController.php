@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\nilai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\pengisian;
 
 class DashboardController extends Controller
 {
@@ -11,7 +14,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $pengisian = Pengisian::join('nilai', 'pengisian.indikator_id', '=', 'nilai.indikator_id')
+        ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
+        ->where('pengisian.program_studi', Auth::user()->prodi_id)
+        ->selectRaw('pengisian.*, nilai.*, (pengisian.nilai * nilai.nilai) as hasil_perkalian, indikator.target')
+        ->get();
+        return view('admin.dashboard',compact('pengisian'));
     }
 
     /**

@@ -5,7 +5,6 @@ use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
 use App\Models\nilai;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -14,35 +13,40 @@ class NilaiBerkasController extends Controller
     // tolong tambahkan tahun sekarang
     public function PenilaianInformatika()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',0)->get();
+        $tahun = date("Y");
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',0)->where('tahun',$tahun)->get();
         $indikator = indikator::get();
         $prodi = 'Informatika';
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianRPL()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',0)->get();
+        $tahun = date("Y");
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',0)->where('tahun',$tahun)->get();
         $indikator = indikator::get();
         $prodi = 'Rekayasa Perangkat Lunak';
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianManajemen()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',0)->get();
+        $tahun = date("Y");
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',0)->where('tahun',$tahun)->get();
         $indikator = indikator::get();
         $prodi = 'Manajemen';
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianHukum()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',0)->get();
+        $tahun = date("Y");
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',0)->where('tahun',$tahun)->get();
         $indikator = indikator::get();
         $prodi = 'Hukum';
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
     }
     public function PenilaianAgroteknologi()
     {
-        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',0)->get();
+        $tahun = date("Y");
+        $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',0)->where('tahun',$tahun)->get();
         $indikator = indikator::get();
         $prodi = 'Agroteknologi';
         return view('admin.berkas.penilaian', compact('berkas_nilai','indikator','prodi'));
