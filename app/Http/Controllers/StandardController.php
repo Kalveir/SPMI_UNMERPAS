@@ -13,7 +13,8 @@ class StandardController extends Controller
      */
     public function index()
     {
-        $standar = Standard::where('pegawai_id', Auth::user()->id)->get();
+        // $standar = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $standar = Standard::get();
         return view('admin.standar',compact('standar'));
     }
 

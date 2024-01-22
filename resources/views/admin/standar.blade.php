@@ -2,18 +2,18 @@
 @section('tittle')
 Standard
 @endsection
-
 @section('judul')
 Daftar Standard
 @endsection
-
 @section('container')
 <div class="card">
-  <div class="card-header">
-    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-        Tambah Standarisasi
-    </button>
-  </div>
+    <div class="card-header">
+        @can('kelola standard')
+        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
+            Tambah Standarisasi
+        </button>
+        @endcan
+    </div>
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped" >
@@ -22,7 +22,9 @@ Daftar Standard
                 <th>No.</th>
                 <th>Nama</th>
                 <th>Status</th>
+                @can('kelola standard')
                 <th>Aksi</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -37,6 +39,7 @@ Daftar Standard
                           <span class="badge badge-danger">Tidak Aktif</span>
                       @endif
                   </td>
+                  @can('kelola standard')
                     <td>
                         <button class="btn icon icon-left btn-warning"data-toggle="modal"
                             data-target="#editStandard{{ $std->id }}"><i
@@ -52,6 +55,7 @@ Daftar Standard
                             </button>
                         </form>
                     </td>
+                    @endcan
                 </tr>
                 {{-- update Standard --}}
                 <div class="modal fade" id="editStandard{{ $std->id }}" tabindex="-1"

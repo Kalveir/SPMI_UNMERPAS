@@ -33,7 +33,7 @@ use Spatie\Permission\Models\Role;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 // Route::get('/hey', function () {
 //     $roles = ['Audhitor Informatika','Audhitor RPL', 'Audhitor Manajemen','Audhitor Hukum','Audhitor Argoteknologi'];
@@ -86,12 +86,16 @@ Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');
 });
 //manajemen standard
+Route::get('/standard',[StandardController::class,'index'])->name('standard.index')->middleware('auth');
 Route::middleware(['auth', 'can:kelola standard'])->group(function () {
-    Route::resource('standard',StandardController::class)->middleware('auth');   
+    Route::post('/standard/store',[StandardController::class,'store'])->name('standard.store')->middleware('auth');
+    Route::put('/standard/{id}/update',[StandardController::class,'update'])->name('standard.update')->middleware('auth');
+    Route::delete('/standard/{id}/destroy',[StandardController::class,'destroy'])->name('standard.destroy')->middleware('auth'); 
 });
 
+//manajemen indikator
+Route::get('/indikator',[IndikatorController::class,'index'])->name('indikator.index')->middleware('auth');
 Route::middleware(['auth','can:kelola indikator'])->group(function(){
-    Route::get('/indikator',[IndikatorController::class,'index'])->name('indikator.index')->middleware('auth');
     Route::get('/indikator/create', [IndikatorController::class,'create'])->name('indikator.create')->middleware('auth');
     Route::post('/indikator/store',[IndikatorController::class,'store'])->name('indikator.store')->middleware('auth');
     Route::get('/indikator/{id}/edit',[IndikatorController::class,'edit'])->name('indikator.edit')->middleware('auth');
