@@ -8,6 +8,7 @@ Daftar Berkas
 @endsection
 
 @section('container')
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <div class="card">
   <div class="card-header">
     <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
@@ -132,15 +133,17 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                <div class="col-auto" style="padding: 5px;">
-                                    <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                @if ($bkst->aksi_code == 3)
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                @endif
                             @endif
                         </div>
                         @endforeach
@@ -180,32 +183,46 @@ Daftar Berkas
                                 </form>
                             @endif
                         </div>
-                        {{-- fix di nilai --}}
+                        
                         @elseif ($bkst->aksi_code == 1)
-                        <button class="btn btn-warning">
-                            <span class="btn-label">
-                                <i class="fa fa-exclamation-circle"></i>
-                            </span>
-                            Proses Penilaian
-                        </button>
-                        {{-- <button class="btn btn-outline-danger">Proses Penilaian</button> --}}
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            <strong>Proses Penilaian</strong>
+                        </div>
+                        {{-- sudah dinilai --}}
                         @elseif ($bkst->aksi_code == 2)
-                        <button class="btn btn-success">
-                            <span class="btn-label">
-                                <i class="fa fa-check"></i>
-                            </span>
-                            Penilaian Selesai
-                        </button>
+                        <div class="alert alert-success" role="alert">
+                            <i class="fa fa-check mr-1"></i>
+                            <strong>Penilaian Selesai</strong>
+                        </div>
+                        {{-- upload peningkatan --}}
                         @elseif ($bkst->aksi_code == 3)
-                        <form action="{{ route('berkas.peningkatan',$bkst->id) }}" method="POST">
-                            @csrf
-                            <button class="btn btn-primary">
-                                <span class="btn-label">
-                                    <i class="fas fa-file-upload"></i>
-                                </span>
-                                Peningkatan
-                            </button>
-                        </form>
+                        <div class="d-flex center-content-between">
+                            <form action="{{ route('berkas.peningkatan',$bkst->id) }}" method="POST">
+                                @csrf
+                                <button class="btn btn-primary">
+                                    <span class="btn-label">
+                                        <i class="fas fa-file-upload"></i>
+                                    </span>
+                                    Peningkatan
+                                </button>
+                            </form>
+                            @if ($bkst->pengisian_berkas->where('jenis', 'Peningkatan')->isNotEmpty())
+                                <form action="{{ route('berkas.submit', $bkst->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button class="btn btn-info">
+                                        <i data-feather="alert-triangle" class="fas fa-check-square"></i>
+                                        <span>Submit</span>
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                        @elseif ($bkst->aksi_code == 4)
+                        <div class="d-flex center-content-between">
+                            <div class="alert alert-info" role="alert">
+                                <strong>Audit Mutu : {{$bkst->tanggal }}</strong>
+                            </div>
+                        </div>
                         @endif
                     </td>
                 </tr>

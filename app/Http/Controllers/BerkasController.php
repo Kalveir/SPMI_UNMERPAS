@@ -127,4 +127,12 @@ class BerkasController extends Controller
         $berkas->save();
         return redirect()->route('berkas.index');
     }
+    public function submitpeningkatan($id)
+    {
+        $berkas = Pengisian::find($id);
+        $berkas->tanggal = now()->format('d/m/Y');
+        $berkas->aksi_code = 4;
+        $berkas->save();
+        return redirect()->route('berkas.index');
+    }
 }

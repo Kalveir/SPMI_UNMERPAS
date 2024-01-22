@@ -8,6 +8,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
 @endsection
 
 @section('container')
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <div class="card">
   <div class="card-header">
   </div>
@@ -83,7 +84,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                             </div>
                         </td>
                         
-                        <td>
+                        <td class="px-2 py-2">
                             @if ($brks->aksi_code == 1)
                             <form action="{{ route('penilaian.addNilai', $brks->id) }}"
                                 class="d-inline">
@@ -92,16 +93,15 @@ Penilaian Berkas Program Studi {{ $prodi }}
                                     <span class="btn-label">
                                         <i class="fas fa-pen-square"></i>
                                     </span>
-                                    Proses Penilaian
+                                    Proses Audit
                                 </button>
                             </form>
                             @elseif ($brks->aksi_code > 1)
-                            <button class="btn btn-info">
-                                <span class="btn-label">
-                                    <i class="fa fa-info"></i>
-                                </span>
-                                Penilaian Tersimpan
-                            </button>
+                            <div class="alert alert-primary" role="alert">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Penilaian Tersimpan!</strong>
+                            </div>
+                                                                                
                             @endif
                         </td>
                     </tr>
