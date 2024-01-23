@@ -39,7 +39,11 @@ Daftar Indikator
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{$idk->strategi }}</td>
-                    <td>{{$idk->isi }}</td>
+                    <td>
+                        <div class="text-wrap text-left" style="max-width: 1000px;">
+                            {{$idk->isi }}
+                        </div>
+                    </td>
                     <td>{{$idk->indikator }}</td>
                     <td>{{ $idk->standard->nama}}</td>
                     <td>{{$idk->satuan }}</td>

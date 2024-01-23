@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class NilaiBerkasController extends Controller
 {
-    // tolong tambahkan tahun sekarang
     public function PenilaianInformatika()
     {
         $tahun = date("Y");
@@ -55,7 +54,15 @@ class NilaiBerkasController extends Controller
     public function addNilai($id)
     {
         $pengisian = Pengisian::find($id);
-        return view('admin.berkas.tambah_nilai', compact('pengisian'));
+        if ($pengisian->aksi_code == 1)
+        {
+            return view('admin.berkas.tambah_nilai', compact('pengisian'));
+
+        }
+        else
+        {
+            return back();
+        }
     }
     public function updateNilai(Request $request, $id)
     {

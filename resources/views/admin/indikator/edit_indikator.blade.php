@@ -15,19 +15,19 @@ Edit Indikator
         @method('PUT')
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput">Isi :</label>
-                <input type="text"  value="{{ $indikator->isi }}" class="form-control" id="basicInput" name="isi" required>
+                <h4><strong>1. Isi :</strong></h4>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="isi" rows="3" required autofocus>{{ $indikator->isi }}</textarea>
             </div>
-        </div>
+        </div>        
         <div class="col-md-6 row-md-10">
             <div class="form-group">
-                <label for="basicInput">Strategi :</label>
+                <h4><strong>2. Strategi :</strong></h4>
                 <input type="text" value="{{ $indikator->strategi }}" class="form-control" id="basicInput" name="strategi" required>
             </div>
         </div>
         <div class="col-md-6 mb-4">
             <fieldset class="form-group">
-                <label for="basicInput">Standar :</label>
+                <h4><strong>3. Standar :</strong></h4>
                 <select class="form-control" id="standar_id" name="standar_id">
                     @foreach ($standard as $std)
                     <option value="{{ $std->id }}"
@@ -39,25 +39,25 @@ Edit Indikator
         </div>
         <div class="col-md-6 row-md-10">
             <div class="form-group">
-                <label for="basicInput">Indikator :</label>
+                <h4><strong>4. Indikator :</strong></h4>
                 <input type="text" value="{{ $indikator->indikator }}" class="form-control" id="basicInput" name="indikator" required>
             </div>
         </div>
         <div class="col-md-6 row-md-10">
             <div class="form-group">
-                <label for="basicInput">Satuan :</label>
+                <h4><strong>5. Satuan :</strong></h4>
                 <input type="text" value="{{ $indikator->satuan }}" class="form-control" id="basicInput" name="satuan" required>
             </div>
         </div>
         <div class="col-md-6 row-md-10">
             <div class="form-group">
-                <label for="basicInput">Target :</label>
+                <h4><strong>6. Target :</strong></h4>
                 <input type="number" value="{{ $indikator->target }}" class="form-control" id="basicInput" name="target" required>
             </div>
         </div>
         <div class="col-md-6 mb-4">
             <fieldset class="form-group">
-                <label for="basicInput">Status :</label>
+                <h4><strong>7. Status :</strong></h4>
                 <select class="form-control" id="basicSelect" name="status">
                     <option value="1" @if ($indikator->status == 1) selected @endif>Aktif</option>
                     <option value="0" @if ($indikator->status == 0) selected @endif>Tidak Aktif</option>

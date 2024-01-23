@@ -11,31 +11,31 @@ class PengendalianController extends Controller
 {
     public function PengendalianInformatika()
     {
-        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',1)->get();
+        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
         return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
     }
     public function PengendalianRPL()
     {
-        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',1)->get();
+        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
         return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
     }
     public function PengendalianManajemen()
     {
-        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',1)->get();
+        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
         return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
     }
     public function PengendalianHukum()
     {
-        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',1)->get();
+        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
         return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
     }
     public function PengendalianAgroteknologi()
     {
-        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',1)->get();
+        $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
         return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
     }

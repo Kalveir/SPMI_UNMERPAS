@@ -15,7 +15,7 @@ Upload Berkas
     <form action="{{ route('berkas.upload_peningkatan', $pengisian->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="basicInput">1. Upload Berkas :</label>
+            <label for="basicInput"><h4><strong>1. Upload Berkas :</strong></h4></label>
         </div>
         <div class="col-md-6 mb-4">
             <div class="custom-file">
@@ -24,7 +24,7 @@ Upload Berkas
             </div>
         </div>
         <div class="form-group">
-            <label for="basicInput">2. Deskripsi :</label>
+            <label for="basicInput"><h4><strong>2. Deskripsi :</strong></h4></label>
         </div>
         <div class="col-md-8">
             <input id="deskripsi" type="hidden" name="deskripsi" required>

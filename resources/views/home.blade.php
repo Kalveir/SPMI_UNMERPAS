@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>SPMI | @yield('tittle')</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="/assets/img/unmer.png" type="image/x-icon"/>
+	<link rel="icon" href="/assets/img/icon.ico" type="image/x-icon"/>
 	
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -26,9 +27,8 @@
 </head>
 <body data-background-color="grey">
 	<div class="wrapper">
-		@include('layout.header')
+		@include('layout.header2')
 		<!-- Sidebar -->
-		@include('layout.sidebar')
 		<div class="main-panel">
 			<div class="content">
 				<div class="page-inner">

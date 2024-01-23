@@ -26,6 +26,7 @@ Daftar Berkas
                 <th>Standard</th>
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
+                <th>Tahun</th>
                 <th>Auditor</th>
                 <th>Evaluasi</th>
                 <th>Komentar</th>
@@ -99,6 +100,7 @@ Daftar Berkas
                         </div>
                         @endforeach
                     </td>
+                    <td>{{ $brkp->tahun }}</td>
                     {{-- evaluasi --}}
                     <td>{{ optional($brkp->auditor)->nama }}</td>
                     <td>{{ $brkp->nilai }}</td>

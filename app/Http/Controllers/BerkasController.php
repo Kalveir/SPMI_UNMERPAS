@@ -14,9 +14,9 @@ class BerkasController extends Controller
     public function listBerkas()
     {
         $indikator = Indikator::get();
-        $berkas = Pengisian::where('pegawai_id', Auth::user()->id)->get();
-        // $berkas = Pengisian::with(['pegawai', 'auditor'])->where('pegawai_id', Auth::user()->id)->get();
+        $berkas = Pengisian::where('pegawai_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('admin.berkas.list_berkas', compact('berkas','indikator'));
+        // $berkas = Pengisian::with(['pegawai', 'auditor'])->where('pegawai_id', Auth::user()->id)->get();
     }
 
     public function addIndikator(Request $request)

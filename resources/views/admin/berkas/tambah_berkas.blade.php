@@ -15,8 +15,15 @@ Upload Berkas
     <form action="{{ route('berkas.upload_file', $pengisian->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         {{-- @method('PUT') --}}
+
         <div class="form-group">
-            <label for="basicInput">1. Jenis :</label>
+            <h4><strong>1. Indikator :</strong></h4>
+        </div>
+        <div class="col-md-6 mb-5">
+            <h5>&emsp;{{$pengisian->indikator->indikator }}</h5>
+        </div>
+        <div class="form-group">
+            <label for="basicInput"><h4><strong>2. Jenis</strong></h4></label>
         </div>
         <div class="col-md-6 mb-4">
             <fieldset>
@@ -111,29 +118,6 @@ Upload Berkas
     }
 </script>
 
-<style>
-    .file-tag {
-        background-color: #3498db;
-        color: #ffffff;
-        padding: 5px;
-        margin-right: 5px;
-        border-radius: 3px;
-        display: inline-block;
-    }
-
-    .file-item {
-        margin-bottom: 5px;
-    }
-
-    /* Add some styles for the X icon */
-    .delete-button {
-        color: #ff0000;
-        cursor: pointer;
-        padding: 0;
-        background: none;
-        border: none;
-    }
-</style>
 
 
 

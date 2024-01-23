@@ -14,31 +14,31 @@ Tambah Penilaian
         @csrf
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput">Nama Ketua Program Studi :</label>
-                <input type="text"  value="{{ $pengendalian->pegawai->nama }}" class="form-control" id="basicInput" required readonly>
+                <h4><strong>Nama Ketua Program Studi :</strong></h4>
+                <h5>{{ $pengendalian->pegawai->nama }}</h5>
             </div>
         </div>
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput">Program Studi :</label>
-                <input type="text"  value="{{ $pengendalian->prodi->nama }}" class="form-control" id="basicInput" name="prodi" required readonly>
+                <h4><strong>Program Studi :</strong></h4>
+                <h5>{{ $pengendalian->prodi->nama }}</h5>
             </div>
         </div>
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput">Indikator :</label>
-                <input type="text"  value="{{ $pengendalian->indikator->indikator }}" class="form-control" id="basicInput" name="indikator" required readonly>
+                <h4><strong>Indikator :</strong></h4>
+                <h5>{{ $pengendalian->indikator->indikator }}</h5>
             </div>
         </div>
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput">Standard :</label>
-                <input type="text"  value="{{ $pengendalian->indikator->standard->nama }}" class="form-control" id="basicInput" name="standard" required readonly> 
+                <h4><strong>Standar :</strong></h4>
+                <h5>{{ $pengendalian->indikator->standard->nama  }}</h5>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
-                <label for="basicInput">Pengendalian :</label>
+                <label for="basicInput"><h4><strong>Pengendalian :</strong></h4></label>
                 @php
                     $pengendalianFile = $pengendalian->pengisian_berkas->where('jenis', 'Pengendalian')->first();
                 @endphp
