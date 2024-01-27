@@ -22,7 +22,7 @@ Edit Indikator
         <div class="col-md-6 row-md-10">
             <div class="form-group">
                 <h4><strong>2. Strategi :</strong></h4>
-                <input type="text" value="{{ $indikator->strategi }}" class="form-control" id="basicInput" name="strategi" required>
+                <textarea class="form-control" placeholder="Strategi indikator.." id="exampleFormControlTextarea1" name="strategi" rows="3" required>{{ $indikator->strategi }}</textarea>
             </div>
         </div>
         <div class="col-md-6 mb-4">
@@ -40,7 +40,7 @@ Edit Indikator
         <div class="col-md-6 row-md-10">
             <div class="form-group">
                 <h4><strong>4. Indikator :</strong></h4>
-                <input type="text" value="{{ $indikator->indikator }}" class="form-control" id="basicInput" name="indikator" required>
+                <textarea class="form-control" placeholder="Nama indikator.." id="exampleFormControlTextarea1" name="indikator" rows="3" required>{{ $indikator->indikator }}</textarea>
             </div>
         </div>
         <div class="col-md-6 row-md-10">

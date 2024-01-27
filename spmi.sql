@@ -240,6 +240,7 @@ CREATE TABLE `pengisian` (
   `nilai` int(3) DEFAULT NULL,
   `komentar` varchar(255) DEFAULT NULL,
   `tahun` int(4) DEFAULT NULL,
+  `tanggal` varchar(15) DEFAULT NULL,
   `aksi_code` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

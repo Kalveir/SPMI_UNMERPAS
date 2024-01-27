@@ -6,8 +6,6 @@ Buku Standard
 Tambah Buku Standard
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
   <div class="card-header">
   </div>
@@ -16,21 +14,26 @@ Tambah Buku Standard
         @csrf
         <div class="col-md-8">
             <div class="form-group">
-                <label for="basicInput"><h3>1. Visi Misi :</h3></label>
-                <input id="visi_misi" type="hidden" name="visi_misi" required>
-                <trix-editor placeholder="Input text here..." input="visi_misi" style="height: 150px"></trix-editor>
+                <label for="visiMisi"><h3>1. Visi Misi :</h3></label>
+                <textarea class="summernote" name="visi_misi" class="form-control" required></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Tujuan"><h3>2. Tujuan :</h3></label>
+                <textarea class="summernote" name="tujuan" class="form-control" required></textarea>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
-                <label for="basicInput"><h3>2. Rasional :</h3></label>
-                <input id="rasional" type="hidden" name="rasional" required>
-                <trix-editor placeholder="Input text here..." input="rasional" style="height: 150px"></trix-editor>
+                <label for="basicInput"><h3>3. Rasional :</h3></label>
+                <textarea class="summernote" name="rasional" class="form-control" required></textarea>
             </div>
         </div>
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
-                    <label for="basicInput"><h3>3. Standard :</h3></label>
+                    <label for="basicInput"><h3>4. Standard :</h3></label>
                     <select class="form-control" id="standar_id" name="standar_id">
                         @foreach ($standard as $std)
                             <option value="{{ $std->id }}">
@@ -42,23 +45,14 @@ Tambah Buku Standard
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label for="basicInput"><h3>4. Subjek :</h3></label>
-                    <input id="subjek" type="hidden" name="subjek" required>
-                    <trix-editor placeholder="Input text here..." input="subjek" style="height: 150px"></trix-editor>
+                    <label for="basicInput"><h3>5. Subjek :</h3></label>
+                    <textarea class="summernote" name="subjek" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label for="basicInput"><h3>5. Definisi Istilah :</h3></label>
-                    <input id="definisi_istilah" type="hidden" name="definisi_istilah" required>
-                    <trix-editor placeholder="Input text here..." input="definisi_istilah" style="height: 150px"></trix-editor>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <label for="basicInput"><h3>6. Tujuan :</h3></label>
-                    <input id="tujuan" type="hidden" name="tujuan" required>
-                    <trix-editor placeholder="Input text here..." input="tujuan" style="height: 150px"></trix-editor>
+                    <label for="basicInput"><h3>6. Definisi Istilah :</h3></label>
+                    <textarea class="summernote" name="definisi_istilah" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="col-md-6 mb-4">

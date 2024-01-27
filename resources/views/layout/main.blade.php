@@ -24,7 +24,7 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
 </head>
-<body data-background-color="grey">
+<body data-background-color="bg1">
 	<div class="wrapper">
 		@include('layout.header')
 		<!-- Sidebar -->
@@ -133,12 +133,36 @@
 	<script src="/assets/js/atlantis.min.js"></script>
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="/assets/js/setting-demo2.js"></script>
-	<script >
-		$(document).ready(function() {
-			$('#basic-datatables').DataTable({
-				
-			});
-		});
+	<!-- summertnote -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+	<script>
+    $(document).ready(function() {
+        // Inisialisasi Summernote untuk elemen dengan kelas summernote
+        $('.summernote').summernote({
+            placeholder: 'Input text here...',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+            ]
+        });
+    });
 	</script>
+
+
+	<script>
+    $(document).ready(function() {
+        // Inisialisasi DataTable
+        var dataTable = $('#basic-datatables').DataTable();
+
+        // Fokus pada input pencarian setelah DataTable diinisialisasi
+        $('div.dataTables_filter input').focus();
+    });
+</script>
 </body>
 </html>

@@ -26,7 +26,7 @@ class BerkasController extends Controller
                 'pegawai_id' => Auth::user()->id,
                 'program_studi' => Auth::user()->prodi_id,
                 'indikator_id' => $request->indikator_id,
-                'nilai' => 0,
+                // 'nilai' => 0,
                 'tahun' => now()->format('Y'),
                 'aksi_code'=> 0,
             ]

@@ -17,8 +17,8 @@ Daftar Berkas
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="basic-datatables" class="table table-bordered table-striped" >
-        <thead class=text-left">
+      <table id="basic-datatables" class="table table-bordered table-hover" >
+        <thead class="table-active">
             <tr>
                 <th>No</th>
                 <th>Program Studi</th>

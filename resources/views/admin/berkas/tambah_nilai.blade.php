@@ -6,8 +6,6 @@ Penilaian Berkas
 Tambah Penilaian Evaluasi
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
   <div class="card-body">
     <form action="{{ route('penilaian.updateNilai', $pengisian->id) }}" method="post">
@@ -47,8 +45,7 @@ Tambah Penilaian Evaluasi
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h4>Komentar :</h4></label>
-                <input id="deskripsi" type="hidden" value="{{ $pengisian->komentar }}" name="komentar" required>
-                <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
+                <textarea class="summernote" name="komentar" class="form-control" required></textarea>
             </div>
         </div>
         

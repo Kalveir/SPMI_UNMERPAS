@@ -18,9 +18,9 @@ Daftar Indikator
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="basic-datatables" class="table table-bordered table-striped" >
+      <table id="basic-datatables" class="table table-bordered table-striped table-hover">
         <thead>
-            <tr>
+            <tr class="table-active">
                 <th>No</th>
                 <th>Startegi</th>
                 <th>Isi</th>
@@ -38,16 +38,12 @@ Daftar Indikator
             @foreach ($indikator as $idk)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$idk->strategi }}</td>
-                    <td>
-                        <div class="text-wrap text-left" style="max-width: 1000px;">
-                            {{$idk->isi }}
-                        </div>
-                    </td>
-                    <td>{{$idk->indikator }}</td>
-                    <td>{{ $idk->standard->nama}}</td>
-                    <td>{{$idk->satuan }}</td>
-                    <td>{{$idk->target }}</td>
+                    <td class="ellipsis">{{$idk->strategi }}</td>
+                    <td class="ellipsis">{{$idk->isi }}</td>
+                    <td class="ellipsis">{{$idk->indikator }}</td>
+                    <td class="ellipsis">{{ $idk->standard->nama}}</td>
+                    <td class="ellipsis">{{$idk->satuan }}</td>
+                    <td class="ellipsis">{{$idk->target }}</td>
                     <td>
                         @if ($idk->status == 1)
                             <span class="badge badge-success">Aktif</span>

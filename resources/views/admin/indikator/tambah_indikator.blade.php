@@ -18,13 +18,13 @@ Tambah Indikator
         <div class="col-md-6 row-md-15">
             <div class="form-group">
                 <h4><strong>1. Isi :</strong></h4>
-                <textarea class="form-control" placeholder="isi indikator" id="exampleFormControlTextarea1" name="isi" rows="3" required autofocus></textarea>
+                <textarea class="form-control" placeholder="Isi indikator.." id="exampleFormControlTextarea1" name="isi" rows="3" required autofocus></textarea>
             </div>
         </div>       
         <div class="col-md-6 row-md-10">
             <div class="form-group">
                 <h4><strong>2. Strategi :</strong></h4>
-                <input type="text" class="form-control" placeholder="strategi indikator" id="basicInput" name="strategi" required>
+                <textarea class="form-control" placeholder="Strategi indikator.." id="exampleFormControlTextarea1" name="strategi" rows="3" required></textarea>
             </div>
         </div>
         <div class="col-md-6 mb-4">
@@ -42,7 +42,7 @@ Tambah Indikator
         <div class="col-md-6 row-md-10">
             <div class="form-group">
                 <h4><strong>4. Indikator :</strong></h4>
-                <input type="text" class="form-control" placeholder="nama indikator"id="basicInput" name="indikator" required>
+                <textarea class="form-control" placeholder="Nama indikator.." id="exampleFormControlTextarea1" name="indikator" rows="3" required></textarea>
             </div>
         </div>
         <div class="col-md-6 row-md-10">

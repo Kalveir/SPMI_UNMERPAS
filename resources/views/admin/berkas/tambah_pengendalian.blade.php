@@ -6,8 +6,6 @@ Penilaian Berkas
 Tambah Penilaian
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
   <div class="card-body">
     <form action="{{ route('pengendalian.update', $pengendalian->id) }}" method="post">
@@ -42,8 +40,7 @@ Tambah Penilaian
                 @php
                     $pengendalianFile = $pengendalian->pengisian_berkas->where('jenis', 'Pengendalian')->first();
                 @endphp
-                <input id="deskripsi" type="hidden" value="{{ optional($pengendalianFile)->deskripsi }}" name="deskripsi" required autofocus>
-                <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
+                <textarea class="summernote" name="deskripsi" class="form-control" required>{{ optional($pengendalianFile)->deskripsi }}</textarea>
             </div>
         </div>        
         

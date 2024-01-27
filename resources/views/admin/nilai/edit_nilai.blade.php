@@ -6,8 +6,6 @@ Bobot Nilai
 Edit Bobot Nilai
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
   <div class="card-body">
     <form action="{{ route('nilai.update', $nilai->id) }}" method="post">
@@ -16,8 +14,7 @@ Edit Bobot Nilai
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput">1.Deskripsi :</label>
-                <input id="deskripsi" value="{!! $nilai->deskripsi !!}" type="hidden" name="deskripsi" required="required">
-                <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
+                <textarea class="summernote" name="deskripsi" class="form-control" required>{!! $nilai->deskripsi !!}</textarea>
             </div>
         <div>
         <div>

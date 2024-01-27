@@ -6,13 +6,15 @@ Dashboard
 Judul
 @endsection
 @section('container')
+
 <div class="card">
-  @role('Ketua Program Studi')
   <div class="card-header">
-      <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
   </div>
+  @role('Ketua Program Studi')
   <div class="card-body">
-      @foreach($pengisian as $data)
+    <div class="ct-chart" id="radar-chart"></div>
+      {{-- @foreach($pengisian as $data)
         <div class="card-header">
           <h1>{{ $loop->iteration }}. {{$data->indikator->indikator }}</h1>
         </div>
@@ -23,9 +25,14 @@ Judul
             <li>Status: {{ $data->hasil_perkalian > $data->target ? 'Tercapai' : 'Belum Tercapai' }}</li>
           </ul>
         </div>
-      @endforeach
+      @endforeach --}}
+     
+
+    <!-- JavaScript code to generate radar chart -->
+
     @endrole
   
   </div>
 </div>
+
 @endsection

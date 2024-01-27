@@ -6,8 +6,7 @@ Buku Standard
 Edit Buku Standard
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
 <div class="card">
   <div class="card-header">
   </div>
@@ -18,20 +17,25 @@ Edit Buku Standard
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>1. Visi Misi :</h3></label>
-                <input id="visi_misi" type="hidden" name="visi_misi" value="{!! $bookstandar->visi_misi !!}">
-                <trix-editor placeholder="Input text here..." input="visi_misi" style="height: 150px"></trix-editor>
+                <textarea class="summernote" name="visi_misi" class="form-control" required>{!! $bookstandar->visi_misi !!}</textarea>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
-                <label for="basicInput"><h3>2. Rasional :</h3></label>
-                <input id="rasional" type="hidden" name="rasional" value="{!! $bookstandar->rasional !!}">
-                <trix-editor placeholder="Input text here..." input="rasional" style="height: 150px"></trix-editor>
+                <label for="basicInput"><h3>2. Tujuan :</h3></label>
+                <textarea class="summernote" name="tujuan" class="form-control" required>{!! $bookstandar->tujuan !!}</textarea>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="basicInput"><h3>3. Rasional :</h3></label>
+                <textarea class="summernote" name="rasional" class="form-control" required>{!! $bookstandar->rasional !!}</textarea>
+                
             </div>
         </div>
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
-                    <label for="basicInput"><h3>3. Standar :</h3></label>
+                    <label for="basicInput"><h3>4. Standar :</h3></label>
                     <select class="form-control" id="standar_id" name="standar_id">
                         @foreach ($standard as $std)
                         <option value="{{ $std->id }}"
@@ -43,26 +47,16 @@ Edit Buku Standard
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label for="basicInput"><h3>4. Subjek :</h3></label>
-                    <input id="subjek" type="hidden" name="subjek" value="{!! $bookstandar->subjek !!}">
-                    <trix-editor placeholder="Input text here..." input="subjek" style="height: 150px"></trix-editor>
+                    <label for="basicInput"><h3>5. Subjek :</h3></label>
+                    <textarea class="summernote" name="subjek" class="form-control" required>{!! $bookstandar->subjek !!}</textarea>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label for="basicInput"><h3>5.Definisi Istilah :</h3></label>
-                    <input id="definisi_istilah" type="hidden" name="definisi_istilah" value="{!! $bookstandar->definisi_istilah !!}">
-                    <trix-editor placeholder="Input text here..." input="definisi_istilah" style="height: 150px"></trix-editor>
+                    <label for="basicInput"><h3>6.Definisi Istilah :</h3></label>
+                    <textarea class="summernote" name="definisi_istilah" class="form-control" required>{!! $bookstandar->definisi_istilah !!}</textarea>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <label for="basicInput"><h3>6. Tujuan :</h3></label>
-                    <input id="tujuan" type="hidden" name="tujuan" value="{!! $bookstandar->tujuan !!}">
-                    <trix-editor placeholder="Input text here..." input="tujuan" style="height: 150px"></trix-editor>
-                </div>
-            </div>
-            
             
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
