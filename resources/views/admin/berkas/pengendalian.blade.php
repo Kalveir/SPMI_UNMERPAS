@@ -17,7 +17,7 @@ Daftar Berkas
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped" >
-        <thead class=text-left">
+        <thead class=thead-dark>
             <tr>
                 <th>No</th>
                 <th>Nama Kaprodi</th>
@@ -56,17 +56,6 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                @if ($brkp->aksi_code == 0)
-                                <div class="col-auto" style="padding: 5px;">
-                                    <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                @endif
                             @endif
                         </div>
                         @endforeach
@@ -85,17 +74,6 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                @if ($brkp->aksi_code == 0)
-                                <div class="col-auto" style="padding: 5px;">
-                                    <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                @endif
                             @endif
                         </div>
                         @endforeach
@@ -103,7 +81,7 @@ Daftar Berkas
                     <td>{{ $brkp->tahun }}</td>
                     {{-- evaluasi --}}
                     <td>{{ optional($brkp->auditor)->nama }}</td>
-                    <td>{{ $brkp->nilai }}</td>
+                    <td>{{ optional($brkp->nilais)->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="max-width: 500px;">
                             {!! $brkp->komentar !!}
@@ -137,15 +115,6 @@ Daftar Berkas
                                         {!! $file_berkas->deskripsi !!}
                                     </div>
                                 </div>
-                                <div class="col-auto" style="padding: 5px;">
-                                    <form action="{{ route('berkas.hapusFile',$file_berkas->id) }}" class="d-inline" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
                             @endif
                         </div>
                         @endforeach
@@ -155,7 +124,7 @@ Daftar Berkas
                         <form action="{{ route('pengendalian.edit',$brkp->id) }}"
                             class="d-inline">
                             @csrf
-                            <button class="btn btn-info"><i
+                            <button class="btn btn-outline-info"><i
                                     data-feather="alert-triangle" class="fas fa-check-square"></i>
                                     <span>Pengendalian</span>
                             </button>

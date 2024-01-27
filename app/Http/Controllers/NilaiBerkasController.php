@@ -54,9 +54,10 @@ class NilaiBerkasController extends Controller
     public function addNilai($id)
     {
         $pengisian = Pengisian::find($id);
+        $nilai = Nilai::get();
         if ($pengisian->aksi_code == 1)
         {
-            return view('admin.berkas.tambah_nilai', compact('pengisian'));
+            return view('admin.berkas.tambah_nilai', compact('pengisian','nilai'));
 
         }
         else
@@ -72,7 +73,7 @@ class NilaiBerkasController extends Controller
         $pengisian->nilai = $request->nilai;
         $pengisian->komentar = $request->komentar;
         $pengisian->audhitor = Auth::user()->id;
-        $pengisian->aksi_code = 2;
+        
 
         if ($pengisian->program_studi == 1) {
             $redirectRoute = 'informatika.index';
@@ -90,6 +91,28 @@ class NilaiBerkasController extends Controller
         $pengisian->save();
         return redirect()->route($redirectRoute);
 
+    }
 
+    public function validasiEvaluasi($id)
+    {
+        $pengisian = Pengisian::find($id);
+        $pengisian->aksi_code = 2;
+        $pengisian->save();
+
+        if ($pengisian->program_studi == 1) {
+            $redirectRoute = 'informatika.index';
+        } elseif ($pengisian->program_studi == 2) {
+            $redirectRoute = 'rpl.index';
+        }elseif ($pengisian->program_studi == 3) {
+            $redirectRoute = 'manajemen.index';
+        }elseif ($pengisian->program_studi == 4) {
+            $redirectRoute = 'hukum.index';
+        }elseif ($pengisian->program_studi == 5) {
+            $redirectRoute = 'agro.index';
+        }
+        
+
+        return redirect()->route($redirectRoute);
     }
 }
+

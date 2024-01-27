@@ -13,6 +13,7 @@ Tambah Bobot Nilai
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput">1. Deskripsi :</label>
+                <br>
                 <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
             </div>
         <div>

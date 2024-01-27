@@ -42,6 +42,8 @@ Daftar Bobot Nilai
                         @endif
                     </td>
                     <td>
+                        <div class="d-flex center-content-between">
+                            
                         <form action="{{ route('nilai.edit', $nli->id) }}"
                             class="d-inline">
                             @csrf
@@ -57,6 +59,7 @@ Daftar Bobot Nilai
                                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
                             </button>
                         </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

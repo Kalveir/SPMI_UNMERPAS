@@ -8,7 +8,6 @@ Daftar Berkas
 @endsection
 
 @section('container')
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <div class="card">
   <div class="card-header">
     <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
@@ -17,8 +16,8 @@ Daftar Berkas
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="basic-datatables" class="table table-bordered table-hover" >
-        <thead class="table-active">
+      <table id="basic-datatables" class="table table-bordered table-striped" >
+        <thead class="thead-dark">
             <tr>
                 <th>No</th>
                 <th>Program Studi</th>
@@ -100,7 +99,7 @@ Daftar Berkas
                     </td>
                     {{-- evaluasi --}}
                     <td>{{ optional($bkst->auditor)->nama }}</td>
-                    <td>{{ $bkst->nilai }}</td>
+                    <td>{{ optional($bkst->nilais)->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="max-width: 500px;">
                             {!! $bkst->komentar !!}
@@ -154,7 +153,7 @@ Daftar Berkas
                         @if ($bkst->aksi_code == 0)
                         <div class="d-flex center-content-between">
                             <div class="dropdown">
-                                <button type="button" class="btn btn-warning dropdown-toggle"
+                                <button type="button" class="btn btn-outline-warning dropdown-toggle"
                                             data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false"><i class="fas fa-edit"></i>
                                             <span>Edit</span>
@@ -176,7 +175,7 @@ Daftar Berkas
                             @if ($bkst->pengisian_berkas->where('jenis', 'Penetapan')->isNotEmpty() && $bkst->pengisian_berkas->where('jenis', 'Pelaksanaan')->isNotEmpty())
                                 <form action="{{ route('berkas.valid', $bkst->id) }}" method="POST" class="d-inline">
                                     @csrf
-                                    <button class="btn btn-success">
+                                    <button class="btn btn-outline-success">
                                         <i data-feather="alert-triangle" class="fas fa-check-square"></i>
                                         <span>Validasi</span>
                                     </button>
@@ -191,16 +190,16 @@ Daftar Berkas
                         </div>
                         {{-- sudah dinilai --}}
                         @elseif ($bkst->aksi_code == 2)
-                        <div class="alert alert-success" role="alert">
-                            <i class="fa fa-check mr-1"></i>
-                            <strong>Penilaian Selesai</strong>
-                        </div>
+                            <div class="alert alert-success" role="alert">
+                                <i class="fa fa-check mr-1"></i>
+                                <strong>Penilaian Selesai</strong>
+                            </div> 
                         {{-- upload peningkatan --}}
                         @elseif ($bkst->aksi_code == 3)
                         <div class="d-flex center-content-between">
                             <form action="{{ route('berkas.peningkatan',$bkst->id) }}" method="POST">
                                 @csrf
-                                <button class="btn btn-primary">
+                                <button class="btn btn-outline-primary">
                                     <span class="btn-label">
                                         <i class="fas fa-file-upload"></i>
                                     </span>
@@ -210,7 +209,7 @@ Daftar Berkas
                             @if ($bkst->pengisian_berkas->where('jenis', 'Peningkatan')->isNotEmpty())
                                 <form action="{{ route('berkas.submit', $bkst->id) }}" method="POST" class="d-inline">
                                     @csrf
-                                    <button class="btn btn-info">
+                                    <button class="btn btn-outline-success">
                                         <i data-feather="alert-triangle" class="fas fa-check-square"></i>
                                         <span>Submit</span>
                                     </button>
@@ -218,11 +217,9 @@ Daftar Berkas
                             @endif
                         </div>
                         @elseif ($bkst->aksi_code == 4)
-                        <div class="d-flex center-content-between">
-                            <div class="alert alert-info" role="alert">
-                                <strong>Audit Mutu : {{$bkst->tanggal }}</strong>
+                            <div class="alert alert-info d-flex center-content-between" role="alert">
+                                <strong>AMI: {{$bkst->tanggal }}</strong>
                             </div>
-                        </div>
                         @endif
                     </td>
                 </tr>
@@ -232,8 +229,8 @@ Daftar Berkas
     </div>
   </div>
 </div>
-<div class="modal" id="input_modal">
-    <div class="modal-dialog">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hiden="true" id="input_modal">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <!-- Header Modal -->
@@ -243,10 +240,11 @@ Daftar Berkas
             </div>
 
             <!-- Body Modal -->
-            <div class="modal-body">
+            <div class="modal-content">
                 <!-- Form Input -->
                 <form action="{{route('berkas.addIndikator')}}" method="post">
                     @csrf
+                    <!-- tambahkan autcroll jika data-banyak -->
                     <div class="form-group">
                         <label for="nama">Pilih Indikator : </label>
                         <select class="form-control" aria-label="Default select example" id="indikator_id" name="indikator_id" autofocus>

@@ -130,11 +130,6 @@ Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
     Route::delete('/bookstandard/{id}/destroy',[BookstandardController::class,'destroy'])->name('bookstandard.destroy')->middleware('auth');
 });
 
-// Route::middleware(['auth', 'can:kelola penilaian'])->group(function () {
-
-// });
-// Route::middleware(['auth', 'can:kelola indikator'])->group(function () {
-// });
 
 Route::get('/formulir',[BookdocsController::class, 'indexformulir'])->name('formulir.index')->middleware('auth');
 Route::get('/SOP',[BookdocsController::class, 'indexSOP'])->name('SOP.index')->middleware('auth');
@@ -182,6 +177,7 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
 Route::middleware(['auth', 'role:Auditor Informatika,Auditor Manajemen,Auditor RPL,Auditor Hukum,Auditor Agroteknologi'])->group(function(){
     Route::get('/add-nilai/{id}', [NilaiBerkasController::class, 'addNilai'])->name('penilaian.addNilai')->middleware('auth');
     Route::put('/update-nilai/{id}', [NilaiBerkasController::class, 'updateNilai'])->name('penilaian.updateNilai')->middleware('auth');
+    Route::post('/validasi-evaluasi/{id}',[NilaiBerkasController::class, 'validasiEvaluasi'])->name('penilaian.validasi')->middleware('auth');
 });
 Route::middleware(['auth', 'role:Auditor Manajemen'])->group(function(){
     Route::get('/penilaian/Manajemen',[NilaiBerkasController::class, 'PenilaianManajemen'])->name('manajemen.index')->middleware('auth');

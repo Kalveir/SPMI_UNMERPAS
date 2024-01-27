@@ -6,8 +6,6 @@ Pengisian Berkas
 Upload Berkas
 @endsection
 @section('container')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 <div class="card">
   <div class="card-header">
   </div>
@@ -27,8 +25,8 @@ Upload Berkas
             <label for="basicInput"><h4><strong>2. Deskripsi :</strong></h4></label>
         </div>
         <div class="col-md-8">
-            <input id="deskripsi" type="hidden" name="deskripsi" required>
-            <trix-editor placeholder="Input text here..." input="deskripsi" style="height: 150px"></trix-editor>
+            <br>
+            <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
         </div>
         <br>
         <br>

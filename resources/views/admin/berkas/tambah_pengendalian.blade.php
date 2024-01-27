@@ -40,6 +40,7 @@ Tambah Penilaian
                 @php
                     $pengendalianFile = $pengendalian->pengisian_berkas->where('jenis', 'Pengendalian')->first();
                 @endphp
+                <br>
                 <textarea class="summernote" name="deskripsi" class="form-control" required>{{ optional($pengendalianFile)->deskripsi }}</textarea>
             </div>
         </div>        

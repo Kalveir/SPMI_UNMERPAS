@@ -37,15 +37,21 @@ Tambah Penilaian Evaluasi
         </div>
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput"><h4>Nilai :</h4></label>
-                <input type="number"  value="{{ $pengisian->nilai }}" class="form-control" id="basicInput" name="nilai" required max="100" autofocus>
+                <h4><strong>Penilaian :</strong></h4>
+                <select class="form-control" id="nilai" name="nilai">
+                    @foreach ($nilai as $nl)
+                    <option value="{{ $nl->id }}"
+                        {{  $pengisian->nilai == $nl->id ? 'selected' : ''  }}>
+                        {!! $nl->deskripsi !!}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h4>Komentar :</h4></label>
-                <textarea class="summernote" name="komentar" class="form-control" required></textarea>
+                <textarea class="summernote" name="komentar" class="form-control" required>{!! $pengisian->komentar !!}</textarea>
             </div>
         </div>
         

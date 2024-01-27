@@ -22,9 +22,9 @@ class pengisian extends Model
      public function indikator(){
          return $this->belongsTo(indikator::class);
      }
-    //public function indikator(){
-        //return $this->hasMany(indikator::class);
-    //}
+    public function nilais(){
+        return $this->belongsTo(nilai::class,'nilai');
+    }
 
     public function prodi(){
         return $this->belongsTo(prodi::class, 'program_studi');

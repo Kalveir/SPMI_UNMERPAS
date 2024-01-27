@@ -15,7 +15,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped" >
-        <thead class=text-left">
+        <thead class=thead-dark>
             <tr>
                 <th>No</th>
                 <th>Nama Kaprodi</th>
@@ -76,7 +76,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                         </td>
                         <td>{{ optional($brks->auditor)->nama }}</td>
                         {{-- evaluasi --}}
-                        <td>{{ $brks->nilai }}</td>
+                        <td>{{ optional($brks->nilais)->nilai }}</td>
                         {{-- komentar --}}
                         <td>
                             <div class="text-wrap text-justify" style="max-width: 500px;">
@@ -84,25 +84,33 @@ Penilaian Berkas Program Studi {{ $prodi }}
                             </div>
                         </td>
                         
-                        <td class="px-2 py-2">
-                            @if ($brks->aksi_code == 1)
-                            <form action="{{ route('penilaian.addNilai', $brks->id) }}"
-                                class="d-inline">
-                                @csrf
-                                <button class="btn btn-warning">
-                                    <span class="btn-label">
-                                        <i class="fas fa-pen-square"></i>
-                                    </span>
-                                    Proses Audit
-                                </button>
-                            </form>
-                            @elseif ($brks->aksi_code > 1)
-                            <div class="alert alert-primary" role="alert">
-                                <i class="fas fa-info-circle"></i>
-                                <strong>Penilaian Tersimpan!</strong>
-                            </div>
-                                                                                
-                            @endif
+                        <td>
+                             <div class="d-flex center-content-between">
+                                @if ($brks->aksi_code == 1)
+                                <form action="{{ route('penilaian.addNilai', $brks->id) }}"
+                                    class="d-inline">
+                                    @csrf
+                                    <button class="btn btn-outline-warning">
+                                        <span class="btn-label">
+                                            <i class="fas fa-pen-square"></i>
+                                        </span>
+                                        Proses Audit
+                                    </button>
+                                </form>
+                                <form action="{{ route('penilaian.validasi', $brks->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button class="btn btn-outline-danger">
+                                        <i data-feather="alert-triangle" class="fas fa-lock"></i>
+                                        <span>Kunci Penilaian</span>
+                                    </button>
+                                </form>
+                                @elseif ($brks->aksi_code > 1)
+                                <div class="alert alert-primary" role="alert">
+                                    <i class="fas fa-info-circle"></i>
+                                    <strong>Penilaian Tersimpan!</strong>
+                                </div>                                                 
+                                @endif
+                             </div>
                         </td>
                     </tr>
                     @endif
