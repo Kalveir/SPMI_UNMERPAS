@@ -19,8 +19,8 @@ Daftar Indikator
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr class="table-active">
+        <thead class="thead-dark">
+            <tr>
                 <th>No</th>
                 <th>Startegi</th>
                 <th>Isi</th>

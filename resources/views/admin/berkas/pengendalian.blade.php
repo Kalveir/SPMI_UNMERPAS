@@ -41,21 +41,29 @@ Daftar Berkas
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $brkp->pegawai->nama }}</td>
                     <td>{{ $brkp->prodi->nama }}</td>
-                    <td>{{ $brkp->indikator->indikator }}</td>
-                    <td>{{ $brkp->indikator->standard->nama }}</td>
+                    <td>
+                        <div style="width: 200px;">
+                            {{ $brkp->indikator->indikator }}
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 200px;">
+                            {{ $brkp->indikator->standard->nama }}
+                        </div>
+                    </td>
                     {{-- penetapan --}}
                      <td>
                         @foreach ($brkp->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Penetapan')
-                                <div class="col-auto" style="padding: 5px;">
+                                <div class="col-auto">
                                         <i class="fas fa-file"></i>
                                         <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                        <div class="text-wrap text-justify" style="max-width: 200px;">
+                                        <div style="width: 300px;">
                                             <strong>Deskripsi :</strong>
                                             {!! $file_berkas->deskripsi !!}
                                         </div>
-                                    </div>
+                                </div>
                             @endif
                         </div>
                         @endforeach
@@ -69,7 +77,7 @@ Daftar Berkas
                                 <div class="col-auto" style="padding: 5px;">
                                         <i class="fas fa-file"></i>
                                         <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                        <div class="text-wrap text-justify" style="max-width: 200px;">
+                                        <div style="width: 300px;">
                                             <strong>Deskripsi :</strong>
                                             {!! $file_berkas->deskripsi !!}
                                         </div>
@@ -83,7 +91,7 @@ Daftar Berkas
                     <td>{{ optional($brkp->auditor)->nama }}</td>
                     <td>{{ optional($brkp->nilais)->nilai }}</td>
                     <td>
-                        <div class="text-wrap text-justify" style="max-width: 200px;">
+                        <div class="text-wrap text-justify" style="width: 200px;">
                             {!! $brkp->komentar !!}
                         </div>
                     </td>
@@ -92,7 +100,7 @@ Daftar Berkas
                         @foreach ($brkp->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Pengendalian')
-                                <div class="text-wrap text-left" style="max-width: 500px;">
+                                <div class="text-wrap text-left" style="width: 300px;">
                                     {!! $file_berkas->deskripsi !!}
                                 </div>
                             @endif
@@ -108,7 +116,7 @@ Daftar Berkas
                                 <div class="col-auto" style="padding: 5px;">
                                     <i class="fas fa-file"></i>
                                     <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                    <div class="text-wrap text-justify" style="max-width: 200px;">
+                                    <div class="text-wrap text-justify" style="width: 300px;">
                                         <strong>Deskripsi :</strong>
                                         {!! $file_berkas->deskripsi !!}
                                     </div>

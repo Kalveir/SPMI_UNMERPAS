@@ -14,19 +14,22 @@ Judul
   @role('Ketua Program Studi')
   <div class="card-body">
     <div class="ct-chart" id="radar-chart"></div>
-      {{-- @foreach($pengisian as $data)
         <div class="card-header">
-          <h1>{{ $loop->iteration }}. {{$data->indikator->indikator }}</h1>
         </div>
         <div class="card-body">
           <ul>
-            <li>Nilai :{{ $data->hasil_perkalian }}</li>
+          @foreach($pengisian as $data)
+            <li>{{ $loop->iteration }}. {{$data->indikator->indikator }}</li>
             <li>Target: {{ $data->target }}</li>
-            <li>Status: {{ $data->hasil_perkalian > $data->target ? 'Tercapai' : 'Belum Tercapai' }}</li>
+            <li>Bobot: {{ $data->bobot_nilai}}</li>
+            <li>evaluasi: {{ 
+              $data->nilais->nilai * $data->bobot_nilai
+            }}</li>
+          @endforeach
           </ul>
         </div>
-      @endforeach --}}
      
+            <!-- <li>evaluasi: {{ $data->nilai > $data->target ? 'Tercapai' : 'Belum Tercapai' }}</li> -->
 
     <!-- JavaScript code to generate radar chart -->
 

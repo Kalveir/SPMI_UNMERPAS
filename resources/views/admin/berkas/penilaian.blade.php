@@ -36,8 +36,16 @@ Penilaian Berkas Program Studi {{ $prodi }}
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $brks->pegawai->nama }}</td>
                         <td>{{ $brks->prodi->nama }}</td>
-                        <td>{{ $brks->indikator->indikator }}</td>
-                        <td>{{ $brks->indikator->standard->nama }}</td>
+                        <td>
+                            <div style="width: 200px;">
+                                {{ $brks->indikator->indikator }}
+                            </div>
+                        </td>
+                        <td>
+                            <div style="width: 200px;">
+                                {{ $brks->indikator->standard->nama }}
+                            </div>
+                        </td>
                         {{-- penetapan --}}
                          <td>
                             @foreach ($brks->pengisian_berkas as $file_berkas)
@@ -46,7 +54,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                                     <div class="col-auto" style="padding: 5px;">
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                            <div class="text-wrap text-justify" style="max-width: 200px;">
+                                            <div class="text-wrap text-justify" style="width: 300px;">
                                                 <strong>Deskripsi :</strong>
                                                 {!! $file_berkas->deskripsi !!}
                                             </div>
@@ -64,7 +72,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                                     <div class="col-auto" style="padding: 5px;">
                                             <i class="fas fa-file"></i>
                                             <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                            <div class="text-wrap text-justify" style="max-width: 200px;">
+                                            <div class="text-wrap text-justify" style="width: 300px;">
                                                 <strong>Deskripsi :</strong>
                                                 {!! $file_berkas->deskripsi !!}
                                             </div>
@@ -78,7 +86,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                         <td>{{ optional($brks->nilais)->nilai }}</td>
                         {{-- komentar --}}
                         <td>
-                            <div class="text-wrap text-justify" style="max-width: 200px;">
+                            <div style="width: 200px;">
                                 {!! $brks->komentar !!}
                             </div>
                         </td>
