@@ -49,13 +49,13 @@ Daftar Berkas
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Penetapan')
                                 <div class="col-auto" style="padding: 5px;">
-                                    <i class="fas fa-file"></i>
-                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                    <div class="text-wrap text-justify" style="max-width: 500px;">
-                                        <strong>Deskripsi :</strong>
-                                        {!! $file_berkas->deskripsi !!}
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <div class="text-wrap text-justify" style="max-width: 200px;">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
+                                        </div>
                                     </div>
-                                </div>
                             @endif
                         </div>
                         @endforeach
@@ -67,13 +67,13 @@ Daftar Berkas
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Pelaksanaan')
                                 <div class="col-auto" style="padding: 5px;">
-                                    <i class="fas fa-file"></i>
-                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{ $file_berkas->nama_file }}</a>
-                                    <div class="text-wrap text-justify" style="max-width: 500px;">
-                                        <strong>Deskripsi :</strong>
-                                        {!! $file_berkas->deskripsi !!}
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <div class="text-wrap text-justify" style="max-width: 200px;">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
+                                        </div>
                                     </div>
-                                </div>
                             @endif
                         </div>
                         @endforeach
@@ -83,7 +83,7 @@ Daftar Berkas
                     <td>{{ optional($brkp->auditor)->nama }}</td>
                     <td>{{ optional($brkp->nilais)->nilai }}</td>
                     <td>
-                        <div class="text-wrap text-justify" style="max-width: 500px;">
+                        <div class="text-wrap text-justify" style="max-width: 200px;">
                             {!! $brkp->komentar !!}
                         </div>
                     </td>
@@ -92,10 +92,8 @@ Daftar Berkas
                         @foreach ($brkp->pengisian_berkas as $file_berkas)
                         <div class="file-item d-flex align-items-left" >
                             @if ($file_berkas->jenis == 'Pengendalian')
-                                <div class="col-auto" style="padding: 5px;">
-                                    <div class="text-wrap text-justify" style="max-width: 500px;">
-                                        {!! $file_berkas->deskripsi !!}
-                                    </div>
+                                <div class="text-wrap text-left" style="max-width: 500px;">
+                                    {!! $file_berkas->deskripsi !!}
                                 </div>
                             @endif
                         </div>
@@ -110,7 +108,7 @@ Daftar Berkas
                                 <div class="col-auto" style="padding: 5px;">
                                     <i class="fas fa-file"></i>
                                     <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                    <div class="text-wrap text-justify" style="max-width: 162px;">
+                                    <div class="text-wrap text-justify" style="max-width: 200px;">
                                         <strong>Deskripsi :</strong>
                                         {!! $file_berkas->deskripsi !!}
                                     </div>

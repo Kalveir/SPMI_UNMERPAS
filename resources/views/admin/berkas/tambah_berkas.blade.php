@@ -17,7 +17,7 @@ Upload Berkas
         <div class="form-group">
             <h4><strong>1. Indikator :</strong></h4>
         </div>
-        <div class="col-md-6 mb-5">
+        <div class="col-md-15 mb-5">
             <h5>&emsp;{{$pengisian->indikator->indikator }}</h5>
         </div>
         <div class="form-group">

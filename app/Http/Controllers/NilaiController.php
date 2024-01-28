@@ -33,14 +33,20 @@ class NilaiController extends Controller
      */
     public function store(Request $request)
     {
-        $nilai = new Nilai;
-        $nilai->deskripsi = $request->deskripsi;
-        $nilai->indikator_id = $request->indikator_id;
-        $nilai->nilai = $request->nilai;
-        $nilai->status = $request->status;
-        $nilai->save();
+        $cek_indikator = Nilai::where('indikator_id',$request->indikator_id)->first();
+        if($cek_indikator)
+        {
+            return redirect()->route('nilai.index');
+        }else{
+            $nilai = new Nilai;
+            $nilai->deskripsi = $request->deskripsi;
+            $nilai->indikator_id = $request->indikator_id;
+            $nilai->nilai = $request->nilai;
+            $nilai->status = $request->status;
+            $nilai->save();
 
-        return redirect()->route('nilai.index');
+            return redirect()->route('nilai.index');
+        }
     }
 
     /**

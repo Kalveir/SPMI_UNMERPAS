@@ -11,7 +11,7 @@ Daftar Bobot Nilai
 <div class="card">
   <div class="card-header">
     <a href="{{ route('nilai.create') }}" class="btn btn-success mb-3">
-        <span>Tambah nilai</span>
+        <span>Tambah Bobot Penilaian</span>
     </a>
   </div>
   <div class="card-body">
