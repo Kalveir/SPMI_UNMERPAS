@@ -25,6 +25,7 @@ Daftar Berkas
                     <th>Standard</th>
                     <th>Penetapan</th>
                     <th>Pelaksanaan</th>
+                    <th>Tahun</th>
                     <th>Auditor</th>
                     <th>Evaluasi</th>
                     <th>Komentar</th>
@@ -107,7 +108,7 @@ Daftar Berkas
                             
                         </td>
 
-
+                        <td>{{ $bkst->tahun }}</td>
                         </td>
                         {{-- evaluasi --}}
                         <td>{{ optional($bkst->auditor)->nama }}</td>

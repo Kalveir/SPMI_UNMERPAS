@@ -14,15 +14,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $tahuns = Pengisian::distinct()->pluck('tahun');
+
+        $tahun = date("Y");
         $pengisian = Pengisian::join('nilai', 'pengisian.nilai', '=', 'nilai.id')
         ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
         ->where('pengisian.program_studi', Auth::user()->prodi_id)
+        ->where('tahun',$tahun)
         ->select('pengisian.*', 'nilai.nilai as bobot_nilai', 'indikator.target')
         ->orderBy('indikator.id')
         ->get();
 
 
-        return view('admin.dashboard',compact('pengisian'));
+        return view('admin.dashboard',compact('pengisian','tahuns'));
     }
 
     /**
@@ -30,7 +34,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -38,7 +42,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

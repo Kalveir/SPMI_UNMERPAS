@@ -12,6 +12,16 @@ Judul
     <h1>Dashboard</h1>
   </div> -->
   <div class="card-body">
+        <div id="chart">
+            <div class="col-md-2 mb-4">
+                <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
+                <select class="form-control" name="year" id="yearSelector">
+                   @foreach($tahuns as $year)
+                      <option value="{{ $year }}">{{ $year }}</option>
+                   @endforeach
+                </select>
+            </div>
+          </div>
           @php
               $chartData = [];
 
@@ -29,13 +39,10 @@ Judul
                   ];
               }
           @endphp
-        <div id="chart" class="card-body">
-        </div>
-  
-  </div>
 </div>
+
 <script>
-    var chartData = @json($chartData);
+  var chartData = @json($chartData);
 
     var options = {
         series: [
@@ -104,4 +111,5 @@ Judul
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
 </script>
+
 @endsection
