@@ -57,7 +57,7 @@ Dashboard
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card card-secondary">
+            <div class="card card-info">
               <div class="card-body skew-shadow">
                 <h3 class="op-8">Jumlah Buku Standar :</h3>
                 <i class="fas fa-book fa-3x icon-transparent"></i>
