@@ -32,7 +32,7 @@ Upload Berkas
             </fieldset>
         </div>
         <div class="form-group">
-            <label for="basicInput">2. Upload Berkas :</label>
+            <label for="basicInput"><h4><strong>3. Upload Berkas :</strong></h4></label>
         </div>
         <div class="col-md-6 mb-4">
             <div class="custom-file">
@@ -43,7 +43,7 @@ Upload Berkas
         <div id="loading" style="display: none;">Loading...</div>
         <div id="file-list"></div>
         <div class="form-group">
-            <label for="basicInput">3. Deskripsi :</label>
+            <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
         </div>
         <div class="col-md-8">
             <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>

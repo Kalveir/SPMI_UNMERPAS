@@ -40,9 +40,7 @@ Tambah Penilaian Evaluasi
                 <h4><strong>Penilaian :</strong></h4>
                 <select class="form-control" id="nilai" name="nilai">
                     @foreach ($nilai as $nl)
-                    <option value="{{ $nl->id }}"
-                        {{  $pengisian->nilai == $nl->id ? 'selected' : ''  }}>
-                        {!! $nl->deskripsi !!}</option>
+                        <option value="{{ $nl->id }}">{!! $nl->deskripsi !!}</option>
                     @endforeach
                 </select>
             </div>

@@ -511,7 +511,6 @@ ALTER TABLE `pengisian`
   ADD KEY `fk_pengisian_indikator` (`indikator_id`),
   ADD KEY `fk_pengisian_pegawai` (`pegawai_id`),
   ADD KEY `fk_pengisian_audhitor` (`audhitor`),
-  ADD KEY `fk_pengisian_nilai` (`nilai`),
   ADD KEY `program_studi` (`program_studi`);
 
 --
@@ -741,7 +740,6 @@ ALTER TABLE `pengisian`
   ADD CONSTRAINT `fk_pengisian_audhitor` FOREIGN KEY (`audhitor`) REFERENCES `pegawai` (`id`),
   ADD CONSTRAINT `fk_pengisian_indikator` FOREIGN KEY (`indikator_id`) REFERENCES `indikator` (`id`),
   ADD CONSTRAINT `fk_pengisian_pegawai` FOREIGN KEY (`pegawai_id`) REFERENCES `pegawai` (`id`),
-  ADD CONSTRAINT `fk_pengisian_nilai` FOREIGN KEY (`nilai`) REFERENCES `nilai` (`id`),
   ADD CONSTRAINT `pengisian_fk_prodi` FOREIGN KEY (`program_studi`) REFERENCES `program_studi` (`id`);
 
 --

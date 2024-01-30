@@ -96,8 +96,8 @@ Dashboard
                     @endforeach
                 </select>
             </div>
-            @if(Auth::user()->hasRole(['admin', 'LPPM']))
-            <div class="col-md-3 mb-4" style="flex: 2;">
+            @if(Auth::user()->hasRole(['Admin', 'LPPM']))
+            <div class="col-md-4 mb-4" style="flex: 2;">
                 <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
                 <select class="form-control" name="prodi" id="prodiSelector" onchange="this.form.submit()">
                     @foreach($prodiList as $program_studi)
