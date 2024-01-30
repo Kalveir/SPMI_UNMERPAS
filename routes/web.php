@@ -58,7 +58,9 @@ Route::get('/', function () {
 //     return view('tabel');
 // });
 
-Route::resource('dashboard', DashboardController::class)->middleware('auth');
+
+
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index')->middleware('auth');
 
 // manajemen profil
 Route::get('/profile/{id}', [ProfileController::class, 'ProfilInfo'])->name('profile.ProfilInfo')->middleware('auth');

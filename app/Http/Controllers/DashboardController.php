@@ -1,79 +1,49 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\nilai;
-use Illuminate\Http\Request;
+use App\Models\indikator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\pengisian;
+use App\Models\pengisian_berkas;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        $tahuns = Pengisian::distinct()->pluck('tahun');
+        // get jumlah berkas
+        $berkas_submit = Pengisian_berkas::where('pegawai_id', Auth::user()->id)->where('jenis','<>','Pengendalian')->count();
+        //get indikator
+        $indikator_jumlah = indikator::count();
 
-        $tahun = date("Y");
+        // get jumlah dosen
+        $dosenRole = Role::where('name', 'Dosen')->first();
+        $jumlah_dosen = User::whereHas('roles', function ($query) use ($dosenRole) {
+                            $query->where('role_id', $dosenRole->id);
+                        })
+                        ->where('prodi_id', Auth::user()->prodi_id)
+                        ->count();
+        // statistik
+        $brody = Pengisian::distinct()->pluck('tahun')->max();
+        $tahuns = (array) $request->input('year', $brody);
+
+        // Query untuk mendapatkan data pengisian
         $pengisian = Pengisian::join('nilai', 'pengisian.nilai', '=', 'nilai.id')
-        ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
-        ->where('pengisian.program_studi', Auth::user()->prodi_id)
-        ->where('tahun',$tahun)
-        ->select('pengisian.*', 'nilai.nilai as bobot_nilai', 'indikator.target')
-        ->orderBy('indikator.id')
-        ->get();
+            ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
+            ->where('pengisian.program_studi', Auth::user()->prodi_id)
+            ->whereIn('tahun', $tahuns)
+            ->select('pengisian.*', 'nilai.nilai as bobot_nilai', 'indikator.target')
+            ->orderBy('indikator.id')
+            ->get();
 
+        // Query untuk mendapatkan tahun-tahun distinct
+        $tahunz = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
 
-        return view('admin.dashboard',compact('pengisian','tahuns'));
+        // Menampilkan data menggunakan view
+        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

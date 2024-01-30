@@ -51,6 +51,7 @@ Tambah Penilaian Evaluasi
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h4>Komentar :</h4></label>
+                <br>
                 <textarea class="summernote" name="komentar" class="form-control" required>{!! $pengisian->komentar !!}</textarea>
             </div>
         </div>

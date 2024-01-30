@@ -31,11 +31,16 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        $permission = $request->akses;
-        $role = Role::create(['name'=>$request->nama]);
-        foreach ($permission as $permisi){
-            $permisi = Permission::firstOrCreate(['name'=>$permisi]);
-            $role->givePermissionTo($permisi);
+        $permissions = $request->akses;
+
+        $role = Role::create(['name' => $request->nama]);
+
+        // Pastikan $permissions tidak kosong sebelum melakukan iterasi
+        if ($permissions) {
+            foreach ($permissions as $permission) {
+                $permission = Permission::firstOrCreate(['name' => $permission]);
+                $role->givePermissionTo($permission);
+            }
         }
         return redirect()->route('jabatan.index');
     }

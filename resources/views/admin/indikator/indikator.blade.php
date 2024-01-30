@@ -18,14 +18,14 @@ Daftar Indikator
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="basic-datatables" class="table table-bordered table-striped table-hover">
+      <table id="basic-datatables" class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
                 <th>Startegi</th>
                 <th>Isi</th>
                 <th>Indikator</th>
-                <th>Standard</th>
+                <th>Standar</th>
                 <th>Satuan</th>
                 <th>Target</th>
                 <th>Status</th>
@@ -38,12 +38,33 @@ Daftar Indikator
             @foreach ($indikator as $idk)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td class="ellipsis">{{$idk->strategi }}</td>
-                    <td class="ellipsis">{{$idk->isi }}</td>
-                    <td class="ellipsis">{{$idk->indikator }}</td>
-                    <td class="ellipsis">{{ $idk->standard->nama}}</td>
-                    <td class="ellipsis">{{$idk->satuan }}</td>
-                    <td class="ellipsis">{{$idk->target }}</td>
+                    <td>
+                        <div style="width: 300px;">  
+                            {{$idk->strategi }}
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;">
+                            {{$idk->isi }}   
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;">
+                            {{$idk->indikator }}   
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 200px;">
+                            {{$idk->standard->nama}}
+                            
+                        </div>
+                    </td>
+                    <td>
+                        {{$idk->satuan }}
+                    </td>
+                    <td>
+                        {{$idk->target }}   
+                    </td>
                     <td>
                         @if ($idk->status == 1)
                             <span class="badge badge-success">Aktif</span>
