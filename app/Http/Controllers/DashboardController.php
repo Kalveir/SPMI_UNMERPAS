@@ -15,6 +15,10 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        //get jumlah Pegawai
+
+        $jumlah_user = User::count();
+
         // get jumlah berkas
         $berkas_submit = Pengisian_berkas::where('pegawai_id', Auth::user()->id)->where('jenis','<>','Pengendalian')->count();
         
@@ -57,7 +61,7 @@ class DashboardController extends Controller
         $tahunz = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
 
         // Menampilkan data menggunakan view
-        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen','jumlah_auditor','bookstandard_jumlah'));
+        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen','jumlah_auditor','bookstandard_jumlah','jumlah_user'));
     }
 
 }

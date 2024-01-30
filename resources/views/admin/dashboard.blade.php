@@ -66,6 +66,17 @@ Dashboard
             </div>
           </div>
           @endrole
+          @role('Admin')
+          <div class="col-md-4">
+            <div class="card card-secondary">
+              <div class="card-body skew-shadow">
+                <h3 class="op-8">Jumlah Pegawai :</h3>
+                <i class="fas fa-users fa-3x icon-transparent"></i>
+                <h1>{{ $jumlah_user}}</h1>
+              </div>
+            </div>
+          </div>
+          @endrole
           <div class="col-md-4">
             <div class="card card-danger">
               <div class="card-body skew-shadow">
