@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\nilai;
 use App\Models\indikator;
+use App\Models\prodi;
 use Illuminate\Support\Facades\Auth;
 use App\Models\pengisian;
 use App\Models\bookstandar;
@@ -44,24 +45,27 @@ class DashboardController extends Controller
                         })
                         ->where('prodi_id', Auth::user()->prodi_id)
                         ->count();
-        // statistik
-        $brody = Pengisian::distinct()->pluck('tahun')->max();
-        $tahuns = (array) $request->input('year', $brody);
+        // Statistik
+        $latestYear = Pengisian::distinct()->pluck('tahun')->max();
+        $selectedYears = (array)$request->input('year', $latestYear);
+        $selectedProdi = (array)$request->input('prodi', Auth::user()->prodi_id);
 
         // Query untuk mendapatkan data pengisian
         $pengisian = Pengisian::join('nilai', 'pengisian.nilai', '=', 'nilai.id')
             ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
-            ->where('pengisian.program_studi', Auth::user()->prodi_id)
-            ->whereIn('tahun', $tahuns)
+            ->where('pengisian.program_studi', $selectedProdi)
+            ->whereIn('tahun', $selectedYears)
             ->select('pengisian.*', 'nilai.nilai as bobot_nilai', 'indikator.target')
             ->orderBy('indikator.id')
             ->get();
 
         // Query untuk mendapatkan tahun-tahun distinct
-        $tahunz = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
+        $distinctYears = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
+        $prodiList = Prodi::get();
 
         // Menampilkan data menggunakan view
-        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen','jumlah_auditor','bookstandard_jumlah','jumlah_user'));
+        return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList'));
+
     }
 
 }

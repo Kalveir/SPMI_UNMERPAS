@@ -87,20 +87,31 @@ Dashboard
             </div>
           </div>
         </div>
+        <form method="get" action="{{ route('dashboard.index') }}" style="display: flex; flex-wrap: wrap;">
+            <div class="col-md-2 mb-4" style="flex: 1; margin-right: 10px;">
+                <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
+                <select class="form-control" name="year" id="yearSelector" onchange="this.form.submit()">
+                    @foreach($distinctYears as $year)
+                        <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @if(Auth::user()->hasRole(['admin', 'LPPM']))
+            <div class="col-md-3 mb-4" style="flex: 2;">
+                <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
+                <select class="form-control" name="prodi" id="prodiSelector" onchange="this.form.submit()">
+                    @foreach($prodiList as $program_studi)
+                        <option value="{{ $program_studi->id }}" {{ request('prodi') == $program_studi->id ? 'selected' : '' }}>{{ $program_studi->nama }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
+        </form>
+
+
+
         <div id="chart">
-            <h2 class="text-center mb-4"><strong>Statistik</strong></h2>
-            <form method="get" action="{{ route('dashboard.index') }}">
-                <div class="col-md-2 mb-4">
-                    <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
-                    <select class="form-control" name="year" id="yearSelector" onchange="this.form.submit()">
-                        @foreach($tahunz as $year)
-                            <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </form>
-
-
+            <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal</strong></h2>
           </div>
           @php
               $chartData = [];
@@ -141,6 +152,9 @@ Dashboard
     chart: {
       height: 700, // Increase the height as needed
       type: 'radar',
+    },
+    dataLabels: {
+      enabled : true
     },
     plotOptions: {
       radar: {
