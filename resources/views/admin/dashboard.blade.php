@@ -46,6 +46,26 @@ Dashboard
             </div>
           </div>
           @endrole
+          @role('LPPM')
+          <div class="col-md-4">
+            <div class="card card-secondary">
+              <div class="card-body skew-shadow">
+                <h3 class="op-8">Jumlah Auditor :</h3>
+                <i class="fas fa-solid fa-user-tie fa-3x icon-transparent"></i>
+                <h1>{{ $jumlah_auditor }}</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-secondary">
+              <div class="card-body skew-shadow">
+                <h3 class="op-8">Jumlah Buku Standar :</h3>
+                <i class="fas fa-book fa-3x icon-transparent"></i>
+                <h1>{{ $bookstandard_jumlah }}</h1>
+              </div>
+            </div>
+          </div>
+          @endrole
           <div class="col-md-4">
             <div class="card card-danger">
               <div class="card-body skew-shadow">

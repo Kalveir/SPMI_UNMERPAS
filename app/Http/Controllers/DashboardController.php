@@ -5,6 +5,7 @@ use App\Models\nilai;
 use App\Models\indikator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\pengisian;
+use App\Models\bookstandar;
 use App\Models\pengisian_berkas;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
@@ -16,8 +17,21 @@ class DashboardController extends Controller
     {
         // get jumlah berkas
         $berkas_submit = Pengisian_berkas::where('pegawai_id', Auth::user()->id)->where('jenis','<>','Pengendalian')->count();
+        
         //get indikator
         $indikator_jumlah = indikator::count();
+        
+        //get jumlah auditor
+        $auditorRoles = Role::where('name', 'like', '%Auditor%')->pluck('id')->toArray();
+        $jumlah_auditor = User::whereHas('roles', function ($query) use ($auditorRoles) {
+                $query->whereIn('role_id', $auditorRoles);
+            })
+        ->count();
+
+        //get jumlah indikator
+
+        $bookstandard_jumlah = Bookstandar::count();
+
 
         // get jumlah dosen
         $dosenRole = Role::where('name', 'Dosen')->first();
@@ -43,7 +57,7 @@ class DashboardController extends Controller
         $tahunz = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
 
         // Menampilkan data menggunakan view
-        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen'));
+        return view('admin.dashboard', compact('pengisian', 'tahuns', 'tahunz','berkas_submit','indikator_jumlah', 'jumlah_dosen','jumlah_auditor','bookstandard_jumlah'));
     }
 
 }
