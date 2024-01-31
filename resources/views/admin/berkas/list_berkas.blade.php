@@ -112,7 +112,7 @@ Daftar Berkas
                         </td>
                         {{-- evaluasi --}}
                         <td>{{ optional($bkst->auditor)->nama }}</td>
-                        <td>{{ optional($bkst->nilais)->nilai }}</td>
+                        <td>{{ $bkst->nilai }}</td>
                         <td>
                             <div style="width: 200px;">
                                 {!! $bkst->komentar !!}

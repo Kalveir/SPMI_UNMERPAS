@@ -4,7 +4,7 @@ Penilaian Berkas
 @endsection
 
 @section('judul')
-Penilaian Berkas Program Studi {{ $prodi }}
+Audit Mutu Program Studi {{ $prodi }}
 @endsection
 
 @section('container')
@@ -83,7 +83,7 @@ Penilaian Berkas Program Studi {{ $prodi }}
                         </td>
                         <td>{{ optional($brks->auditor)->nama }}</td>
                         {{-- evaluasi --}}
-                        <td>{{ optional($brks->nilais)->nilai }}</td>
+                        <td>{{ $brks->nilai }}</td>
                         {{-- komentar --}}
                         <td>
                             <div style="width: 200px;">

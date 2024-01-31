@@ -68,7 +68,6 @@ class NilaiBerkasController extends Controller
     public function updateNilai(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        // $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
 
         $pengisian->nilai = $request->nilai;
         $pengisian->komentar = $request->komentar;
@@ -96,6 +95,9 @@ class NilaiBerkasController extends Controller
     public function validasiEvaluasi($id)
     {
         $pengisian = Pengisian::find($id);
+        $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
+        $hasil_nilai =  $pengisian->nilai * $indikator_nilai->nilai;
+        $pengisian->nilai = $hasil_nilai;
         $pengisian->aksi_code = 2;
         $pengisian->save();
 

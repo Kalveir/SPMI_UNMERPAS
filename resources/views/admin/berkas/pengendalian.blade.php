@@ -89,7 +89,7 @@ Daftar Berkas
                     <td>{{ $brkp->tahun }}</td>
                     {{-- evaluasi --}}
                     <td>{{ optional($brkp->auditor)->nama }}</td>
-                    <td>{{ optional($brkp->nilais)->nilai }}</td>
+                    <td>{{ $brkp->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="width: 200px;">
                             {!! $brkp->komentar !!}

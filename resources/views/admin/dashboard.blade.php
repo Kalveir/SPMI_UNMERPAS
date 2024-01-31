@@ -117,7 +117,7 @@ Dashboard
               $chartData = [];
 
               foreach($pengisian as $index => $data) {
-                  $nilai = $data->nilais->nilai * $data->bobot_nilai;
+                  $nilai = $data->nilai;
                   $status = $nilai > $data->target ? 'Tercapai' : 'Belum Tercapai';
 
                   $chartData[] = [

@@ -51,13 +51,14 @@ class DashboardController extends Controller
         $selectedProdi = (array)$request->input('prodi', Auth::user()->prodi_id);
 
         // Query untuk mendapatkan data pengisian
-        $pengisian = Pengisian::join('nilai', 'pengisian.nilai', '=', 'nilai.id')
-            ->join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
+        $pengisian = Pengisian::join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
             ->where('pengisian.program_studi', $selectedProdi)
-            ->whereIn('tahun', $selectedYears)
-            ->select('pengisian.*', 'nilai.nilai as bobot_nilai', 'indikator.target')
+            ->where('aksi_code',2)
+            ->whereIn('pengisian.tahun', $selectedYears) // Sesuaikan dengan nama kolom yang benar
+            ->select('pengisian.*', 'indikator.target')
             ->orderBy('indikator.id')
             ->get();
+
 
         // Query untuk mendapatkan tahun-tahun distinct
         $distinctYears = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
