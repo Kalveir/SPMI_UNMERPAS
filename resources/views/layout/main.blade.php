@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="/assets/css/atlantis.min.css">
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
+
 </head>
 <body data-background-color="bg1">
 	<div class="wrapper">
@@ -136,6 +137,10 @@
 	<!-- summertnote -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <!-- filepond -->
+	<!-- Include FilePond stylesheet and script -->
+	<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+	<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 
 	<script>
     $(document).ready(function() {
@@ -163,6 +168,26 @@
         // Fokus pada input pencarian setelah DataTable diinisialisasi
         $('div.dataTables_filter input').focus();
     });
-</script>
+	</script>
+
+	<script>
+    $(document).ready(function() {
+        // Select the file input element
+        const fileInput = document.getElementById('customFile');
+
+        // Initialize FilePond
+        FilePond.create(fileInput, {
+            allowMultiple: true,
+            acceptedFileTypes: ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.jpeg', '.jpg', '.png'],
+            maxFileSize: '5MB',
+            oninit: () => {
+                console.log('FilePond has been initialized');
+            },
+            onaddfile: () => {
+                showLoading();
+            }
+        });
+    });
+	</script>
 </body>
 </html>
