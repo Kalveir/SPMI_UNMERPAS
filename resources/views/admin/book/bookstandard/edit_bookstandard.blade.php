@@ -17,18 +17,21 @@ Edit Buku Standard
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>1. Visi Misi :</h3></label>
+                <br>
                 <textarea class="summernote" name="visi_misi" class="form-control" required>{!! $bookstandar->visi_misi !!}</textarea>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>2. Tujuan :</h3></label>
+                <br>
                 <textarea class="summernote" name="tujuan" class="form-control" required>{!! $bookstandar->tujuan !!}</textarea>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>3. Rasional :</h3></label>
+                <br>
                 <textarea class="summernote" name="rasional" class="form-control" required>{!! $bookstandar->rasional !!}</textarea>
                 
             </div>
@@ -48,19 +51,21 @@ Edit Buku Standard
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>5. Subjek :</h3></label>
+                    <br>
                     <textarea class="summernote" name="subjek" class="form-control" required>{!! $bookstandar->subjek !!}</textarea>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>6.Definisi Istilah :</h3></label>
+                    <br>
                     <textarea class="summernote" name="definisi_istilah" class="form-control" required>{!! $bookstandar->definisi_istilah !!}</textarea>
                 </div>
             </div>
             
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
-                <fieldset class="f
+                <fieldset>
                     <label for="basicInput">7. Status :</label>
                     <select class="form-control" id="basicSelect" name="status">
                         <option value="1" @if ($bookstandar->status == 1) selected @endif>Aktif</option>

@@ -15,6 +15,7 @@ Tambah Buku Standard
         <div class="col-md-8">
             <div class="form-group">
                 <label for="visiMisi"><h3>1. Visi Misi :</h3></label>
+                <br>
                 <textarea class="summernote" name="visi_misi" class="form-control" required></textarea>
             </div>
         </div>
@@ -22,12 +23,14 @@ Tambah Buku Standard
         <div class="col-md-8">
             <div class="form-group">
                 <label for="Tujuan"><h3>2. Tujuan :</h3></label>
+                <br>
                 <textarea class="summernote" name="tujuan" class="form-control" required></textarea>
             </div>
         </div>
         <div class="col-md-8">
             <div class="form-group">
                 <label for="basicInput"><h3>3. Rasional :</h3></label>
+                <br>
                 <textarea class="summernote" name="rasional" class="form-control" required></textarea>
             </div>
         </div>
@@ -46,12 +49,14 @@ Tambah Buku Standard
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>5. Subjek :</h3></label>
+                    <br>
                     <textarea class="summernote" name="subjek" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="basicInput"><h3>6. Definisi Istilah :</h3></label>
+                    <br>
                     <textarea class="summernote" name="definisi_istilah" class="form-control" required></textarea>
                 </div>
             </div>

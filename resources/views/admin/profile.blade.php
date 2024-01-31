@@ -14,27 +14,27 @@ Profil Pengguna
             <div class="form-group">
                 <label for="basicInput">Nama :</label>
                 <input type="text" class="form-control" id="basicInput"
-                    value="{{ $profile->nama }}" disabled="true">
+                    value="{{ $profile->nama }}">
             </div>
             <div class="form-group">
                 <label for="basicInput">Email :</label>
                 <input type="email" class="form-control" id="basicInput"
-                    value="{{ $profile->email }}" disabled="true">
+                    value="{{ $profile->email }}">
             </div>
             <div class="form-group">
                 <label for="basicInput">Jabatan :</label>
                 <input type="text" class="form-control" id="basicInput"
-                    value="{{ $profile->roles->first()->name }}" disabled="true">
+                    value="{{ $profile->roles->first()->name }}">
             </div>
             <div class="form-group">
                 <label for="basicInput">Fakultas :</label>
                 <input type="text" class="form-control" id="basicInput"
-                    value="{{ $profile->prodi->fakultas->nama }}" disabled="true">
+                    value="{{ $profile->prodi->fakultas->nama }}">
             </div>
             <div class="form-group">
                 <label for="basicInput">Program Studi :</label>
                 <input type="text" class="form-control" id="basicInput"
-                    value="{{ $profile->prodi->nama }}" disabled="true">
+                    value="{{ $profile->prodi->nama }}">
             </div>
             <br>
             <button type="button" class="btn btn-warning mb-3" data-toggle="modal" data-target="#update_modal">
