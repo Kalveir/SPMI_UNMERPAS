@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\nilai;
 use Illuminate\Support\Facades\Auth;
 use App\Models\indikator;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
@@ -36,6 +37,7 @@ class NilaiController extends Controller
         $cek_indikator = Nilai::where('indikator_id',$request->indikator_id)->first();
         if($cek_indikator)
         {
+            Alert::info('Gagal', 'Bobot Nilai Sudah Terdaftar');
             return redirect()->route('nilai.index');
         }else{
             $nilai = new Nilai;
@@ -44,7 +46,7 @@ class NilaiController extends Controller
             $nilai->nilai = $request->nilai;
             $nilai->status = $request->status;
             $nilai->save();
-
+            Alert::success('Sukses', 'Bobot Nilai Disimpan');
             return redirect()->route('nilai.index');
         }
     }
@@ -78,7 +80,7 @@ class NilaiController extends Controller
         $nilai->nilai = $request->nilai;
         $nilai->status = $request->status;
         $nilai->save();
-
+        Alert::success('Sukses', 'Bobot Nilai Diperbarui');
         return redirect()->route('nilai.index');
 
     }
@@ -90,6 +92,7 @@ class NilaiController extends Controller
     {
         $nilai = Nilai::find($nilai);
         $nilai->delete();
+        Alert::success('Sukses', 'Bobot Nilai Terhapus');
         return redirect()->route('nilai.index');
     }
 }

@@ -33,7 +33,7 @@ class BerkasController extends Controller
                 'aksi_code'=> 0,
             ]
         );
-        Alert::success('Sukses', 'Indikator Berhasil disimpan');
+        Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
         return redirect()->route('berkas.index');
     }
 
@@ -87,7 +87,7 @@ class BerkasController extends Controller
             $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
             $pengisian_berkas->save();
         }
-        Alert::success('Sukses', 'Data Berkas Berhasil Disimpan');
+        Alert::success('Sukses', 'Data Berkas Berhasil Ditambahkan');
         return redirect()->route('berkas.index');
     }
 
@@ -95,7 +95,7 @@ class BerkasController extends Controller
     {
         $pengisian = Pengisian::find($id);
         $file = $request->file('nama_file');
-        $lastId = PengisianBerkas::max('id') + 1;
+        $lastId = Pengisian_berkas::max('id') + 1;
         foreach($file as $fl){
             $original = $fl->getClientOriginalName();
             $nama_file = now()->format('dmY').$lastId.'_'.$original;
@@ -112,7 +112,7 @@ class BerkasController extends Controller
             $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
             $pengisian_berkas->save();
         }
-        Alert::success('Sukses', 'Data Peningkatan Disimpan');
+        Alert::success('Sukses', 'Data Peningkatan Ditambahkan');
         return redirect()->route('berkas.index');
     }
 
@@ -124,7 +124,7 @@ class BerkasController extends Controller
             unlink($filepath);
         }
         $pengisian_berkas->delete();
-        Alert::success('Sukses', 'File berkas Berkas Dihapus');
+        Alert::success('Sukses', 'File Berkas Dihapus');
         return redirect()->route('berkas.index');
 
     }
@@ -134,7 +134,7 @@ class BerkasController extends Controller
         $berkas = Pengisian::find($id);
         $berkas->aksi_code = 1;
         $berkas->save();
-        Alert::success('Sukses', 'Data berhasil disimpan');
+        Alert::success('Sukses', 'Data berhasil Disimpan');
         return redirect()->route('berkas.index');
     }
     public function submitpeningkatan($id)
@@ -143,7 +143,7 @@ class BerkasController extends Controller
         $berkas->tanggal = now()->format('d/m/Y');
         $berkas->aksi_code = 4;
         $berkas->save();
-        Alert::success('Sukses', 'Peningkatan berhasil disimpan');
+        Alert::success('Sukses', 'Data Peningkatan Disimpan');
         return redirect()->route('berkas.index');
     }
 }

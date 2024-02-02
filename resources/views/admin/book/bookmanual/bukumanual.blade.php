@@ -57,7 +57,7 @@ Daftar Buku Manual
                             <form action="{{ route('bookmanual.destroy', $bkm->id) }}" method="POST" class="mb-2">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn icon icon-left btn-danger"><i data-feather="alert-circle" class="fas fa-trash-alt"></i></button>
+                                <button class="btn icon icon-left btn-danger" onclick="DestroyBookmanual(event)"><i data-feather="alert-circle" class="fas fa-trash-alt"></i></button>
                             </form>
                             @endcan
                         </div>
@@ -69,4 +69,35 @@ Daftar Buku Manual
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    //tanya hapus buku manual
+        function DestroyBookmanual(event) {
+            event.preventDefault();
+
+            hapus_bookmanual().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_bookmanual() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus buku manual ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+</script>
 @endsection

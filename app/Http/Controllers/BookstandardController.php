@@ -6,6 +6,7 @@ use App\Models\bookstandar;
 use App\Models\standard;
 use App\Models\jenis;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class BookstandardController extends Controller
@@ -45,7 +46,7 @@ class BookstandardController extends Controller
         $bookstandar->definisi_istilah = $request->definisi_istilah;
         $bookstandar->status = $request->status;
         $bookstandar->save();
-
+        Alert::success('Sukses', 'Buku Standar Disimpan');
         return redirect()->route('bookstandard.index');
 
     }
@@ -86,7 +87,7 @@ class BookstandardController extends Controller
         $bookstandar->definisi_istilah = $request->definisi_istilah;
         $bookstandar->status = $request->status;
         $bookstandar->save();
-
+        Alert::success('Sukses', 'Buku Standar Diperbarui');
         return redirect()->route('bookstandard.index');
 
     }
@@ -98,6 +99,7 @@ class BookstandardController extends Controller
     {
         $bookstandar = Bookstandar::find($bookstandar);
         $bookstandar->delete();
+        Alert::success('Sukses', 'Buku Standar Dihapus');
         return redirect()->route('bookstandard.index');
     }
 }

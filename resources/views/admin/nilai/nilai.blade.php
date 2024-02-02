@@ -55,7 +55,7 @@ Daftar Bobot Nilai
                             class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn icon icon-left btn-danger"><i
+                            <button class="btn icon icon-left btn-danger" onclick="DestroyNilai(event)"><i
                                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
                             </button>
                         </form>
@@ -68,4 +68,35 @@ Daftar Bobot Nilai
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    //tanya hapus buku manual
+        function DestroyNilai(event) {
+            event.preventDefault();
+
+            hapus_nilai().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_nilai() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus Bobot Nilai ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+</script>
 @endsection

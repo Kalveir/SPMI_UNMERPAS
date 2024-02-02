@@ -6,6 +6,7 @@ use App\Models\bookmanual;
 use App\Models\jenis;
 use App\Models\standard;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class BookmanualController extends Controller
@@ -46,7 +47,7 @@ class BookmanualController extends Controller
         $bookmanual->tahapan = $request->tahapan;
         $bookmanual->status = $request->status;
         $bookmanual->save();
-         
+        Alert::success('Sukses', 'Buku Manual Disimpan');
         return redirect()->route('bookmanual.index');
 
     }
@@ -88,7 +89,7 @@ class BookmanualController extends Controller
         $bookmanual->tahapan = $request->tahapan;
         $bookmanual->status = $request->status;
         $bookmanual->save();
-         
+        Alert::success('Sukses', 'Buku Manual Diperbarui');
         return redirect()->route('bookmanual.index');
     }
 
@@ -99,6 +100,7 @@ class BookmanualController extends Controller
     {
         $bookmanual = Bookmanual::find($bookmanual);
         $bookmanual->delete();
+        Alert::success('Sukses', 'Buku Manual Dihapus');
         return redirect()->route('bookmanual.index');
     }
 }

@@ -85,7 +85,7 @@
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn icon icon-left btn-danger"><i data-feather="alert-circle"
+                                                <button class="btn icon icon-left btn-danger" onclick="DestroyIndikator(event)"><i data-feather="alert-circle"
                                                         class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
@@ -99,4 +99,35 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        //tanya hapus indikator
+        function DestroyIndikator(event) {
+            event.preventDefault();
+
+            hapus_indikator().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_indikator() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus indikator ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+    </script>
 @endsection

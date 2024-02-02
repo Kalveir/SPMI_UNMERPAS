@@ -38,7 +38,7 @@ class StandardController extends Controller
         $standar->status = $request->status;
         $standar->save();
 
-        Alert::success('Sukses', 'Data berhasil masuk');
+        Alert::success('Sukses', 'Standar Tersimpan');
         return redirect()->route('standard.index');
     }
 
@@ -66,6 +66,7 @@ class StandardController extends Controller
         $standar->nama = $request->nama;
         $standar->status = $request->status;
         $standar->save();
+        Alert::success('Sukses', 'Standar Diperbarui');
         return redirect()->route('standard.index');
     }
 
@@ -75,6 +76,7 @@ class StandardController extends Controller
     public function destroy($standard)
     {
         $standar = Standard::find($standard);
+        Alert::success('Sukses', 'Standar Terhapus');
         $standar->delete();
         return redirect()->route('standard.index');
     }

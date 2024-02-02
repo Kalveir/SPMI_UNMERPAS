@@ -62,7 +62,7 @@ Daftar Buku Standard
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn icon icon-left btn-danger"><i
+                                <button class="btn icon icon-left btn-danger" onclick="DestroyStandar(event)"><i
                                         data-feather="alert-circle" class="fas fa-trash-alt"></i>
                                 
                                 </button>
@@ -77,4 +77,35 @@ Daftar Buku Standard
     </div>
   </div>
 </div>
+<script type="text/javascript">
+     //tanya hapus buku standar
+        function DestroyStandar(event) {
+            event.preventDefault();
+
+            hapus_bookstandar().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_bookstandar() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus buku standar ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+</script>
 @endsection

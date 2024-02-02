@@ -86,7 +86,7 @@ class NilaiBerkasController extends Controller
 
 
         $pengisian->save();
-        Alert::success('Sukses', 'Penilaian Berhasil');
+        Alert::success('Sukses', 'Penilaian Berhasil Ditambahkan');
         return redirect()->route($redirectRoute);
     }
 

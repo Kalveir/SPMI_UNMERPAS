@@ -47,7 +47,7 @@ class IndikatorController extends Controller
         $indikator->status = $request->status;
         $indikator->save();
 
-        Alert::success('Sukses', 'Data berhasil masuk');
+        Alert::success('Sukses', 'Indikator Ditambahkan');
         return redirect()->route('indikator.index');
     }
 
@@ -86,7 +86,7 @@ class IndikatorController extends Controller
         $indikator->target = $request->target;
         $indikator->status = $request->status;
         $indikator->save();
-
+        Alert::success('Sukses', 'Indikator Diperbarui');
         return redirect()->route('indikator.index');
     }
 
@@ -97,6 +97,7 @@ class IndikatorController extends Controller
     {
         $indikator = Indikator::find($indikator);
         $indikator->delete();
+        Alert::success('Sukses', 'Indikator Dihapus');
         return redirect()->route('indikator.index');
     }
 }

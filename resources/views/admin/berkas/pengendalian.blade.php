@@ -127,6 +127,8 @@ Daftar Berkas
                         
                     </td>
                     <td>
+                        @if ($brkp->aksi_code == 2)
+                        <div class="d-flex center-content-between">   
                         <form action="{{ route('pengendalian.edit',$brkp->id) }}"
                             class="d-inline">
                             @csrf
@@ -135,6 +137,27 @@ Daftar Berkas
                                     <span>Pengendalian</span>
                             </button>
                         </form>
+                            @if ($brkp->pengisian_berkas->where('jenis', 'Pengendalian')->isNotEmpty())
+                                <form action="{{ route('pengendalian.validasi', $brkp->id) }}"
+                                    method="POST" class="d-inline">
+                                    @csrf
+                                    <button class="btn btn-outline-success" onclick="lockPengendalian(event)">
+                                        <i data-feather="alert-triangle" class="fas fa-save"></i>
+                                        <span>Simpan Pengendalian</span>
+                                    </button>
+                                </form>
+                            @endif
+                        @elseif($brkp->aksi_code == 3)
+                            <div class="alert alert-primary" role="alert">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Pengendalian Tersimpan!</strong>
+                            </div>
+                        @elseif($brkp->aksi_code == 4)
+                            <div class="alert alert-info d-flex center-content-between" role="alert">
+                                <strong>AMI: {{ $brkp->tanggal }}</strong>
+                            </div>
+                        @endif
+                        </div>
                     </td>
                 </tr>
             @endforeach
@@ -179,6 +202,39 @@ Daftar Berkas
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<script type="text/javascript">
+    //tanya kunci
+    function lockPengendalian(event) {
+        event.preventDefault();
+
+        submit_pengendalian().then((confirmed) => {
+            if (confirmed) {
+                event.target.closest('form').submit();
+            }
+        });
+    }
+
+    function submit_pengendalian() {
+        return new Promise((resolve) => {
+            Swal.fire({
+                title: 'Apakah Anda Yakin Menyimpan Data Pengendalian Ini..?',
+                text: 'Data Pengendalian disimpan permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                } else {
+                    resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                }
+            });
+        });
+    }
+</script>
+
 @endsection

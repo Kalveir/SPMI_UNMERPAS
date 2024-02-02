@@ -3,14 +3,14 @@
 Standard
 @endsection
 @section('judul')
-Daftar Standard
+Daftar Standar
 @endsection
 @section('container')
 <div class="card">
     <div class="card-header">
         @can('kelola standard')
         <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-            Tambah Standarisasi
+            Tambah Standar
         </button>
         @endcan
     </div>
@@ -49,7 +49,7 @@ Daftar Standard
                             class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn icon icon-left btn-danger"><i
+                            <button class="btn icon icon-left btn-danger" onclick="destroyStandard(event)"><i
                                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
 
                             </button>
@@ -66,7 +66,7 @@ Daftar Standard
                             <div class="modal-header">
                                 <h5 class="modal-title" id="update_fakultas{{ $std->id }}">
                                     Edit
-                                    Standarisasi</h5>
+                                    Standar</h5>
                                 <button type="button" class="close" data-dismiss="modal"
                                     aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -80,7 +80,7 @@ Daftar Standard
                                     <!-- Isi form sesuai kebutuhan -->
                                     <div class="form-group">
                                         <label for="nama">Standard : </label>
-                                        <input type="text" class="form-control" placeholder="Masukan Standarisasi" id="nama"
+                                        <input type="text" class="form-control" placeholder="Masukan Standar" id="nama"
                                             name="nama" value="{{ $std->nama }}" required>
                                     </div>
                                     <div class="form-group">
@@ -110,7 +110,7 @@ Daftar Standard
         <div class="modal-content">
             <!-- Header Modal -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Standarisasi</h4>
+                <h4 class="modal-title">Tambah Standar</h4>
                 <button type="button" class="close"
                     data-dismiss="modal">&times;</button>
             </div>
@@ -121,10 +121,10 @@ Daftar Standard
                 <form action="{{ route('standard.store') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Standarisasi :</label>
+                        <label for="nama">Standar :</label>
                         <input type="text" name="nama" id="nama"
                             class="form-control"
-                            placeholder="Masukan Standarisasi"
+                            placeholder="Masukan Standar"
                             required>
                     </div>
                     <div class="form-group">
@@ -149,4 +149,35 @@ Daftar Standard
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+        //tanya hapus standar
+        function destroyStandard(event) {
+            event.preventDefault();
+
+            hapus_standar().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_standar() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus standar ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+</script>
 @endsection

@@ -5,6 +5,7 @@ use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
 use App\Models\pengisian_berkas;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class PengendalianController extends Controller
@@ -77,9 +78,20 @@ class PengendalianController extends Controller
         }elseif ($pengisian->program_studi == 5) {
             $redirectRoute = 'prodi_agro.index';
         }
+        $pengisian->save();
+        Alert::success('Sukses', 'Data Pengendalian Ditambahkan');
+        return redirect()->route($redirectRoute);
+
+    }
+
+    public function validasiPengendalian($id)
+    {
+        $pengisian = Pengisian::find($id);
         $pengisian->aksi_code = 3;
         $pengisian->save();
-        return redirect()->route($redirectRoute);
+        Alert::success('Sukses', 'Data Pengendalian Tersimpan');
+        return redirect()->back();
+
 
     }
 }

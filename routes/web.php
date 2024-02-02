@@ -206,6 +206,8 @@ Route::middleware(['auth', 'role:LPPM'])->group(function(){
     Route::get('/pengendalian/Agroteknologi',[PengendalianController::class, 'PengendalianAgroteknologi'])->name('prodi_agroteknologi.index')->middleware('auth');
     Route::get('/tambah-pengendalian/{id}',[PengendalianController::class,'addPengendalian'])->name('pengendalian.edit')->middleware('auth');
     Route::post('/pengendalian/update/{id}',[PengendalianController::class, 'updatePengendalian'])->name('pengendalian.update')->middleware('auth');
+    Route::post('/pengendalian/validasi/{id}',[PengendalianController::class, 'validasiPengendalian'])->name('pengendalian.validasi')->middleware('auth');
+
 });
 
 
