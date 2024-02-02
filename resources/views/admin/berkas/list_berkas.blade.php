@@ -69,7 +69,7 @@
                                                             class="d-inline" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="destroyBerkas(event)">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
@@ -100,7 +100,7 @@
                                                             class="d-inline" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="destroyBerkas(event)">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
@@ -156,7 +156,7 @@
                                                             class="d-inline" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                            <button type="submit" class="btn btn-danger btn-sm"onclick="destroyBerkas(event)">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
@@ -187,7 +187,7 @@
                                                     <form action="{{ route('berkas.delete', $bkst->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="dropdown-item" type="submit"><i
+                                                        <button class="dropdown-item" onclick="destroyIndikator(event)" type="submit"><i
                                                                 class="fas fa-trash"></i>Hapus</button>
                                                     </form>
                                                 </div>
@@ -198,9 +198,9 @@
                                                 <form action="{{ route('berkas.valid', $bkst->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
-                                                    <button class="btn btn-outline-success" onclick="handleValidate(event)">
+                                                    <button class="btn btn-outline-success" onclick="validateBerkas(event)">
                                                         <i data-feather="alert-triangle" class="fas fa-check-square"></i>
-                                                        <span>Validasi</span>
+                                                        <span>Submit</span>
                                                     </button>
                                                 </form>
                                             @endif
@@ -232,7 +232,7 @@
                                                 <form action="{{ route('berkas.submit', $bkst->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
-                                                    <button class="btn btn-outline-success">
+                                                    <button class="btn btn-outline-success" onclick="validatePeningkatan(event)">
                                                         <i data-feather="alert-triangle" class="fas fa-check-square"></i>
                                                         <span>Submit</span>
                                                     </button>
@@ -290,30 +290,115 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript">
-        function handleValidate(event) {
+        //tanya validasi berkas
+        function validateBerkas(event) {
             event.preventDefault();
 
-            getValidate().then((confirmed) => {
+            submit_berkas().then((confirmed) => {
                 if (confirmed) {
                     event.target.closest('form').submit();
                 }
             });
         }
 
-        function getValidate() {
+        function submit_berkas() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Apakah Anda yakin?',
-                    text: 'Data akan dihapus permanen!',
+                    title: 'Apakah anda yakin untuk disubmit..?',
+                    text: 'Data akan disimpan permanen!',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, Hapus!'
+                    confirmButtonText: 'Ya, Submit!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+        //tanya hapus indikator
+        function destroyIndikator(event) {
+            event.preventDefault();
+
+            hapus_indikator().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_indikator() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus indikator ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+        //tanya berkas
+        function destroyBerkas(event) {
+            event.preventDefault();
+
+            destroy_berkas().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function destroy_berkas() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus Berkas ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+        //tanya validasi peningkatan
+        function validatePeningkatan(event) {
+            event.preventDefault();
+
+            simpan_peningkatan().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function simpan_peningkatan() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda menyimpan peningkatan ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"

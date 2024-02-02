@@ -110,7 +110,7 @@
                                                     <form action="{{ route('penilaian.validasi', $brks->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
-                                                        <button class="btn btn-outline-danger">
+                                                        <button class="btn btn-outline-danger" onclick="lockNilai(event)">
                                                             <i data-feather="alert-triangle" class="fas fa-lock"></i>
                                                             <span>Kunci Penilaian</span>
                                                         </button>
@@ -132,4 +132,36 @@
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    //tanya kunci
+    function lockNilai(event) {
+        event.preventDefault();
+
+        submit_penilaian().then((confirmed) => {
+            if (confirmed) {
+                event.target.closest('form').submit();
+            }
+        });
+    }
+
+    function submit_penilaian() {
+        return new Promise((resolve) => {
+            Swal.fire({
+                title: 'Apakah Anda Yakin Menyimpan Penilaian Evaluasi Ini..?',
+                text: 'Data Penilaian disimpan permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                } else {
+                    resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                }
+            });
+        });
+    }
+</script>
 @endsection

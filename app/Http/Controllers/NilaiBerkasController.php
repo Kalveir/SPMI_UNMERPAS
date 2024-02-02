@@ -6,6 +6,7 @@ use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
 use App\Models\nilai;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -85,6 +86,7 @@ class NilaiBerkasController extends Controller
 
 
         $pengisian->save();
+        Alert::success('Sukses', 'Penilaian Berhasil');
         return redirect()->route($redirectRoute);
     }
 
@@ -109,7 +111,7 @@ class NilaiBerkasController extends Controller
             $redirectRoute = 'agro.index';
         }
 
-
+        Alert::success('Sukses', 'Penilaian Evaluasi Tersimpan');
         return redirect()->route($redirectRoute);
     }
 }
