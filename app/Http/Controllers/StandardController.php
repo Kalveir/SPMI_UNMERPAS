@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\standard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StandardController extends Controller
 {
@@ -15,7 +16,7 @@ class StandardController extends Controller
     {
         // $standar = Standard::where('pegawai_id', Auth::user()->id)->get();
         $standar = Standard::get();
-        return view('admin.standar',compact('standar'));
+        return view('admin.standar', compact('standar'));
     }
 
     /**
@@ -36,6 +37,8 @@ class StandardController extends Controller
         $standar->nama = $request->nama;
         $standar->status = $request->status;
         $standar->save();
+
+        Alert::success('Sukses', 'Data berhasil masuk');
         return redirect()->route('standard.index');
     }
 

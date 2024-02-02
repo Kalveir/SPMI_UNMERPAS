@@ -51,7 +51,7 @@ Daftar Standard
                             @method('DELETE')
                             <button class="btn icon icon-left btn-danger"><i
                                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
-                            
+
                             </button>
                         </form>
                     </td>
