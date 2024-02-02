@@ -6,6 +6,7 @@ use App\Models\indikator;
 use App\Models\standard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IndikatorController extends Controller
 {
@@ -26,6 +27,7 @@ class IndikatorController extends Controller
     {
         $standard = Standard::get();
         // $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+
         return view('admin.indikator.tambah_indikator', compact('standard'));
     }
 
@@ -44,7 +46,8 @@ class IndikatorController extends Controller
         $indikator->target = $request->target;
         $indikator->status = $request->status;
         $indikator->save();
-        
+
+        Alert::success('Sukses', 'Data berhasil masuk');
         return redirect()->route('indikator.index');
     }
 
@@ -61,11 +64,11 @@ class IndikatorController extends Controller
      */
     public function edit($indikator)
     {
-        $indikator= Indikator::find($indikator);
+        $indikator = Indikator::find($indikator);
         // $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
         $standard = Standard::get();
         // $this->authorize('aksesIndikator',$indikator);
-        return view('admin.indikator.edit_indikator', compact('indikator','standard'));
+        return view('admin.indikator.edit_indikator', compact('indikator', 'standard'));
     }
 
     /**
@@ -73,7 +76,7 @@ class IndikatorController extends Controller
      */
     public function update(Request $request, $indikator)
     {
-        $indikator= Indikator::find($indikator);
+        $indikator = Indikator::find($indikator);
         // $indikator->pegawai_id = Auth::user()->id;
         $indikator->standard_id = $request->standar_id;
         $indikator->isi = $request->isi;
@@ -83,9 +86,8 @@ class IndikatorController extends Controller
         $indikator->target = $request->target;
         $indikator->status = $request->status;
         $indikator->save();
-        
-        return redirect()->route('indikator.index');
 
+        return redirect()->route('indikator.index');
     }
 
     /**
