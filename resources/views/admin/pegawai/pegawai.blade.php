@@ -44,6 +44,7 @@ Daftar Pegawai
                         @endif
                     </td>
                     <td>
+                        <div class="d-flex center-content-between"> 
                         <form action="{{ route('pegawai.edit', $pgw->id) }}"
                             class="d-inline">
                             @csrf
@@ -59,6 +60,7 @@ Daftar Pegawai
                                     data-feather="alert-circle" class="fas fa-trash"></i>
                             </button>
                         </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

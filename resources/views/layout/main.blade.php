@@ -137,10 +137,7 @@
 	<!-- summertnote -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <!-- filepond -->
-	<!-- Include FilePond stylesheet and script -->
-	<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-	<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
 
 	<script>
     $(document).ready(function() {
@@ -148,17 +145,15 @@
         $('.summernote').summernote({
             placeholder: 'Input text here...',
             tabsize: 2,
-            height: 120,
+            minHeight: 200, // Atur nilai sesuai kebutuhan
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
             ]
         });
     });
 	</script>
-
 
 	<script>
     $(document).ready(function() {
@@ -167,26 +162,6 @@
 
         // Fokus pada input pencarian setelah DataTable diinisialisasi
         $('div.dataTables_filter input').focus();
-    });
-	</script>
-
-	<script>
-    $(document).ready(function() {
-        // Select the file input element
-        const fileInput = document.getElementById('customFile');
-
-        // Initialize FilePond
-        FilePond.create(fileInput, {
-            allowMultiple: true,
-            acceptedFileTypes: ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.jpeg', '.jpg', '.png'],
-            maxFileSize: '5MB',
-            oninit: () => {
-                console.log('FilePond has been initialized');
-            },
-            onaddfile: () => {
-                showLoading();
-            }
-        });
     });
 	</script>
 </body>

@@ -39,7 +39,6 @@ class AudhitorController extends Controller
             }
         }
         
-
         return view('admin.audhitor.audhitor',compact('pegawai_audhitor'));
     }
 
