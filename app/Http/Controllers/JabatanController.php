@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -42,6 +43,7 @@ class JabatanController extends Controller
                 $role->givePermissionTo($permission);
             }
         }
+        Alert::success('Sukses', 'Data Jabatan Tersimpan');
         return redirect()->route('jabatan.index');
     }
 
@@ -79,6 +81,7 @@ class JabatanController extends Controller
         // Sync the permissions for the role
         $permissions = $request->akses;
         $role->syncPermissions($permissions);
+        Alert::success('Sukses', 'Jabatan Diperbarui');
         return redirect()->route('jabatan.index');
     }
 
@@ -90,6 +93,7 @@ class JabatanController extends Controller
         $jabatan = Role::findById($jabatan);
         $jabatan->syncPermissions([]);
         $jabatan->delete();
+        Alert::success('Sukses', 'Jabatan Dihapus');
         return redirect()->route('jabatan.index'); 
     }
 }

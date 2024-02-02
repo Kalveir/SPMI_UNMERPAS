@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Models\prodi;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -43,6 +44,7 @@ class UserController extends Controller
 
         $role = Role::findById($request->jabatan_id);
         $user->assignRole($role);
+        Alert::success('Sukses', 'Data Pegawai Tersimpan');
         return redirect()->route('pegawai.index');
     }
 
@@ -82,6 +84,7 @@ class UserController extends Controller
             ]);
             $role = Role::findById($request->jabatan_id);
             $pegawai->syncRoles([$role]);
+            Alert::success('Sukses', 'Data Pegawai Diperbarui');
             return redirect()->route('pegawai.index');
         }else{
             $pegawai->update([
@@ -92,6 +95,7 @@ class UserController extends Controller
             ]);
             $role = Role::findById($request->jabatan_id);
             $pegawai->syncRoles([$role]);
+            Alert::success('Sukses', 'Data Pegawai Diperbarui');
             return redirect()->route('pegawai.index'); 
         }
     }
@@ -104,6 +108,7 @@ class UserController extends Controller
         $pegawai = User::find($user);
         $pegawai->syncRoles([]);
         $pegawai->delete();
+        Alert::success('Sukses', 'Data Pegawai Dihapus');
         return redirect()->route('pegawai.index');
     }
 }

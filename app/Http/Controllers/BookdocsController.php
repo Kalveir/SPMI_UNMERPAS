@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bookdocs;
 use App\Models\standard;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class BookdocsController extends Controller
@@ -32,7 +33,7 @@ class BookdocsController extends Controller
         $formulir->standard_id = $request->standar_id;
         $formulir->nama_file = $name_file;
         $formulir->save();
-
+        Alert::success('Sukses', 'Formulir Disimpan');
         return redirect()->route('formulir.index');
     }
 
@@ -58,6 +59,7 @@ class BookdocsController extends Controller
             $name_file =  $request->file('nama_file')->hashName();
             $formulir->nama_file = $name_file;
             $formulir->save();
+            Alert::success('Sukses', 'Formulir Diperbarui');
             return redirect()->route('formulir.index');
 
         }else{
@@ -65,6 +67,7 @@ class BookdocsController extends Controller
             $formulir->jenis = $request->jenis;
             $formulir->standard_id = $request->standar_id;
             $formulir->save();
+            Alert::success('Sukses', 'Formulir Diperbarui');
             return redirect()->route('formulir.index');
         }
     }
@@ -76,6 +79,7 @@ class BookdocsController extends Controller
             unlink($filepath);
         }
         $formulir->delete();
+        Alert::success('Sukses', 'Formulir Dihapus');
         return redirect()->route('formulir.index');
     }
 
@@ -102,6 +106,7 @@ class BookdocsController extends Controller
         $sop->jenis_file = 'SOP';
         $sop->standard_id = $request->standar_id;
         $sop->nama_file = $name_file;
+        Alert::success('Sukses', 'SOP Tersimpan');
         $sop->save();
 
         return redirect()->route('SOP.index');
@@ -129,6 +134,7 @@ class BookdocsController extends Controller
             $name_file =  $request->file('nama_file')->hashName();
             $sop->nama_file = $name_file;
             $sop->save();
+            Alert::success('Sukses', 'SOP Diperbarui');
             return redirect()->route('SOP.index');
 
         }else{
@@ -136,6 +142,7 @@ class BookdocsController extends Controller
             $sop->jenis = $request->jenis;
             $sop->standard_id = $request->standar_id;
             $sop->save();
+            Alert::success('Sukses', 'SOP Diperbarui');
             return redirect()->route('SOP.index');
         }
     }
@@ -147,6 +154,7 @@ class BookdocsController extends Controller
             unlink($filepath);
         }
         $sop->delete();
+        Alert::success('Sukses', 'SOP Dihapus');
         return redirect()->route('SOP.index');
     }
 }
