@@ -11,15 +11,13 @@ Tambah Bobot Nilai
     <form action="{{ route('nilai.store') }}" method="post">
         @csrf
         <div class="col-md-8">
-            <div class="form-group">
-                <label for="basicInput">1. Deskripsi :</label>
-                <br>
-                <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
-            </div>
-        <div>
+          <div class="form-group">
+            <h4><strong>1. Isi :</strong></h4>
+            <textarea class="form-control" placeholder="Deskripsi Bobot Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus></textarea>
+        </div>
         <fieldset class="form-group">
             <label for="basicInput">2. Indikator :</label>
-            <select class="form-control" id="indikator_id" name="indikator_id">
+            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow-y:auto;">
                 @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}">
                         {{ $idnk->indikator }}
@@ -39,7 +37,14 @@ Tambah Bobot Nilai
             </select>
         </fieldset>
         <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
+    </form>  
+        </div>
+            <!-- <div class="form-group">
+                <label for="basicInput">1. Deskripsi :</label>
+                <br>
+                <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+            </div>
+        <div> -->
   </div>
 </div>
 @endsection

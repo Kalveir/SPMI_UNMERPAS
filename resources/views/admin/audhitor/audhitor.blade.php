@@ -40,7 +40,7 @@ Daftar Audhitor
                         class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button class="btn icon icon-left btn-danger"><i
+                        <button class="btn icon icon-left btn-danger"onclick="DestroyAuditor(event)"><i
                                 data-feather="alert-circle" class="fas fa-trash"></i>
                         </button>
                     </form>
@@ -52,4 +52,35 @@ Daftar Audhitor
     </div>
   </div>
 </div>
+<script type="text/javascript">
+        //tanya hapus indikator
+        function DestroyAuditor(event) {
+            event.preventDefault();
+
+            hapus_auditor().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_auditor() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus Auditor ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+    </script>
 @endsection

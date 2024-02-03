@@ -53,7 +53,7 @@ class DashboardController extends Controller
         // Query untuk mendapatkan data pengisian
         $pengisian = Pengisian::join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
             ->where('pengisian.program_studi', $selectedProdi)
-            ->where('aksi_code',2)
+            ->where('aksi_code','>',1)
             ->whereIn('pengisian.tahun', $selectedYears) // Sesuaikan dengan nama kolom yang benar
             ->select('pengisian.*', 'indikator.target')
             ->orderBy('indikator.id')

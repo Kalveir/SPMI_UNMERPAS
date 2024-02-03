@@ -28,7 +28,7 @@
                         title="Open User Selection Modal">
                         Seleksi Pegawai
                     </button>
-
+                    <div class="col-md-6">
                     <table class="table" id="mainTable">
                         <thead>
                             <tr>
@@ -43,6 +43,7 @@
                             <!-- Main table content will be populated dynamically -->
                         </tbody>
                     </table>
+                    </div>
                     <input type="hidden" id="data_tabel_input" name="data_tabel">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     {{-- <button type="button" class="btn btn-primary" onclick="ambilData()">Simpan</button> --}}
@@ -63,7 +64,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="row table-responsive">
+                <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="basic-datatables">
                         <thead>
                             <tr>

@@ -39,7 +39,11 @@ Upload Berkas
                 <input type="file" class="custom-file-input" id="customFile" required data-max-file-size="5MB" name="nama_file[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
                 <label class="custom-file-label" for="customFile" placeholder="Upload"></label>
             </div>
+            <ul id="fileList" class="list-group">
+            <!-- File items will be added dynamically here -->
+            </ul>
         </div>
+        
         <div class="form-group">
             <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
         </div>

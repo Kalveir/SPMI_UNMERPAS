@@ -93,7 +93,7 @@ class NilaiBerkasController extends Controller
     public function validasiEvaluasi($id)
     {
         $pengisian = Pengisian::find($id);
-        $indikator_nilai = Nilai::where('id', $pengisian->indikator_id)->first();
+        $indikator_nilai = Nilai::where('indikator_id', $pengisian->indikator_id)->first();
         $hasil_nilai =  $pengisian->nilai * $indikator_nilai->nilai;
         $pengisian->nilai = $hasil_nilai;
         $pengisian->aksi_code = 2;

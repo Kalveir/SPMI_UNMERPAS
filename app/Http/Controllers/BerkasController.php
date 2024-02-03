@@ -24,17 +24,17 @@ class BerkasController extends Controller
     public function addIndikator(Request $request)
     {
         Pengisian::updateOrCreate(
-            [
-                'pegawai_id' => Auth::user()->id,
-                'program_studi' => Auth::user()->prodi_id,
-                'indikator_id' => $request->indikator_id,
-                // 'nilai' => 0,
-                'tahun' => now()->format('Y'),
-                'aksi_code'=> 0,
-            ]
+                [
+                    'pegawai_id' => Auth::user()->id,
+                    'program_studi' => Auth::user()->prodi_id,
+                    'indikator_id' => $request->indikator_id,
+                    // 'nilai' => 0,
+                    'tahun' => now()->format('Y'),
+                    'aksi_code'=> 0,
+                ]
         );
         Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
-        return redirect()->route('berkas.index');
+        return redirect()->route('berkas.index');   
     }
 
     public function hapusIndikator($id)

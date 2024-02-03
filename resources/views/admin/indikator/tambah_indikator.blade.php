@@ -30,7 +30,7 @@ Tambah Indikator
         <div class="col-md-6 mb-4">
             <fieldset class="form-group">
                 <h4><strong>3. Standar :</strong></h4>
-                <select class="form-control" id="standar_id" name="standar_id">
+                <select class="form-control" id="standar_id" name="standar_id" style="height: 50px; overflow-y:auto;">
                     @foreach ($standard as $std)
                         <option value="{{ $std->id }}">
                             {{ $std->nama }}

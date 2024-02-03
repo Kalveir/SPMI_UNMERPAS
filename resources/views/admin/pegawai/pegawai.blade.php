@@ -33,9 +33,9 @@ Daftar Pegawai
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $pgw->nama }}</td>
                     <td>{{ $pgw->prodi->nama }}</td>
-                        <td>
-                            {{$pgw->roles->first()->name}}
-                        </td>
+                    <td>
+                        {{$pgw->roles->first()->name}}
+                    </td> 
                     <td>
                         @if ($pgw->status == 1)
                             <span class="badge badge-success">Aktif</span>

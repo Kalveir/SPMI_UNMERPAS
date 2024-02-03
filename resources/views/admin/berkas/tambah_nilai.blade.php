@@ -38,7 +38,7 @@
                 <div class="col-md-6 row-md-15">
                     <div class="form-group">
                         <h4><strong>Penilaian :</strong></h4>
-                        <select class="form-control" id="nilai" name="nilai">
+                        <select class="form-control" id="nilai" name="nilai" style="height: 50px; overflow-y:auto;">
                             @foreach ($nilai as $nl)
                                 <option value="{{ $nl->nilai }}">{!! $nl->deskripsi !!}</option>
                             @endforeach

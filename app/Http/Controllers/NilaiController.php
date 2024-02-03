@@ -75,13 +75,20 @@ class NilaiController extends Controller
     public function update(Request $request, $nilai)
     {
         $nilai = Nilai::find($nilai);
-        $nilai->deskripsi = $request->deskripsi;
-        $nilai->indikator_id = $request->indikator_id;
-        $nilai->nilai = $request->nilai;
-        $nilai->status = $request->status;
-        $nilai->save();
-        Alert::success('Sukses', 'Bobot Nilai Diperbarui');
-        return redirect()->route('nilai.index');
+        $cek_indikator = Nilai::where('indikator_id',$request->indikator_id)->first();
+        if($cek_indikator)
+        {
+            Alert::info('Gagal', 'Bobot Nilai Sudah Terdaftar');
+            return redirect()->route('nilai.index');
+        }else{
+            $nilai->deskripsi = $request->deskripsi;
+            $nilai->indikator_id = $request->indikator_id;
+            $nilai->nilai = $request->nilai;
+            $nilai->status = $request->status;
+            $nilai->save();
+            Alert::success('Sukses', 'Bobot Nilai Diperbarui');
+            return redirect()->route('nilai.index');  
+        }
 
     }
 

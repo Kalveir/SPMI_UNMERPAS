@@ -115,12 +115,24 @@
                                 <td>{{ $bkst->tahun }}</td>
                                 </td>
                                 {{-- evaluasi --}}
-                                <td>{{ optional($bkst->auditor)->nama }}</td>
-                                <td>{{ $bkst->nilai }}</td>
                                 <td>
-                                    <div style="width: 200px;">
-                                        {!! $bkst->komentar !!}
-                                    </div>
+                                    @if ($bkst->aksi_code > 1)
+                                        <div style="width: 200px;">
+                                            {{ optional($bkst->auditor)->nama }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($bkst->aksi_code > 1)
+                                        {{ $bkst->nilai }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($bkst->aksi_code > 1)
+                                        <div style="width: 200px;">
+                                            {!! $bkst->komentar !!}
+                                        </div>
+                                    @endif
                                 </td>
                                 {{-- Pengendalian --}}
                                 <td>
@@ -271,7 +283,7 @@
                         <div class="form-group">
                             <label for="nama">Pilih Indikator : </label>
                             <select class="form-control" aria-label="Default select example" id="indikator_id"
-                                name="indikator_id" autofocus>
+                                name="indikator_id" style="height: 50px; overflow-y:auto;" autofocus>
                                 @foreach ($indikator as $indk)
                                     <option value="{{ $indk->id }}">
                                         {{ $indk->indikator }}

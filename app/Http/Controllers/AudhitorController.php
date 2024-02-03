@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Role;
 
 class AudhitorController extends Controller
@@ -65,6 +66,7 @@ class AudhitorController extends Controller
                 }
             }
         }
+        Alert::success('Sukses', 'Data Auditor Disimpan');
         return redirect()->route('audhitor.index');
 
 
@@ -83,6 +85,7 @@ class AudhitorController extends Controller
             }
         
             $user->save();
+            Alert::success('Sukses', 'Auditor Dihapus');
             return redirect()->route('audhitor.index');
         }
     }
