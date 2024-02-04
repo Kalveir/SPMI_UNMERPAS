@@ -21,11 +21,22 @@ Upload Berkas
         <div class="form-group">
             <label for="basicInput"><h4><strong>2. Upload Berkas :</strong></h4></label>
         </div>
-        <div class="col-md-6 mb-4">
+        {{-- <div class="col-md-6 mb-4">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="customFile" required data-max-file-size="5MB" name="nama_file[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
                 <label class="custom-file-label" for="customFile"></label>
             </div>
+        </div> --}}
+        <div class="col-md-6 mb-4">
+            <input type="file"
+               class="filepond"
+               name="nama_file[]"
+               multiple
+               data-allow-reorder="true"
+               data-max-file-size="15MB"
+               accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
+               required
+               />
         </div>
         <div class="form-group">
             <label for="basicInput"><h4><strong>3. Deskripsi :</strong></h4></label>

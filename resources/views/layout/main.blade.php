@@ -151,7 +151,10 @@
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    {{-- dropzone --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             // Inisialisasi Summernote untuk elemen dengan kelas summernote
@@ -169,7 +172,6 @@
             });
         });
     </script>
-    <script>
         $(document).ready(function() {
             // Inisialisasi Summernote untuk elemen dengan kelas summernote
             $('.summernotet').summernote({
@@ -192,51 +194,6 @@
             // Fokus pada input pencarian setelah DataTable diinisialisasi
             $('div.dataTables_filter input').focus();
         });
-    </script>
-    <!-- upload file berkas -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.custom-file-input').on('change', handleFileSelect);
-
-            function handleFileSelect(event) {
-                const fileList = $('#fileList');
-                const customFileInput = $('.custom-file-input');
-
-                // Clear existing list items
-                fileList.empty();
-
-                // Clear the file input (if needed)
-                // customFileInput.val('');
-
-                const files = event.target.files;
-                for (let i = 0; i < files.length; i++) {
-                    const listItem = createListItem(files[i]);
-                    fileList.append(listItem);
-                }
-            }
-
-            function createListItem(file) {
-                const listItem = $('<li>').addClass('list-group-item d-flex justify-content-between align-items-center').text(file.name);
-
-                const deleteButton = $('<button>').addClass('btn btn-danger btn-sm').text('Delete');
-                deleteButton.on('click', function() {
-                    deleteFile(file.name, listItem);
-                });
-
-                listItem.append(deleteButton);
-                return listItem;
-            }
-
-            function deleteFile(fileName, listItem) {
-                const deleteConfirmation = confirm('Are you sure you want to delete ' + fileName + '?');
-                if (deleteConfirmation) {
-                    // Implement logic to delete the file on the server
-                    // Upon successful deletion, remove the corresponding list item
-                    listItem.remove();
-                }
-            }
-        });
-
     </script>
 </body>
 
