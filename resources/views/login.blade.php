@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>SPMI | Login</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="/assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="/assets/img/unmer.png" type="image/x-icon"/>
 	
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="main-wrapper" style="background-image: url(/assets/img/bg-404.jpeg); background-repeat: no-repeat">
         <section class="vh-100">
             <div class="container py-5 h-100">

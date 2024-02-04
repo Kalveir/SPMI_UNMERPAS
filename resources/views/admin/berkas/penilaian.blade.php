@@ -107,7 +107,7 @@
                                                     </button>
                                                 </form>
                                                 @if ($brks->nilai != null)
-                                                    <form action="{{ route('penilaian.validasi', $brks->id) }}"
+                                                <form action="{{ route('penilaian.validasi', $brks->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         <button class="btn btn-outline-danger" onclick="lockNilai(event)">
@@ -147,7 +147,7 @@
     function submit_penilaian() {
         return new Promise((resolve) => {
             Swal.fire({
-                title: 'Apakah Anda Yakin Menyimpan Penilaian Evaluasi Ini..?',
+                title: 'Yakin menyimpan penilaian evaluasi ini..?',
                 text: 'Data Penilaian disimpan permanen!',
                 icon: 'warning',
                 showCancelButton: true,

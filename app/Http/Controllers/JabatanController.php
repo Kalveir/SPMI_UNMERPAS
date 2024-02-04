@@ -14,7 +14,7 @@ class JabatanController extends Controller
 
     public function index()
     {
-        $jabatan = Role::get();
+        $jabatan = Role::where('name','not like','%auditor%')->get();
         return view('admin.jabatan.jabatan',compact('jabatan'));
     }
 

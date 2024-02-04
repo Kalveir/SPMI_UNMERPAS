@@ -219,7 +219,7 @@ Daftar Berkas
     function submit_pengendalian() {
         return new Promise((resolve) => {
             Swal.fire({
-                title: 'Apakah Anda Yakin Menyimpan Data Pengendalian Ini..?',
+                title: 'Yakin menyimpan data pengendalian ini..?',
                 text: 'Data Pengendalian disimpan permanen!',
                 icon: 'warning',
                 showCancelButton: true,

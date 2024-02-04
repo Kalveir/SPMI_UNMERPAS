@@ -31,7 +31,7 @@ Upload Berkas
             <label for="basicInput"><h4><strong>3. Deskripsi :</strong></h4></label>
         </div>
         <div class="col-md-8">
-            <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+            <textarea class="summernotet" name="deskripsi" class="form-control" required></textarea>
         </div>
         <br>
         <br>

@@ -73,11 +73,12 @@ class BerkasController extends Controller
         $file = $request->file('nama_file');
         foreach($file as $fl){
             $original = $fl->getClientOriginalName();
-            $nama_file = now()->format('dmY').$lastId.'_'.$original;
-
-            $pengisian_berkas = new pengisian_berkas;
-            $pengisian_berkas->nama_file = $nama_file;
-            $fl->storeAs('Berkas',$nama_file);
+            $extension = $fl->getClientOriginalExtension();
+            $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
+        
+            $pengisian_berkas = new Pengisian_berkas;
+            $pengisian_berkas->nama_file = $hashName;
+            $fl->storeAs('Berkas', $hashName);
 
             $pengisian_berkas->jenis = $request->jenis;
             $pengisian_berkas->pengisian_id = $pengisian->id;
@@ -95,14 +96,17 @@ class BerkasController extends Controller
     {
         $pengisian = Pengisian::find($id);
         $file = $request->file('nama_file');
-        $lastId = Pengisian_berkas::max('id') + 1;
-        foreach($file as $fl){
+        // $lastId = Pengisian_berkas::max('id') + 1;
+        foreach ($file as $fl) {
             $original = $fl->getClientOriginalName();
-            $nama_file = now()->format('dmY').$lastId.'_'.$original;
-
-            $pengisian_berkas = new pengisian_berkas;
-            $pengisian_berkas->nama_file = $nama_file;
-            $fl->storeAs('Berkas',$nama_file);
+            $extension = $fl->getClientOriginalExtension();
+            
+            // Menggunakan md5 untuk menghasilkan hashname yang pendek
+            $hashName = md5($original . now() . uniqid()) . '.' . $extension;
+        
+            $pengisian_berkas = new Pengisian_berkas;
+            $pengisian_berkas->nama_file = $hashName;
+            $fl->storeAs('Berkas', $hashName);
 
             $pengisian_berkas->jenis = 'Peningkatan';
             $pengisian_berkas->pengisian_id = $pengisian->id;

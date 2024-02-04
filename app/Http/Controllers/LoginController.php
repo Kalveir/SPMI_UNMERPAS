@@ -9,6 +9,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LoginController extends Controller
@@ -27,10 +28,11 @@ class LoginController extends Controller
         // $credential = $request->only('email','password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
+            Alert::success('Selamat Datang', Auth::user()->nama);
             return redirect()->intended('dashboard');
         } else {
-            return back()->with('loginError', 'Login Failde !');
+            Alert::error('Login Gagal', 'Periksa Username & Password anda');
+            return redirect()->back();
         }
     }
     public function Logout()

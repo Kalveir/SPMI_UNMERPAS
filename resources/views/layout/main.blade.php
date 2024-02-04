@@ -169,6 +169,20 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            // Inisialisasi Summernote untuk elemen dengan kelas summernote
+            $('.summernotet').summernote({
+                placeholder: 'Input text here...',
+                tabsize: 2,
+                minHeight: 200, // Atur nilai sesuai kebutuhan
+                toolbar: [
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                ]
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {

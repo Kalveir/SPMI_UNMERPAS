@@ -52,7 +52,7 @@
                             <h4>Komentar :</h4>
                         </label>
                         <br>
-                        <textarea class="summernote" name="komentar" class="form-control" required>{!! $pengisian->komentar !!}</textarea>
+                        <textarea class="summernotet" name="komentar" class="form-control" required>{!! $pengisian->komentar !!}</textarea>
                     </div>
                 </div>
 
