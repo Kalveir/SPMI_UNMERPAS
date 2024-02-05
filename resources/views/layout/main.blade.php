@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-
+    {{-- @include('layout.footer') --}}
     <!-- Custom template | don't include it in your project! -->
     {{-- <div class="custom-template">
 			<div class="title">Settings</div>
