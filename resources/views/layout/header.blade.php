@@ -1,8 +1,12 @@
 <div class="main-header">
   <!-- Logo Header -->
   <div class="logo-header" data-background-color="blue2" style="display: flex; align-items: center;">
-    <span style="margin-left: 20px; color: white; font-size: 18px; white-space: nowrap; font-family: 'Sans-serif'; font-weight: bold;">SPMI UNMERPAS</span>
-    
+    <a href="/dashboard" class="logo">
+      <img src="/assets/img/unmer.png" alt="navbar brand" width="60" class="navbar-brand">
+      <span style="color: white; font-size: 13px;font-weight: bold;">SPMI</span>
+      <span style="color: white; font-size: 13px;font-weight: bold;">UNMERPAS</span>
+    </a>
+    {{-- <span style="color: white; font-size: 18px; white-space: nowrap; font-family: 'Sans-serif'; font-weight: bold;">SPMI UNMERPAS</span> --}}
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
             <i class="icon-menu"></i>

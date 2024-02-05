@@ -75,9 +75,14 @@ class StandardController extends Controller
      */
     public function destroy($standard)
     {
-        $standar = Standard::find($standard);
-        Alert::success('Sukses', 'Standar Terhapus');
-        $standar->delete();
-        return redirect()->route('standard.index');
+        try{
+            $standar = Standard::find($standard);
+            Alert::success('Sukses', 'Standar Terhapus');
+            $standar->delete();
+            return redirect()->route('standard.index');
+        }catch(\Exception $e){
+            Alert::error('Gagal', 'Tindakan ditolak');
+            return redirect()->route('standard.index');
+        }
     }
 }

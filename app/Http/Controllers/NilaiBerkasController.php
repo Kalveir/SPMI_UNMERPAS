@@ -94,10 +94,15 @@ class NilaiBerkasController extends Controller
     {
         $pengisian = Pengisian::find($id);
         $indikator_nilai = Nilai::where('indikator_id', $pengisian->indikator_id)->first();
-        $hasil_nilai =  $pengisian->nilai * $indikator_nilai->nilai;
-        $pengisian->nilai = $hasil_nilai;
-        $pengisian->aksi_code = 2;
-        $pengisian->save();
+        if($indikator_nilai){
+            $hasil_nilai =  $pengisian->nilai * $indikator_nilai->nilai;
+            $pengisian->nilai = $hasil_nilai;
+            $pengisian->aksi_code = 2;
+            $pengisian->save();
+            Alert::success('Sukses', 'Penilaian Evaluasi Tersimpan');
+        }else{
+            Alert::error('Gagal', 'Indikator ini tidak memiliki bobot nilai'); 
+        }
 
         if ($pengisian->program_studi == 1) {
             $redirectRoute = 'informatika.index';
@@ -110,8 +115,6 @@ class NilaiBerkasController extends Controller
         } elseif ($pengisian->program_studi == 5) {
             $redirectRoute = 'agro.index';
         }
-
-        Alert::success('Sukses', 'Penilaian Evaluasi Tersimpan');
         return redirect()->route($redirectRoute);
     }
 }

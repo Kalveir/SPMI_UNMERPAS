@@ -151,9 +151,10 @@
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    {{-- dropzone --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+     <!-- Include FilePond CSS and JS CDN -->
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
     
     <script>
         $(document).ready(function() {
@@ -172,6 +173,7 @@
             });
         });
     </script>
+    <script>
         $(document).ready(function() {
             // Inisialisasi Summernote untuk elemen dengan kelas summernote
             $('.summernotet').summernote({
@@ -193,6 +195,15 @@
 
             // Fokus pada input pencarian setelah DataTable diinisialisasi
             $('div.dataTables_filter input').focus();
+        });
+    </script>
+
+    {{-- filepond --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            FilePond.create(
+                document.querySelector('.filepond')
+            );
         });
     </script>
 </body>

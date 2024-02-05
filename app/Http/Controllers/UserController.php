@@ -109,9 +109,18 @@ class UserController extends Controller
     public function destroy($user)
     {
         $pegawai = User::find($user);
-        $pegawai->syncRoles([]);
-        $pegawai->delete();
-        Alert::success('Sukses', 'Data Pegawai Dihapus');
-        return redirect()->route('pegawai.index');
+        if($pegawai){
+            try{
+                $pegawai->delete();
+                $pegawai->syncRoles([]);
+                Alert::success('Sukses', 'Data Pegawai Dihapus');
+                return redirect()->route('pegawai.index');
+            }catch(\Exception $e)
+            {
+                Alert::Error('Gagal', 'Tindakan Ditolak');
+                return redirect()->route('pegawai.index');
+            }
+        }
+        
     }
 }

@@ -24,7 +24,7 @@ Profil Pengguna
             <div class="form-group">
                 <label for="basicInput">Jabatan :</label>
                 <input type="text" class="form-control" id="basicInput"
-                    value="{{ $profile->roles->first()->name }}" readonly>
+                    value="{{ optional($profile->roles->first())->name }}" readonly>
             </div>
             <div class="form-group">
                 <label for="basicInput">Fakultas :</label>

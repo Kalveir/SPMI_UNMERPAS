@@ -95,9 +95,15 @@ class IndikatorController extends Controller
      */
     public function destroy($indikator)
     {
-        $indikator = Indikator::find($indikator);
-        $indikator->delete();
-        Alert::success('Sukses', 'Indikator Dihapus');
-        return redirect()->route('indikator.index');
+        try{
+            $indikator = Indikator::find($indikator);
+            $indikator->delete();
+            Alert::success('Sukses', 'Indikator Dihapus');
+            return redirect()->route('indikator.index');
+        }catch(\Exception $e){
+            Alert::error('Gagal', 'Tindakan ditolak');
+            return redirect()->route('indikator.index');
+        }
+       
     }
 }

@@ -4,13 +4,13 @@
     <div class="sidebar-content">
       <div class="user">
         <div class="avatar-sm float-left mr-2">
-          <img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+          <img src="/assets/img/avataaars.jpg" alt="..." class="avatar-img rounded-circle">
         </div>
         <div class="info">
           <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
             <span>
               {{ Auth::user()->nama }}
-              <span class="user-level text-warp">{{ Auth::user()->roles->first()->name}}</span>
+              <span class="user-level text-warp">{{ optional(Auth::user()->roles->first())->name}}</span>
               <span class="caret"></span>
             </span>
           </a>

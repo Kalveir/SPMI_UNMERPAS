@@ -34,7 +34,7 @@ Daftar Pegawai
                     <td>{{ $pgw->nama }}</td>
                     <td>{{ $pgw->prodi->nama }}</td>
                     <td>
-                        {{$pgw->roles->first()->name}}
+                        {{optional($pgw->roles->first())->name}}
                     </td> 
                     <td>
                         @if ($pgw->status == 1)
