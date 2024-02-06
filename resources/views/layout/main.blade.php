@@ -152,9 +152,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
      <!-- Include FilePond CSS and JS CDN -->
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-
+     <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
+     <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
     
     <script>
         $(document).ready(function() {
@@ -200,11 +199,10 @@
 
     {{-- filepond --}}
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            FilePond.create(
-                document.querySelector('.filepond')
-            );
-        });
+       $(document).ready(function() {
+        const inputElement = document.querySelector('input[type="file"]');
+        const pond = FilePond.create(inputElement);
+       });
     </script>
 </body>
 

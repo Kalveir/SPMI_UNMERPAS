@@ -36,12 +36,16 @@ Upload Berkas
         </div>
         <div class="col-md-6 mb-4">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" required data-max-file-size="5MB" name="nama_file[]" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png" multiple>
-                <label class="custom-file-label" for="customFile" placeholder="Upload"></label>
+                <input type="file"
+               {{-- class="filepond" --}}
+               name="nama_file[]"
+               multiple
+               data-max-file-size="15MB"
+               accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
+               required
+               />
             </div>
-            <ul id="fileList" class="list-group">
-            <!-- File items will be added dynamically here -->
-            </ul>
+
         </div>
         
         <div class="form-group">
