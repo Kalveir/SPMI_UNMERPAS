@@ -1,16 +1,7 @@
 <footer class="footer">
-  <div class="container-fluid">
-    <nav class="pull-left">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link">
-            Fakultas Teknologi informasi
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="copyright ml-auto">
-      2024
-    </div>				
+  <div class="container center">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Univesitas Merdeka Pasuruan</span></strong>. All Rights Reserved
+    </div>
   </div>
 </footer>

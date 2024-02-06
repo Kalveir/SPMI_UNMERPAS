@@ -127,14 +127,14 @@
             <p>Indikator</p>
           </a>
         </li>
-        @can('kelola jenis')
+        {{-- @can('kelola jenis')
         <li class="nav-item">
           <a href="/jenis" class="collapsed" aria-expanded="false">
             <i class="fas fa-home"></i>
             <p>Jenis</p>
           </a>
         </li>
-        @endcan
+        @endcan --}}
         @can('kelola nilai')
         <li class="nav-item">
           <a href="/nilai" class="collapsed" aria-expanded="false">

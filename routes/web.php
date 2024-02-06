@@ -80,9 +80,9 @@ Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
 });
 //manajemen kelola jenis
-Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
-    Route::resource('jenis',JenisController::class)->middleware('auth');
-});
+// Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
+//     Route::resource('jenis',JenisController::class)->middleware('auth');
+// });
 //manajemen kelola nilai
 Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');

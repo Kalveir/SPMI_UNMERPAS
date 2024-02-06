@@ -78,8 +78,9 @@
         </a>
         @else
         <a href="/login">
-          <button class="btn btn-primary" type="button"><i
-            class="fas fa-sign-in-alt"></i> Login</button>
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-sign-in-alt"></i><span>Login</span>
+          </button>
         </a>
         @endauth
         
@@ -96,8 +97,9 @@
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
             <h1>Sistem Penjaminan Mutu Internal Universitas Merdeka Pasuruan</h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <h6>SPMI merupakan suatu sistem yang dijalankan secara internal dalam suatu lembaga pendidikan untuk mewujudkan visi dan misi lembaga tersebut, serta memenuhi kebutuhan stakeholders melalui penyelenggaraan perguruan tinggi</h6>
+            <br>
+            <a href="#about" class="btn-get-started">More Info</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -119,18 +121,19 @@
           </div>
           <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0">
-              <h3>Learn more about us</h3>
+              <h3>Tujuan SPMI</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                Tujuan Sistem Penjaminan Mutu Internal (SPMI) adalah memelihara dan meningkatkan mutu pendidikan tinggi secara berkelanjutan. Berikut beberapa tujuan spesifik dari SPMI :
               </p>
               <ul>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperd</li>
+                <li><i class="bi bi-check-circle"></i>Meningkatkan kualitas pendidikan</li>
+                <li><i class="bi bi-check-circle"></i>Memenuhi kebutuhan stakeholders</li>
+                <li><i class="bi bi-check-circle"></i>Meningkatkan efisiensi dan efektivitas</li>
+                <li><i class="bi bi-check-circle"></i>Memastikan akuntabilitas</li>
+                <li><i class="bi bi-check-circle"></i>Meningkatkan daya saing lembaga pendidikan tinggi</li>
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate tera noden carma palorp mades tera.
+                Melalui implementasi SPMI, diharapkan lembaga pendidikan tinggi dapat terus berinovasi dan meningkatkan kualitas pendidikan demi menciptakan lulusan yang berkualitas dan siap menghadapi tantangan dunia kerja
               </p>
             </div>
           </div>
@@ -146,7 +149,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Fakultas Teknologi Informasi</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Univesitas Merdeka Pasuruan</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
