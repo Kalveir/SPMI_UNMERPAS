@@ -32,22 +32,17 @@ Upload Berkas
             </fieldset>
         </div>
         <div class="form-group">
-            <label for="basicInput"><h4><strong>3. Upload Berkas :</strong></h4></label>
+            <label><h4><strong>3. Upload Berkas :</strong></h4></label>
         </div>
         <div class="col-md-6 mb-4">
-            <div class="custom-file">
-                <input type="file"
-               {{-- class="filepond" --}}
-               name="nama_file[]"
-               multiple
-               data-max-file-size="15MB"
-               accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
-               required
-               />
-            </div>
-
+            <input type="file"
+           name="nama_file[]"
+           multiple
+           data-max-file-size="15MB"
+           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
+           required
+           />
         </div>
-        
         <div class="form-group">
             <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
         </div>
@@ -60,5 +55,15 @@ Upload Berkas
     </form>
   </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get a file input reference
+        const input = document.querySelector('input[type="file"]');
 
+        // Create a FilePond instance
+        FilePond.create(input, {
+            storeAsFile: true,
+        });
+    });
+</script>
 @endsection

@@ -24,7 +24,6 @@ Upload Berkas
         </div>
         <div class="col-md-6 mb-4">
             <input type="file"
-           {{-- class="filepond" --}}
            name="nama_file[]"
            multiple
            data-max-file-size="15MB"
@@ -51,4 +50,15 @@ Upload Berkas
     </form>
   </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get a file input reference
+        const input = document.querySelector('input[type="file"]');
+
+        // Create a FilePond instance
+        FilePond.create(input, {
+            storeAsFile: true,
+        });
+    });
+</script>
 @endsection

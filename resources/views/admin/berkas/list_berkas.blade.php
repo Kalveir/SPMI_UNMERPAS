@@ -283,7 +283,7 @@
                         <div class="form-group">
                             <label for="nama">Pilih Indikator : </label>
                             <select class="form-control" aria-label="Default select example" id="indikator_id"
-                                name="indikator_id" style="height: 50px; overflow-y:auto;" autofocus>
+                                name="indikator_id" style="height: 50px; overflow-y:auto;">
                                 @foreach ($indikator as $indk)
                                     <option value="{{ $indk->id }}">
                                         {{ $indk->indikator }}

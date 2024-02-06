@@ -155,6 +155,17 @@
      <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
      <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
     
+     {{-- data table --}}
+     <script>
+        $(document).ready(function() {
+            // Inisialisasi DataTable
+            var dataTable = $('#basic-datatables').DataTable();
+
+            // Fokus pada input pencarian setelah DataTable diinisialisasi
+            $('div.dataTables_filter input').focus();
+        });
+    </script>
+    
     <script>
         $(document).ready(function() {
             // Inisialisasi Summernote untuk elemen dengan kelas summernote
@@ -185,24 +196,6 @@
                 ]
             });
         });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            // Inisialisasi DataTable
-            var dataTable = $('#basic-datatables').DataTable();
-
-            // Fokus pada input pencarian setelah DataTable diinisialisasi
-            $('div.dataTables_filter input').focus();
-        });
-    </script>
-
-    {{-- filepond --}}
-    <script>
-       $(document).ready(function() {
-        const inputElement = document.querySelector('input[type="file"]');
-        const pond = FilePond.create(inputElement);
-       });
     </script>
 </body>
 
