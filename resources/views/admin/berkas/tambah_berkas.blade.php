@@ -62,6 +62,8 @@ Upload Berkas
 
         // Create a FilePond instance
         FilePond.create(input, {
+            
+            labelIdle: 'Select file <span class="filepond--label-action">Browse</span>',
             storeAsFile: true,
         });
     });
