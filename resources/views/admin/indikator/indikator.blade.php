@@ -11,8 +11,8 @@
     <div class="card">
         <div class="card-header">
             @can('kelola indikator')
-                <a href="{{ route('indikator.create') }}" class="btn btn-success mb-3">
-                    <span>Tambah Indikator</span>
+                <a href="{{ route('indikator.create') }}" class="btn btn-outline-success mb-3">
+                    <i class="fas fa-plus"></i><span> Tambah Indikator</span>
                 </a>
             @endcan
         </div>

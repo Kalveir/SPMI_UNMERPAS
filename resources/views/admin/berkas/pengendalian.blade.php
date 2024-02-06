@@ -110,20 +110,23 @@ Daftar Berkas
                     </td>
                     {{-- Peningkatan --}}
                     <td>
-                        @foreach ($brkp->pengisian_berkas as $file_berkas)
-                        <div class="file-item d-flex align-items-left" >
-                            @if ($file_berkas->jenis == 'Peningkatan')
-                                <div class="col-auto" style="padding: 5px;">
-                                    <i class="fas fa-file"></i>
-                                    <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
-                                    <div class="text-wrap text-justify" style="width: 300px;">
-                                        <strong>Deskripsi :</strong>
-                                        {!! $file_berkas->deskripsi !!}
+                        @if($brkp->aksi_code == 4)
+                            @foreach ($brkp->pengisian_berkas as $file_berkas)
+                            <div class="file-item d-flex align-items-left" >
+                                @if ($file_berkas->jenis == 'Peningkatan')
+                                    <div class="col-auto" style="padding: 5px;">
+                                        <i class="fas fa-file"></i>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <div class="text-wrap text-justify" style="width: 300px;">
+                                            <strong>Deskripsi :</strong>
+                                            {!! $file_berkas->deskripsi !!}
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
-                        </div>
-                        @endforeach
+                                @endif
+                            </div>
+                            @endforeach
+                        @endif
+                        
                         
                     </td>
                     <td>
@@ -166,42 +169,7 @@ Daftar Berkas
     </div>
   </div>
 </div>
-<div class="modal" id="input_modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
-            <!-- Header Modal -->
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Indikator</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Body Modal -->
-            <div class="modal-body">
-                <!-- Form Input -->
-                <form action="{{route('berkas.addIndikator')}}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="nama">Pilih Indikator : </label>
-                        <select class="form-control" aria-label="Default select example" id="indikator_id" name="indikator_id" autofocus>
-                            @foreach ($indikator as $indk)
-                                <option value="{{ $indk->id }}">
-                                    {{ $indk->indikator }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-            </div>
-
-            <!-- Footer Modal -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 <script type="text/javascript">

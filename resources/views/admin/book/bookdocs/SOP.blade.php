@@ -11,8 +11,8 @@ Daftar SOP
 <div class="card">
   <div class="card-header">
     @can('kelola bookdocs')
-    <a href="{{ route('SOP.create') }}" class="btn btn-success mb-3">
-        <span>Tambah SOP</span>
+    <a href="{{ route('SOP.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah SOP</span>
     </a>
     @endcan
   </div>

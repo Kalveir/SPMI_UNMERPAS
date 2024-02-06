@@ -10,8 +10,8 @@ Daftar Program Studi
 @section('container')
 <div class="card">
   <div class="card-header">
-    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-        Tambah Program Studi
+    <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target="#input_modal">
+        <i class="fas fa-plus"></i><span> Tambah Program Studi</span>
     </button>
   </div>
   <div class="card-body">

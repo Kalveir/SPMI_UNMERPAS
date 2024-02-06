@@ -11,8 +11,8 @@ Daftar Buku Manual
 <div class="card">
   <div class="card-header">
     @can('kelola bookmanual')
-    <a href="{{ route('bookmanual.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Buku Manual</span>
+    <a href="{{ route('bookmanual.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Buku Manual</span>
     </a>
     @endcan
   </div>

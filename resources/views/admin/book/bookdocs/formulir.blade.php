@@ -11,8 +11,8 @@ Daftar Formulir
 <div class="card">
   <div class="card-header">
     @can('kelola bookdocs')
-    <a href="{{ route('formulir.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Formulir</span>
+    <a href="{{ route('formulir.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Formulir</span>
     </a>
     @endcan
   </div>

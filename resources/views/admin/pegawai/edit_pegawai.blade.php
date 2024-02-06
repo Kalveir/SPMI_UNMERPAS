@@ -29,7 +29,6 @@ Edit Pegawai
                 <input type="text" class="form-control" id="basicInput" name="password">
                 <small><b>(*Optional)</b></small>
             </div>
-            <br>
             <fieldset class="form-group">
                 <label for="basicInput"><h4>4. Jabatan</h4></label>
                 <select class="form-control" id="jabatan_id" name="jabatan_id">

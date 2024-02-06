@@ -9,8 +9,8 @@ Daftar Standar
 <div class="card">
     <div class="card-header">
         @can('kelola standard')
-        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-            Tambah Standar
+        <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target="#input_modal">
+            <i class="fas fa-plus"></i><span> Tambah Standar</span>
         </button>
         @endcan
     </div>

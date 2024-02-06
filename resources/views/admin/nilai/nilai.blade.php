@@ -10,8 +10,8 @@ Daftar Bobot Nilai
 @section('container')
 <div class="card">
   <div class="card-header">
-    <a href="{{ route('nilai.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Bobot Penilaian</span>
+    <a href="{{ route('nilai.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Bobot Penilaian</span>
     </a>
   </div>
   <div class="card-body">

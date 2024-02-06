@@ -25,7 +25,6 @@ Tambah Pegawai
                 <label for="basicInput"><h4>3. Password :</h4></label>
                 <input type="text" class="form-control" id="basicInput" name="password" required>
             </div>
-            <br>
 
             <fieldset class="form-group">
                 <label for="basicInput"><h4>4. Jabatan :</h4></label>

@@ -10,8 +10,8 @@ Daftar Fakultas
 @section('container')
 <div class="card">
   <div class="card-header">
-    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-        Tambah Fakultas
+    <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target="#input_modal">
+        <i class="fas fa-plus"></i><span> Tambah Fakultas</span>
     </button>
   </div>
   <div class="card-body">

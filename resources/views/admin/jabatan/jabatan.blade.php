@@ -10,8 +10,8 @@ Daftar Jabatan
 @section('container')
 <div class="card">
   <div class="card-header">
-    <a href="{{ route('jabatan.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Jabatan</span>
+    <a href="{{ route('jabatan.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Jabatan</span>
     </a>
   </div>
   <div class="card-body">

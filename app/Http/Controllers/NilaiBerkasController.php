@@ -60,6 +60,7 @@ class NilaiBerkasController extends Controller
         if ($pengisian->aksi_code == 1) {
             return view('admin.berkas.tambah_nilai', compact('pengisian', 'nilai'));
         } else {
+            Alert::error('Gagal', 'Tindakan Ditolak');
             return back();
         }
     }

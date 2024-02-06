@@ -11,8 +11,8 @@ Daftar Buku Standard
 <div class="card">
   <div class="card-header">
     @can('kelola bookstandard')
-    <a href="{{ route('bookstandard.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Buku Standard</span>
+    <a href="{{ route('bookstandard.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Buku Standard</span>
     </a>
     @endcan
   </div>

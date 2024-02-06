@@ -10,8 +10,8 @@ Daftar Pegawai
 @section('container')
 <div class="card">
   <div class="card-header">
-    <a href="{{ route('pegawai.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Pegawai</span>
+    <a href="{{ route('pegawai.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Pegawai</span>
     </a>
   </div>
   <div class="card-body">
