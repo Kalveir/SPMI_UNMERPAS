@@ -27,12 +27,12 @@
 
 <body>
     @include('sweetalert::alert')
-    <div class="main-wrapper" style="background-image: url(/assets/img/bg-404.jpeg); background-repeat: no-repeat">
+    <div class="main-wrapper" style="background-repeat: no-repeat">
         <section class="vh-100">
             <div class="container py-5 h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                  <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                  <div class="card shadow-lg border border-primary" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
                         <img src="/assets/img/unmer.png" width="120" 
                         alt="Logo Univeristas Merdeka Pasuruan" 

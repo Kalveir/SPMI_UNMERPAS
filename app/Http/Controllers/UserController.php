@@ -112,7 +112,7 @@ class UserController extends Controller
         if($pegawai){
             try{
                 $pegawai->delete();
-                // $pegawai->syncRoles([]);
+                $pegawai->syncRoles([]);
                 Alert::success('Sukses', 'Data Pegawai Dihapus');
                 return redirect()->route('pegawai.index');
             }catch(\Exception $e)

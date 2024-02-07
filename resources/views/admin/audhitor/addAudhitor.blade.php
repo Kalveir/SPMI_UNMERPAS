@@ -83,7 +83,7 @@
                                     <td>{{ $sr->prodi->nama }}</td>
                                     <td>
                                         @foreach ($sr->roles as $jabatan)
-                                            {{ $jabatan->name }}
+                                            {{ optional($jabatan)->name }}
                                         @endforeach
                                     </td>
                                     <td>
