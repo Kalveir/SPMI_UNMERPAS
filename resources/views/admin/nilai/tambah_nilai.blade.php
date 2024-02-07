@@ -3,7 +3,7 @@
 Bobot Nilai
 @endsection
 @section('judul')
-Tambah Bobot Nilai
+Tambah Skor Nilai
 @endsection
 @section('container')
 <div class="card">

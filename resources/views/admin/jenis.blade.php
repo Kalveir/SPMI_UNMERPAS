@@ -4,14 +4,14 @@ Jenis
 @endsection
 
 @section('judul')
-Daftar Jenis
+Daftar Bobot Nilai
 @endsection
 
 @section('container')
 <div class="card">
   <div class="card-header">
     <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-        Tambah Jenis
+        Tambah Bobot Penilaian
     </button>
   </div>
   <div class="card-body">
@@ -20,7 +20,8 @@ Daftar Jenis
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Jenis</th>
+                <th>Indikator</th>
+                <th>Bobot</th>
                 <th>Aksi</th>
             </tr>
         </thead>

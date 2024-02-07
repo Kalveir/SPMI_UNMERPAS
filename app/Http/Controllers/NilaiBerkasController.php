@@ -56,7 +56,7 @@ class NilaiBerkasController extends Controller
     public function addNilai($id)
     {
         $pengisian = Pengisian::find($id);
-        $nilai = Nilai::get();
+        $nilai = Nilai::where('indikator_id',$pengisian->indikator_id)->get();
         if ($pengisian->aksi_code == 1) {
             return view('admin.berkas.tambah_nilai', compact('pengisian', 'nilai'));
         } else {

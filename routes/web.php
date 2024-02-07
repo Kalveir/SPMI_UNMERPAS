@@ -12,6 +12,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\BobotController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NilaiBerkasController;
 use App\Http\Controllers\NilaiController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\AudhitorController;
 use App\Http\Controllers\PengendalianController;
 use App\Http\Controllers\ProfileController;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +38,13 @@ use Spatie\Permission\Models\Role;
 Route::get('/', function () {
     return view('homepage');
 });
+
+// Route::get('/cihuy', function () {
+//     Permission::create(['name' => 'kelola bobot']);
+//     // Permission::where('name','kelola jenis')->delete();
+//     // Permission::where('name','kelola penilaian')->delete();
+//     dd('cihuy');
+// });
 // Route::get('/hey', function () {
 //     $roles = ['Audhitor Informatika','Audhitor RPL', 'Audhitor Manajemen','Audhitor Hukum','Audhitor Argoteknologi'];
 //     foreach ($roles as $rol)
@@ -79,10 +89,15 @@ Route::middleware(['auth', 'can:kelola prodi'])->group(function () {
 Route::middleware(['auth', 'can:kelola pegawai'])->group(function () {
     Route::resource('pegawai',UserController::class)->middleware('auth');
 });
-//manajemen kelola jenis
-// Route::middleware(['auth', 'can:kelola jenis'])->group(function () {
-//     Route::resource('jenis',JenisController::class)->middleware('auth');
-// });
+// manajemen kelola bobot
+Route::middleware(['auth', 'can:kelola bobot'])->group(function () {
+    Route::get('/bobot-nilai',[BobotController::class,'index'])->name('bobot.index')->middleware('auth');
+    Route::get('/bobot-nilai/tambah',[BobotController::class,'create'])->name('bobot.create')->middleware('auth');
+    Route::post('/bobot-nilai/add',[BobotController::class,'store'])->name('bobot.store')->middleware('auth');
+    Route::get('/bobot-nilai/edit/{id}',[BobotController::class,'edit'])->name('bobot.edit')->middleware('auth');
+    Route::put('/bobot-nilai/update/{id}',[BobotController::class,'update'])->name('bobot.update')->middleware('auth');
+    Route::delete('/bobot-nilai/delete/{id}',[BobotController::class,'destroy'])->name('bobot.destroy')->middleware('auth');
+});
 //manajemen kelola nilai
 Route::middleware(['auth', 'can:kelola nilai'])->group(function () {
     Route::resource('nilai', NilaiController::class)->middleware('auth');

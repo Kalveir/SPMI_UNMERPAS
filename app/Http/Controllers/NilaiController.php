@@ -34,21 +34,15 @@ class NilaiController extends Controller
      */
     public function store(Request $request)
     {
-        $cek_indikator = Nilai::where('indikator_id',$request->indikator_id)->first();
-        if($cek_indikator)
-        {
-            Alert::info('Gagal', 'Bobot Nilai Sudah Terdaftar');
-            return redirect()->route('nilai.index');
-        }else{
-            $nilai = new Nilai;
-            $nilai->deskripsi = $request->deskripsi;
-            $nilai->indikator_id = $request->indikator_id;
-            $nilai->nilai = $request->nilai;
-            $nilai->status = $request->status;
-            $nilai->save();
-            Alert::success('Sukses', 'Bobot Nilai Disimpan');
-            return redirect()->route('nilai.index');
-        }
+        $nilai = new Nilai;
+        $nilai->deskripsi = $request->deskripsi;
+        $nilai->indikator_id = $request->indikator_id;
+        $nilai->nilai = $request->nilai;
+        $nilai->status = $request->status;
+        $nilai->save();
+        Alert::success('Sukses', 'Skor Nilai Disimpan');
+        return redirect()->route('nilai.index');
+        
     }
 
     /**
@@ -80,7 +74,7 @@ class NilaiController extends Controller
         $nilai->nilai = $request->nilai;
         $nilai->status = $request->status;
         $nilai->save();
-        Alert::success('Sukses', 'Bobot Nilai Diperbarui');
+        Alert::success('Sukses', 'Skor Nilai Diperbarui');
         return redirect()->route('nilai.index');  
 
     }
@@ -92,7 +86,7 @@ class NilaiController extends Controller
     {
         $nilai = Nilai::find($nilai);
         $nilai->delete();
-        Alert::success('Sukses', 'Bobot Nilai Terhapus');
+        Alert::success('Sukses', 'Skor Nilai Terhapus');
         return redirect()->route('nilai.index');
     }
 }

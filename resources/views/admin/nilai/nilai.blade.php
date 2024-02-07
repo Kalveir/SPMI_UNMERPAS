@@ -4,14 +4,14 @@ Bobot Nilai
 @endsection
 
 @section('judul')
-Daftar Bobot Nilai
+Daftar Skor Nilai
 @endsection
 
 @section('container')
 <div class="card">
   <div class="card-header">
     <a href="{{ route('nilai.create') }}" class="btn btn-outline-success mb-3">
-        <i class="fas fa-plus"></i><span> Tambah Bobot Penilaian</span>
+        <i class="fas fa-plus"></i><span> Tambah Skor Penilaian</span>
     </a>
   </div>
   <div class="card-body">

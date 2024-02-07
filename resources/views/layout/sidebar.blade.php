@@ -85,7 +85,7 @@
         <li class="nav-item">
           <a href="/bookmanual" class="collapsed" aria-expanded="false">
             <i class="fas fa-book-reader"></i>
-            <p>Buku manual</p>
+            <p>Buku Manual</p>
           </a>
         </li>
         <li class="nav-item">
@@ -127,19 +127,19 @@
             <p>Indikator</p>
           </a>
         </li>
-        {{-- @can('kelola jenis')
+        @can('kelola bobot')
         <li class="nav-item">
-          <a href="/jenis" class="collapsed" aria-expanded="false">
+          <a href="/bobot-nilai" class="collapsed" aria-expanded="false">
             <i class="fas fa-home"></i>
-            <p>Jenis</p>
+            <p>Bobot Nilai</p>
           </a>
         </li>
-        @endcan --}}
+        @endcan
         @can('kelola nilai')
         <li class="nav-item">
           <a href="/nilai" class="collapsed" aria-expanded="false">
             <i class="fas fa-tachometer-alt"></i>
-            <p>Bobot Nilai</p>
+            <p>Skor Nilai</p>
           </a>
         </li>
         @endcan

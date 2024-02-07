@@ -3,7 +3,7 @@
 Bobot Nilai
 @endsection
 @section('judul')
-Edit Bobot Nilai
+Edit Skor Nilai
 @endsection
 @section('container')
 <div class="card">
