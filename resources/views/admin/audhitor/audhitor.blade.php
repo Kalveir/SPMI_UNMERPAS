@@ -10,8 +10,8 @@ Daftar Audhitor
 @section('container')
 <div class="card">
   <div class="card-header">
-    <a href="{{ route('audhitor.create') }}" class="btn btn-success mb-3">
-        <span>Tambah Audhitor</span>
+    <a href="{{ route('audhitor.create') }}" class="btn btn-outline-success mb-3">
+        <i class="fas fa-plus"></i><span> Tambah Audhitor</span>
     </a>
   </div>
   <div class="card-body">

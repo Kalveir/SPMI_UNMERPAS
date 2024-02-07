@@ -68,7 +68,7 @@
           </a>
         </li>
         @endcan
-        @role('LPPM')
+        @role('PPM')
         <li class="nav-item">
           <a href="/auditor" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-user-tie"></i>
@@ -192,7 +192,7 @@
         </li>
         @endrole
 
-        @role('LPPM')
+        @role('PPM')
         <li class="nav-item">
           <a data-toggle="collapse" href="#pengendalian">
             <i class="fas fa-file-signature"></i>

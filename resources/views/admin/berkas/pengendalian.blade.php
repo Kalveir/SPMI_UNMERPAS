@@ -10,9 +10,6 @@ Daftar Berkas
 @section('container')
 <div class="card">
   <div class="card-header">
-    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#input_modal">
-        Tambah Indikator
-    </button>
   </div>
   <div class="card-body">
     <div class="table-responsive">

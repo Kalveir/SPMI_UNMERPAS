@@ -198,7 +198,7 @@ Route::middleware(['auth', 'role:Auditor Agroteknologi'])->group(function(){
 });
 
 //pengendalian
-Route::middleware(['auth', 'role:LPPM'])->group(function(){
+Route::middleware(['auth', 'role:PPM'])->group(function(){
     Route::get('/pengendalian/informatika',[PengendalianController::class, 'PengendalianInformatika'])->name('prodi_informatika.index')->middleware('auth');
     Route::get('/pengendalian/RPL',[PengendalianController::class, 'PengendalianRPL'])->name('prodi_rpl.index')->middleware('auth');
     Route::get('/pengendalian/Manajemen',[PengendalianController::class, 'PengendalianManajemen'])->name('prodi_manajemen.index')->middleware('auth');
@@ -212,7 +212,7 @@ Route::middleware(['auth', 'role:LPPM'])->group(function(){
 
 
 //manajemen audhitor
-Route::middleware(['auth', 'role:LPPM'])->group(function(){
+Route::middleware(['auth', 'role:PPM'])->group(function(){
     Route::get('/auditor',[AudhitorController::class,'listAudhitor'])->name('audhitor.index')->middleware('auth');
     Route::get('/tambah-audhitor',[AudhitorController::class,'addAudhitor'])->name('audhitor.create')->middleware('auth');
     Route::post('/add_audhitor',[AudhitorController::class, 'storeAudhitor'])->name('audhitor.store')->middleware('auth');

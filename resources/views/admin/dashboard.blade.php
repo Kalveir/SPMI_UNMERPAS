@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 @endrole
-                @role('LPPM')
+                @role('PPM')
                     <div class="col-md-4">
                         <div class="card card-secondary">
                             <div class="card-body skew-shadow">
@@ -98,7 +98,7 @@
                         @endforeach
                     </select>
                 </div>
-                @if (Auth::user()->hasRole(['Admin', 'LPPM']))
+                @if (Auth::user()->hasRole(['Admin', 'PPM']))
                     <div class="col-md-4 mb-4" style="flex: 2;">
                         <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
                         <select class="form-control" name="prodi" id="prodiSelector" onchange="this.form.submit()">
