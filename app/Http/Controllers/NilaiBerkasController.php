@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bobot_nilai;
 use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
@@ -94,7 +95,7 @@ class NilaiBerkasController extends Controller
     public function validasiEvaluasi($id)
     {
         $pengisian = Pengisian::find($id);
-        $indikator_nilai = Nilai::where('indikator_id', $pengisian->indikator_id)->first();
+        $indikator_nilai = Bobot_nilai::where('indikator_id', $pengisian->indikator_id)->first();
         if($indikator_nilai){
             $hasil_nilai =  $pengisian->nilai * $indikator_nilai->nilai;
             $pengisian->nilai = $hasil_nilai;

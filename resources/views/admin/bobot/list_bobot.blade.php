@@ -17,9 +17,10 @@ Daftar Bobot Nilai
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped" >
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>No.</th>
+                <th>Standar</th>
                 <th>Indikator</th>
                 <th>Bobot</th>
                 <th>Aksi</th>
@@ -29,6 +30,7 @@ Daftar Bobot Nilai
             @foreach ($bobot as $bbt)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $bbt->indikator->standard->nama }}</td>
                     <td>{{ $bbt->indikator->indikator }}</td>
                     <td>{{ $bbt->bobot }}</td>
                     <td>

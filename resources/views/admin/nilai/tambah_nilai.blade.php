@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('tittle')
-Bobot Nilai
+Skor Nilai
 @endsection
 @section('judul')
 Tambah Skor Nilai
@@ -17,7 +17,7 @@ Tambah Skor Nilai
         </div>
         <fieldset class="form-group">
             <label for="basicInput">2. Indikator :</label>
-            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow-y:auto;">
+            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow-y:auto;" required>
                 @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}">
                         {{ $idnk->indikator }}

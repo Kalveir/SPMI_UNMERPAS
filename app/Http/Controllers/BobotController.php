@@ -39,16 +39,24 @@ class BobotController extends Controller
 
     public function edit($id)
     {
-
+      $bobot = Bobot_nilai::find($id);
+      $indikator = Indikator::get();
+      return view('admin.bobot.edit_bobot',compact('bobot','indikator'));
     }
 
     public function update(Request $request, $id)
     {
-
+      $bobot = Bobot_nilai::find($id);
+      $bobot->indikator_id = $request->indikator->id;
+      $bobot->bobot = $request->nilai;
+      $bobot->save();
+      return redirect()->route('bobot.index');
     }
 
     public function delete($id)
     {
-
+      $bobot = Bobot_nilai::find($id);
+      $bobot->delete();
+      return redirect()->route('bobot.index');
     }
 }

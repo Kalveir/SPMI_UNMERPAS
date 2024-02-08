@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('tittle')
-Bobot Nilai
+Skor Nilai
 @endsection
 
 @section('judul')
