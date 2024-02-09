@@ -40,7 +40,9 @@
                         <h4><strong>Penilaian :</strong></h4>
                         <select class="form-control" id="nilai" name="nilai" style="height: 50px; overflow-y:auto;">
                             @foreach ($nilai as $nl)
-                                <option value="{{ $nl->nilai }}">{!! $nl->deskripsi !!}</option>
+                                <option value="{{ $nl->nilai }}"
+                                    {{ $pengisian->nilai  == $nl->nilai ? 'selected' : ''}}>
+                                    {!! $nl->deskripsi !!}</option>
                             @endforeach
                         </select>
                     </div>

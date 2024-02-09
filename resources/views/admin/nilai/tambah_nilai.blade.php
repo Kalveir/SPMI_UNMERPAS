@@ -13,11 +13,11 @@ Tambah Skor Nilai
         <div class="col-md-8">
           <div class="form-group">
             <h4><strong>1. Isi :</strong></h4>
-            <textarea class="form-control" placeholder="Deskripsi Bobot Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus></textarea>
+            <textarea class="form-control" placeholder="Deskripsi Skor Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus></textarea>
         </div>
         <fieldset class="form-group">
             <label for="basicInput">2. Indikator :</label>
-            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow-y:auto;" required>
+            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow:auto;" required>
                 @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}">
                         {{ $idnk->indikator }}

@@ -14,11 +14,11 @@ Edit Skor Nilai
         <div class="col-md-8">
             <div class="form-group">
                 <h4><strong>1. Isi :</strong></h4>
-                <textarea class="form-control" placeholder="Deskripsi Bobot Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus>{{   $nilai->deskripsi }}</textarea>
+                <textarea class="form-control" placeholder="Deskripsi Skor Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus>{{   $nilai->deskripsi }}</textarea>
             </div>
             <fieldset class="form-group">
                 <label for="basicInput"><h4><strong>2.Indikator :</strong></h4></label>
-                <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow-y:auto;">
+                <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow:auto;">
                     @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}"
                         {{  $nilai->indikator_id == $idnk->id ? 'selected' : ''  }}>
