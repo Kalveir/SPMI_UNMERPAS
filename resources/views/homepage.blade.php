@@ -97,7 +97,7 @@
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
             <h1>Sistem Penjaminan Mutu Internal Universitas Merdeka Pasuruan</h1>
-            <h6>SPMI merupakan suatu sistem yang dijalankan secara internal dalam suatu lembaga pendidikan untuk mewujudkan visi dan misi lembaga tersebut, serta memenuhi kebutuhan stakeholders melalui penyelenggaraan perguruan tinggi</h6>
+            <h6>SPMI merupakan suatu sistem yang dijalankan secara internal dalam suatu lembaga pendidikan untuk mewujudkan visi dan misi lembaga tersebut, serta memenuhi kebutuhan stakeholders melalui penyelenggaraan perguruan tinggi.</h6>
             <br>
             <a href="#about" class="btn-get-started">More Info</a>
           </div>
@@ -133,7 +133,7 @@
                 <li><i class="bi bi-check-circle"></i>Meningkatkan daya saing lembaga pendidikan tinggi</li>
               </ul>
               <p>
-                Melalui implementasi SPMI, diharapkan lembaga pendidikan tinggi dapat terus berinovasi dan meningkatkan kualitas pendidikan demi menciptakan lulusan yang berkualitas dan siap menghadapi tantangan dunia kerja
+                Melalui implementasi SPMI, diharapkan lembaga pendidikan tinggi dapat terus berinovasi dan meningkatkan kualitas pendidikan demi menciptakan lulusan yang berkualitas dan siap menghadapi tantangan dunia kerja.
               </p>
             </div>
           </div>
@@ -149,7 +149,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Univesitas Merdeka Pasuruan</span></strong>. All Rights Reserved
+        &copy;<span id="tahun"></span> Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Univesitas Merdeka Pasuruan</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -167,6 +167,9 @@
   <!-- Template Main JS File -->
   <script src="/crypt/js/main.js"></script>
 
+  <script>
+    document.getElementById('tahun').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>

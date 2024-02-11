@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 08, 2024 at 02:30 PM
+-- Generation Time: Feb 11, 2024 at 03:17 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -50,7 +50,15 @@ INSERT INTO `bobot` (`id`, `indikator_id`, `bobot`) VALUES
 (10, 10, 30),
 (11, 11, 15),
 (12, 12, 30),
-(13, 13, 25);
+(13, 13, 25),
+(14, 14, 40),
+(15, 15, 20),
+(16, 16, 40),
+(17, 17, 25),
+(18, 18, 30),
+(19, 19, 30),
+(20, 20, 15),
+(21, 21, 30);
 
 -- --------------------------------------------------------
 
@@ -61,10 +69,10 @@ INSERT INTO `bobot` (`id`, `indikator_id`, `bobot`) VALUES
 CREATE TABLE `bookdocs` (
   `id` int NOT NULL,
   `standard_id` int DEFAULT NULL,
-  `jenis` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_file` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nama_file` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `jenis` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `jenis_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -77,12 +85,12 @@ CREATE TABLE `bookmanual` (
   `id` int NOT NULL,
   `standard_id` int DEFAULT NULL,
   `pegawai_id` int DEFAULT NULL,
-  `jenis` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `visi_misi` text COLLATE utf8mb4_general_ci,
-  `tujuan` text COLLATE utf8mb4_general_ci,
-  `ruanglingkup` text COLLATE utf8mb4_general_ci,
-  `definisi_istilah` text COLLATE utf8mb4_general_ci,
-  `tahapan` text COLLATE utf8mb4_general_ci,
+  `jenis` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `visi_misi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `tujuan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ruanglingkup` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `definisi_istilah` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `tahapan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -96,11 +104,11 @@ CREATE TABLE `bookstandard` (
   `id` int NOT NULL,
   `standard_id` int DEFAULT NULL,
   `pegawai_id` int DEFAULT NULL,
-  `visi_misi` text COLLATE utf8mb4_general_ci,
-  `tujuan` text COLLATE utf8mb4_general_ci,
-  `rasional` text COLLATE utf8mb4_general_ci,
-  `subjek` text COLLATE utf8mb4_general_ci,
-  `definisi_istilah` text COLLATE utf8mb4_general_ci,
+  `visi_misi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `tujuan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `rasional` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `subjek` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `definisi_istilah` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -112,7 +120,7 @@ CREATE TABLE `bookstandard` (
 
 CREATE TABLE `fakultas` (
   `id` int NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -135,10 +143,10 @@ CREATE TABLE `indikator` (
   `id` int NOT NULL,
   `standard_id` int DEFAULT NULL,
   `pegawai_id` int DEFAULT NULL,
-  `isi` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `strategi` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `indikator` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `satuan` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `isi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `strategi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `indikator` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `satuan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `target` int DEFAULT NULL,
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -153,14 +161,22 @@ INSERT INTO `indikator` (`id`, `standard_id`, `pegawai_id`, `isi`, `strategi`, `
 (3, 1, 1, 'Kaprodi menghasilkan lulusan yang bekerja dengan gaji yang memadai.', 'Ketua program studi mensosialisasikan pelaksanaan proses belajar mengajar sesuai kurikulum dan silabus masing- masing mata kuliah kepada seluruh komponen yang terlibat dalam proses pembelajaran Dosen, Tenaga Pendidik dan Mahasiswa).', 'Besar gaji yang diterima para lulusan pada awal bekerja', '%', 50, 1),
 (4, 1, 1, 'Kaprodi menghasilkan lulusan yang bekerja pada bidang yang sesuai dengan bidang keilmuannya.', 'BAU menjelaskan pada mahasiswa tentang kewajiban keuangan.', 'Kesesuaian bidang kerja lulusan dengan bidang ilmu Pendidikan', '%', 50, 1),
 (5, 1, 1, 'Kaprodi menghasilkan lulusan yang bekerja pada pekerjaan yang sesuai dengan tingkat pendidikannya', 'Dosen wali menjelaskan tentang persyaratan nilai minimal untuk kelulusan', 'Keselarasan vertikal antara beban pekerjaan dengan tingkat pendidipan para alumni', '%', 50, 1),
-(6, 2, 1, 'Kaprodi menyusun kurikulum perguruan tinggi (KPT) sebagai pedoman pelaksanaan pembelajaran di program studi', 'Perencanaan proses pembelajaran', 'Kurikulum perguruan tinggi (KPT) program studi (20)', '%', 50, 1),
+(6, 2, 1, 'Kaprodi menyusun kurikulum perguruan tinggi (KPT) sebagai pedoman pelaksanaan pembelajaran di program studi', 'Perencanaan proses pembelajaran', 'Kurikulum perguruan tinggi (KPT) program studi', '%', 50, 1),
 (7, 2, 1, 'Kaprodi menyusun CP lulusan sesuai dengan profil lulusan yang sudah ditetapkan', 'Pelaksanaan proses pembelajaran', 'CP lulusan/CP program studi', '%', 50, 1),
 (8, 2, 1, 'Kaprodi menyusun Bahan kajian sebagai tindak lanjut dari CP lulusan yang telah ditetapkan', 'Pengawasan proses pembelajaran', 'Penyusunan bahan kajian', '%', 50, 1),
 (9, 2, 1, 'Kaprodi menyusun mata kuliah mengakomodasi bahan kajian yang telah ditetapkan', 'Evaluasi Proses Pembelajaran', 'Penyusunan mata kuliah', '%', 50, 1),
 (10, 3, 1, 'Kaprodi menyiapkan dokumen administrasi pembelajaran untuk semester berjalan', 'Pimpinan universitas menyelenggarakan tersedianya sarana dan prasarana pendukung proses pembelajaran yang kondusif ditingkat Universitas', 'Dokumen administrasi pembelajaran', '%', 50, 1),
 (11, 3, 1, 'Dosen PA mendampingi mahasiswa memprogram kegiatan kegiatan pembelajaran yang akan ditempuh pada semester berjalan', 'Dekan, ketua program studi menyelenggarakan koordinasi dengan dosen dan perwakilan mahasiswa untuk perencanaan, pelaksanaan dan evaluasi kegiatan pendukung proses pembelajaran yang kondusif\r\nditingkat Fakultas dan program studi', 'Beban pembelajaran mahasiswa pada semester berjalan', '%', 50, 1),
 (12, 3, 1, 'Dosen menyiapkan RPS dan kontrak kuliah untuk kegiatan pembelajaran yang akan diampu pada semester berjalan', 'Menyelenggarakan pelatihan yang berkaitan dengan proses pembelajaran bagi dosen', 'Dokumen/instrument persiapan pembelajaran', '%', 50, 1),
-(13, 3, 1, 'Dosen melaksanakan proses pembelajaran sesuai dengan yang terprogram dalam RPS dan kontrak kuliah.', 'Ketua program studi mensosialisasikan pelaksanaan proses belajar mengajar sesuai kurikulum dan silabus masing-masing mata kuliah kepada seluruh komponen yang terlibat dalam proses pembelajaran Dosen, Tenaga Pendidik dan Mahasiswa).', 'Proses Pembelajaran', '%', 50, 1);
+(13, 3, 1, 'Dosen melaksanakan proses pembelajaran sesuai dengan yang terprogram dalam RPS dan kontrak kuliah.', 'Ketua program studi mensosialisasikan pelaksanaan proses belajar mengajar sesuai kurikulum dan silabus masing-masing mata kuliah kepada seluruh komponen yang terlibat dalam proses pembelajaran Dosen, Tenaga Pendidik dan Mahasiswa).', 'Proses Pembelajaran', '%', 50, 1),
+(14, 4, 1, 'Kaprodi menetapkan Teknik penilaian pembelajaran sebagai berikut: observasi, partisipasi, unjuk kerja, tes tertulis, tes lisan, angket)', 'Pimpinan universitas menyelenggarakan koordinasi dengan para pembantu dekan bidang akademik secara berkala.', 'Teknik penilaian pembelajaran', '%', 50, 1),
+(15, 4, 1, 'Kaprodi melaporkan hasil penilaian pembelajaran sesuai dengan sistem administrasi akademik.', 'Dekan, ketua program studi menyelenggarakan\r\nSosialisasi dan pelatihan untuk dosen yang berkaitan dengan metode dan mekanisme penilaian, prosedur penilaian, dan instrument penilaian.', 'Pelaporan hasil penilaian pembelajaran', '%', 50, 1),
+(16, 4, 1, 'Kaprodi menetapkan persyaratan kelulusan mahasiswa untuk dapat dinyatakan lulus dalam yudisium;', 'Mengintegrasikan data hasil penilaian kedalam Sistem Informasi Akademik universitas.', 'Persyaratan kelulusan yudisium mahasiswa', '%', 50, 1),
+(17, 5, 1, 'Kaprodi menjamin jumlah dosen tetap program studi mencukupi untuk kebutuhan pengembangan program studi;', 'Mendorong dan membuka kesempatan seluas-luasnya bagi Dosen dan tenaga kependidikan untuk melanjutkan pendidikan hingga jenjang doktor melalui program beasiswa internal maupun eksternal.', 'Jumlah dosen tetap program studi yang ber-NIDN', '%', 50, 1),
+(18, 5, 1, 'Kaprodi menjamin kualifikasi akademik (Pendidikan) dosen tetap program studi memenuhi persyaratan dalam pengembangan program studi;', 'Membuat blue print pembinaan karier dosen dan tenaga kependidikan dalam jangka panjang.', 'Jumlah dosen tetap program studi yang berijazah doctor linier dengan bidang studi', '%', 50, 1),
+(19, 5, 1, 'Kaprodi menjamin kualifikasi jabatan akademik fungsional dosen tetap program studi memenuhi peresyaratan dalam\r\npengembangan program studi;', 'Menyelenggarakan pelatihan secara periodic bagi dosen\r\ndan tenaga kependidikan untuk peningkatan kompetensi yang dibutuhkan.', 'Jumlah dosen tetap program studi yang berjabatan fungsional dosen lektor kepala atau professor', '%', 50, 1),
+(20, 5, 1, 'Kaprodi memberikan tugas pelaksanaan tridharma perguruan tinggi kepada dosen teap program studi untuk pengembangan karirnya;', 'Kaprodi memberikan tugas pelaksanaan tridharma perguruan tinggi kepada dosen teap program studi untuk pengembangan karirnya;', 'Besar tugas/beban dosen dalam melaksanakan tridharma perguruan tinggi', '%', 50, 1),
+(21, 6, 1, 'Program studi menjamin tersedianya sarana prasarana pembelajaran yaitu ruang kelas, laboratorium, perpustakaan, ruang interaksi di luar perkuliahan, ruang seminar, ruang lobi, Kerjasama dengan mitra terkait pemenuhan sarana dan prasarana pembelajaran', 'Pimpinan universitas menyelenggarakan koordinasi dengan para dekan secara berkala', 'Ketersediaan sarana dan prasarana pembelajaran', '%', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +198,7 @@ CREATE TABLE `indikator_jenis` (
 
 CREATE TABLE `jenis` (
   `id` int NOT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -194,7 +210,7 @@ CREATE TABLE `jenis` (
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -214,7 +230,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -226,7 +242,7 @@ CREATE TABLE `model_has_permissions` (
 
 CREATE TABLE `model_has_roles` (
   `role_id` bigint UNSIGNED NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -247,7 +263,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 CREATE TABLE `nilai` (
   `id` int NOT NULL,
   `indikator_id` int DEFAULT NULL,
-  `deskripsi` text COLLATE utf8mb4_general_ci,
+  `deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `nilai` int DEFAULT '0',
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -275,7 +291,7 @@ INSERT INTO `nilai` (`id`, `indikator_id`, `deskripsi`, `nilai`, `status`) VALUE
 (16, 4, 'Bila yang erat dan sangat erat >20 – 40%', 1, 1),
 (17, 5, 'Bila yang setingkat atau sama >80%', 4, 1),
 (18, 5, 'Bila yang setingkat atau sama > 60 – 80%', 3, 1),
-(19, 1, 'Bila yang setingkat atau sama >40 – 60%', 2, 1),
+(19, 5, 'Bila yang setingkat atau sama >40 – 60%', 2, 1),
 (20, 5, 'Bila yang setingkat atau sama >20 – 40%', 1, 1),
 (21, 6, 'Bila penyusunan KPT mengacu pada KKNI dan melibatkan stakeholder internal dan eksternal', 4, 1),
 (22, 6, 'Bila penyusunan KPT mengacu pada KKNI hanya melibatkan stakeholder internal', 3, 1),
@@ -308,7 +324,39 @@ INSERT INTO `nilai` (`id`, `indikator_id`, `deskripsi`, `nilai`, `status`) VALUE
 (49, 13, 'Bila proses pembelajaran menerapkan semua bentuk pembelajaran (diskusi, praktek kerja,\r\npraktikum, magang, project research, demonstrasi, dan kuliah)', 4, 1),
 (50, 13, 'Bila proses pembelajaran menerapkan 5 bentuk pembelajaran (diskusi, praktek kerja,\r\npraktikum, magang, project research, demonstrasi, dan kuliah)', 3, 1),
 (51, 13, 'Bila proses pembelajaran menerapkan 3 bentuk pembelajaran (diskusi, praktek kerja, praktikum, magang, project research, demonstrasi, dan kuliah)', 2, 1),
-(52, 13, 'Bila proses pembelajaran menerapkan hanya satu bentuk pembelajaran (diskusi, praktek kerja, praktikum, magang, project research, demonstrasi, dan kuliah)', 1, 1);
+(52, 13, 'Bila proses pembelajaran menerapkan hanya satu bentuk pembelajaran (diskusi, praktek kerja, praktikum, magang, project research, demonstrasi, dan kuliah)', 1, 1),
+(53, 14, 'Bila > 75% dosen menggunakan sedikitnya 3 teknik penilaian pembelajaran', 4, 1),
+(54, 14, 'Bila > 50-75% dosen menggunakan sedikitnya 3 teknik penilaian pembelajaran;', 3, 1),
+(55, 14, 'Bila > 25-50% dosen menggunakan sedikitnya 3 teknik penilaian pembelajaran;', 2, 1),
+(56, 14, 'Bila ≤ 25% dosen menggunakan sedikitnya 3 teknik penilaian pembelajaran;', 1, 1),
+(57, 15, 'Bila entry nilai oleh dosen, penerbitan KHS dan penerbitan transkrip nilai lulusan sudah terintegrasi dilakukan secara on line;', 4, 1),
+(58, 15, 'Bila baru dua diantara entry nilai oleh dosen, penerbitan KHS dan penerbitan transkrip nilai lulusan sudah terintegrasi dilakukan secara on line;', 3, 1),
+(59, 15, 'Bila entry nilai oleh dosen, penerbitan KHS dan penerbitan transkrip nilai lulusan belum terintegrasi namun sudah secara on line;', 2, 1),
+(60, 15, 'Bila entry nilai oleh staf akademik, penerbitan KHS dan penerbitan transkrip nilai lulusan masih manual;', 1, 1),
+(61, 16, 'Bila persyaratan lulus yudisim mahasiswa IPK ≥ 2,75, tidak ada nilai D dan E;', 4, 1),
+(62, 16, 'Bila persyaratan lulus yudisim mahasiswa IPK ≥ 2,5 tidak ada nilai D dan E', 3, 1),
+(63, 16, 'Bila persyaratan lulus yudisim mahasiswa IPK ≥ 2,0, tidak ada nilai D dan E', 2, 1),
+(64, 16, 'Bila persyaratan lulus yudisim mahasiswa IPK ≥ 2,0, tidak ada E, dan masih ada toleransi adanya nilai D;', 1, 1),
+(65, 17, 'Bila jumlah DTPS > 10 dan rasio dengan mahasiswa 15-25', 4, 1),
+(66, 17, 'Bila jumlah DTPS > 7-10 dan rasio dengan mahasiswa 10-15 atau 25-35', 3, 1),
+(67, 17, 'Bila jumlah DTPS ≥ 5-7 dan rasio dengan mahasiswa 5-10 atau 35-45', 2, 1),
+(68, 17, 'Bila jumlah DTPS <5 dan rasio dengan mahasiswa <5 atau >45', 1, 1),
+(69, 18, 'Bila jumlah Dosen doktor > 60% DTPS', 4, 1),
+(70, 18, 'Bila jumlah Dosen doktor >30-60% DTPS', 3, 1),
+(71, 18, 'Bila jumlah Dosen doktor >0 -30% DTPS', 2, 1),
+(72, 18, 'Bila jumlah Dosen doctor = 0% DTPS', 1, 1),
+(73, 19, 'Bila jumlah LK dan professor > 60% DTPS', 4, 1),
+(74, 19, 'Bila jumlah LK dan professor >30-60% DTPS', 3, 1),
+(75, 19, 'Bila jumlah LK dan professor >0-30% DTPS', 2, 1),
+(76, 19, 'Bila jumlah LK dan professor = 0% DTPS', 1, 1),
+(77, 20, 'Bila tugas dosen 10-14 sks EWMP', 4, 1),
+(78, 20, 'Bila tugas dosen .>14-17 atau <10-7 sks EWMP', 3, 1),
+(79, 20, 'Bila tugas dosen >17 -20 atau <7 -4 sks EWMP', 2, 1),
+(80, 20, 'Bila tugas dosen >20 atau <4 sks EWMP', 1, 1),
+(81, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran >80-100% dari yang dibutuhkan', 4, 1),
+(82, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran >60-80% dari yang dibutuhkan tersedia', 3, 1),
+(83, 21, 'bila ketersediaan jenis sarana dan prasarana pembelajaran >40-60% yang dibutuhkan tersedia', 2, 1),
+(84, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran ≤ 40% dari yang dibutuhkan', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -319,12 +367,12 @@ INSERT INTO `nilai` (`id`, `indikator_id`, `deskripsi`, `nilai`, `status`) VALUE
 CREATE TABLE `pegawai` (
   `id` int NOT NULL,
   `prodi_id` int NOT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `password` text COLLATE utf8mb4_general_ci,
+  `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `status` int DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `remember_token` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `remember_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -347,9 +395,9 @@ CREATE TABLE `pengisian` (
   `program_studi` int DEFAULT NULL,
   `audhitor` int DEFAULT NULL,
   `nilai` int DEFAULT NULL,
-  `komentar` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `komentar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `tahun` int DEFAULT NULL,
-  `tanggal` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tanggal` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `aksi_code` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -365,9 +413,9 @@ CREATE TABLE `pengisian_berkas` (
   `pengisian_id` int DEFAULT NULL,
   `program_studi_id` int DEFAULT NULL,
   `pegawai_id` int DEFAULT NULL,
-  `jenis` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `deskripsi` text COLLATE utf8mb4_general_ci,
-  `nama_file` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `jenis` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `nama_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -378,8 +426,8 @@ CREATE TABLE `pengisian_berkas` (
 
 CREATE TABLE `permissions` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -410,11 +458,11 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -430,7 +478,7 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `program_studi` (
   `id` int NOT NULL,
   `fakultas_id` int DEFAULT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -452,8 +500,8 @@ INSERT INTO `program_studi` (`id`, `fakultas_id`, `nama`) VALUES
 
 CREATE TABLE `roles` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -519,7 +567,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 CREATE TABLE `standard` (
   `id` int NOT NULL,
   `pegawai_id` int DEFAULT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -530,7 +578,10 @@ CREATE TABLE `standard` (
 INSERT INTO `standard` (`id`, `pegawai_id`, `nama`, `status`) VALUES
 (1, 1, 'Standar Kompetensi Lulusan', 1),
 (2, 1, 'Standar Isi Pembelajaran', 1),
-(3, 1, 'Standar Proses Pembelajaran', 1);
+(3, 1, 'Standar Proses Pembelajaran', 1),
+(4, 1, 'Standar Penilaian Pembelajaran', 1),
+(5, 1, 'Standar Dosen dan Tenaga Kependidikan', 1),
+(6, 1, 'Standar Sarana Prasarana Pembelajaran', 1);
 
 --
 -- Indexes for dumped tables
@@ -698,7 +749,7 @@ ALTER TABLE `standard`
 -- AUTO_INCREMENT for table `bobot`
 --
 ALTER TABLE `bobot`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `bookdocs`
@@ -728,7 +779,7 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `indikator`
 --
 ALTER TABLE `indikator`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `indikator_jenis`
@@ -752,7 +803,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -800,7 +851,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `standard`
 --
 ALTER TABLE `standard`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

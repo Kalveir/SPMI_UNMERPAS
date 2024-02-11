@@ -8,7 +8,7 @@
 @section('container')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('penilaian.updateNilai', $pengisian->id) }}" method="post">
+            <form action="{{ route('penilaian.updateNilai', encrypt($pengisian->id)) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="col-md-6 row-md-15">

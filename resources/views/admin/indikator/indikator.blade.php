@@ -22,8 +22,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
-                            <th>Startegi</th>
                             <th>Isi</th>
+                            <th>Startegi</th>
                             <th>Indikator</th>
                             <th>Standar</th>
                             <th>Satuan</th>
@@ -40,12 +40,12 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <div style="width: 300px;">
-                                        {{ $idk->strategi }}
+                                        {{ $idk->isi }}
                                     </div>
                                 </td>
                                 <td>
                                     <div style="width: 300px;">
-                                        {{ $idk->isi }}
+                                        {{ $idk->strategi }}
                                     </div>
                                 </td>
                                 <td>
