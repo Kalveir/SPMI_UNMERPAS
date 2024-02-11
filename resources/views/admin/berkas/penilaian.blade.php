@@ -96,7 +96,7 @@
                                     <td>
                                         <div class="d-flex center-content-between">
                                             @if ($brks->aksi_code == 1)
-                                                <form action="{{ route('penilaian.addNilai', $brks->id) }}"
+                                                <form action="{{ route('penilaian.addNilai', encrypt($brks->id)) }}"
                                                     class="d-inline">
                                                     @csrf
                                                     <button class="btn btn-outline-warning">

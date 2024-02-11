@@ -12,7 +12,7 @@ Info Buku Manual
   <div class="card-body">
     <div class="col-md-12 text-center" >
       <img src="/assets/img/unmer.png" width="150" alt="logo unmer" class="mx-auto d-block" >
-      <strong><h1 class="text-center">Standard {{ $bookstandar->standard->nama }}</h1></strong>
+      <strong><h1 class="text-center">{{ $bookstandar->standard->nama }}</h1></strong>
       <br>
   </div>
     <div class="table-responsive">

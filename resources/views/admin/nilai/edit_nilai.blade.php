@@ -18,7 +18,7 @@ Edit Skor Nilai
             </div>
             <fieldset class="form-group">
                 <label for="basicInput"><h4><strong>2.Indikator :</strong></h4></label>
-                <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow:auto;">
+                <select class="form-control" id="indikator_id" name="indikator_id" style="max-height:50px; overflow-y: auto;">
                     @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}"
                         {{  $nilai->indikator_id == $idnk->id ? 'selected' : ''  }}>

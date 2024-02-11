@@ -16,21 +16,19 @@ Tambah Skor Nilai
             <textarea class="form-control" placeholder="Deskripsi Skor Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus></textarea>
         </div>
         <fieldset class="form-group">
-            <label for="basicInput">2. Indikator :</label>
-            <select class="form-control" id="indikator_id" name="indikator_id" style="height: 50px; overflow:auto;" required>
-                @foreach ($indikator as $idnk)
-                    <option value="{{ $idnk->id }}">
-                        {{ $idnk->indikator }}
-                    </option>
-                @endforeach
-            </select>
+            <label for="basicInput"><h4><strong>2. Indikator :</strong></h4></label>
+                <select class="form-control" name="indikator_id" style="max-height:50px; overflow-y: auto;">
+                    @foreach ($indikator as $idnk)
+                        <option value="{{ $idnk->id }}">{{ $idnk->indikator }}</option>
+                    @endforeach
+                </select>
         </fieldset>
         <div class="form-group">
-            <label for="basicInput">3. Nilai :</label>
+            <label for="basicInput"><h4><strong>3. Nilai :</strong></h4></label>
             <input type="number" class="form-control" id="nilai" name="nilai" required>
         </div>
         <fieldset class="form-group">
-            <label for="basicInput">4. Status :</label>
+            <label for="basicInput"><h4><strong>4. Status :</strong></h4></label>
             <select class="form-control" id="basicSelect" name="status">
                 <option value="1">Aktif</option>
                 <option value="0">Tidak Aktif</option>
