@@ -24,7 +24,7 @@ Edit Bobot Nilai
             </fieldset>
             <div class="form-group">
                 <label for="basicInput"><h4><strong>2. Nilai :</strong></h4></label>
-                <input type="number" class="form-control" value="{{ $bobot->bobot }}" id="nilai" name="nilai" required>
+                <input type="number" placeholder="Bobot Nilai..." class="form-control" value="{{ $bobot->bobot }}" id="nilai" name="nilai" required>
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Simpan</button>

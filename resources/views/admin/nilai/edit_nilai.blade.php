@@ -28,7 +28,7 @@ Edit Skor Nilai
             </fieldset>
             <div class="form-group">
                 <label for="basicInput"><h4><strong>3.Nilai :</strong></h4></label>
-                <input type="number" class="form-control" value="{{ $nilai->nilai }}" id="nilai" name="nilai" required>
+                <input type="number" class="form-control" placeholder="Skor Nilai..." value="{{ $nilai->nilai }}" id="nilai" name="nilai" required>
             </div>
                 <fieldset class="form-group">
                     <label for="basicInput">4.Status :</label>

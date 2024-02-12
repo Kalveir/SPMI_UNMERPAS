@@ -25,7 +25,7 @@ Tambah Skor Nilai
         </fieldset>
         <div class="form-group">
             <label for="basicInput"><h4><strong>3. Nilai :</strong></h4></label>
-            <input type="number" class="form-control" id="nilai" name="nilai" required>
+            <input type="number" class="form-control" placeholder="Skor Nilai..." id="nilai" name="nilai" required>
         </div>
         <fieldset class="form-group">
             <label for="basicInput"><h4><strong>4. Status :</strong></h4></label>
