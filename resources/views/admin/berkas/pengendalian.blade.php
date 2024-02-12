@@ -85,7 +85,11 @@ Daftar Berkas
                     </td>
                     <td>{{ $brkp->tahun }}</td>
                     {{-- evaluasi --}}
-                    <td>{{ optional($brkp->auditor)->nama }}</td>
+                    <td>
+                        <div style="width: 200px;">
+                            {{ optional($brkp->auditor)->nama }}
+                        </div>
+                    </td>
                     <td>{{ $brkp->nilai }}</td>
                     <td>
                         <div class="text-wrap text-justify" style="width: 200px;">

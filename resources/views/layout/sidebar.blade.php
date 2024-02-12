@@ -130,7 +130,7 @@
         @can('kelola bobot')
         <li class="nav-item">
           <a href="/bobot-nilai" class="collapsed" aria-expanded="false">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-chart-line"></i>
             <p>Bobot Nilai</p>
           </a>
         </li>

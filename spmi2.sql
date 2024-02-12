@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 11, 2024 at 03:17 PM
+-- Generation Time: Feb 12, 2024 at 02:32 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -58,7 +58,18 @@ INSERT INTO `bobot` (`id`, `indikator_id`, `bobot`) VALUES
 (18, 18, 30),
 (19, 19, 30),
 (20, 20, 15),
-(21, 21, 30);
+(21, 21, 30),
+(22, 22, 30),
+(23, 23, 20),
+(24, 24, 20),
+(25, 25, 40),
+(26, 26, 20),
+(27, 27, 20),
+(28, 28, 20),
+(29, 29, 30),
+(30, 30, 30),
+(31, 31, 20),
+(32, 32, 20);
 
 -- --------------------------------------------------------
 
@@ -175,8 +186,19 @@ INSERT INTO `indikator` (`id`, `standard_id`, `pegawai_id`, `isi`, `strategi`, `
 (17, 5, 1, 'Kaprodi menjamin jumlah dosen tetap program studi mencukupi untuk kebutuhan pengembangan program studi;', 'Mendorong dan membuka kesempatan seluas-luasnya bagi Dosen dan tenaga kependidikan untuk melanjutkan pendidikan hingga jenjang doktor melalui program beasiswa internal maupun eksternal.', 'Jumlah dosen tetap program studi yang ber-NIDN', '%', 50, 1),
 (18, 5, 1, 'Kaprodi menjamin kualifikasi akademik (Pendidikan) dosen tetap program studi memenuhi persyaratan dalam pengembangan program studi;', 'Membuat blue print pembinaan karier dosen dan tenaga kependidikan dalam jangka panjang.', 'Jumlah dosen tetap program studi yang berijazah doctor linier dengan bidang studi', '%', 50, 1),
 (19, 5, 1, 'Kaprodi menjamin kualifikasi jabatan akademik fungsional dosen tetap program studi memenuhi peresyaratan dalam\r\npengembangan program studi;', 'Menyelenggarakan pelatihan secara periodic bagi dosen\r\ndan tenaga kependidikan untuk peningkatan kompetensi yang dibutuhkan.', 'Jumlah dosen tetap program studi yang berjabatan fungsional dosen lektor kepala atau professor', '%', 50, 1),
-(20, 5, 1, 'Kaprodi memberikan tugas pelaksanaan tridharma perguruan tinggi kepada dosen teap program studi untuk pengembangan karirnya;', 'Kaprodi memberikan tugas pelaksanaan tridharma perguruan tinggi kepada dosen teap program studi untuk pengembangan karirnya;', 'Besar tugas/beban dosen dalam melaksanakan tridharma perguruan tinggi', '%', 50, 1),
-(21, 6, 1, 'Program studi menjamin tersedianya sarana prasarana pembelajaran yaitu ruang kelas, laboratorium, perpustakaan, ruang interaksi di luar perkuliahan, ruang seminar, ruang lobi, Kerjasama dengan mitra terkait pemenuhan sarana dan prasarana pembelajaran', 'Pimpinan universitas menyelenggarakan koordinasi dengan para dekan secara berkala', 'Ketersediaan sarana dan prasarana pembelajaran', '%', 50, 1);
+(20, 5, 1, 'Kaprodi memberikan tugas pelaksanaan tridharma perguruan tinggi kepada dosen teap program studi untuk pengembangan karirnya;', '.', 'Besar tugas/beban dosen dalam melaksanakan tridharma perguruan tinggi', '%', 50, 1),
+(21, 6, 1, 'Program studi menjamin tersedianya sarana prasarana pembelajaran yaitu ruang kelas, laboratorium, perpustakaan, ruang interaksi di luar perkuliahan, ruang seminar, ruang lobi, Kerjasama dengan mitra terkait pemenuhan sarana dan prasarana pembelajaran', 'Pimpinan universitas menyelenggarakan koordinasi dengan para dekan secara berkala', 'Ketersediaan sarana dan prasarana pembelajaran', '%', 50, 1),
+(22, 6, 1, 'Program studi menjamin kemudahan akses terhadap sarana dan prasarana pembelajaran', 'Pimpinan universitas dan fakultas membentuk tim pengelola aset untuk ditugasi merancang, membangun dan memelihara sarana dan prasarana sesuai dengan standar yang ditentukan.', 'Kemudahan akses sarana dan prasarana pembelajaran', '%', 50, 1),
+(23, 6, 1, 'Program studi menjamin ketercukupan kebutuhan sarana dan prasarana pembelajaran;', 'Pimpinan universitas dan fakultas bekerjasama dengan pihak ketiga atau lembaga donor dalam penyediaan sarana dan prasarana yang kebutuhannya mendesak dan belum teralokasi anggaran dari pemerintah.', 'Ketercukupan sarana dan prasarana pembelajaran', '%', 50, 1),
+(24, 6, 1, 'Program studi menjamin keberlanjutan ketersedian sarana dan prasarana pembelajaran', '.', 'Keberlanjutan sarana dan prasara pembelajaran', '%', 50, 1),
+(25, 7, 1, 'Kaprodi	menyediakan	panduan	pelaksanaan pembelajaran di lingkungan program studi', 'Pimpinan universitas menyelenggarakan koordinasi dengan pimpinan unit di bawahnya secara berkala untuk menjamin bahwa semua kegiatan berjalan sesuai dengan standard yang ditentukan.', 'Ketersediaan	panduan	pelaksanaan	pembelajaran	di lingkungan program studi', '%', 50, 1),
+(26, 7, 1, 'Kaprodi melaksanakan perencanaan pembelajaran di lingkungan program studi', 'Pimpinan    universitas     menyelenggarakan     pelatihan, penyegaran untuk menjaga kesetiakawanan, kerjasama dan toleransi diantara para pimpinan fakultas, program studi.', 'Persiapan pelaksanaan pembelajaran di awal semester', '%', 50, 1),
+(27, 7, 1, 'Kaprodi	melaksanakan	monitoring	pelaksanaan pembelajaran di lingkungan program studi', '.', 'Monitoring pembelajaran	dilakukan pada pertengahan semester (minggu ke 8/minggu UTS)', '%', 50, 1),
+(28, 7, 1, 'Kaprodi	melaksakan	evaluasi	terhadap	pelaksanaan pembelajaran di lingkungan program studi', '.', 'Evaluasi pelaksanaan pembelajaran', '%', 50, 1),
+(29, 8, 1, 'Kaprodi menjamin adanya anggaran untuk menunjang pelaksanaan pembelajaran,', 'Pimpinan universitas menyelenggarakan koordinasi yang baik dengan seluruh fakultas, lembaga dan unit-unit yang ada dalam hal perencanaan, pengelolaan dan pertanggung jawaban seluruh penerimaan dan pengeluaran dana yang ada.', 'Ketersediaan anggaran untuk menunjang pelaksanaan pembelajaran', '%', 50, 1),
+(30, 8, 1, 'Kaprodi menjamin lancarnya realisasi anggaran untuk menunjang pelaksanaan pembelajaran', 'Pimpinan universitas melalui satuan pengawas internal (SPI) secara periodik dan berkelanjutan melakukan fungsi pengawasan dan audit internal keuangan.', 'Kelancaran realisasi anggaran untuk menunjang pelaksanaan pembelajaran', '%', 50, 1),
+(31, 8, 1, 'Kaprodi menjamin ketercukupinya angggaran untuk menunjang pelaksanaan pembelajaran;', 'Dalam rangka pemenuhan standar pembiayaan, diperlukan langkah efisiensi pengeluaran dan optimalisasi penerimaan.', 'Ketercukupan anggaran untuk menunjang pelaksanaan pembelajaran', '%', 50, 1),
+(32, 8, 1, 'Kaprodi menjamin keberlanjutan anggaran untuk menunjang pelaksanaan pembelajaran', '.', 'Keberlanjutan anggaran untuk menunjang pelaksanaan pembelajaran', '%', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -356,7 +378,51 @@ INSERT INTO `nilai` (`id`, `indikator_id`, `deskripsi`, `nilai`, `status`) VALUE
 (81, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran >80-100% dari yang dibutuhkan', 4, 1),
 (82, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran >60-80% dari yang dibutuhkan tersedia', 3, 1),
 (83, 21, 'bila ketersediaan jenis sarana dan prasarana pembelajaran >40-60% yang dibutuhkan tersedia', 2, 1),
-(84, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran ≤ 40% dari yang dibutuhkan', 1, 1);
+(84, 21, 'Bila ketersediaan jenis sarana dan prasarana pembelajaran ≤ 40% dari yang dibutuhkan', 1, 1),
+(85, 22, 'Bila tersedia prosedur penggunaan sarana dan prasarana pembelajaran yang mudah dan sederhana;', 4, 1),
+(86, 22, 'Bila tersedia prosedur penggunaan sarana dan prasarana pembelajaran yang kurang fleksibel sehingga kadang dapat menganggu\r\npelaksanaan pembelajaran', 3, 1),
+(87, 22, 'Bila tersedia prosedur penggunaan sarana dan prasarana pembelajaran tidak konsisten sehingga sering menganggu pelaksanaan pembelajaran', 2, 1),
+(88, 22, 'Bila tidak ada prosedur baku dalam penggunaan sarana dan parasarana', 1, 1),
+(89, 23, 'Bila sarana dan prasarana dalam jumlah >80-100% mencukupi dan dalam keadaan baik siap untuk digunakan', 4, 1),
+(90, 23, 'Bila sarana dan prasarana dalam jumlah >60- 80% mencukupi dan dalam keadaan baik siap untuk digunakan', 3, 1),
+(91, 23, 'Bila sarana dan prasarana dalam jumlah >40- 60% mencukupi dan dalam keadaan baik siap untuk digunakan', 2, 1),
+(92, 23, 'Bila sarana dan prasarana dalam jumlah ≤ 40% mencukupi dan dalam keadaan baik siap untuk digunakan', 1, 1),
+(93, 24, 'Bila ada perawatan rutin dan rencana investasi pengembangan sarana dan parasarana', 4, 1),
+(94, 24, 'Bila ada perawatan rutin dan pengembangan tergantung hibah/bantuan eksternal', 3, 1),
+(95, 24, 'Bila ada perawatan rutin,  namun tidak ada pengembangan', 2, 1),
+(96, 24, 'Bila tidak ada perawatan rutin dan tidak ada pengembangan', 1, 1),
+(97, 25, 'Bila panduan pelaksanaan pembelajarandi program studi memuat semua aspek pembelajaran tersedia sebelum pembelajaran semester dimulai,', 4, 1),
+(98, 25, 'Bila panduan pelaksanaan pembelajaran program studi memuat sebagian besar aspek pembelajaran tersedia sebelum pembelajaran semester dimulai,', 3, 1),
+(99, 25, 'Bila Panduan pelaksanaan pembelajaran parsial tersedia pada saat kegiatan pembelajaran akan dimulai', 2, 1),
+(100, 25, 'Bila tidak ada panduan pembelajaran', 1, 1),
+(101, 26, 'Bila ploting dosen pengampu dan jadwal kuliah sudah disosialisasikan sebelum masa program KRS;', 4, 1),
+(102, 26, 'Bila ploting dosen pengampu dan jadwal kuliah baru disosialisasikan pada masa program KRS;', 3, 1),
+(103, 26, 'Bila ploting dosen pengampu dan jadwal kuliah tidak pernah disosialisasikan', 2, 1),
+(104, 26, 'Bila ploting dosen pengampu dan jadwal kuliah masih	berubah-ubah sampai pembelajaran dimulai;', 1, 1),
+(105, 27, 'Bila jumlah tatap muka dosen 100% dan pelaksanaan pembelajaran sesuai RPS', 4, 1),
+(106, 27, 'Bila jumlah tatap muka dosen 100% dan pelaksanaan pembelajaran ada yang tidak sesuai RPS', 3, 1),
+(107, 27, 'Bila jumlah tatap muka dosen <100% dan pelaksanaan pembelajaran ada yang tidak sesuai RPS', 2, 1),
+(108, 27, 'Bila tidak dilakukan monitoring pelaksanaan pembelajaran', 1, 1),
+(109, 28, 'Bila pembelajaran telah dievaluasi (dengan angket), data telah dianalisis dan rata-rata skor dosen > 3,60', 4, 1),
+(110, 28, 'Bila pembelajaran telah dievaluasi (dengan angket), data telah dianalisis dan rata-rata skor dosen 3,00 - 3,60', 3, 1),
+(111, 28, 'Bila pembelajaran telah dievaluasi (dengan angket) namun data belum dianalisis atau telah dianalisis rata-rata skor dosen < 3,00', 2, 1),
+(112, 28, 'Bila pembelajaran tidak dilakukan evaluasi dengan angket, atau tidak dilakukan evaluasi sama sekali', 1, 1),
+(113, 29, 'Bila dana untuk pelaksanaan pembelajaran sudah masuk dalam agenda kerja tahunan dan telah mempunyai mata anggaran yang tetap (baku)', 4, 1),
+(114, 29, 'Bila dana untuk pelaksanaan pembelajaran sudah masuk dalam agenda kerja tahunan dan masuk dalam mata anggaran tentatif', 3, 1),
+(115, 29, 'Bila dana untuk pelaksanaan pembelajaran belum masuk dalam agenda kerja tahunan dan belum mempunyai mata anggaran tersendiri', 2, 1),
+(116, 29, 'Bila anggaran untuk pelaksanaan pembelajaran tidak masuk dalam perencanaan kegiatan institusi', 1, 1),
+(117, 30, 'Bila tersedia prosedur pencairan anggaran pembelajaran yang mudah dan sederhana;', 4, 1),
+(118, 30, 'Bila tersedia prosedur pencairan anggaran pembelajaran yang kurang fleksibel sehingga kadang dapat menganggu pelaksanaan pembelajaran', 3, 1),
+(119, 30, 'Bila tersedia prosedur pencairan anggaran pembelajaran tidak konsisten sehingga sering menganggu pelaksanaan pembelajaran', 2, 1),
+(120, 30, 'Bila tidak ada prosedur baku dalam pencairan anggaran pembelajaran sehingga pelaksanaan pembelajaran terganggu', 1, 1),
+(121, 31, 'Bila >80-100% kebutuhan anggaran yang diusulkan disetujui dan direalisasikan', 4, 1),
+(122, 31, 'Bila > 60-80% kebutuhan anggaran yang diusulkan disetujui dan direalisasikan', 3, 1),
+(123, 31, 'Bila >40- 60% kebutuhan anggaran yang diusulkan disetujui dan direalisasikan', 2, 1),
+(124, 31, 'Bila ≤ 40% kebutuhan anggaran yang diusulkan disetujui dan direalisasikan', 1, 1),
+(125, 32, 'Bila ada usaha pengembangan sumber pendanaan dari kegiatan pembelajaran dan bersumber selain dari mahasiswa;', 4, 1),
+(126, 32, 'Bila ada usaha pengembangan sumber pendanaan yang bersumber selain dari mahasiswa;', 3, 1),
+(127, 32, 'bila sumber pendanaan anggaran program studi selama 5 tahun terakhir stabil tidak pewrnah defisit;', 2, 1),
+(128, 32, 'Bila sumber pendanaan tidak stabil tidak bisa menjamin terpenuhinya dana yang sudah dianggarkan', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -581,7 +647,9 @@ INSERT INTO `standard` (`id`, `pegawai_id`, `nama`, `status`) VALUES
 (3, 1, 'Standar Proses Pembelajaran', 1),
 (4, 1, 'Standar Penilaian Pembelajaran', 1),
 (5, 1, 'Standar Dosen dan Tenaga Kependidikan', 1),
-(6, 1, 'Standar Sarana Prasarana Pembelajaran', 1);
+(6, 1, 'Standar Sarana Prasarana Pembelajaran', 1),
+(7, 1, 'Standar Pengelolaan Pembelajaran', 1),
+(8, 1, 'Standar Pembiayaan Pembelajaran', 1);
 
 --
 -- Indexes for dumped tables
@@ -749,7 +817,7 @@ ALTER TABLE `standard`
 -- AUTO_INCREMENT for table `bobot`
 --
 ALTER TABLE `bobot`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `bookdocs`
@@ -779,7 +847,7 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `indikator`
 --
 ALTER TABLE `indikator`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `indikator_jenis`
@@ -803,7 +871,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -851,7 +919,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `standard`
 --
 ALTER TABLE `standard`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

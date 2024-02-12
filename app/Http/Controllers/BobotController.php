@@ -47,9 +47,10 @@ class BobotController extends Controller
     public function update(Request $request, $id)
     {
       $bobot = Bobot_nilai::find($id);
-      $bobot->indikator_id = $request->indikator->id;
+      $bobot->indikator_id = $request->indikator_id;
       $bobot->bobot = $request->nilai;
       $bobot->save();
+      Alert::success('Sukses', 'Bobot Nilai Diperbarui');
       return redirect()->route('bobot.index');
     }
 

@@ -83,7 +83,11 @@
                                             </div>
                                         @endforeach
                                     </td>
-                                    <td>{{ optional($brks->auditor)->nama }}</td>
+                                    <td>
+                                        <div style="width: 200px;">
+                                            {{ optional($brks->auditor)->nama }}
+                                        </div>
+                                    </td>
                                     {{-- evaluasi --}}
                                     <td>{{ $brks->nilai }}</td>
                                     {{-- komentar --}}
@@ -107,7 +111,7 @@
                                                     </button>
                                                 </form>
                                                 @if ($brks->nilai != null)
-                                                <form action="{{ route('penilaian.validasi', $brks->id) }}"
+                                                <form action="{{ route('penilaian.validasi', encrypt($brks->id)) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         <button class="btn btn-outline-danger" onclick="lockNilai(event)">

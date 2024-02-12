@@ -13,7 +13,7 @@ Edit Skor Nilai
         @method('PUT')
         <div class="col-md-8">
             <div class="form-group">
-                <h4><strong>1. Isi :</strong></h4>
+                <h4><strong>1. Deskripsi :</strong></h4>
                 <textarea class="form-control" placeholder="Deskripsi Skor Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus>{{   $nilai->deskripsi }}</textarea>
             </div>
             <fieldset class="form-group">
