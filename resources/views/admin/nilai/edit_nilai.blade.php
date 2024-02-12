@@ -17,7 +17,7 @@ Edit Skor Nilai
                 <textarea class="form-control" placeholder="Deskripsi Skor Nilai..." id="exampleFormControlTextarea1" name="deskripsi" rows="5" required autofocus>{{   $nilai->deskripsi }}</textarea>
             </div>
             <fieldset class="form-group">
-                <label for="basicInput"><h4><strong>2.Indikator :</strong></h4></label>
+                <label for="basicInput"><h4><strong>2. Indikator :</strong></h4></label>
                 <select class="form-control" id="indikator_id" name="indikator_id" style="max-height:50px; overflow-y: auto;">
                     @foreach ($indikator as $idnk)
                     <option value="{{ $idnk->id }}"
@@ -27,11 +27,11 @@ Edit Skor Nilai
                 </select>
             </fieldset>
             <div class="form-group">
-                <label for="basicInput"><h4><strong>3.Nilai :</strong></h4></label>
+                <label for="basicInput"><h4><strong>3. Nilai :</strong></h4></label>
                 <input type="number" class="form-control" placeholder="Skor Nilai..." value="{{ $nilai->nilai }}" id="nilai" name="nilai" required>
             </div>
                 <fieldset class="form-group">
-                    <label for="basicInput">4.Status :</label>
+                    <label for="basicInput">4. Status :</label>
                     <select class="form-control" id="basicSelect" name="status">
                         <option value="1" @if ($nilai->status == 1) selected @endif>Aktif</option>
                         <option value="0" @if ($nilai->status == 0) selected @endif>Tidak Aktif</option>
