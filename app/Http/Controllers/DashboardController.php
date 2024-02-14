@@ -9,6 +9,7 @@ use App\Models\pengisian;
 use App\Models\bookstandar;
 use App\Models\pengisian_berkas;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,19 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        //get jumlah data usage
+        $get_size = storage_path('app/public');
+
+        $totalSize = 0;
+
+        // Iterasi melalui semua file di dalam folder
+        $files = File::allFiles($get_size);
+        foreach ($files as $file) {
+            $totalSize += filesize($file->getPathname());
+        }
+
+        $folder_size = $this->formatSizeUnits($totalSize);
+
         //get jumlah Pegawai
 
         $jumlah_user = User::count();
@@ -65,8 +79,27 @@ class DashboardController extends Controller
         $prodiList = Prodi::get();
 
         // Menampilkan data menggunakan view
-        return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList'));
+        return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList','folder_size'));
 
+    }
+
+    private function formatSizeUnits($bytes)
+    {
+        if ($bytes >= 1073741824) {
+            $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+        } elseif ($bytes >= 1048576) {
+            $bytes = number_format($bytes / 1048576, 2) . ' MB';
+        } elseif ($bytes >= 1024) {
+            $bytes = number_format($bytes / 1024, 2) . ' KB';
+        } elseif ($bytes > 1) {
+            $bytes = $bytes . ' bytes';
+        } elseif ($bytes == 1) {
+            $bytes = $bytes . ' byte';
+        } else {
+            $bytes = '0 bytes';
+        }
+
+        return $bytes;
     }
 
 }

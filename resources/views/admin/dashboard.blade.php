@@ -78,6 +78,17 @@
                         </div>
                     </div>
                 @endrole
+                @role('Admin')
+                    <div class="col-md-4">
+                        <div class="card card-warning">
+                            <div class="card-body skew-shadow">
+                                <h3 class="op-8">Penggunaan Data Sistem :</h3>
+                                <i class="fas fa-chart-pie fa-3x icon-transparent"></i>
+                                <h1>{{ $folder_size }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                @endrole
                 <div class="col-md-4">
                     <div class="card card-danger">
                         <div class="card-body skew-shadow">
@@ -98,7 +109,8 @@
                         @endforeach
                     </select>
                 </div>
-                @if (Auth::user()->hasRole(['Admin', 'PPM']))
+                {{-- @if (Auth::user()->hasRole(['Admin', 'PPM'])) --}}
+                    @can('kelola statistik')
                     <div class="col-md-4 mb-4" style="flex: 2;">
                         <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
                         <select class="form-control" name="prodi" id="prodiSelector" onchange="this.form.submit()">
@@ -109,7 +121,8 @@
                             @endforeach
                         </select>
                     </div>
-                @endif
+                    @endcan
+                {{-- @endif --}}
             </form>
 
 

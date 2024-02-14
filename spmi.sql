@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 12, 2024 at 02:32 AM
+-- Generation Time: Feb 14, 2024 at 02:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -514,7 +514,8 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (9, 'kelola indikator', 'web', '2023-12-26 17:18:05', '2023-12-26 17:18:05'),
 (11, 'kelola nilai', 'web', '2023-12-26 17:18:38', '2023-12-26 17:18:38'),
 (12, 'kelola berkas', 'web', '2023-12-26 17:18:58', '2023-12-26 17:18:58'),
-(14, 'kelola bobot', 'web', '2024-02-07 06:48:50', '2024-02-07 06:48:50');
+(14, 'kelola bobot', 'web', '2024-02-07 06:48:50', '2024-02-07 06:48:50'),
+(15, 'kelola statistik', 'web', '2024-02-14 07:08:16', '2024-02-14 07:08:16');
 
 -- --------------------------------------------------------
 
@@ -615,6 +616,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (11, 1),
 (12, 1),
 (14, 1),
+(15, 1),
 (5, 11),
 (6, 11),
 (7, 11),
@@ -622,6 +624,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (9, 11),
 (11, 11),
 (14, 11),
+(15, 11),
 (12, 12);
 
 -- --------------------------------------------------------
@@ -895,7 +898,7 @@ ALTER TABLE `pengisian_berkas`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

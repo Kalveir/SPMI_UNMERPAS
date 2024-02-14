@@ -40,7 +40,7 @@ Route::get('/', function () {
 });
 
 // Route::get('/cihuy', function () {
-//     Permission::create(['name' => 'kelola bobot']);
+//     Permission::create(['name' => 'kelola statistik']);
 //     // Permission::where('name','kelola jenis')->delete();
 //     // Permission::where('name','kelola penilaian')->delete();
 //     dd('cihuy');
