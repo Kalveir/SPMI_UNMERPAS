@@ -17,7 +17,7 @@ Daftar Audhitor
   <div class="card-body">
     <div class="table-responsive">
       <table id="basic-datatables" class="table table-bordered table-striped" >
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>No</th>
                 <th>Nama</th>

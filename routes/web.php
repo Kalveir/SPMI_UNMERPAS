@@ -237,6 +237,6 @@ Route::middleware(['auth', 'role:PPM'])->group(function(){
 //manajemen Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('/login/auth', [LoginController::class, 'Authlogin'])->middleware('guest');
-Route::post('/logout', [LoginController::class,'Logout'])->middleware('auth');
+Route::post('/logout', [LoginController::class,'Logout'])->name('logout')->middleware('auth');
 
 

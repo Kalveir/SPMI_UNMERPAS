@@ -4,7 +4,7 @@ Berkas
 @endsection
 
 @section('judul')
-Daftar Berkas
+Daftar Pengendalian
 @endsection
 
 @section('container')

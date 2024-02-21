@@ -72,12 +72,12 @@
 
       <div class="header-social-links d-flex align-items-center">
         @auth
-        <a href="/dashboard">
+        <a href="{{ route('dashboard.index') }}">
           <button class="btn btn-success" type="button"><i
             class="fas fa-sign-in-alt"></i>Dashboard</button>
         </a>
         @else
-        <a href="/login">
+        <a href="{{ route('login') }}">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-sign-in-alt"></i><span>Login</span>
           </button>

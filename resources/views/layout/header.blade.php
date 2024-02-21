@@ -30,7 +30,7 @@
       <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 
         <li class="nav-item hidden-caret">
-          <form action="/logout" method="post">
+          <form action="{{ route('logout') }}" method="post">
             @csrf
             <button class="btn btn-danger type="submit"><i
                 class="fas fa-sign-out-alt"></i> Logout</button>

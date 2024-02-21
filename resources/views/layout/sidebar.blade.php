@@ -4,7 +4,7 @@
     <div class="sidebar-content">
       <div class="user">
         <div class="avatar-sm float-left mr-2">
-          <img src="/assets/img/avataaars.jpg" alt="..." class="avatar-img rounded-circle">
+          <img src="{{ asset('/assets/img/avataaars.jpg') }}" alt="..." class="avatar-img rounded-circle">
         </div>
         <div class="info">
           <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -31,14 +31,14 @@
       <ul class="nav nav-primary">
 
         <li class="nav-item">
-          <a href="/dashboard" class="collapsed" aria-expanded="false">
+          <a href="{{ route('dashboard.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-home"></i>
             <p>Dashboard</p>
           </a>
         </li>
         @can('kelola fakultas')
         <li class="nav-item">
-          <a href="/fakultas" class="collapsed" aria-expanded="false">
+          <a href="{{ route('fakultas.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-flag"></i>
             <p>Fakultas</p>
           </a>
@@ -46,7 +46,7 @@
         @endcan
         @can('kelola prodi')
         <li class="nav-item">
-          <a href="/prodi" class="collapsed" aria-expanded="false">
+          <a href="{{ route('prodi.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-project-diagram"></i>
             <p>Program Studi</p>
           </a>
@@ -54,7 +54,7 @@
         @endcan
         @can('kelola jabatan')
         <li class="nav-item">
-          <a href="/jabatan" class="collapsed" aria-expanded="false">
+          <a href="{{ route('jabatan.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-crown"></i>
             <p>Jabatan</p>
           </a>
@@ -62,7 +62,7 @@
         @endcan
         @can('kelola pegawai')
         <li class="nav-item">
-          <a href="/pegawai" class="collapsed" aria-expanded="false">
+          <a href="{{ route('pegawai.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-users"></i>
             <p>Pegawai</p>
           </a>
@@ -70,26 +70,26 @@
         @endcan
         @role('PPM')
         <li class="nav-item">
-          <a href="/auditor" class="collapsed" aria-expanded="false">
+          <a href="{{ route('audhitor.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-solid fa-user-tie"></i>
             <p>Auditor</p>
           </a>
         </li>
         @endrole
         <li class="nav-item">
-          <a href="/standard" class="collapsed" aria-expanded="false">
+          <a href="{{ route('standard.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-th-list"></i>
             <p>Standard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/bookmanual" class="collapsed" aria-expanded="false">
+          <a href="{{ route('bookmanual.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-book-reader"></i>
             <p>Buku Manual</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/bookstandard" class="collapsed" aria-expanded="false">
+          <a href="{{ route('bookstandard.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-book"></i>
             <p>Buku Standard</p>
           </a>
@@ -109,12 +109,12 @@
           <div class="collapse" id="base">
             <ul class="nav nav-collapse">
               <li>
-                <a href="/SOP">
+                <a href="{{ route('SOP.index') }}">
                   <span class="sub-item">SOP</span>
                 </a>
               </li>
               <li>
-                <a href="/formulir">
+                <a href="{{ route('formulir.index') }}">
                   <span class="sub-item">Formulir</span>
                 </a>
               </li>
@@ -122,14 +122,14 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="/indikator" class="collapsed" aria-expanded="false">
+          <a href="{{ route('indikator.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-tasks"></i>
             <p>Indikator</p>
           </a>
         </li>
         @can('kelola bobot')
         <li class="nav-item">
-          <a href="/bobot-nilai" class="collapsed" aria-expanded="false">
+          <a href="{{ route('bobot.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-chart-line"></i>
             <p>Bobot Nilai</p>
           </a>
@@ -137,7 +137,7 @@
         @endcan
         @can('kelola nilai')
         <li class="nav-item">
-          <a href="/nilai" class="collapsed" aria-expanded="false">
+          <a href="{{ route('nilai.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-tachometer-alt"></i>
             <p>Skor Nilai</p>
           </a>
@@ -145,7 +145,7 @@
         @endcan
         @can('kelola berkas')
         <li class="nav-item">
-          <a href="/berkas" class="collapsed" aria-expanded="false">
+          <a href="{{ route('berkas.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-alt"></i>
             <p>Pengisian Berkas</p>
           </a>
@@ -153,7 +153,7 @@
         @endcan
         @role('Auditor Informatika')
         <li class="nav-item">
-          <a href="/penilaian/Informatika" class="collapsed" aria-expanded="false">
+          <a href="{{ route('informatika.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian Informatika</p>
           </a>
@@ -161,7 +161,7 @@
         @endrole
         @role('Auditor RPL')
         <li class="nav-item">
-          <a href="/penilaian/RPL" class="collapsed" aria-expanded="false">
+          <a href="{{ route('rpl.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian RPL</p>
           </a>
@@ -169,7 +169,7 @@
         @endrole
         @role('Auditor Manajemen')
         <li class="nav-item">
-          <a href="/penilaian/Manajemen" class="collapsed" aria-expanded="false">
+          <a href="{{ route('manajemen.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian Manajemen</p>
           </a>
@@ -177,7 +177,7 @@
         @endrole
         @role('Auditor Hukum')
         <li class="nav-item">
-          <a href="/penilaian/Hukum" class="collapsed" aria-expanded="false">
+          <a href="{{ route('hukum.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian Hukum</p>
           </a>
@@ -185,7 +185,7 @@
         @endrole
         @role('Auditor Agroteknologi')
         <li class="nav-item">
-          <a href="/penilaian/Agroteknologi" class="collapsed" aria-expanded="false">
+          <a href="{{ route('agro.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-file-signature"></i>
             <p>Penilaian Agroteknologi</p>
           </a>
@@ -202,27 +202,27 @@
           <div class="collapse" id="pengendalian">
             <ul class="nav nav-collapse">
               <li>
-                <a href="/pengendalian/informatika">
+                <a href="{{ route('prodi_informatika.index') }}">
                   <span class="sub-item">Teknik Informatika</span>
                 </a>
               </li>
               <li>
-                <a href="/pengendalian/RPL">
+                <a href="{{ route('prodi_rpl.index') }}">
                   <span class="sub-item">Rekayasa Perangkat Lunak</span>
                 </a>
               </li>
               <li>
-                <a href="/pengendalian/Manajemen">
+                <a href="{{ route('prodi_manajemen.index') }}">
                   <span class="sub-item">Manajemen</span>
                 </a>
               </li>
               <li>
-                <a href="/pengendalian/Hukum">
+                <a href="{{ route('prodi_hukum.index') }}">
                   <span class="sub-item">Hukum</span>
                 </a>
               </li>
               <li>
-                <a href="/pengendalian/Agroteknologi">
+                <a href="{{ route('prodi_agroteknologi.index') }}">
                   <span class="sub-item">Agroteknologi</span>
                 </a>
               </li>
