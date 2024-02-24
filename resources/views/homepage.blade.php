@@ -149,7 +149,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy;<span id="tahun"></span> Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Univesitas Merdeka Pasuruan</span></strong>. All Rights Reserved
+        &copy;<span id="tahun"></span> Copyright <strong><span>Fakultas Teknologi Informasi &#8226 Universitas Merdeka Pasuruan</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

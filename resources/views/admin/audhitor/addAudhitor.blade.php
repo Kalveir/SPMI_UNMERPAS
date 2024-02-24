@@ -72,7 +72,7 @@
                                 <th>Nama</th>
                                 <th>Progam Studi</th>
                                 <th>Jabatan</th>
-                                <th>Akasi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
