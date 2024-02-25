@@ -24,7 +24,7 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        $indikator = Indikator::get();
+        $indikator = Indikator::orderBy('id', 'desc')->get();
         //$indikator = Indikator::where('pegawai_id', Auth::user()->id)->get();
         return view('admin.nilai.tambah_nilai', compact('indikator'));
     }
@@ -59,7 +59,7 @@ class NilaiController extends Controller
     public function edit($nilai)
     {
         $nilai = Nilai::find($nilai);
-        $indikator = Indikator::get();
+        $indikator = Indikator::orderBy('id', 'desc')->get();
         return view('admin.nilai.edit_nilai', compact('nilai', 'indikator'));
     }
 

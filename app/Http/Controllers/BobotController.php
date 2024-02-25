@@ -16,7 +16,7 @@ class BobotController extends Controller
 
     public function create()
     {
-      $indikator = Indikator::get();
+      $indikator = Indikator::orderBy('id', 'desc')->get();
       return view('admin.bobot.tambah_bobot',compact('indikator'));
     }
 
@@ -40,7 +40,7 @@ class BobotController extends Controller
     public function edit($id)
     {
       $bobot = Bobot_nilai::find($id);
-      $indikator = Indikator::get();
+      $indikator = Indikator::orderBy('id', 'desc')->get();
       return view('admin.bobot.edit_bobot',compact('bobot','indikator'));
     }
 

@@ -23,7 +23,7 @@ Tambah Bobot Nilai
           </fieldset>
           <div class="form-group">
               <label for="basicInput"><h4><strong>2. Nilai :</strong></h4></label>
-              <input type="number" placeholder="Bobot Nilai..."class="form-control" id="nilai" name="nilai" required>
+              <input type="number" placeholder="Bobot Nilai..."class="form-control" id="nilai" name="nilai" required autofocus>
           </div>
           
         </div>

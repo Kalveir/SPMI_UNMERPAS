@@ -83,7 +83,7 @@ Daftar Skor Nilai
         function hapus_nilai() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Apakah anda yakin menghapus Bobot Nilai ini..?',
+                    title: 'Apakah anda yakin menghapus Skor Nilai ini..?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
