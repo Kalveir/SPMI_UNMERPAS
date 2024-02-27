@@ -281,12 +281,12 @@
                         @csrf
                         <!-- tambahkan autcroll jika data-banyak -->
                         <div class="form-group">
-                            <label for="nama">Pilih Indikator : </label>
+                            <label for="nama">Pilih Standar : </label>
                             <select class="form-control" aria-label="Default select example" id="indikator_id"
-                                name="indikator_id" style="max-height:50px; overflow-y: auto;">
-                                @foreach ($indikator as $indk)
-                                    <option value="{{ $indk->id }}">
-                                        {{ $indk->indikator }}
+                                name="standar_id" style="max-height:50px; overflow-y: auto;">
+                                @foreach ($standar as $std)
+                                    <option value="{{ $std->id }}">
+                                        {{ $std->nama }}
                                     </option>
                                 @endforeach
                             </select>

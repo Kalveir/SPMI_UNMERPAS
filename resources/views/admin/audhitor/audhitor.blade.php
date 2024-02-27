@@ -1,17 +1,17 @@
 @extends('layout.main')
 @section('tittle')
-Audhitor
+Auditor
 @endsection
 
 @section('judul')
-Daftar Audhitor
+Daftar Auditor
 @endsection
 
 @section('container')
 <div class="card">
   <div class="card-header">
     <a href="{{ route('audhitor.create') }}" class="btn btn-outline-success mb-3">
-        <i class="fas fa-plus"></i><span> Tambah Audhitor</span>
+        <i class="fas fa-plus"></i><span> Tambah Auditor</span>
     </a>
   </div>
   <div class="card-body">
@@ -23,7 +23,7 @@ Daftar Audhitor
                 <th>Nama</th>
                 <th>Program Studi</th>
                 <th>Jabatan</th>
-                <th>Audhitor</th>
+                <th>Auditor</th>
                 <th>Aksi</th>
             </tr>
         </thead>

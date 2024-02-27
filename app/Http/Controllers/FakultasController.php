@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\fakultas;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FakultasController extends Controller
 {
@@ -32,7 +33,7 @@ class FakultasController extends Controller
         $fakultass = new fakultas;
         $fakultass->nama = $request->nama;
         $fakultass->save();
-
+        Alert::success('Sukses', 'Fakultas Ditambahkan');
         return redirect()->route('fakultas.index');
     }
 
@@ -60,7 +61,7 @@ class FakultasController extends Controller
         $fakultas = Fakultas::find(decrypt($fakultas));
         $fakultas->nama = $request->nama;
         $fakultas->save();
-
+        Alert::success('Sukses', 'Fakultas Diperbarui');
         return redirect()->route('fakultas.index');
     }
 
@@ -69,9 +70,17 @@ class FakultasController extends Controller
      */
     public function destroy($fakultas)
     {
-        $fk = Fakultas::find(decrypt($fakultas));
-        $fk->delete();
-        return redirect()->route('fakultas.index');
+        // tambahkan alert warning di blade
+        try
+        {
+            $fk = Fakultas::find($fakultas);
+            $fk->delete();
+            Alert::success('Sukses', 'Fakultas Terhapus');
+            return redirect()->route('fakultas.index');
+        }catch(\Exception $e){
+            Alert::error('Gagal', 'Tindakan ditolak');
+            return redirect()->route('indikator.index');
+        }
 
     }
 }

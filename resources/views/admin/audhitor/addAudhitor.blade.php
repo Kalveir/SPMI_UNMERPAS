@@ -1,9 +1,9 @@
 @extends('layout.main')
 @section('tittle')
-    Audhitor
+    Auditor
 @endsection
 @section('judul')
-    Tambah Audhitor
+    Tambah Auditor
 @endsection
 @section('container')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,36 +13,39 @@
         <div class="card-body">
             <form action="{{ route('audhitor.store') }}" method="POST">
                 @csrf
-                <div class="col-md-6">
-                    <fieldset class="form-group">
-                        <label for="basicInput">Pilih Auditor :</label>
-                        <select class="form-control" id="jabatan_id" name="jabatan_id">
-                            @foreach ($roles as $jbt)
-                                <option value="{{ $jbt->id }}">
-                                    {{ $jbt->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </fieldset>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tableModal"
-                        title="Open User Selection Modal">
-                        Seleksi Pegawai
-                    </button>
-                    <div class="table-responsive">
-                    <table class="table" id="mainTable">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama</th>
-                                <th>Program Studi</th>
-                                <th>Jabatan</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabelutama" name="data_tabel">
-                            <!-- Main table content will be populated dynamically -->
-                        </tbody>
-                    </table>
+                    <div class="col-md-6">
+                        <fieldset class="form-group">
+                            <label for="basicInput">Pilih Auditor :</label>
+                            <select class="form-control" id="jabatan_id" name="jabatan_id">
+                                @foreach ($roles as $jbt)
+                                    <option value="{{ $jbt->id }}">
+                                        {{ $jbt->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </fieldset>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tableModal"
+                            title="Open User Selection Modal">
+                            Seleksi Pegawai
+                        </button>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table" id="mainTable">
+                                <thead class="thead-grey">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Nama</th>
+                                        <th>Program Studi</th>
+                                        <th>Jabatan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelutama" name="data_tabel">
+                                    <!-- Main table content will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <input type="hidden" id="data_tabel_input" name="data_tabel">
                     <button type="submit" class="btn btn-primary">Simpan</button>

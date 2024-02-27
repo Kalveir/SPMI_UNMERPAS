@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\prodi;
 use App\Models\fakultas;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProdiController extends Controller
 {
@@ -35,6 +36,7 @@ class ProdiController extends Controller
         $prodi->nama = $request->nama;
         $prodi->fakultas_id = $request->fakultas_id;
         $prodi->save();
+        Alert::success('Sukses', 'Program Studi Ditambahkan');
         return redirect()->route('prodi.index');
     }
 
@@ -63,6 +65,7 @@ class ProdiController extends Controller
         $prodi->nama = $request->nama;
         $prodi->fakultas_id = $request->fakultas_id;
         $prodi->save();
+        Alert::success('Sukses', 'Program Studi Diperbarui');
         return redirect()->route('prodi.index');
     }
 
@@ -71,8 +74,16 @@ class ProdiController extends Controller
      */
     public function destroy($prodi)
     {
-        $prodis = Prodi::find($prodi);
-        $prodis->delete();
-        return redirect()->route('prodi.index');
+        // tambahkan alert warning di blade
+        try
+        {
+            $prodis = Prodi::find($prodi);
+            $prodis->delete();
+            Alert::success('Sukses', 'Program Studi Terhapus');
+            return redirect()->route('prodi.index');
+        }catch(\Exception $e){
+            Alert::error('Gagal', 'Tindakan ditolak');
+            return redirect()->route('prodi.index');
+        }
     }
 }
