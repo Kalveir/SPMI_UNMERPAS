@@ -39,7 +39,7 @@ Upload Berkas
            name="nama_file[]"
            multiple
            data-max-file-size="15MB"
-           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
+           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
            required
            />
         </div>
@@ -63,7 +63,7 @@ Upload Berkas
         // Create a FilePond instance
         FilePond.create(input, {
             
-            labelIdle: 'Select file <span class="filepond--label-action">Browse</span>',
+            labelIdle: 'Drag and drop files here or <span class="filepond--label-action">Browse</span><br><br><small>Max file size : 15MB<small>',
             storeAsFile: true,
         });
     });

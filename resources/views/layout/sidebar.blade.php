@@ -1,3 +1,6 @@
+@php
+    use App\Models\prodi;
+@endphp
 <div class="sidebar sidebar-style-2" data-background-color="dark2">
 
   <div class="sidebar-wrapper scrollbar scrollbar-inner">
@@ -203,27 +206,27 @@
             <ul class="nav nav-collapse">
               <li>
                 <a href="{{ route('prodi_informatika.index') }}">
-                  <span class="sub-item">Teknik Informatika</span>
+                  <span class="sub-item">{{ Prodi::find(1)->nama ?? null}}</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('prodi_rpl.index') }}">
-                  <span class="sub-item">Rekayasa Perangkat Lunak</span>
+                  <span class="sub-item">{{ Prodi::find(2)->nama ?? null}}</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('prodi_manajemen.index') }}">
-                  <span class="sub-item">Manajemen</span>
+                  <span class="sub-item">{{ Prodi::find(3)->nama ?? null}}</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('prodi_hukum.index') }}">
-                  <span class="sub-item">Hukum</span>
+                  <span class="sub-item">{{ Prodi::find(4)->nama ?? null}}</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('prodi_agroteknologi.index') }}">
-                  <span class="sub-item">Agroteknologi</span>
+                  <span class="sub-item">{{ Prodi::find(5)->nama ?? null}}</span>
                 </a>
               </li>
             </ul>

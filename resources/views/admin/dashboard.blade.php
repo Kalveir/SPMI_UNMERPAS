@@ -169,6 +169,7 @@
                     height: 700, // Increase the height as needed
                     type: 'radar',
                 },
+
                 dataLabels: {
                     enabled: true
                 },

@@ -23,38 +23,43 @@ class BerkasController extends Controller
 
     public function addIndikator(Request $request)
     {
-        
         $cari_indikator = Indikator::where('standard_id', $request->standar_id)->get();
-        if($cari_indikator)
-        {
-            // yang masuk cuma satu indikator
-            foreach($cari_indikator as $indikator)
-            {
-                $indikator = Indikator::where('id',$indikator->id)->first();
-                $cek_pengisian = Pengisian::where('pegawai_id',Auth::user()->id)
-                ->where('indikator_id',$indikator->id)
-                ->where('tahun',now()->format('Y'))->first();
-                if($cek_pengisian)
-                {
-                    Alert::error('Gagal', 'Indikator '.$indikator->indikator.' sudah terdaftar'); 
-                    continue;
-                }else
-                {
+
+            if($cari_indikator->isEmpty()) {
+                Alert::error('Gagal', 'Standar tidak memiliki indikator');
+                return redirect()->route('berkas.index');
+            }
+
+            // Melakukan pengecekan dan pengisian untuk setiap indikator
+            $berhasil_ditambahkan = false; // Menyimpan status apakah ada indikator yang berhasil ditambahkan
+            foreach($cari_indikator as $indikator) {
+                $cek_pengisian = Pengisian::where('pegawai_id', Auth::user()->id)
+                    ->where('indikator_id', $indikator->id)
+                    ->where('tahun', now()->format('Y'))->first();
+
+                if (!$cek_pengisian) {
                     $pengisian = new Pengisian;
-                    $pengisian->pegawai_id =Auth::user()->id; 
-                    $pengisian->program_studi =Auth::user()->prodi_id;
-                    $pengisian->indikator_id =$indikator->id;
+                    $pengisian->pegawai_id = Auth::user()->id;
+                    $pengisian->program_studi = Auth::user()->prodi_id;
+                    $pengisian->indikator_id = $indikator->id;
                     $pengisian->tahun = now()->format('Y');
                     $pengisian->aksi_code = 0;
                     $pengisian->save();
-                }
-                Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
-                return redirect()->route('berkas.index');   
 
+                    $berhasil_ditambahkan = true;
+                }
             }
-        }else{
-            Alert::error('Gagal', 'Standar tidak memiliki indikator'); 
-        }
+
+            if($berhasil_ditambahkan) {
+                Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
+            } else {
+                Alert::error('Gagal', 'Semua indikator sudah terdaftar');
+            }
+
+            return redirect()->route('berkas.index');
+
+        Alert::error('Gagal', 'Tidak ada indikator yang bisa ditambahkan');
+        return redirect()->back();
     }
 
     public function hapusIndikator($id)

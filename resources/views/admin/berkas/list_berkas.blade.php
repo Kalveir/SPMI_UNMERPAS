@@ -264,8 +264,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hiden="true" id="input_modal">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hiden="true" id="input_modal">
+        <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Header Modal -->

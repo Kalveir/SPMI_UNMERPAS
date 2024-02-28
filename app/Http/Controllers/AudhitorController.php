@@ -46,7 +46,15 @@ class AudhitorController extends Controller
     public function addAudhitor()
     {
         $roles = Role::where('name', 'like', 'Auditor%')->get();
-        $single_role = User::all()->filter(fn($user)=>$user->roles->count()== 1);
+        $single_role = User::whereDoesntHave('roles', function ($query) {
+        $query->where('name', 'Admin');
+        })
+        ->whereHas('roles', function ($query) {
+            $query->havingRaw('COUNT(*) = 1');
+        })
+        ->get();
+
+
         return view('admin.audhitor.addAudhitor', compact('roles', 'single_role'));
     }
 
