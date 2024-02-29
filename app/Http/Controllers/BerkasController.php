@@ -14,7 +14,7 @@ class BerkasController extends Controller
 {
     public function listBerkas()
     {
-        $standar = Standard::where('status',1)->orderBy('id', 'desc')->get();
+        $standar = Standard::where('status',1)->get();
         // $berkas = Pengisian::where('pegawai_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $berkas = Pengisian::where('program_studi', Auth::user()->prodi_id)->orderBy('id', 'desc')->get();
         return view('admin.berkas.list_berkas', compact('berkas','standar'));
@@ -23,8 +23,7 @@ class BerkasController extends Controller
 
     public function addIndikator(Request $request)
     {
-        $cari_indikator = Indikator::where('standard_id', $request->standar_id)->get();
-
+        $cari_indikator = Indikator::where('standard_id', $request->standar_id)->where('status',1)->get();
             if($cari_indikator->isEmpty()) {
                 Alert::error('Gagal', 'Standar tidak memiliki indikator');
                 return redirect()->route('berkas.index');

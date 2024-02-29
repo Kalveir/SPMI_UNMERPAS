@@ -26,7 +26,7 @@ class BookstandardController extends Controller
      */
     public function create()
     {
-        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
+        $standard = Standard::where('status',1)->get();
         $jenis = Jenis::get();
         return view('admin.book.bookstandard.tambah_bookstandard', compact('standard', 'jenis'));
     }
@@ -57,7 +57,7 @@ class BookstandardController extends Controller
     public function show($bookstandar)
     {
         $bookstandar = Bookstandar::find($bookstandar);
-        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
+        $standard = Standard::where('status',1)->get();
         return view('admin.book.bookstandard.show_bookstandard',compact('bookstandar'));
     }
 
@@ -67,7 +67,7 @@ class BookstandardController extends Controller
     public function edit($bookstandar)
     {
         $bookstandar = Bookstandar::find($bookstandar);
-        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
+        $standard = Standard::where('status',1)->get();
         $this->authorize('aksesbookStandard',$bookstandar);
         return view('admin.book.bookstandard.edit_bookstandard', compact('bookstandar','standard')); 
     }
