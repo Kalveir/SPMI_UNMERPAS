@@ -40,7 +40,7 @@ Daftar Program Studi
                             class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn icon icon-left btn-danger"><i
+                            <button class="btn icon icon-left btn-danger" onclick="DestroyProdi(event)"><i
                                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
                             </button>
                         </form>
@@ -144,6 +144,37 @@ Daftar Program Studi
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        //tanya hapus indikator
+        function DestroyProdi(event) {
+            event.preventDefault();
+
+            hapus_prodi().then((confirmed) => {
+                if (confirmed) {
+                    event.target.closest('form').submit();
+                }
+            });
+        }
+
+        function hapus_prodi() {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: 'Apakah anda yakin menghapus prodi ini..?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resolve(true); // Mengirimkan nilai true jika pengguna menekan tombol "Ya, Hapus!"
+                    } else {
+                        resolve(false); // Mengirimkan nilai false jika pengguna menekan tombol pembatal
+                    }
+                });
+            });
+        }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

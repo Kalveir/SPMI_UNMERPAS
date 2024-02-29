@@ -19,7 +19,7 @@ class BookdocsController extends Controller
     public function tambahFormulir()
     {
         // $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
-        $standard = Standard::get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         return view('admin.book.bookdocs.tambah_formulir',compact('standard'));
     }
 
@@ -41,7 +41,7 @@ class BookdocsController extends Controller
     public function editFormulir($id)
     {
         $formulir = Bookdocs::find($id);
-        $standard = Standard::get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         return view('admin.book.bookdocs.edit_formulir', compact('formulir','standard'));
     }
 
@@ -93,7 +93,7 @@ class BookdocsController extends Controller
 
     public function tambahSOP()
     {
-        $standard = Standard::get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         return view('admin.book.bookdocs.tambah_SOP',compact('standard'));
     }
 
@@ -116,7 +116,7 @@ class BookdocsController extends Controller
     public function editSOP($id)
     {
         $sop = Bookdocs::find($id);
-        $standard = Standard::get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         return view('admin.book.bookdocs.edit_SOP', compact('sop','standard'));
     }
 

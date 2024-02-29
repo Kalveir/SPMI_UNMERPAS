@@ -63,7 +63,7 @@ Upload Berkas
         // Create a FilePond instance
         FilePond.create(input, {
             
-            labelIdle: 'Drag and drop files here or <span class="filepond--label-action">Browse</span><br><br><small>Max file size : 15MB<small>',
+            labelIdle: 'Drag and drop files here or <span class="filepond--label-action"><u>Browse</u></span><br><br><small>Max file size : 15MB<small>',
             storeAsFile: true,
         });
     });

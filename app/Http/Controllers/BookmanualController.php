@@ -26,7 +26,7 @@ class BookmanualController extends Controller
     public function create()
     {
         
-        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         $jenis = Jenis::get();
         return view('admin.book.bookmanual.tambah_bookmanual', compact('standard','jenis'));
     }
@@ -69,7 +69,7 @@ class BookmanualController extends Controller
     public function edit($bookmanual)
     {
         $bookmanual = Bookmanual::find($bookmanual);
-        $standard = Standard::where('pegawai_id', Auth::user()->id)->get();
+        $standard = Standard::where('status',1)->orderBy('id', 'desc')->get();
         return view('admin.book.bookmanual.edit_bookmanual', compact('bookmanual','standard')); 
     }
 

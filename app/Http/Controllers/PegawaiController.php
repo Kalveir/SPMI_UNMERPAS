@@ -15,7 +15,7 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = User::get();
+        $pegawai = User::where('id','not like',1)->get();
         return view('admin.pegawai.pegawai', compact('pegawai'));
     }
 

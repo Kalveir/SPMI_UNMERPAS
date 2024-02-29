@@ -14,7 +14,7 @@ class BerkasController extends Controller
 {
     public function listBerkas()
     {
-        $standar = Standard::get();
+        $standar = Standard::where('status',1)->orderBy('id', 'desc')->get();
         // $berkas = Pengisian::where('pegawai_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $berkas = Pengisian::where('program_studi', Auth::user()->prodi_id)->orderBy('id', 'desc')->get();
         return view('admin.berkas.list_berkas', compact('berkas','standar'));

@@ -15,7 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $pegawai = User::with('roles')->get();
+        $pegawai = User::with('roles')->whereDoesntHave('roles', function ($query) {
+                    $query->where('name', 'Admin');
+                })->get();
         return view('admin.pegawai.pegawai', compact('pegawai'));
     }
 

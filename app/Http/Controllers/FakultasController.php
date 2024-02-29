@@ -79,7 +79,7 @@ class FakultasController extends Controller
             return redirect()->route('fakultas.index');
         }catch(\Exception $e){
             Alert::error('Gagal', 'Tindakan ditolak');
-            return redirect()->route('indikator.index');
+            return redirect()->route('fakultas.index');
         }
 
     }

@@ -15,13 +15,13 @@ Edit Formulir
         @method('PUT');
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput"><h4>Nama :</h4></label>
+                <label for="basicInput"><h4>1. Nama :</h4></label>
                 <input type="text" class="form-control" id="basicInput" value="{{ $formulir->nama }}" name="nama" required>
             </div>
         </div>
         <div class="col-md-6 row-md-15">
             <fieldset class="form-group">
-                <label for="basicInput"><h4>Jenis :</h4></label>
+                <label for="basicInput"><h4>2. Jenis :</h4></label>
                 <select class="form-control" id="jenis" name="jenis">
                     <option value="Penetapan" @if ($formulir->jenis == "Penetapan") selected @endif>Penetapan</option>
                     <option value="Pelaksanaan" @if ($formulir->jenis == "Pelaksanaan") selected @endif>Pelaksanaan</option>
@@ -33,7 +33,7 @@ Edit Formulir
         </div>
         <div class="col-md-6 mb-4">
             <fieldset class="form-group">
-                <label for="basicInput"><h4>Standar :</h4></label>
+                <label for="basicInput"><h4>3. Standar :</h4></label>
                 <select class="form-control" id="standar_id" name="standar_id" style="height: 50px; overflow-y:auto;">
                     @foreach ($standard as $std)
                         <option value="{{ $std->id }}"
@@ -45,11 +45,12 @@ Edit Formulir
         </div>
         <div class="col-md-6 row-md-15">
             <div class="form-group">
-                <label for="basicInput"><h4>Upload Dokumen :</h4></label>
+                <label for="basicInput"><h4>4. Upload Dokumen :</h4></label>
                 <span>*opsional</span>
                 <input type="file" class="with-validation-filepond" data-max-file-size="50MB" name="nama_file">
             </div>
         </div>
+        <br>
             <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
   </div>

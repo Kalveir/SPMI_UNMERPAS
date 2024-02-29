@@ -27,7 +27,7 @@ Upload Berkas
            name="nama_file[]"
            multiple
            data-max-file-size="15MB"
-           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png"
+           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
            required
            />
         </div>
