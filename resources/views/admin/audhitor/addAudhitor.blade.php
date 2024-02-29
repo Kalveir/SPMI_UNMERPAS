@@ -82,7 +82,12 @@
                             @foreach ($single_role as $sr)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $sr->nama }}</td>
+                                    <td>
+                                        <div style="width: 200px;">
+                                            {{ $sr->nama  }}
+                                        </div>
+                                    
+                                    </td>
                                     <td>{{ $sr->prodi->nama }}</td>
                                     <td>
                                         @foreach ($sr->roles as $jabatan)
