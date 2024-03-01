@@ -8,14 +8,12 @@
 @section('container')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="card">
-        <div class="card-header">
-        </div>
         <div class="card-body">
             <form action="{{ route('audhitor.store') }}" method="POST">
                 @csrf
                     <div class="col-md-6">
                         <fieldset class="form-group">
-                            <label for="basicInput">Pilih Auditor :</label>
+                            <label for="basicInput"><h4><strong>Pilih Auditor :</strong></h4></label>
                             <select class="form-control" id="jabatan_id" name="jabatan_id">
                                 @foreach ($roles as $jbt)
                                     <option value="{{ $jbt->id }}">
@@ -25,13 +23,13 @@
                             </select>
                         </fieldset>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tableModal"
-                            title="Open User Selection Modal">
-                            Seleksi Pegawai
+                            title="Open User Selection Modal"><i class="fas fa-user-plus"></i>
+                             Seleksi Pegawai
                         </button>
                     </div>
                     <div class="col-md-8">
                         <div class="table-responsive">
-                            <table class="table" id="mainTable">
+                            <table class="table table-bordered table-striped" id="mainTable">
                                 <thead class="thead-grey">
                                     <tr>
                                         <th>No.</th>
@@ -41,7 +39,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tabelutama" name="data_tabel">
+                                <tbody style="width: 200px;" id="tabelutama" name="data_tabel">
                                     <!-- Main table content will be populated dynamically -->
                                 </tbody>
                             </table>
@@ -96,7 +94,7 @@
                                     </td>
                                     <td>
                                         <button class="btn btn-success"
-                                            onclick="pilihData('{{ $sr->id }},{{ $sr->nama }},{{ $sr->prodi->nama }},{{ $sr->roles->first()->name }}')">Pilih</button>
+                                            onclick="pilihData('{{ $sr->id }}//{{ $sr->nama }}//{{ $sr->prodi->nama }}//{{ $sr->roles->first()->name }}')">Pilih</button>
                                             <input type="hidden" name="data[{{ $sr->id }}][id]" value="{{ $sr->id }}">
                                             
                                     </td>
@@ -112,11 +110,11 @@
         function pilihData(namaData) {
             // Periksa apakah data sudah ada di tabel utama
             if (!isDataExists(namaData)) {
-                namaDatas = namaData.split(',');
+                namaDatas = namaData.split('//');
 
                 // Buat baris HTML untuk data terpilih
                 var newRow = "<tr><td>" + (document.getElementById("mainTable").rows.length + 0) +
-                    "</td><td class='id_users' hidden>" + namaDatas[0] + "</td><td>" + namaDatas[1] + "</td><td>" +
+                    "</td><td class='id_users' hidden>"+ namaDatas[0] +"</td><td>" + namaDatas[1] + "</td><td>" +
                     namaDatas[2] + "</td><td>" + namaDatas[3] +
                     "</td><td><button class='btn btn-danger' onclick='hapusData(this)'>Hapus</button></td></tr>";
 
@@ -136,7 +134,7 @@
         function isDataExists(namaData) {
             var exists = false;
             $("#mainTable td:nth-child(2)").each(function() {
-                if ($(this).text().trim() === namaData.split(',')[0].trim()) {
+                if ($(this).text().trim() === namaData.split('//')[0].trim()) {
                     exists = true;
                     return false; // Keluar dari loop jika data sudah ditemukan
                 }
