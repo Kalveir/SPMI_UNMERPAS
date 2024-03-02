@@ -151,7 +151,7 @@
     function submit_penilaian() {
         return new Promise((resolve) => {
             Swal.fire({
-                title: 'Yakin menyimpan penilaian evaluasi ini..?',
+                title: 'Apakah anda yakin menyimpan penilaian evaluasi ini..?',
                 text: 'Data Penilaian disimpan permanen!',
                 icon: 'warning',
                 showCancelButton: true,

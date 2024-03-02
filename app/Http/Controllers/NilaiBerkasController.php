@@ -58,7 +58,7 @@ class NilaiBerkasController extends Controller
     {
         $dc = decrypt($id);
         $pengisian = Pengisian::find($dc);
-        $nilai = Nilai::where('indikator_id',$pengisian->indikator_id)->orderBy('nilai', 'desc')->get();
+        $nilai = Nilai::where('indikator_id',$pengisian->indikator_id)->where('status',1)->orderBy('nilai', 'desc')->get();
         if ($pengisian->aksi_code == 1) {
             return view('admin.berkas.tambah_nilai', compact('pengisian', 'nilai'));
         } else {

@@ -317,7 +317,7 @@
         function submit_berkas() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Yakin untuk submit data ini..?',
+                    title: 'Apakah anda yakin submit data ini..?',
                     text: 'Data akan disimpan permanen!',
                     icon: 'warning',
                     showCancelButton: true,
@@ -347,7 +347,7 @@
         function hapus_indikator() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Yakin anda menghapus indikator ini..?',
+                    title: 'Apakah anda yakin menghapus indikator ini..?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -376,7 +376,7 @@
         function destroy_berkas() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Yakin anda menghapus Berkas ini..?',
+                    title: 'Apakah anda yakin menghapus berkas ini..?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -405,7 +405,7 @@
         function simpan_peningkatan() {
             return new Promise((resolve) => {
                 Swal.fire({
-                    title: 'Yakin menyimpan peningkatan ini..?',
+                    title: 'Apakah anda yakin menyimpan peningkatan ini..?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

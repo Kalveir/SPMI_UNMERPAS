@@ -188,7 +188,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
     function submit_pengendalian() {
         return new Promise((resolve) => {
             Swal.fire({
-                title: 'Yakin menyimpan data pengendalian ini..?',
+                title: 'Apakah anda yakin menyimpan data pengendalian ini..?',
                 text: 'Data Pengendalian disimpan permanen!',
                 icon: 'warning',
                 showCancelButton: true,

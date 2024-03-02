@@ -165,6 +165,21 @@
             $('div.dataTables_filter input').focus();
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            // Inisialisasi DataTable dengan ekstensi FixedColumns
+            var dataTable = $('#contoh-tabel').DataTable();
+
+            // Inisialisasi FixedColumns
+            new $.fn.dataTable.FixedColumns(dataTable, {
+                start: 2
+            });
+
+            // Fokus pada input pencarian setelah DataTable diinisialisasi
+            $('div.dataTables_filter input').focus();
+        });
+    </script>
     
     <script>
         $(document).ready(function() {

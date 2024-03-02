@@ -222,6 +222,12 @@
                 xaxis: {
                     categories: chartData.map(item => item.kode),
                 },
+                yaxis :{
+                    show : false,
+                    labels : {
+                        show : false
+                    }
+                },
             };
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);

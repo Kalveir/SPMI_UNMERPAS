@@ -64,7 +64,6 @@ Upload Berkas
         FilePond.create(input, {
             labelIdle: 'Drag and drop files here or <span class="filepond--label-action"><u>Browse</u></span><br><br><small>Max file size: 15MB<small>',
             storeAsFile: true,
-            acceptedFileTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'text/rtf'], // Menentukan berbagai tipe file yang diterima
             maxFileSize: '15MB' // Maksimum ukuran file adalah 15MB
         });
     });
