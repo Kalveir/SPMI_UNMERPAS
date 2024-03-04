@@ -1,10 +1,10 @@
 @extends('layout.main')
 @section('tittle')
-Buku Standard
+Buku Standar
 @endsection
 
 @section('judul')
-Daftar Buku Standard
+Daftar Buku Standar
 @endsection
 
 @section('container')
@@ -12,7 +12,7 @@ Daftar Buku Standard
   <div class="card-header">
     @can('kelola bookstandard')
     <a href="{{ route('bookstandard.create') }}" class="btn btn-outline-success mb-3">
-        <i class="fas fa-plus"></i><span> Tambah Buku Standard</span>
+        <i class="fas fa-plus"></i><span> Tambah Buku Standar</span>
     </a>
     @endcan
   </div>
@@ -22,7 +22,7 @@ Daftar Buku Standard
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
-                <th>Standard</th>
+                <th>Standar</th>
                 <th>Status</th>
                 <th>Aksi</th>
             </tr>

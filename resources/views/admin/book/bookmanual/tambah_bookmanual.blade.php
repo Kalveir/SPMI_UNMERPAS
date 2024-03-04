@@ -7,8 +7,6 @@ Tambah Buku Manual
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('bookmanual.store') }}" method="post">
         @csrf
@@ -35,7 +33,7 @@ Tambah Buku Manual
         </div>
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
-                    <label for="basicInput"><h3>4. Standard</h3></label>
+                    <label for="basicInput"><h3>4. Standar : </h3></label>
                     <select class="form-control" id="standar_id" name="standar_id" style="height: 50px; overflow-y:auto;">
                         @foreach ($standard as $std)
                             <option value="{{ $std->id }}">

@@ -7,8 +7,6 @@ Edit Buku Manual
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('bookmanual.update', $bookmanual->id) }}" method="post">
         @csrf

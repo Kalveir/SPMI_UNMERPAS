@@ -57,7 +57,7 @@ class BookstandardController extends Controller
     public function show($bookstandar)
     {
         $bookstandar = Bookstandar::find($bookstandar);
-        $standard = Standard::where('status',1)->get();
+        $standard = Standard::get();
         return view('admin.book.bookstandard.show_bookstandard',compact('bookstandar'));
     }
 

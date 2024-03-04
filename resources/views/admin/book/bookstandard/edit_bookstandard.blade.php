@@ -1,15 +1,13 @@
 @extends('layout.main')
 @section('tittle')
-Buku Standard
+Buku Standar
 @endsection
 @section('judul')
-Edit Buku Standard
+Edit Buku Standar
 @endsection
 @section('container')
 
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('bookstandard.update', $bookstandar->id) }}" method="post">
         @csrf

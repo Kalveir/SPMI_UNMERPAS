@@ -7,8 +7,6 @@ Edit Indikator
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('indikator.update', $indikator->id) }}" method="post">
         @csrf

@@ -79,7 +79,7 @@ Daftar Standar
                                     @method('PUT')
                                     <!-- Isi form sesuai kebutuhan -->
                                     <div class="form-group">
-                                        <label for="nama">Standard : </label>
+                                        <label for="nama">Standar : </label>
                                         <input type="text" class="form-control" placeholder="Masukan Standar" id="nama"
                                             name="nama" value="{{ $std->nama }}" required>
                                     </div>

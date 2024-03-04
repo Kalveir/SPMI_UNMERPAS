@@ -22,7 +22,7 @@ Daftar Buku Manual
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
-                <th>Standard</th>
+                <th>Standar</th>
                 <th>Jenis</th>
                 <th>Status</th>
                 <th>Aksi</th>

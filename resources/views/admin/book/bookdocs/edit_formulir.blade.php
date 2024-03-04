@@ -7,8 +7,6 @@ Edit Formulir
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('formulir.update', $formulir->id) }}" method="post" enctype="multipart/form-data">
         @csrf

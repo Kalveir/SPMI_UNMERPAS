@@ -7,8 +7,6 @@ Tambah SOP
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('SOP.store') }}" method="post" enctype="multipart/form-data">
         @csrf

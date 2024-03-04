@@ -23,7 +23,7 @@ Daftar SOP
             <tr>
                 <th>No</th>
                 <th>Nama File</th>
-                <th>Standard</th>
+                <th>Standar</th>
                 <th>Jenis</th>
                 <th>Berkas</th>
                 @can('kelola bookdocs')

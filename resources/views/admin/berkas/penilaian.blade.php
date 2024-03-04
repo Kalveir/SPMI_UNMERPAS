@@ -20,7 +20,7 @@
                             <th>Nama Kaprodi</th>
                             <th>Program Studi</th>
                             <th>Indikator</th>
-                            <th>Standard</th>
+                            <th>Standar</th>
                             <th>Penetapan</th>
                             <th>Pelaksanaan</th>
                             <th>Audhitor</th>

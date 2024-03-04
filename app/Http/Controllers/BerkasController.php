@@ -36,7 +36,9 @@ class BerkasController extends Controller
                     ->where('indikator_id', $indikator->id)
                     ->where('tahun', now()->format('Y'))->first();
 
-                if (!$cek_pengisian) {
+                if ($cek_pengisian) {
+                    continue;
+                }else{
                     $pengisian = new Pengisian;
                     $pengisian->pegawai_id = Auth::user()->id;
                     $pengisian->program_studi = Auth::user()->prodi_id;
@@ -52,7 +54,7 @@ class BerkasController extends Controller
             if($berhasil_ditambahkan) {
                 Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
             } else {
-                Alert::error('Gagal', 'Semua indikator sudah terdaftar');
+                Alert::error('Gagal', 'Standar ini sudah terdaftar di tahun ini');
             }
 
             return redirect()->route('berkas.index');

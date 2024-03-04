@@ -7,8 +7,6 @@ Tambah Pegawai
 @endsection
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
   <div class="card-body">
     <form action="{{ route('pegawai.store') }}" method="post">
         @csrf

@@ -82,7 +82,7 @@
         <li class="nav-item">
           <a href="{{ route('standard.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-th-list"></i>
-            <p>Standard</p>
+            <p>Standar</p>
           </a>
         </li>
         <li class="nav-item">
@@ -94,7 +94,7 @@
         <li class="nav-item">
           <a href="{{ route('bookstandard.index') }}" class="collapsed" aria-expanded="false">
             <i class="fas fa-book"></i>
-            <p>Buku Standard</p>
+            <p>Buku Standar</p>
           </a>
         </li>
         {{-- <li class="nav-section">
