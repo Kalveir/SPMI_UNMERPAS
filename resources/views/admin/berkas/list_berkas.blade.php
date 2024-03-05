@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-header">
             <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target="#input_modal">
-                <i class="fas fa-plus"></i><span> Tambah Indikator</span>
+                <i class="fas fa-plus"></i><span> Tambah Standar</span>
             </button>
         </div>
         <div class="card-body">
@@ -270,7 +270,7 @@
 
                 <!-- Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Indikator</h4>
+                    <h4 class="modal-title">Tambah Standar</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
