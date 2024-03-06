@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <div class="row table-responsive">
-                <table id="basic-datatables" class="cell-border table table-bordered table-striped" style="width=100%">
+                <table id="contoh-datatables" class="cell-border table table-bordered table-striped" style="width=100%">
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>

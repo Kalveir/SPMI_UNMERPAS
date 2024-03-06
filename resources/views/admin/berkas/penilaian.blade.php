@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="basic-datatables" class="table table-bordered table-striped">
+                <table id="contoh-datatables" class="table table-bordered table-striped">
                     <thead class="text-left thead-dark">
                         <tr>
                             <th>No</th>

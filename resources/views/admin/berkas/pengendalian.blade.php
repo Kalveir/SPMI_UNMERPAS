@@ -13,7 +13,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="basic-datatables" class="table table-bordered table-striped" >
+      <table id="contoh-datatables" class="table table-bordered table-striped" >
         <thead class=thead-dark>
             <tr>
                 <th>No</th>

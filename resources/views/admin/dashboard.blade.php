@@ -124,12 +124,6 @@
                     @endcan
                 {{-- @endif --}}
             </form>
-
-
-
-            <div id="chart">
-                <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal</strong></h2>
-            </div>
             @php
                 $chartData = [];
 
@@ -147,6 +141,9 @@
                     ];
                 }
             @endphp
+        </div>
+        <div id="chart">
+                <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal</strong></h2>
         </div>
 
         <script>
@@ -166,7 +163,7 @@
                     },
                 ],
                 chart: {
-                    height: 700, // Increase the height as needed
+                    height: 600, // Increase the height as needed
                     type: 'radar',
                 },
 
@@ -175,7 +172,7 @@
                 },
                 plotOptions: {
                     radar: {
-                        size: 280,
+                        size: 160,
                         polygons: {
                             strokeColors: '#ccc',
                             fill: {

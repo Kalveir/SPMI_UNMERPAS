@@ -168,18 +168,21 @@
 
     <script>
         $(document).ready(function() {
-            // Inisialisasi DataTable dengan ekstensi FixedColumns
-            var dataTable = $('#contoh-tabel').DataTable();
-
-            // Inisialisasi FixedColumns
-            new $.fn.dataTable.FixedColumns(dataTable, {
-                start: 2
+            // Inisialisasi DataTable
+            var dataTable = $('#contoh-datatables').DataTable({
+                scrollX: true, // Mengaktifkan horizontal scrolling
+                scrollCollapse: true, // Mengaktifkan collapse agar horizontal scrollbar muncul
+                fixedColumns: { // Mengatur fixed columns
+                    start: 1, // Mengunci satu kolom pertama (dari kiri)
+                    end: 0 // Tidak mengunci kolom apa pun dari kanan
+                }
             });
 
             // Fokus pada input pencarian setelah DataTable diinisialisasi
             $('div.dataTables_filter input').focus();
         });
     </script>
+
     
     <script>
         $(document).ready(function() {
