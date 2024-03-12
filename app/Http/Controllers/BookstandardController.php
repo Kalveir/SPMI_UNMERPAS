@@ -26,9 +26,10 @@ class BookstandardController extends Controller
      */
     public function create()
     {
+        $standarbook =  Bookstandar::first();
         $standard = Standard::where('status',1)->get();
         $jenis = Jenis::get();
-        return view('admin.book.bookstandard.tambah_bookstandard', compact('standard', 'jenis'));
+        return view('admin.book.bookstandard.tambah_bookstandard', compact('standard', 'jenis','standarbook'));
     }
 
     /**

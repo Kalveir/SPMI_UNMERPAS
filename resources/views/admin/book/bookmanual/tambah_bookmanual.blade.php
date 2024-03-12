@@ -14,7 +14,7 @@ Tambah Buku Manual
             <div class="form-group">
                 <label for="basicInput"><h3>1. Visi Misi :</h3></label>
                 <br>
-                <textarea class="summernote" name="visi_misi" class="form-control" required></textarea>
+                <textarea class="summernote"  name="visi_misi" class="form-control" required>{{ optional($manualbook)->visi_misi }}</textarea>
             </div>
         </div>
         <div class="col-md-8">

@@ -66,7 +66,7 @@ Info Buku Manual
               </tr>
           </tbody>
           <thead class="thead-dark">
-              <th scope="col"><h4>5. Tahapam</h4></th>
+              <th scope="col"><h4>5. Tahapan</h4></th>
           </thead>
           <tbody>
               <tr>

@@ -26,9 +26,10 @@ class BookmanualController extends Controller
     public function create()
     {
         
+        $manualbook = Bookmanual::first();
         $standard = Standard::where('status',1)->get();
         $jenis = Jenis::get();
-        return view('admin.book.bookmanual.tambah_bookmanual', compact('standard','jenis'));
+        return view('admin.book.bookmanual.tambah_bookmanual', compact('standard','jenis','manualbook'));
     }
 
     /**

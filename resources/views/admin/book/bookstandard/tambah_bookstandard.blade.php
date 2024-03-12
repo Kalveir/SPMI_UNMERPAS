@@ -14,7 +14,7 @@ Tambah Buku Standar
             <div class="form-group">
                 <label for="visiMisi"><h3>1. Visi Misi :</h3></label>
                 <br>
-                <textarea class="summernote" name="visi_misi" class="form-control" required></textarea>
+                <textarea class="summernote" name="visi_misi" class="form-control" required>{{ optional($standarbook)->visi_misi }}</textarea>
             </div>
         </div>
 

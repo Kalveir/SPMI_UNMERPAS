@@ -4,7 +4,7 @@
 @endsection
 
 @section('judul')
-    Audit Mutu Program Studi {{ $prodi }}
+    Audit Mutu Program Studi {{ $prodi->nama }}
 @endsection
 
 @section('container')

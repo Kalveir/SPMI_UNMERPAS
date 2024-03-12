@@ -7,6 +7,7 @@ use App\Models\pengisian;
 // use App\Models\standard;
 use App\Models\indikator;
 use App\Models\nilai;
+use App\Models\prodi;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class NilaiBerkasController extends Controller
         $tahun = date("Y");
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi', 1)->where('aksi_code', '>', 0)->where('tahun', $tahun)->get();
         $indikator = indikator::get();
-        $prodi = 'Informatika';
+        $prodi = Prodi::find(1);
         return view('admin.berkas.penilaian', compact('berkas_nilai', 'indikator', 'prodi'));
     }
     public function PenilaianRPL()
@@ -26,7 +27,7 @@ class NilaiBerkasController extends Controller
         $tahun = date("Y");
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi', 2)->where('aksi_code', '>', 0)->where('tahun', $tahun)->get();
         $indikator = indikator::get();
-        $prodi = 'Rekayasa Perangkat Lunak';
+        $prodi = Prodi::find(2);
         return view('admin.berkas.penilaian', compact('berkas_nilai', 'indikator', 'prodi'));
     }
     public function PenilaianManajemen()
@@ -34,7 +35,7 @@ class NilaiBerkasController extends Controller
         $tahun = date("Y");
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi', 3)->where('aksi_code', '>', 0)->where('tahun', $tahun)->get();
         $indikator = indikator::get();
-        $prodi = 'Manajemen';
+        $prodi = Prodi::find(3);
         return view('admin.berkas.penilaian', compact('berkas_nilai', 'indikator', 'prodi'));
     }
     public function PenilaianHukum()
@@ -42,7 +43,7 @@ class NilaiBerkasController extends Controller
         $tahun = date("Y");
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi', 4)->where('aksi_code', '>', 0)->where('tahun', $tahun)->get();
         $indikator = indikator::get();
-        $prodi = 'Hukum';
+        $prodi = Prodi::find(4);
         return view('admin.berkas.penilaian', compact('berkas_nilai', 'indikator', 'prodi'));
     }
     public function PenilaianAgroteknologi()
@@ -50,7 +51,7 @@ class NilaiBerkasController extends Controller
         $tahun = date("Y");
         $berkas_nilai = Pengisian::with(['pegawai', 'auditor'])->where('program_studi', 5)->where('aksi_code', '>', 0)->where('tahun', $tahun)->get();
         $indikator = indikator::get();
-        $prodi = 'Agroteknologi';
+        $prodi = Prodi::find(5);
         return view('admin.berkas.penilaian', compact('berkas_nilai', 'indikator', 'prodi'));
     }
 
