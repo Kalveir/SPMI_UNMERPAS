@@ -142,8 +142,9 @@
                 }
             @endphp
         </div>
+        <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal {{ $getprodi->nama }}</strong></h2>
         <div id="chart">
-                <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal</strong></h2>
+                
         </div>
 
         <script>
