@@ -129,7 +129,7 @@
 
                 foreach ($pengisian as $index => $data) {
                     $nilai = $data->nilai;
-                    $status = $nilai > $data->target ? 'Tercapai' : 'Belum Tercapai';
+                    $status = $nilai >= $data->target ? 'Tercapai' : 'Belum Tercapai';
 
                     $chartData[] = [
                         'indikator' => $data->indikator->indikator,

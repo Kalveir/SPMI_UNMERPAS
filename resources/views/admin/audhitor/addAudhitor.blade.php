@@ -27,6 +27,7 @@
                              Seleksi Pegawai
                         </button>
                     </div>
+                    <br>
                     <div class="col-md-8">
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped" id="mainTable">

@@ -56,22 +56,28 @@ class AudhitorController extends Controller
     {
         $jabatan_id = $request->input('jabatan_id');
         $data_tabel = json_decode($request->input('data_tabel'), true);
+        
+        if($data_tabel != null)
+        {
+            $role = Role::findById($jabatan_id);
 
-        $role = Role::findById($jabatan_id);
-
-        if (is_array($data_tabel)) {
-            foreach ($data_tabel as $data) {
-                $id_users = $data;
-                $pegawai = User::find($id_users); // Assuming your user model is named User
-                if ($pegawai) {
-                    $pegawai->assignRole($role);
+            if (is_array($data_tabel)) {
+                foreach ($data_tabel as $data) {
+                    $id_users = $data;
+                    $pegawai = User::find($id_users); // Assuming your user model is named User
+                    if ($pegawai) {
+                        $pegawai->assignRole($role);
+                    }
                 }
             }
+            Alert::success('Sukses', 'Data Auditor Disimpan');
+            return redirect()->route('audhitor.index');
+        }else 
+        {
+            Alert::error('Gagal', 'Data Pegawai Tidak Ditemukan');
+            return redirect()->route('audhitor.create');
         }
-        Alert::success('Sukses', 'Data Auditor Disimpan');
-        return redirect()->route('audhitor.index');
-
-
+        
     }
 
     public function destroyAudhitor($id)
