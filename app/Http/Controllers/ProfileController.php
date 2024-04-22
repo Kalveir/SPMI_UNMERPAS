@@ -25,23 +25,40 @@ class ProfileController extends Controller
 
     public function UpdateProfil(Request $request,$id)
     {
-        $profil = User::find($id);
-        if (!empty($request->password ))
+        $profile = User::find(Auth::user()->id);
+        if ($request->email != $profile->email)
         {
+            $cek_usr = User::where('email',$request->email)->first();
+            if($cek_usr)
+            {
+                Alert::error('Gagal', 'Email telah terdaftar');
+                return redirect()->route('profile.ProfilInfo',Auth::user()->id);
+            }else
+            {
+                $profil = User::find(Auth::user()->id);
+                $profil->nama = $request->nama;
+                $profil->email = $request->email;
+                if(!empty($request->password ))
+                {
+                    $profil->password = bcrypt($request->password); 
+                }
+                $profil->save();
+                Alert::success('Sukses', 'Data Akun Diperbarui');
+                return redirect()->route('profile.ProfilInfo',Auth::user()->id);
+            }
+        }else
+        {
+            $profil = User::find(Auth::user()->id);
             $profil->nama = $request->nama;
             $profil->email = $request->email;
-            $profil->password = bcrypt($request->password);
+            if(!empty($request->password ))
+            {
+                $profil->password = bcrypt($request->password); 
+            }
             $profil->save();
             Alert::success('Sukses', 'Data Akun Diperbarui');
-            return redirect()->route('profile.ProfilInfo',$id);
-            // return redirect()->back(); 
-        }else{
-            $profil->nama = $request->nama;
-            $profil->email = $request->email;
-            $profil->save();
-            Alert::success('Sukses', 'Data Akun Diperbarui');
-            return redirect()->route('profile.ProfilInfo');
-            // return redirect()->back(); 
+            return redirect()->route('profile.ProfilInfo',Auth::user()->id);
         }
     }
 }
+

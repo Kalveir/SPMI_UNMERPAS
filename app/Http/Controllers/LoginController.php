@@ -27,22 +27,21 @@ class LoginController extends Controller
 
         // $credential = $request->only('email','password');
         $user = User::where('email', $credentials['email'])->first();
-
-
-        if ($user && $user->status == 1) { // Assuming status 1 means active, adjust this according to your logic
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            Alert::success('Selamat Datang', Auth::user()->nama);
-            return redirect()->intended('dashboard');
+        if ($user && $user->status == 1){
+            if (Auth::attempt($credentials)) 
+            {
+                $request->session()->regenerate();
+                Alert::success('Selamat Datang', Auth::user()->nama);
+                return redirect()->intended('dashboard');
+            }else{
+                Alert::error('Login Gagal', 'Periksa Username & Password anda');
+                return redirect()->back();
+            }
         } else {
-            Alert::error('Login Gagal', 'Periksa Username & Password anda');
+            Alert::error('Login Gagal', 'Akun telah dinonaktifkan, Silahkan hubungi Admin');
             return redirect()->back();
         }
-    } else {
-        Alert::error('Login Gagal', 'Akun telah dinonaktifkan, Silahkan hubungi Admin');
-        return redirect()->back();
-}
-    }
+    }    
     public function Logout()
     {
         Auth::logout();
