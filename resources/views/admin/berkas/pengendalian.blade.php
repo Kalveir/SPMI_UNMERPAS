@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('tittle')
-Berkas
+SPMI | Pengendalian
 @endsection
 
 @section('judul')
@@ -18,7 +18,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
             <tr>
                 <th>No</th>
                 <th>Nama Kaprodi</th>
-                <th>Program Studi</th>
+                <!-- <th>Program Studi</th> -->
                 <th>Indikator</th>
                 <th>Standar</th>
                 <th>Penetapan</th>
@@ -37,7 +37,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $brkp->pegawai->nama }}</td>
-                    <td>{{ $brkp->prodi->nama }}</td>
+                    <!-- <td>{{ $brkp->prodi->nama }}</td> -->
                     <td>
                         <div style="width: 200px;">
                             {{ $brkp->indikator->indikator }}

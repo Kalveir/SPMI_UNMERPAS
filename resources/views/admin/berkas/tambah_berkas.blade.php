@@ -11,41 +11,36 @@ Upload Berkas
     <form action="{{ route('berkas.upload_file', $pengisian->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         {{-- @method('PUT') --}}
+        <div class="col-md-8 mb-4">
+           <div class="form-group">
+                <h4><strong>1. Indikator :</strong></h4>
+                <h5>{{$pengisian->indikator->indikator }}</h5>
+            </div> 
 
-        <div class="form-group">
-            <h4><strong>1. Indikator :</strong></h4>
-        </div>
-        <div class="col-md-15 mb-5">
-            <h5>&emsp;{{$pengisian->indikator->indikator }}</h5>
-        </div>
-        <div class="form-group">
-            <label for="basicInput"><h4><strong>2. Jenis</strong></h4></label>
-        </div>
-        <div class="col-md-6 mb-4">
-            <fieldset>
-                <select class="form-control" id="jenis" name="jenis">
-                        <option>Penetapan</option>
-                        <option>Pelaksanaan</option>
+            <div class="form-group">
+                <label for="basicInput"><h4><strong>2. Jenis</strong></h4></label>
+                <fieldset>
+                    <select class="form-control col-md-8" id="jenis" name="jenis">
+                    <option>Penetapan</option>
+                    <option>Pelaksanaan</option>
                 </select>
-            </fieldset>
-        </div>
-        <div class="form-group">
-            <label><h4><strong>3. Upload Berkas :</strong></h4></label>
-        </div>
-        <div class="col-md-6 mb-4">
-            <input type="file"
-           name="nama_file[]"
-           multiple
-           data-max-file-size="15MB"
-           accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
-           required
-           />
-        </div>
-        <div class="form-group">
-            <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
-        </div>
-        <div class="col-md-8">
-            <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <label><h4><strong>3. Upload Berkas :</strong></h4></label>
+                <br>
+                <input type="file"
+                   name="nama_file[]"
+                   multiple
+                   data-max-file-size="15MB"
+                   accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
+                   required
+                   />
+            </div>
+            <div class="form-group">
+                <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
+                <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+            </div>
         </div>
         <br>
         <br>

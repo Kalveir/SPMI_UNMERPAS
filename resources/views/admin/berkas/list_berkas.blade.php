@@ -20,7 +20,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
-                            <th>Program Studi</th>
+                            <!-- <th>Program Studi</th> -->
                             <th>Indikator</th>
                             <th>Standar</th>
                             <th>Penetapan</th>
@@ -38,7 +38,7 @@
                         @foreach ($berkas as $bkst)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $bkst->prodi->nama }}</td>
+                                <!-- <td>{{ $bkst->prodi->nama }}</td> -->
                                 <td>
                                     <div style="width: 200px;">
                                         {{ $bkst->indikator->indikator }}

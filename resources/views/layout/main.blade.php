@@ -173,7 +173,7 @@
                 scrollX: true, // Mengaktifkan horizontal scrolling
                 scrollCollapse: true, // Mengaktifkan collapse agar horizontal scrollbar muncul
                 fixedColumns: { // Mengatur fixed columns
-                    start: 1, // Mengunci satu kolom pertama (dari kiri)
+                    start: 4, // Mengunci satu kolom pertama (dari kiri)
                     end: 0 // Tidak mengunci kolom apa pun dari kanan
                 }
             });

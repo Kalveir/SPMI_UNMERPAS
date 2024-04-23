@@ -18,7 +18,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kaprodi</th>
-                            <th>Program Studi</th>
+                            <!-- <th>Program Studi</th> -->
                             <th>Indikator</th>
                             <th>Standar</th>
                             <th>Penetapan</th>
@@ -35,7 +35,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $brks->pegawai->nama }}</td>
-                                    <td>{{ $brks->prodi->nama }}</td>
+                                    <!-- <td>{{ $brks->prodi->nama }}</td> -->
                                     <td>
                                         <div style="width: 200px;">
                                             {{ $brks->indikator->indikator }}
