@@ -99,15 +99,21 @@ class NilaiBerkasController extends Controller
     {
         $dc = decrypt($id);
         $pengisian = Pengisian::find($dc);
-        $indikator_nilai = Bobot_nilai::where('indikator_id', $pengisian->indikator_id)->first();
-        if($indikator_nilai){
-            $hasil_nilai =  $pengisian->nilai * $indikator_nilai->bobot;
-            $pengisian->nilai = $hasil_nilai;
-            $pengisian->aksi_code = 2;
-            $pengisian->save();
-            Alert::success('Sukses', 'Penilaian Evaluasi Tersimpan');
-        }else{
-            Alert::error('Gagal', 'Indikator ini tidak memiliki bobot nilai'); 
+        if($pengisian->audhitor == Auth::user()->id)
+        {
+            $indikator_nilai = Bobot_nilai::where('indikator_id', $pengisian->indikator_id)->first();
+            if($indikator_nilai){
+                $hasil_nilai =  $pengisian->nilai * $indikator_nilai->bobot;
+                $pengisian->nilai = $hasil_nilai;
+                $pengisian->aksi_code = 2;
+                $pengisian->save();
+                    Alert::success('Sukses', 'Penilaian Evaluasi Tersimpan');
+            }else{
+                Alert::error('Gagal', 'Indikator ini tidak memiliki bobot nilai'); 
+            }
+        }else
+        {
+            Alert::error('Gagal', 'Akses Ditolak'); 
         }
 
         if ($pengisian->program_studi == 1) {

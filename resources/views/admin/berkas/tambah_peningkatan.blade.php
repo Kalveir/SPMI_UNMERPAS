@@ -50,11 +50,14 @@ Upload Berkas
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        FilePond.registerPlugin(FilePondPluginFileValidateSize);
         // Get a file input reference
         const input = document.querySelector('input[type="file"]');
 
         // Create a FilePond instance
         FilePond.create(input, {
+            maxFileSize: '15MB', // Ukuran maksimum file
+            labelIdle: 'Drag and drop files here or <span class="filepond--label-action"><u>Browse</u></span><br><br><small>Max file size: 15MB<small>',
             storeAsFile: true,
         });
     });

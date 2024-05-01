@@ -154,6 +154,10 @@
      <!-- Include FilePond CSS and JS CDN -->
      <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
      <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+     <!-- Load FilePond Plugin: File Validate Type -->
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <!-- Load FilePond Plugin: File Validate Size -->
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
     
      {{-- data table --}}
      <script>
