@@ -69,8 +69,7 @@ class BookstandardController extends Controller
     {
         $bookstandar = Bookstandar::find($bookstandar);
         $standard = Standard::where('status',1)->get();
-        $this->authorize('aksesbookStandard',$bookstandar);
-        return view('admin.book.bookstandard.edit_bookstandard', compact('bookstandar','standard')); 
+        return view('admin.book.bookstandard.edit_bookstandard', compact('bookstandar','standard'));
     }
 
     /**

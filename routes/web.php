@@ -107,7 +107,7 @@ Route::get('/standard',[StandardController::class,'index'])->name('standard.inde
 Route::middleware(['auth', 'can:kelola standard'])->group(function () {
     Route::post('/standard/store',[StandardController::class,'store'])->name('standard.store')->middleware('auth');
     Route::put('/standard/{id}/update',[StandardController::class,'update'])->name('standard.update')->middleware('auth');
-    Route::delete('/standard/{id}/destroy',[StandardController::class,'destroy'])->name('standard.destroy')->middleware('auth'); 
+    Route::delete('/standard/{id}/destroy',[StandardController::class,'destroy'])->name('standard.destroy')->middleware('auth');
 });
 
 //manajemen indikator
@@ -136,8 +136,8 @@ Route::middleware(['auth', 'can:kelola bookmanual'])->group(function () {
 });
 
 //manajemen buku standard
-Route::get('/bookstandard',[BookstandardController::class, 'index'])->name('bookstandard.index')->middleware('auth'); 
-Route::get('/bookstandard/{id}/show',[BookstandardController::class, 'show'])->name('bookstandard.show')->middleware('auth'); 
+Route::get('/bookstandard',[BookstandardController::class, 'index'])->name('bookstandard.index')->middleware('auth');
+Route::get('/bookstandard/{id}/show',[BookstandardController::class, 'show'])->name('bookstandard.show')->middleware('auth');
 
 Route::middleware(['auth', 'can:kelola bookstandard'])->group(function () {
     Route::get('/bookstandard/create',[BookstandardController::class,'create'])->name('bookstandard.create')->middleware('auth');
@@ -188,7 +188,7 @@ Route::middleware(['auth', 'can:kelola berkas'])->group(function () {
     Route::delete('/delete-file/{id}',[BerkasController::class, 'deleteFile'])->name('berkas.hapusFile')->middleware('auth');
     Route::post('berkas/validasi/{id}',[BerkasController::class,'validasiBerkas'])->name('berkas.valid')->middleware('auth');
     Route::post('berkas/submit-peningkatan/{id}',[BerkasController::class,'submitpeningkatan'])->name('berkas.submit')->middleware('auth');
-    
+
 });
 //penilaian
 Route::middleware(['auth', 'role:Auditor Informatika,Auditor Manajemen,Auditor RPL,Auditor Hukum,Auditor Agroteknologi'])->group(function(){

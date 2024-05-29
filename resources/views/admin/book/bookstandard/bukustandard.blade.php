@@ -64,7 +64,7 @@ Daftar Buku Standar
                                 @method('DELETE')
                                 <button class="btn icon icon-left btn-danger" onclick="DestroyStandar(event)"><i
                                         data-feather="alert-circle" class="fas fa-trash-alt"></i>
-                                
+
                                 </button>
                             </form>
                             @endcan
