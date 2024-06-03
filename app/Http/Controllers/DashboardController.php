@@ -79,7 +79,7 @@ class DashboardController extends Controller
         $distinctYears = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
         $prodiList = Prodi::get();
 
-        $tahuns = $selectedYears[0];
+        $tahuns = $request->qtyoip ?? '';
         // Menampilkan data menggunakan view
         return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList','folder_size','getprodi','tahuns'));
 
