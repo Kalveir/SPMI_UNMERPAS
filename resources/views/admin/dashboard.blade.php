@@ -104,6 +104,7 @@
                 <div class="col-md-2 mb-4" style="flex: 2;">
                     <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
                     <select class="form-control" name="bvyucf" id="prodiSelector">
+                        <option value=""></option>
                         @foreach ($prodiList as $program_studi)
                             <option value="{{ $program_studi->id }}"
                                 {{ request('prodi') == $program_studi->id ? 'selected' : '' }}>
@@ -115,13 +116,13 @@
                 <div class="col-md-2 mb-4" style="flex: 1; margin-right: 10px;">
                     <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
                     <select class="form-control" name="qtyoip" id="yearSelector" onchange="this.form.submit()">
-                       @foreach ($distinctYears as $year)
-                            <option value="{{ $year }}"
-                            {{ request('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
+                        <option value=""></option>
+                        @foreach ($distinctYears as $year)
+                            <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
                         @endforeach
-
                     </select>
                 </div>
+
                 {{-- @endif --}}
             </form>
             @php

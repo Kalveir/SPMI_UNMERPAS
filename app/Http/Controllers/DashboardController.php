@@ -62,7 +62,7 @@ class DashboardController extends Controller
         // Statistik
         $latestYear = Pengisian::distinct()->pluck('tahun')->max();
         $selectedYears = (array)$request->input('qtyoip', $latestYear);
-        $selectedProdi = (array)$request->input('bvyucf', Auth::user()->prodi_id);
+        $selectedProdi = (array)($request->input('bvyucf') ?? Auth::user()->prodi_id);
         $getprodi = Prodi::where('id',$selectedProdi)->first();
 
         // Query untuk mendapatkan data pengisian
