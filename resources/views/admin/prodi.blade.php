@@ -32,18 +32,20 @@ Daftar Program Studi
                     <td>{{ $pd->nama }}</td>
                     <td>{{ $pd->fakultas->nama }}</td>
                     <td>
-                        <button class="btn icon icon-left btn-warning"data-toggle="modal"
-                            data-target="#editProdi{{ $pd->id }}"><i
-                                data-feather="alert-triangle" class="fas fa-edit"></i></button>
+                        <div class="d-flex center-content-between">
+                            <button class="btn icon icon-left btn-warning"data-toggle="modal"
+                                data-target="#editProdi{{ $pd->id }}"><i
+                                    data-feather="alert-triangle" class="fas fa-edit"></i></button>
 
-                        <form action="{{ route('prodi.destroy', $pd->id) }}" method="POST"
-                            class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn icon icon-left btn-danger" onclick="DestroyProdi(event)"><i
-                                    data-feather="alert-circle" class="fas fa-trash-alt"></i>
-                            </button>
-                        </form>
+                            <form action="{{ route('prodi.destroy', $pd->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn icon icon-left btn-danger" onclick="DestroyProdi(event)"><i
+                                        data-feather="alert-circle" class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 {{-- update Prodi --}}

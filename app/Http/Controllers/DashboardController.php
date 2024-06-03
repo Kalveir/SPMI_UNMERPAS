@@ -36,10 +36,10 @@ class DashboardController extends Controller
 
         // get jumlah berkas
         $berkas_submit = Pengisian_berkas::where('pegawai_id', Auth::user()->id)->where('jenis','<>','Pengendalian')->count();
-        
+
         //get indikator
         $indikator_jumlah = indikator::count();
-        
+
         //get jumlah auditor
         $auditorRoles = Role::where('name', 'like', '%Auditor%')->pluck('id')->toArray();
         $jumlah_auditor = User::whereHas('roles', function ($query) use ($auditorRoles) {
@@ -61,9 +61,9 @@ class DashboardController extends Controller
                         ->count();
         // Statistik
         $latestYear = Pengisian::distinct()->pluck('tahun')->max();
-        $selectedYears = (array)$request->input('year', $latestYear);
-        $selectedProdi = (array)$request->input('prodi', Auth::user()->prodi_id);
-        $getprodi = Prodi::where('id',$selectedProdi)->first(); 
+        $selectedYears = (array)$request->input('qtyoip', $latestYear);
+        $selectedProdi = (array)$request->input('bvyucf', Auth::user()->prodi_id);
+        $getprodi = Prodi::where('id',$selectedProdi)->first();
 
         // Query untuk mendapatkan data pengisian
         $pengisian = Pengisian::join('indikator', 'pengisian.indikator_id', '=', 'indikator.id')
@@ -79,8 +79,9 @@ class DashboardController extends Controller
         $distinctYears = Pengisian::distinct()->orderByDesc('tahun')->pluck('tahun');
         $prodiList = Prodi::get();
 
+        $tahuns = $selectedYears[0];
         // Menampilkan data menggunakan view
-        return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList','folder_size','getprodi'));
+        return view('admin.dashboard', compact('pengisian', 'selectedYears', 'distinctYears', 'berkas_submit', 'indikator_jumlah', 'jumlah_dosen', 'jumlah_auditor', 'bookstandard_jumlah', 'jumlah_user', 'prodiList','folder_size','getprodi','tahuns'));
 
     }
 

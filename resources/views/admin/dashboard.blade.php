@@ -100,28 +100,28 @@
                 </div>
             </div>
             <form method="get" action="{{ route('dashboard.index') }}" style="display: flex; flex-wrap: wrap;">
-                <div class="col-md-2 mb-4" style="flex: 1; margin-right: 10px;">
-                    <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
-                    <select class="form-control" name="year" id="yearSelector" onchange="this.form.submit()">
-                        @foreach ($distinctYears as $year)
-                            <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>
-                                {{ $year }}</option>
+                 @can('kelola statistik')
+                <div class="col-md-2 mb-4" style="flex: 2;">
+                    <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
+                    <select class="form-control" name="bvyucf" id="prodiSelector">
+                        @foreach ($prodiList as $program_studi)
+                            <option value="{{ $program_studi->id }}"
+                                {{ request('prodi') == $program_studi->id ? 'selected' : '' }}>
+                                {{ $program_studi->nama }}</option>
                         @endforeach
                     </select>
                 </div>
-                {{-- @if (Auth::user()->hasRole(['Admin', 'PPM'])) --}}
-                    @can('kelola statistik')
-                    <div class="col-md-4 mb-4" style="flex: 2;">
-                        <label for="prodiSelector"><strong>Pilih Program Studi :</strong></label>
-                        <select class="form-control" name="prodi" id="prodiSelector" onchange="this.form.submit()">
-                            @foreach ($prodiList as $program_studi)
-                                <option value="{{ $program_studi->id }}"
-                                    {{ request('prodi') == $program_studi->id ? 'selected' : '' }}>
-                                    {{ $program_studi->nama }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @endcan
+                @endcan
+                <div class="col-md-2 mb-4" style="flex: 1; margin-right: 10px;">
+                    <label for="yearSelector"><strong>Pilih Tahun :</strong></label>
+                    <select class="form-control" name="qtyoip" id="yearSelector" onchange="this.form.submit()">
+                       @foreach ($distinctYears as $year)
+                            <option value="{{ $year }}"
+                            {{ request('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
                 {{-- @endif --}}
             </form>
             @php
@@ -142,9 +142,9 @@
                 }
             @endphp
         </div>
-        <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal {{ $getprodi->nama }}</strong></h2>
+        <h2 class="text-center mb-4"><strong>Statistik Audit Mutu Internal {{ $getprodi->nama }} {{ $tahuns }}</strong></h2>
         <div id="chart">
-                
+
         </div>
 
         <script>

@@ -30,17 +30,19 @@ Daftar Fakultas
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $fkt->nama }}</td>
                     <td>
-                        <button class="btn icon icon-left btn-warning"data-toggle="modal"
-                            data-target="#update_modal{{ $fkt->id }}"><i
-                                data-feather="alert-triangle" class="fas fa-edit"></i></button>
-                        <form action="{{ route('fakultas.destroy', $fkt->id) }}" method="POST"
-                            class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn icon icon-left btn-danger" onclick="DestroyFakultas(event)"><i
-                                    data-feather="alert-circle" class="fas fa-trash-alt"></i>
-                            </button>
-                        </form>
+                        <div class="d-flex center-content-between">
+                            <button class="btn icon icon-left btn-warning"data-toggle="modal"
+                                data-target="#update_modal{{ $fkt->id }}"><i
+                                    data-feather="alert-triangle" class="fas fa-edit"></i></button>
+                            <form action="{{ route('fakultas.destroy', $fkt->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn icon icon-left btn-danger" onclick="DestroyFakultas(event)"><i
+                                        data-feather="alert-circle" class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 {{-- modal  update Fakultas --}}
