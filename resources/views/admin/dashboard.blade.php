@@ -104,7 +104,7 @@
                 <div class="col-md-3 mb-4" style="flex: 2;">
                     <label for="prodiSelector"><strong>Program Studi :</strong></label>
                     <select class="form-control" name="bvyucf" id="prodiSelector">
-                        <option>--Pilih Program Studi--</option>
+                        <option value={{ null }}>--Pilih Program Studi--</option>
                         @foreach ($prodiList as $program_studi)
                             <option value="{{ $program_studi->id }}"
                                 {{ request('prodi') == $program_studi->id ? 'selected' : '' }}>
