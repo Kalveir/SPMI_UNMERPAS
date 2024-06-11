@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SPMI | Home</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Sistem Panjaminan Mutu Internal Universitas Merdeka Pasuruan</title>
+  <meta content="SPMI UNMERPAS adalah sistem yang digunakan untuk mempermudah dalam proses Audit Mutu Internal di Universitas Merdeka Pasuruan" name="description">
+  <meta content="spmi,spmi.unmerpas,SPMI, UNMERPAS, unmerpas" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('/assets/img/unmer.png') }}" rel="icon">
-  <link href="{{ asset('/assets/img/unmer.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('/assets/img/unmer.png') }}" rel="icon" alt="sistem penjaminan mutu internal pasuruan">
+  <link href="{{ asset('/assets/img/unmer.png') }}" rel="apple-touch-icon" alt="sistem penjaminan mutu internal pasuruan">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -83,7 +83,7 @@
           </button>
         </a>
         @endauth
-        
+
       </div>
 
     </div>
