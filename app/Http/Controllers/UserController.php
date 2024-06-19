@@ -39,7 +39,7 @@ class UserController extends Controller
         $duplikat = User::where('email', $request->email)->first();
         if($duplikat)
         {
-            Alert::error('Gagal', 'Email sudah terdaftar');  
+            Alert::error('Gagal', 'Email sudah terdaftar');
             return redirect()->route('pegawai.index');
         }else
         {
@@ -56,7 +56,7 @@ class UserController extends Controller
             Alert::success('Sukses', 'Data Pegawai Tersimpan');
             return redirect()->route('pegawai.index');
         }
-        
+
     }
 
     /**
@@ -84,25 +84,34 @@ class UserController extends Controller
     public function update(Request $request, $user)
     {
         $pegawai = User::find($user);
-        if (!empty($request->password ))
-        {
-            $pegawai->prodi_id= $request->prodi_id;
-            $pegawai->nama= $request->nama;
-            $pegawai->email= $request->email;
-            $pegawai->password= bcrypt($request->password);
-            $pegawai->status= $request->status;
-            $pegawai->save();
-        }else{
-            $pegawai->prodi_id= $request->prodi_id;
-            $pegawai->nama= $request->nama;
-            $pegawai->email= $request->email;
-            $pegawai->status= $request->status;
-            $pegawai->save();
+        if($request->email != $pegawai->email){
+            $cek_email = User::where('email',$request->email)->first();
+            if($cek_email){
+                Alert::error('Gagal', 'Email telah terdaftar');
+                return back();
+            }else{
+                if (!empty($request->password ))
+                {
+                    $pegawai->prodi_id= $request->prodi_id;
+                    $pegawai->nama= $request->nama;
+                    $pegawai->email= $request->email;
+                    $pegawai->password= bcrypt($request->password);
+                    $pegawai->status= $request->status;
+                    $pegawai->save();
+                }else{
+                    $pegawai->prodi_id= $request->prodi_id;
+                    $pegawai->nama= $request->nama;
+                    $pegawai->email= $request->email;
+                    $pegawai->status= $request->status;
+                    $pegawai->save();
+                }
+            }
+
         }
         $role = Role::findById($request->jabatan_id);
-        $pegawai->syncRoles([$role->id]); 
+        $pegawai->syncRoles([$role->id]);
         Alert::success('Sukses', 'Data Pegawai Diperbarui');
-        return redirect()->route('pegawai.index');      
+        return redirect()->route('pegawai.index');
     }
 
     /**
@@ -123,6 +132,6 @@ class UserController extends Controller
                 return redirect()->route('pegawai.index');
             }
         }
-        
+
     }
 }

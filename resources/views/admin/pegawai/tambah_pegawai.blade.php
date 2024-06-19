@@ -21,7 +21,7 @@ Tambah Pegawai
             </div>
             <div class="form-group">
                 <label for="basicInput"><h4>3. Password :</h4></label>
-                <input type="text" class="form-control" id="basicInput" name="password" required>
+                <input type="password" class="form-control" id="basicInput" name="password" required>
             </div>
 
             <fieldset class="form-group">

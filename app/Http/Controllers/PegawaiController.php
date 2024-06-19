@@ -80,7 +80,7 @@ class PegawaiController extends Controller
             $pegawai->prodi_id = $request->prodi_id;
             $pegawai->status = $request->status;
             $pegawai->save();
-            return redirect()->route('pegawai.index'); 
+            return redirect()->route('pegawai.index');
         }else{
             $pegawai->nama = $request->nama;
             $pegawai->email = $request->email;
@@ -88,7 +88,7 @@ class PegawaiController extends Controller
             $pegawai->prodi_id = $request->prodi_id;
             $pegawai->status = $request->status;
             $pegawai->save();
-            return redirect()->route('pegawai.index'); 
+            return redirect()->route('pegawai.index');
         }
     }
 
@@ -99,7 +99,7 @@ class PegawaiController extends Controller
     {
         $pegawai = User::find($pegawai);
         $pegawai->delete();
-        
+
         return redirect()->route('pegawai.index');
     }
 }

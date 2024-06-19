@@ -7,7 +7,7 @@
 
   <title>Sistem Panjaminan Mutu Internal Universitas Merdeka Pasuruan</title>
   <meta content="SPMI UNMERPAS adalah sistem yang digunakan untuk mempermudah dalam proses Audit Mutu Internal di Universitas Merdeka Pasuruan" name="description">
-  <meta content="spmi,spmi.unmerpas,SPMI, UNMERPAS, unmerpas" name="keywords">
+  <meta content="spmi,spmi.unmerpas,SPMI,UNMERPAS,unmerpas" name="keywords">
 
   <!-- Favicons -->
   <link href="{{ asset('/assets/img/unmer.png') }}" rel="icon" alt="sistem penjaminan mutu internal pasuruan">
