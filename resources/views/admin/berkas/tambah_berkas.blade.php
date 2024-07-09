@@ -15,16 +15,14 @@ Upload Berkas
            <div class="form-group">
                 <h4><strong>1. Indikator :</strong></h4>
                 <h5>{{$pengisian->indikator->indikator }}</h5>
-            </div> 
-
+            </div>
             <div class="form-group">
                 <label for="basicInput"><h4><strong>2. Jenis</strong></h4></label>
-                <fieldset>
-                    <select class="form-control col-md-8" id="jenis" name="jenis">
+                <select class="form-control col-md-8" id="jenis" name="jenis" required>
+                    <option value="" selected disabled>--Pilih Jenis--</option>
                     <option>Penetapan</option>
                     <option>Pelaksanaan</option>
                 </select>
-                </fieldset>
             </div>
             <div class="form-group">
                 <label><h4><strong>3. Upload Berkas :</strong></h4></label>
