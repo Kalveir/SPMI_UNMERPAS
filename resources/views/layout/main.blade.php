@@ -158,7 +158,7 @@
     <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
     <!-- Load FilePond Plugin: File Validate Size -->
     <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-    
+
      {{-- data table --}}
      <script>
         $(document).ready(function() {
@@ -172,13 +172,20 @@
 
     <script>
         $(document).ready(function() {
-            // Inisialisasi DataTable
-            var dataTable = $('#contoh-datatables').DataTable({
+            var table = $('#contoh-datatables').DataTable({
                 scrollX: true, // Mengaktifkan horizontal scrolling
                 scrollCollapse: true, // Mengaktifkan collapse agar horizontal scrollbar muncul
-                fixedColumns: { // Mengatur fixed columns
-                    start: 4, // Mengunci satu kolom pertama (dari kiri)
-                    end: 0 // Tidak mengunci kolom apa pun dari kanan
+                });
+
+            $('.toggle-col').on('click', function(e) {
+                e.preventDefault();
+                var column = table.column($(this).attr('data-column'));
+                column.visible(!column.visible());
+                var icon = $(this).find('i');
+                if (column.visible()) {
+                    $(this).removeClass('active');
+                } else {
+                    $(this).addClass('active');
                 }
             });
 
@@ -187,7 +194,7 @@
         });
     </script>
 
-    
+
     <script>
         $(document).ready(function() {
             // Inisialisasi Summernote untuk elemen dengan kelas summernote

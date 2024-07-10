@@ -8,6 +8,11 @@
 @endsection
 
 @section('container')
+    <style>
+      .toggle-col {
+        cursor: pointer;
+      }
+    </style>
     <div class="card">
         <div class="card-header">
             <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target="#input_modal">
@@ -15,14 +20,37 @@
             </button>
         </div>
         <div class="card-body">
+        <div class="mb-3">
+            <label for="basicInput"><p>Kolom : </p></label><br>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="1">
+            <i class="fas fa-eye-slash"></i>Standar</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="2">
+            <i class="fas fa-eye-slash"></i>Indikator</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="3">
+            <i class="fas fa-eye-slash"></i>Penetapan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="4">
+            <i class="fas fa-eye-slash"></i>Pelaksanaan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="5">
+            <i class="fas fa-eye-slash"></i>Tahun</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="6">
+            <i class="fas fa-eye-slash"></i>Auditor</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="7">
+            <i class="fas fa-eye-slash"></i>Evaluasi</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="8">
+            <i class="fas fa-eye-slash"></i>Komentar</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="9">
+            <i class="fas fa-eye-slash"></i>Pengendalian</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="10">
+            <i class="fas fa-eye-slash"></i>Peningkatan</button>
+        </div>
             <div class="row table-responsive">
                 <table id="contoh-datatables" class="cell-border table table-bordered table-striped" style="width=100%">
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
                             <!-- <th>Program Studi</th> -->
-                            <th>Indikator</th>
                             <th>Standar</th>
+                            <th>Indikator</th>
                             <th>Penetapan</th>
                             <th>Pelaksanaan</th>
                             <th>Tahun</th>
@@ -40,13 +68,13 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <!-- <td>{{ $bkst->prodi->nama }}</td> -->
                                 <td>
-                                    <div style="width: 200px;">
-                                        {{ $bkst->indikator->indikator }}
+                                    <div style="width: 150px;">
+                                        {{ $bkst->indikator->standard->nama }}
                                     </div>
                                 </td>
                                 <td>
-                                    <div style="width: 150px;">
-                                        {{ $bkst->indikator->standard->nama }}
+                                    <div style="width: 200px;">
+                                        {{ $bkst->indikator->indikator }}
                                     </div>
                                 </td>
                                 {{-- penetapan --}}

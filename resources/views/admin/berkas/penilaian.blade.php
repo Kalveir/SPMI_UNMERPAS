@@ -9,21 +9,40 @@
 
 @section('container')
     <div class="card">
-        <div class="card-header">
-        </div>
+        {{-- <div class="card-header">
+        </div> --}}
         <div class="card-body">
+            <div class="mb-3">
+            <label for="basicInput"><p>Kolom : </p></label><br>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="1">
+            <i class="fas fa-eye-slash"></i>Nama Kaprodi</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="2">
+            <i class="fas fa-eye-slash"></i>Standar</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="3">
+            <i class="fas fa-eye-slash"></i>Indikator</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="4">
+            <i class="fas fa-eye-slash"></i>Penetapan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="5">
+            <i class="fas fa-eye-slash"></i>Pelaksanaan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="6">
+            <i class="fas fa-eye-slash"></i>Auditor</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="7">
+            <i class="fas fa-eye-slash"></i>Evaluasi</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="8">
+            <i class="fas fa-eye-slash"></i>Komentar</button>
+        </div>
             <div class="table-responsive">
                 <table id="contoh-datatables" class="table table-bordered table-striped">
                     <thead class="text-left thead-dark">
                         <tr>
                             <th>No</th>
                             <th>Nama Kaprodi</th>
-                            <!-- <th>Program Studi</th> -->
-                            <th>Indikator</th>
+                            {{-- <th>Program Studi</th> --}}
                             <th>Standar</th>
+                            <th>Indikator</th>
                             <th>Penetapan</th>
                             <th>Pelaksanaan</th>
-                            <th>Audhitor</th>
+                            <th>Auditor</th>
                             <th>Evaluasi</th>
                             <th>Komentar</th>
                             <th>Aksi</th>
@@ -35,15 +54,15 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $brks->pegawai->nama }}</td>
-                                    <!-- <td>{{ $brks->prodi->nama }}</td> -->
+                                    {{-- <td>{{ $brks->prodi->nama }}</td> --}}
                                     <td>
                                         <div style="width: 200px;">
-                                            {{ $brks->indikator->indikator }}
+                                            {{ $brks->indikator->standard->nama }}
                                         </div>
                                     </td>
                                     <td>
                                         <div style="width: 200px;">
-                                            {{ $brks->indikator->standard->nama }}
+                                            {{ $brks->indikator->indikator }}
                                         </div>
                                     </td>
                                     {{-- penetapan --}}

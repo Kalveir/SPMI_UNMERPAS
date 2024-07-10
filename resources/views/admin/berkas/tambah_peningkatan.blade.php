@@ -35,7 +35,7 @@ Upload Berkas
                 <label class="custom-file-label" for="customFile"></label>
             </div>
         </div> --}}
-            
+
         <div class="form-group">
             <label for="basicInput"><h4><strong>3. Deskripsi :</strong></h4></label>
         </div>
@@ -56,8 +56,8 @@ Upload Berkas
 
         // Create a FilePond instance
         FilePond.create(input, {
-            maxFileSize: '15MB', // Ukuran maksimum file
-            labelIdle: 'Drag and drop files here or <span class="filepond--label-action"><u>Browse</u></span><br><br><small>Max file size: 15MB<small>',
+            maxFileSize: '7MB', // Ukuran maksimum file
+            labelIdle: 'Drag and drop files here or <span class="filepond--label-action"><u>Browse</u></span><br><br><small>Max file size: 7MB<small>',
             storeAsFile: true,
         });
     });

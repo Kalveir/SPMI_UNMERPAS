@@ -9,9 +9,34 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
 
 @section('container')
 <div class="card">
-  <div class="card-header">
-  </div>
+  {{-- <div class="card-header">
+  </div> --}}
   <div class="card-body">
+        <div class="mb-3">
+            <label for="basicInput"><p>Kolom : </p></label><br>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="1">
+            <i class="fas fa-eye-slash"></i>Nama Kaprodi</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="2">
+            <i class="fas fa-eye-slash"></i>Standar</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="3">
+            <i class="fas fa-eye-slash"></i>Indikator</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="4">
+            <i class="fas fa-eye-slash"></i>Penetapan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="5">
+            <i class="fas fa-eye-slash"></i>Pelaksanaan</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="6">
+            <i class="fas fa-eye-slash"></i>Tahun</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="7">
+            <i class="fas fa-eye-slash"></i>Auditor</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="8">
+            <i class="fas fa-eye-slash"></i>Evaluasi</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="9">
+            <i class="fas fa-eye-slash"></i>Komentar</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="10">
+            <i class="fas fa-eye-slash"></i>Pengendalian</button>
+            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="11">
+            <i class="fas fa-eye-slash"></i>Peningkatan</button>
+        </div>
     <div class="table-responsive">
       <table id="contoh-datatables" class="table table-bordered table-striped" >
         <thead class=thead-dark>
@@ -19,8 +44,8 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                 <th>No</th>
                 <th>Nama Kaprodi</th>
                 <!-- <th>Program Studi</th> -->
-                <th>Indikator</th>
                 <th>Standar</th>
+                <th>Indikator</th>
                 <th>Penetapan</th>
                 <th>Pelaksanaan</th>
                 <th>Tahun</th>
@@ -37,15 +62,15 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $brkp->pegawai->nama }}</td>
-                    <!-- <td>{{ $brkp->prodi->nama }}</td> -->
+                    {{-- <td>{{ $brkp->prodi->nama }}</td> --}}
                     <td>
                         <div style="width: 200px;">
-                            {{ $brkp->indikator->indikator }}
+                            {{ $brkp->indikator->standard->nama }}
                         </div>
                     </td>
                     <td>
                         <div style="width: 200px;">
-                            {{ $brkp->indikator->standard->nama }}
+                            {{ $brkp->indikator->indikator }}
                         </div>
                     </td>
                     {{-- penetapan --}}
@@ -64,7 +89,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                             @endif
                         </div>
                         @endforeach
-                        
+
                     </td>
                     {{-- pelaksanaan --}}
                     <td>
@@ -107,7 +132,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                             @endif
                         </div>
                         @endforeach
-                        
+
                     </td>
                     {{-- Peningkatan --}}
                     <td>
@@ -127,12 +152,12 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                             </div>
                             @endforeach
                         @endif
-                        
-                        
+
+
                     </td>
                     <td>
                         @if ($brkp->aksi_code == 2)
-                        <div class="d-flex center-content-between">   
+                        <div class="d-flex center-content-between">
                         <form action="{{ route('pengendalian.edit',$brkp->id) }}"
                             class="d-inline">
                             @csrf
