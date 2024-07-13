@@ -7,42 +7,49 @@ Upload Berkas
 @endsection
 @section('container')
 <div class="card">
+    <div class="card-header">
+        <h4><strong>Indikator :</strong></h4>
+        <h5>{{$pengisian->indikator->indikator }}</h5>
+    </div>
   <div class="card-body">
     <form action="{{ route('berkas.upload_file', $pengisian->id) }}" method="post" enctype="multipart/form-data">
         @csrf
-        {{-- @method('PUT') --}}
-        <div class="col-md-8 mb-4">
-           <div class="form-group">
-                <h4><strong>1. Indikator :</strong></h4>
-                <h5>{{$pengisian->indikator->indikator }}</h5>
-            </div>
-            <div class="form-group">
-                <label for="basicInput"><h4><strong>2. Jenis</strong></h4></label>
-                <select class="form-control col-md-8" id="jenis" name="jenis" required>
-                    <option value="" selected disabled>--Pilih Jenis--</option>
-                    <option>Penetapan</option>
-                    <option>Pelaksanaan</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label><h4><strong>3. Upload Berkas :</strong></h4></label>
+        <div class="row">
+            <!-- Formulir Penetapan -->
+            <div class="col-md-6">
+              <h4><strong>1. Penetapan</strong></h4>
+              <div class="form-group">
+                <label><h4><strong>Upload Berkas :</strong></h4></label>
                 <br>
                 <input type="file"
-                   name="nama_file[]"
+                   name="file_penetapan[]"
                    multiple
-                   data-max-file-size="15MB"
                    accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
-                   required
                    />
+               </div>
+               <div class="form-group">
+                    <label for="basicInput"><h4><strong>Deskripsi :</strong></h4></label>
+                    <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+               </div>
             </div>
-            <div class="form-group">
-                <label for="basicInput"><h4><strong>4. Deskripsi :</strong></h4></label>
-                <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+            <!-- Formulir Pelaksanaan -->
+            <div class="col-md-6">
+                <h4><strong>2. Pelaksanaan</strong></h4>
+                <div class="form-group">
+                  <label><h4><strong>Upload Berkas :</strong></h4></label>
+                  <br>
+                  <input type="file"
+                     name="file_pelaksanaan[]"
+                     multiple
+                     accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .jpeg, .jpg, .png, .rtf"
+                     />
+                 </div>
+                 <div class="form-group">
+                      <label for="basicInput"><h4><strong>Deskripsi :</strong></h4></label>
+                      <textarea class="summernote" name="deskripsi" class="form-control" required></textarea>
+                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
     </form>
   </div>
 </div>
@@ -51,7 +58,7 @@ Upload Berkas
         FilePond.registerPlugin(FilePondPluginFileValidateSize);
         // Get a file input reference
         const input = document.querySelector('input[type="file"]');
-
+        
         // Create a FilePond instance
         FilePond.create(input, {
             maxFileSize: '7MB', // Ukuran maksimum file

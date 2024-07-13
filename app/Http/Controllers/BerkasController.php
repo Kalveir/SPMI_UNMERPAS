@@ -95,7 +95,7 @@ class BerkasController extends Controller
     public function uploadFile(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        $lastId = Pengisian_berkas::max('id') + 1;
+        // $lastId = Pengisian_berkas::max('id') + 1;
         $file = $request->file('nama_file');
         foreach($file as $fl){
             $original = $fl->getClientOriginalName();
