@@ -13,28 +13,28 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
   </div> --}}
   <div class="card-body">
         <div class="mb-3">
-            <label for="basicInput"><p>Kolom : </p></label><br>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="1">
+            <label for="basicInput"><p>Visibility Column :</p></label><br>
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="1">
             <i class="fas fa-eye-slash"></i>Nama Kaprodi</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="2">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="2">
             <i class="fas fa-eye-slash"></i>Standar</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="3">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="3">
             <i class="fas fa-eye-slash"></i>Indikator</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="4">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="4">
             <i class="fas fa-eye-slash"></i>Penetapan</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="5">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="5">
             <i class="fas fa-eye-slash"></i>Pelaksanaan</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="6">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="6">
             <i class="fas fa-eye-slash"></i>Tahun</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="7">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="7">
             <i class="fas fa-eye-slash"></i>Auditor</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="8">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="8">
             <i class="fas fa-eye-slash"></i>Evaluasi</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="9">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="9">
             <i class="fas fa-eye-slash"></i>Komentar</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="10">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="10">
             <i class="fas fa-eye-slash"></i>Pengendalian</button>
-            <button class="btn btn-outline-primary btn-sm toggle-col" data-column="11">
+            <button class="btn btn-outline-secondary btn-sm toggle-col" data-column="11">
             <i class="fas fa-eye-slash"></i>Peningkatan</button>
         </div>
     <div class="table-responsive">

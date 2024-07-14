@@ -95,27 +95,61 @@ class BerkasController extends Controller
     public function uploadFile(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        // $lastId = Pengisian_berkas::max('id') + 1;
-        $file = $request->file('nama_file');
-        foreach($file as $fl){
-            $original = $fl->getClientOriginalName();
-            $extension = $fl->getClientOriginalExtension();
-            $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
-        
-            $pengisian_berkas = new Pengisian_berkas;
-            $pengisian_berkas->nama_file = $hashName;
-            $fl->storeAs('Berkas', $hashName);
+        $fl_pn = $request->file('file_penetapan');//file penetapan
+        $fl_pl = $request->file('file_pelaksanaan');//file pelaksanaan
 
-            $pengisian_berkas->jenis = $request->jenis;
-            $pengisian_berkas->pengisian_id = $pengisian->id;
-            $pengisian_berkas->pegawai_id = Auth::user()->id;
-            $pengisian_berkas->deskripsi = $request->deskripsi;
-            $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
-            $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
-            $pengisian_berkas->save();
+        if($fl_pn != null || $fl_pl != null)
+        {
+            //Berkas penetapaan
+            if($fl_pn != null)
+            {
+               foreach($fl_pn as $fn)
+               {
+                $original = $fn->getClientOriginalName();
+                $extension = $fn->getClientOriginalExtension();
+                $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
+            
+                $pengisian_berkas = new Pengisian_berkas;
+                $pengisian_berkas->nama_file = $hashName;
+                $fn->storeAs('Berkas', $hashName);
+
+                $pengisian_berkas->jenis = 'Penetapan';
+                $pengisian_berkas->pengisian_id = $pengisian->id;
+                $pengisian_berkas->pegawai_id = Auth::user()->id;
+                $pengisian_berkas->deskripsi = $request->deskripsi_penetapan;
+                $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
+                $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
+                $pengisian_berkas->save();
+               }
+            }
+            //Berkas Pelaksanaan
+            if($fl_pl != null)
+            {
+               foreach($fl_pl as $fp)
+               {
+                $original = $fp->getClientOriginalName();
+                $extension = $fp->getClientOriginalExtension();
+                $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
+            
+                $pengisian_berkas = new Pengisian_berkas;
+                $pengisian_berkas->nama_file = $hashName;
+                $fp->storeAs('Berkas', $hashName);
+
+                $pengisian_berkas->jenis = 'Pelaksanaan';
+                $pengisian_berkas->pengisian_id = $pengisian->id;
+                $pengisian_berkas->pegawai_id = Auth::user()->id;
+                $pengisian_berkas->deskripsi = $request->deskripsi_pelaksanaan;
+                $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
+                $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
+                $pengisian_berkas->save();
+               }
+            }
+            Alert::success('Sukses', 'Data Berkas Berhasil Disimpan');
+            return redirect()->route('berkas.index');
+        }else{
+            Alert::error('Gagal', 'Tidak Ada Berkas yang Tersimpan');
+            return redirect()->route('berkas.index');
         }
-        Alert::success('Sukses', 'Data Berkas Berhasil Ditambahkan');
-        return redirect()->route('berkas.index');
     }
 
     public function uploadPeningkatan(Request $request, $id)
