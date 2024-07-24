@@ -73,7 +73,7 @@
                                                     <div class="col-auto" style="padding: 5px;">
                                                         <i class="fas fa-file"></i>
                                                         <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}"
-                                                            target="_blank">{{ $file_berkas->nama_file }}</a>
+                                                            target="_blank">{{ $file_berkas->nama_asli }}</a>
                                                         <div class="text-wrap text-justify" style="width: 300px;">
                                                             <strong>Deskripsi :</strong>
                                                             {!! $file_berkas->deskripsi !!}
@@ -92,7 +92,7 @@
                                                     <div class="col-auto" style="padding: 5px;">
                                                         <i class="fas fa-file"></i>
                                                         <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}"
-                                                            target="_blank">{{ $file_berkas->nama_file }}</a>
+                                                            target="_blank">{{ $file_berkas->nama_asli }}</a>
                                                         <div class="text-wrap text-justify" style="width: 300px;">
                                                             <strong>Deskripsi :</strong>
                                                             {!! $file_berkas->deskripsi !!}

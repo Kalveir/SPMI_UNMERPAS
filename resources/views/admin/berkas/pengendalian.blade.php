@@ -80,7 +80,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                             @if ($file_berkas->jenis == 'Penetapan')
                                 <div class="col-auto">
                                         <i class="fas fa-file"></i>
-                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_asli }}</a>
                                         <div style="width: 300px;">
                                             <strong>Deskripsi :</strong>
                                             {!! $file_berkas->deskripsi !!}
@@ -98,7 +98,8 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                             @if ($file_berkas->jenis == 'Pelaksanaan')
                                 <div class="col-auto" style="padding: 5px;">
                                         <i class="fas fa-file"></i>
-                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}"
+                                            target="_blank" >{{$file_berkas->nama_asli }}</a>
                                         <div style="width: 300px;">
                                             <strong>Deskripsi :</strong>
                                             {!! $file_berkas->deskripsi !!}
@@ -142,7 +143,7 @@ Daftar Pengendalian Prodi {{ $prodi->nama }}
                                 @if ($file_berkas->jenis == 'Peningkatan')
                                     <div class="col-auto" style="padding: 5px;">
                                         <i class="fas fa-file"></i>
-                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_file}}</a>
+                                        <a href="{{ asset('storage/Berkas/' . $file_berkas->nama_file) }}" target="_blank" >{{$file_berkas->nama_asli }}</a>
                                         <div class="text-wrap text-justify" style="width: 300px;">
                                             <strong>Deskripsi :</strong>
                                             {!! $file_berkas->deskripsi !!}

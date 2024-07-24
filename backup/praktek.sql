@@ -448,6 +448,7 @@ CREATE TABLE `pengisian_berkas` (
   `pegawai_id` int(11) DEFAULT NULL,
   `jenis` varchar(50) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
+  `nama asli ` varchar(255) DEFAULT NULL,
   `nama_file` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_pengisian_berkas_pegawai` (`pegawai_id`),
