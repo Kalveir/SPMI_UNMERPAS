@@ -67,7 +67,7 @@ class BerkasController extends Controller
     {
         $pengisian =  Pengisian::find($id);
         $pengisian_berkas = Pengisian_berkas::where('pengisian_id', $pengisian->id)->get();
-        foreach ($pengisian_berkas as $hapus_berkas) 
+        foreach ($pengisian_berkas as $hapus_berkas)
         {
             $filepath = public_path('storage/Berkas/' . $hapus_berkas->nama_file);
             if (file_exists($filepath)) {
@@ -95,61 +95,53 @@ class BerkasController extends Controller
     public function uploadFile(Request $request, $id)
     {
         $pengisian = Pengisian::find($id);
-        $fl_pn = $request->file('file_penetapan');//file penetapan
-        $fl_pl = $request->file('file_pelaksanaan');//file pelaksanaan
+        $fl_pn = $request->file('file_penetapan'); // file penetapan
+        $fl_pl = $request->file('file_pelaksanaan'); // file pelaksanaan
 
-        if($fl_pn != null || $fl_pl != null)
-        {
-            //Berkas penetapaan
-            if($fl_pn != null)
-            {
-               foreach($fl_pn as $fn)
-               {
-                $original = $fn->getClientOriginalName();
-                $extension = $fn->getClientOriginalExtension();
-                $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
-            
-                $pengisian_berkas = new Pengisian_berkas;
-                $pengisian_berkas->nama_file = $hashName;
-                $fn->storeAs('Berkas', $hashName);
+        $jenis_berkas = [
+            'file_penetapan' => [
+                'jenis' => 'Penetapan',
+                'deskripsi' => $request->deskripsi_penetapan,
+            ],
+            'file_pelaksanaan' => [
+                'jenis' => 'Pelaksanaan',
+                'deskripsi' => $request->deskripsi_pelaksanaan,
+            ],
+        ];
 
-                $pengisian_berkas->jenis = 'Penetapan';
-                $pengisian_berkas->pengisian_id = $pengisian->id;
-                $pengisian_berkas->pegawai_id = Auth::user()->id;
-                $pengisian_berkas->deskripsi = $request->deskripsi_penetapan;
-                $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
-                $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
-                $pengisian_berkas->save();
-               }
+        foreach ($jenis_berkas as $file_key => $data) {
+            $files = $request->file($file_key);
+
+            if ($files) {
+                foreach ($files as $file) {
+                    $original = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
+
+                    $pengisian_berkas = new Pengisian_berkas;
+                    $pengisian_berkas->nama_file = $hashName;
+                    $file->storeAs('Berkas', $hashName);
+
+                    $pengisian_berkas->jenis = $data['jenis'];
+                    $pengisian_berkas->pengisian_id = $pengisian->id;
+                    $pengisian_berkas->pegawai_id = Auth::user()->id;
+                    $pengisian_berkas->deskripsi = $data['deskripsi'];
+                    $pengisian_berkas->program_studi_id = Auth::user()->prodi_id;
+                    $pengisian_berkas->indikator_id = $pengisian->indikator_id;
+                    $pengisian_berkas->nama_asli = $original;
+                    $pengisian_berkas->save();
+                }
             }
-            //Berkas Pelaksanaan
-            if($fl_pl != null)
-            {
-               foreach($fl_pl as $fp)
-               {
-                $original = $fp->getClientOriginalName();
-                $extension = $fp->getClientOriginalExtension();
-                $hashName = md5($original . now()->format('dmY') . uniqid()) . '.' . $extension;
-            
-                $pengisian_berkas = new Pengisian_berkas;
-                $pengisian_berkas->nama_file = $hashName;
-                $fp->storeAs('Berkas', $hashName);
-
-                $pengisian_berkas->jenis = 'Pelaksanaan';
-                $pengisian_berkas->pengisian_id = $pengisian->id;
-                $pengisian_berkas->pegawai_id = Auth::user()->id;
-                $pengisian_berkas->deskripsi = $request->deskripsi_pelaksanaan;
-                $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
-                $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
-                $pengisian_berkas->save();
-               }
-            }
-            Alert::success('Sukses', 'Data Berkas Berhasil Disimpan');
-            return redirect()->route('berkas.index');
-        }else{
-            Alert::error('Gagal', 'Tidak Ada Berkas yang Tersimpan');
-            return redirect()->route('berkas.index');
         }
+
+        if ($fl_pn || $fl_pl) {
+            Alert::success('Sukses', 'Data Berkas Berhasil Disimpan');
+        } else {
+            Alert::error('Gagal', 'Tidak Ada Berkas yang Tersimpan');
+        }
+
+        return redirect()->route('berkas.index');
+
     }
 
     public function uploadPeningkatan(Request $request, $id)
@@ -160,10 +152,10 @@ class BerkasController extends Controller
         foreach ($file as $fl) {
             $original = $fl->getClientOriginalName();
             $extension = $fl->getClientOriginalExtension();
-            
+
             // Menggunakan md5 untuk menghasilkan hashname yang pendek
             $hashName = md5($original . now() . uniqid()) . '.' . $extension;
-        
+
             $pengisian_berkas = new Pengisian_berkas;
             $pengisian_berkas->nama_file = $hashName;
             $fl->storeAs('Berkas', $hashName);
@@ -174,6 +166,7 @@ class BerkasController extends Controller
             $pengisian_berkas->deskripsi = $request->deskripsi;
             $pengisian_berkas->program_studi_id =  Auth::user()->prodi_id;
             $pengisian_berkas->indikator_id =  $pengisian->indikator_id;
+            $pengisian_berkas->nama_asli = $original;
             $pengisian_berkas->save();
         }
         Alert::success('Sukses', 'Data Peningkatan Ditambahkan');

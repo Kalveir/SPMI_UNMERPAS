@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 06:32 AM
+-- Generation Time: Jul 24, 2024 at 06:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -734,8 +734,8 @@ CREATE TABLE `pengisian_berkas` (
   `pegawai_id` int(11) DEFAULT NULL,
   `jenis` varchar(50) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
-  `nama asli ` varchar(255) DEFAULT NULL,
-  `nama_file` varchar(255) DEFAULT NULL
+  `nama_file` varchar(255) DEFAULT NULL,
+  `nama_asli` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

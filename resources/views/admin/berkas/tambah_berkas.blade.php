@@ -63,7 +63,7 @@ Upload Berkas
       FilePond.registerPlugin(FilePondPluginFileValidateSize);
       // Get all file input references
       const inputs = document.querySelectorAll('input[type="file"]');
-      
+
       // Create a FilePond instance for each file input
       inputs.forEach(input => {
           FilePond.create(input, {
