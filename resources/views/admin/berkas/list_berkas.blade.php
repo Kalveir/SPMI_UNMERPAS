@@ -292,7 +292,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-hiden="true" id="input_modal">
+    <div class="modal" tabindex="-1" role="dialog" aria-hiden="true" id="input_modal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -308,10 +308,10 @@
                     <form action="{{ route('berkas.addIndikator') }}" method="post">
                         @csrf
                         <!-- tambahkan autcroll jika data-banyak -->
-                        <div class="form-group">
-                            <label for="nama">Pilih Standar : </label>
-                            <select class="form-control" aria-label="Default select example" id="indikator_id"
-                                name="standar_id" style="max-height:50px; overflow-y: auto;">
+                        <div class="form-group col-md-30">
+                            <label>Pilih Standar : </label> 
+                            <select id="single" class="form-control" name="standar_id">
+                                <option value="" disabled selected>--Pilih Standar--</option>
                                 @foreach ($standar as $std)
                                     <option value="{{ $std->id }}">
                                         {{ $std->nama }}
