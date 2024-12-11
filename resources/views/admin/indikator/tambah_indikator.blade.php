@@ -28,7 +28,7 @@ Tambah Indikator
         <div class="col-md-6 mb-4">
             <fieldset class="form-group">
                 <h4><strong>3. Standar :</strong></h4>
-                <select class="form-control" id="single" name="standar_id">
+                <select class="form-control" id="single" name="standar_id" required>
                     <option value="" disabled selected>--Pilih Standar--</option>
                     @foreach ($standard as $std)
                         <option value="{{ $std->id }}">

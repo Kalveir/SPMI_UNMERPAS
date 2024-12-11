@@ -310,7 +310,7 @@
                         <!-- tambahkan autcroll jika data-banyak -->
                         <div class="form-group col-md-30">
                             <label>Pilih Standar : </label> 
-                            <select id="single" class="form-control" name="standar_id">
+                            <select id="single" class="form-control" name="standar_id" required>
                                 <option value="" disabled selected>--Pilih Standar--</option>
                                 @foreach ($standar as $std)
                                     <option value="{{ $std->id }}">

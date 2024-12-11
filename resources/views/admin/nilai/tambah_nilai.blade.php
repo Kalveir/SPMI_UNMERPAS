@@ -17,7 +17,7 @@ Tambah Skor Nilai
             </div>
             <fieldset class="form-group">
                 <label for="basicInput"><h4><strong>2. Indikator :</strong></h4></label>
-                    <select class="form-control" name="indikator_id" id="single">
+                    <select class="form-control" name="indikator_id" id="single" required>
                         <option value="" disabled selected>--Pilih Indikator--</option>
                         @foreach ($indikator as $idnk)
                             <option value="{{ $idnk->id }}">{{ $idnk->indikator }}</option>

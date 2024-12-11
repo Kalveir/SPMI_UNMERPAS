@@ -35,7 +35,7 @@ Tambah Buku Standar
             <div class="col-md-6 mb-4">
                 <fieldset class="form-group">
                     <label for="basicInput"><h3>4. Standar :</h3></label>
-                    <select class="form-control" id="single" name="standar_id">
+                    <select class="form-control" id="single" name="standar_id" required>
                         <option value="" disabled selected>--Pilih Standar--</option>
                         @foreach ($standard as $std)
                             <option value="{{ $std->id }}">

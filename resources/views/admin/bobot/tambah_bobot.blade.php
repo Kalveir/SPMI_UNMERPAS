@@ -13,7 +13,7 @@ Tambah Bobot Nilai
         <div class="col-md-6 row-md-15">
           <fieldset class="form-group">
               <label for="basicInput"><h4><strong>1. Indikator :</strong></h4></label>
-              <select class="form-control" id="single" name="indikator_id">
+              <select class="form-control" id="single" name="indikator_id" required>
                 <option value="" disabled selected>--Pilih Indikator--</option>
                   @foreach ($indikator as $idnk)
                       <option value="{{ $idnk->id }}">
