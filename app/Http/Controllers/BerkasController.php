@@ -23,18 +23,39 @@ class BerkasController extends Controller
 
     public function addIndikator(Request $request)
     {
-        Pengisian::updateOrCreate(
-                [
-                    'pegawai_id' => Auth::user()->id,
-                    'program_studi' => Auth::user()->prodi_id,
-                    'indikator_id' => $request->indikator_id,
-                    // 'nilai' => 0,
-                    'tahun' => now()->format('Y'),
-                    'aksi_code'=> 0,
-                ]
-        );
-        Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
-        return redirect()->route('berkas.index');   
+        $indikator = Indikator::where('id',$request->indikator_id)->first();
+        $cek_pengisian = Pengisian::where('pegawai_id',Auth::user()->id)
+        ->where('indikator_id',$request->indikator_id)
+        ->where('tahun',now()->format('Y'))->first();
+
+        if($cek_pengisian)
+        {
+            Alert::error('Gagal', 'Indikator '.$indikator->indikator.' sudah terdaftar');
+            return redirect()->route('berkas.index');   
+        }else
+        {
+            $pengisian = new Pengisian;
+            $pengisian->pegawai_id =Auth::user()->id; 
+            $pengisian->program_studi =Auth::user()->prodi_id;
+            $pengisian->indikator_id =$request->indikator_id;
+            $pengisian->tahun = now()->format('Y');
+            $pengisian->aksi_code = 0;
+            $pengisian->save();
+            Alert::success('Sukses', 'Indikator Berhasil Ditambahkan');
+            return redirect()->route('berkas.index');   
+        }
+        
+        // Pengisian::updateOrCreate(
+        //         [
+        //             'pegawai_id' => Auth::user()->id,
+        //             'program_studi' => Auth::user()->prodi_id,
+        //             'indikator_id' => $request->indikator_id,
+        //             // 'nilai' => 0,
+        //             'tahun' => now()->format('Y'),
+        //             'aksi_code'=> 0,
+        //         ]
+        // );
+        
     }
 
     public function hapusIndikator($id)

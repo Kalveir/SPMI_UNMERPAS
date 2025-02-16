@@ -10,22 +10,22 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/img/unmer.png" rel="icon">
-  <link href="/assets/img/unmer.png" rel="apple-touch-icon">
+  <link href="{{ asset('/assets/img/unmer.png') }}" rel="icon">
+  <link href="{{ asset('/assets/img/unmer.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="/crypt/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/crypt/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/crypt/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/crypt/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/crypt/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/crypt/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/crypt/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/crypt/css/style.css" rel="stylesheet">
+  <link href="{{ asset('/crypt/css/style.css') }}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Scaffold
@@ -103,7 +103,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-          <img src="/crypt/img/hero-img.png" class="img-fluid" alt="">
+          <img src="{{ asset('/crypt/img/hero-img.png') }}" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
 
         <div class="row">
           <div class="col-lg-6" data-aos="zoom-in">
-            <img src="/crypt/img/about.jpg" class="img-fluid" alt="">
+            <img src="{{ asset('/crypt/img/about.jpg') }}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0">
@@ -157,15 +157,15 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="/crypt/vendor/aos/aos.js"></script>
-  <script src="/crypt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/crypt/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/crypt/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/crypt/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/crypt/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('/crypt/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('/crypt/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/crypt/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('/crypt/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('/crypt/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('/crypt/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="/crypt/js/main.js"></script>
+  <script src="{{ asset('/crypt/js/main.js') }}"></script>
 
   <script>
     document.getElementById('tahun').textContent = new Date().getFullYear();
