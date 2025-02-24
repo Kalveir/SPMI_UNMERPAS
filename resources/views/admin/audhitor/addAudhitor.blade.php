@@ -28,7 +28,7 @@
                         title="Open User Selection Modal">
                         Seleksi Pegawai
                     </button>
-                    <div class="col-md-6">
+                    <div class="table-responsive">
                     <table class="table" id="mainTable">
                         <thead>
                             <tr>

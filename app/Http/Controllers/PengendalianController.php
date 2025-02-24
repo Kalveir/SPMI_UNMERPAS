@@ -14,31 +14,36 @@ class PengendalianController extends Controller
     {
         $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',1)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
-        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
+        $prodi = 'Informatika';
+        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator','prodi'));
     }
     public function PengendalianRPL()
     {
         $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',2)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
-        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
+        $prodi = 'Rekayasa Perangkat Lunak';
+        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator','prodi'));
     }
     public function PengendalianManajemen()
     {
         $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',3)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
-        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
+        $prodi = 'Manajemen';
+        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator','prodi'));
     }
     public function PengendalianHukum()
     {
         $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',4)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
-        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
+        $prodi = 'Hukum';
+        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator','prodi'));
     }
     public function PengendalianAgroteknologi()
     {
         $berkas_prodi = Pengisian::with(['pegawai', 'auditor'])->where('program_studi',5)->where('aksi_code','>',1)->orderBy('id', 'desc')->get();
         $indikator = indikator::get();
-        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator'));
+        $prodi = 'Agroteknologi';
+        return view('admin.berkas.pengendalian', compact('berkas_prodi','indikator','prodi'));
     }
 
     public function addPengendalian($id)

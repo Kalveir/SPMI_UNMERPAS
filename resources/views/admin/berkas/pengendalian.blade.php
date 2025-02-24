@@ -4,7 +4,7 @@ Berkas
 @endsection
 
 @section('judul')
-Daftar Pengendalian
+Daftar Pengendalian Prodi {{ $prodi }}
 @endsection
 
 @section('container')
