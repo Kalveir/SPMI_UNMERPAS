@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spmi_dev
+    container_name: spmi_app
+    pull_policy: never
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - spmi-network
+
+  db:
+    image: mariadb
+    container_name: spmi_db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: admin123
+      MARIADB_DATABASE: spmi
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mariadb
+    networks:
+      - spmi-network
+
+volumes:
+  mysql-data:
+
+networks:
+  spmi-network:
+    driver: bridge
