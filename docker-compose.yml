@@ -1,4 +1,21 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spmi_dev
+    container_name: spmi_app
+    restart: unless-stopped
+    pull_policy: never
+    ports:
+      - "8187:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - spmi-network
+
   db:
     image: mariadb
     container_name: spmi_db
