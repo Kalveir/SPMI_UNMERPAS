@@ -6,6 +6,7 @@ services:
     image: spmi_dev
     container_name: spmi_app
     restart: unless-stopped
+    pull_policy: never
     ports:
       - "8187:80"
     volumes:
@@ -17,12 +18,12 @@ services:
       - spmi-network
 
   db:
-    image: mariadb
+    image: mysql
     container_name: spmi_db
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: admin123
-      MARIADB_DATABASE: spmi
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: spmi
     ports:
       - "3306:3306"
     volumes:
