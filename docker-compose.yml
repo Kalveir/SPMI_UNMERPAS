@@ -27,7 +27,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mariadb
+      - mysql-data:/var/lib/mysql
+      - ./spmi.sql:/docker-entrypoint-initdb.d/spmi.sql
     networks:
       - spmi-network
 
