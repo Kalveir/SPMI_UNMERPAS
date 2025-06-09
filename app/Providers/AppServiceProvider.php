@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
             enable comment if deployment
         */
 
-        if (env('APP_ENV') !== 'production') {
-             URL::forceScheme('https');
+        if (env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
         }
     }
 }
