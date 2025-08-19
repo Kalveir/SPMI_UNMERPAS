@@ -7,6 +7,7 @@ composer install --no-dev --optimize-autoloader && \
 php artisan key:generate && \
 
 # Then clear and rebuild Laravel caches
+php artisan optimize:clear && \
 php artisan config:cache && \
 php artisan event:cache && \
 php artisan route:cache && \
