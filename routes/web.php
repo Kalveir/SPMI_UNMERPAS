@@ -39,37 +39,6 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-// Route::get('/cihuy', function () {
-//     Permission::create(['name' => 'kelola statistik']);
-//     // Permission::where('name','kelola jenis')->delete();
-//     // Permission::where('name','kelola penilaian')->delete();
-//     dd('cihuy');
-// });
-// Route::get('/hey', function () {
-//     $roles = ['Audhitor Informatika','Audhitor RPL', 'Audhitor Manajemen','Audhitor Hukum','Audhitor Argoteknologi'];
-//     foreach ($roles as $rol)
-//     {
-//         Role::create(['name'=> $rol]);
-//     }
-//     dd('anjay');
-
-// });
-// Route::get('/woy', function () {
-//     $role = Role::first();
-//     $role->givePermissionTo('kelola standard','kelola bookmanual','kelola bookstandard','kelola bookdocs','kelola indikator', 'kelola jenis','kelola nilai','kelola berkas','kelola penilaian');
-//     dd($role);
-
-// });
-
-// Route::get('/index', function(){
-//     return view('container');
-// });
-// Route::get('/table', function(){
-//     return view('tabel');
-// });
-
-
-
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index')->middleware('auth');
 
 // manajemen profil
