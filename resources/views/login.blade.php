@@ -39,7 +39,7 @@
                         class="img-fluid mb-3">
                         <h2 class="font-family-arial"><strong>Sistem Penjaminan Mutu Internal</strong></h2>
                         <h2 class="font-family-arial"><strong>Universitas Merdeka Pasuruan</strong></h2>
-                        <form class="form-horizontal mt-3" action="/login/auth" method="POST">
+                        <form class="form-horizontal mt-3" action="{{ route('Auths') }}" method="POST">
                             @csrf
                             <div class="row pb-4">
                                 <div class="col-12">

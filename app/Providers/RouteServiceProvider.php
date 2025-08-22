@@ -19,6 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     // public const HOME = '/home';
     public const HOME = '/dashboard';
+    // public const HOME = '/spmi/dashboard';
 
 
     /**
@@ -36,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
+                // ->prefix('spmi/')
                 ->group(base_path('routes/web.php'));
         });
     }

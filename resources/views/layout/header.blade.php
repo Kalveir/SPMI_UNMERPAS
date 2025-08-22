@@ -1,8 +1,8 @@
 <div class="main-header">
   <!-- Logo Header -->
   <div class="logo-header" data-background-color="blue2" style="display: flex; align-items: center;">
-    <a href="/dashboard" class="logo">
-      <img src="/assets/img/unmer.png" alt="navbar brand" width="60" class="navbar-brand">
+    <a href="{{ route('dashboard.index') }}" class="logo">
+      <img src="{{ asset('/assets/img/unmer.png') }}" alt="navbar brand" width="60" class="navbar-brand">
       <span style="color: white; font-size: 13px;font-weight: bold;">SPMI</span>
       <span style="color: white; font-size: 13px;font-weight: bold;">UNMERPAS</span>
     </a>
@@ -32,7 +32,7 @@
         <li class="nav-item hidden-caret">
           <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button class="btn btn-danger type="submit"><i
+            <button class="btn btn-danger" type="submit"><i
                 class="fas fa-sign-out-alt"></i> Logout</button>
         </form>
           {{-- </a> --}}

@@ -32,7 +32,7 @@ class LoginController extends Controller
             {
                 $request->session()->regenerate();
                 Alert::success('Selamat Datang', Auth::user()->nama);
-                return redirect()->intended('dashboard');
+                return redirect()->route('dashboard.index');
             }else{
                 Alert::error('Login Gagal', 'Periksa Username & Password anda');
                 return redirect()->back();

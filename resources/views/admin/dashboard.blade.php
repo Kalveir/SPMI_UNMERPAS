@@ -13,7 +13,7 @@
                 <div class="page-inner py-5">
                     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                         <div>
-                            <img src="/assets/img/unmer.png" alt="Dashboard Image" class="mr-md-4 mb-3 mb-md-0" width="100"
+                            <img src="{{ asset('/assets/img/unmer.png') }}" alt="Dashboard Image" class="mr-md-4 mb-3 mb-md-0" width="100"
                                 height="100">
                         </div>
                         <div>
