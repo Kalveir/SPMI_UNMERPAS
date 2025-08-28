@@ -5,10 +5,12 @@
 -- Dumped from database version 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1)
 -- Dumped by pg_dump version 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1)
 
+-- Started on 2025-08-27 12:15:47 WIB
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'SQL_ASCII';
+SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
@@ -16,20 +18,12 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: spmi; Type: SCHEMA; Schema: -; Owner: postgres
---
-
-CREATE SCHEMA spmi;
-
-
-ALTER SCHEMA spmi OWNER TO postgres;
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
+-- TOC entry 212 (class 1259 OID 17530)
 -- Name: bobot; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -43,6 +37,7 @@ CREATE TABLE public.bobot (
 ALTER TABLE public.bobot OWNER TO postgres;
 
 --
+-- TOC entry 211 (class 1259 OID 17529)
 -- Name: bobot_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -57,6 +52,8 @@ CREATE SEQUENCE public.bobot_id_seq
 ALTER TABLE public.bobot_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3492 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: bobot_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -64,6 +61,7 @@ ALTER SEQUENCE public.bobot_id_seq OWNED BY public.bobot.id;
 
 
 --
+-- TOC entry 214 (class 1259 OID 17536)
 -- Name: bookdocs; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -80,6 +78,7 @@ CREATE TABLE public.bookdocs (
 ALTER TABLE public.bookdocs OWNER TO postgres;
 
 --
+-- TOC entry 213 (class 1259 OID 17535)
 -- Name: bookdocs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -94,6 +93,8 @@ CREATE SEQUENCE public.bookdocs_id_seq
 ALTER TABLE public.bookdocs_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3493 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: bookdocs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -101,6 +102,7 @@ ALTER SEQUENCE public.bookdocs_id_seq OWNED BY public.bookdocs.id;
 
 
 --
+-- TOC entry 216 (class 1259 OID 17547)
 -- Name: bookmanual; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -121,6 +123,7 @@ CREATE TABLE public.bookmanual (
 ALTER TABLE public.bookmanual OWNER TO postgres;
 
 --
+-- TOC entry 215 (class 1259 OID 17546)
 -- Name: bookmanual_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -135,6 +138,8 @@ CREATE SEQUENCE public.bookmanual_id_seq
 ALTER TABLE public.bookmanual_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3494 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: bookmanual_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -142,6 +147,7 @@ ALTER SEQUENCE public.bookmanual_id_seq OWNED BY public.bookmanual.id;
 
 
 --
+-- TOC entry 218 (class 1259 OID 17555)
 -- Name: bookstandard; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -161,6 +167,7 @@ CREATE TABLE public.bookstandard (
 ALTER TABLE public.bookstandard OWNER TO postgres;
 
 --
+-- TOC entry 217 (class 1259 OID 17554)
 -- Name: bookstandard_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -175,6 +182,8 @@ CREATE SEQUENCE public.bookstandard_id_seq
 ALTER TABLE public.bookstandard_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3495 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: bookstandard_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -182,6 +191,7 @@ ALTER SEQUENCE public.bookstandard_id_seq OWNED BY public.bookstandard.id;
 
 
 --
+-- TOC entry 220 (class 1259 OID 17562)
 -- Name: fakultas; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -194,6 +204,7 @@ CREATE TABLE public.fakultas (
 ALTER TABLE public.fakultas OWNER TO postgres;
 
 --
+-- TOC entry 219 (class 1259 OID 17561)
 -- Name: fakultas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -208,6 +219,8 @@ CREATE SEQUENCE public.fakultas_id_seq
 ALTER TABLE public.fakultas_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3496 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: fakultas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -215,6 +228,7 @@ ALTER SEQUENCE public.fakultas_id_seq OWNED BY public.fakultas.id;
 
 
 --
+-- TOC entry 222 (class 1259 OID 17568)
 -- Name: indikator; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -234,6 +248,7 @@ CREATE TABLE public.indikator (
 ALTER TABLE public.indikator OWNER TO postgres;
 
 --
+-- TOC entry 221 (class 1259 OID 17567)
 -- Name: indikator_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -248,6 +263,8 @@ CREATE SEQUENCE public.indikator_id_seq
 ALTER TABLE public.indikator_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3497 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: indikator_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -255,6 +272,7 @@ ALTER SEQUENCE public.indikator_id_seq OWNED BY public.indikator.id;
 
 
 --
+-- TOC entry 224 (class 1259 OID 17579)
 -- Name: indikator_jenis; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -268,6 +286,7 @@ CREATE TABLE public.indikator_jenis (
 ALTER TABLE public.indikator_jenis OWNER TO postgres;
 
 --
+-- TOC entry 223 (class 1259 OID 17578)
 -- Name: indikator_jenis_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -282,6 +301,8 @@ CREATE SEQUENCE public.indikator_jenis_id_seq
 ALTER TABLE public.indikator_jenis_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3498 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: indikator_jenis_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -289,6 +310,7 @@ ALTER SEQUENCE public.indikator_jenis_id_seq OWNED BY public.indikator_jenis.id;
 
 
 --
+-- TOC entry 226 (class 1259 OID 17584)
 -- Name: jenis; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -302,6 +324,7 @@ CREATE TABLE public.jenis (
 ALTER TABLE public.jenis OWNER TO postgres;
 
 --
+-- TOC entry 225 (class 1259 OID 17583)
 -- Name: jenis_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -316,6 +339,8 @@ CREATE SEQUENCE public.jenis_id_seq
 ALTER TABLE public.jenis_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3499 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: jenis_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -323,6 +348,7 @@ ALTER SEQUENCE public.jenis_id_seq OWNED BY public.jenis.id;
 
 
 --
+-- TOC entry 228 (class 1259 OID 17590)
 -- Name: migrations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -336,6 +362,7 @@ CREATE TABLE public.migrations (
 ALTER TABLE public.migrations OWNER TO postgres;
 
 --
+-- TOC entry 227 (class 1259 OID 17589)
 -- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -350,6 +377,8 @@ CREATE SEQUENCE public.migrations_id_seq
 ALTER TABLE public.migrations_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3500 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -357,6 +386,7 @@ ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
 
 
 --
+-- TOC entry 229 (class 1259 OID 17594)
 -- Name: model_has_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -370,6 +400,7 @@ CREATE TABLE public.model_has_permissions (
 ALTER TABLE public.model_has_permissions OWNER TO postgres;
 
 --
+-- TOC entry 230 (class 1259 OID 17599)
 -- Name: model_has_roles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -383,6 +414,7 @@ CREATE TABLE public.model_has_roles (
 ALTER TABLE public.model_has_roles OWNER TO postgres;
 
 --
+-- TOC entry 232 (class 1259 OID 17605)
 -- Name: nilai; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -398,6 +430,7 @@ CREATE TABLE public.nilai (
 ALTER TABLE public.nilai OWNER TO postgres;
 
 --
+-- TOC entry 231 (class 1259 OID 17604)
 -- Name: nilai_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -412,6 +445,8 @@ CREATE SEQUENCE public.nilai_id_seq
 ALTER TABLE public.nilai_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3501 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: nilai_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -419,6 +454,7 @@ ALTER SEQUENCE public.nilai_id_seq OWNED BY public.nilai.id;
 
 
 --
+-- TOC entry 234 (class 1259 OID 17613)
 -- Name: pegawai; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -437,6 +473,7 @@ CREATE TABLE public.pegawai (
 ALTER TABLE public.pegawai OWNER TO postgres;
 
 --
+-- TOC entry 233 (class 1259 OID 17612)
 -- Name: pegawai_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -451,6 +488,8 @@ CREATE SEQUENCE public.pegawai_id_seq
 ALTER TABLE public.pegawai_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3502 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: pegawai_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -458,6 +497,7 @@ ALTER SEQUENCE public.pegawai_id_seq OWNED BY public.pegawai.id;
 
 
 --
+-- TOC entry 236 (class 1259 OID 17623)
 -- Name: pengisian; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -478,6 +518,7 @@ CREATE TABLE public.pengisian (
 ALTER TABLE public.pengisian OWNER TO postgres;
 
 --
+-- TOC entry 238 (class 1259 OID 17630)
 -- Name: pengisian_berkas; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -497,6 +538,7 @@ CREATE TABLE public.pengisian_berkas (
 ALTER TABLE public.pengisian_berkas OWNER TO postgres;
 
 --
+-- TOC entry 237 (class 1259 OID 17629)
 -- Name: pengisian_berkas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -511,6 +553,8 @@ CREATE SEQUENCE public.pengisian_berkas_id_seq
 ALTER TABLE public.pengisian_berkas_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3503 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: pengisian_berkas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -518,6 +562,7 @@ ALTER SEQUENCE public.pengisian_berkas_id_seq OWNED BY public.pengisian_berkas.i
 
 
 --
+-- TOC entry 235 (class 1259 OID 17622)
 -- Name: pengisian_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -532,6 +577,8 @@ CREATE SEQUENCE public.pengisian_id_seq
 ALTER TABLE public.pengisian_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3504 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: pengisian_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -539,6 +586,7 @@ ALTER SEQUENCE public.pengisian_id_seq OWNED BY public.pengisian.id;
 
 
 --
+-- TOC entry 240 (class 1259 OID 17640)
 -- Name: permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -554,6 +602,7 @@ CREATE TABLE public.permissions (
 ALTER TABLE public.permissions OWNER TO postgres;
 
 --
+-- TOC entry 239 (class 1259 OID 17639)
 -- Name: permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -568,6 +617,8 @@ CREATE SEQUENCE public.permissions_id_seq
 ALTER TABLE public.permissions_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3505 (class 0 OID 0)
+-- Dependencies: 239
 -- Name: permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -575,6 +626,7 @@ ALTER SEQUENCE public.permissions_id_seq OWNED BY public.permissions.id;
 
 
 --
+-- TOC entry 242 (class 1259 OID 17647)
 -- Name: personal_access_tokens; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -595,6 +647,7 @@ CREATE TABLE public.personal_access_tokens (
 ALTER TABLE public.personal_access_tokens OWNER TO postgres;
 
 --
+-- TOC entry 241 (class 1259 OID 17646)
 -- Name: personal_access_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -609,6 +662,8 @@ CREATE SEQUENCE public.personal_access_tokens_id_seq
 ALTER TABLE public.personal_access_tokens_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3506 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: personal_access_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -616,6 +671,7 @@ ALTER SEQUENCE public.personal_access_tokens_id_seq OWNED BY public.personal_acc
 
 
 --
+-- TOC entry 244 (class 1259 OID 17654)
 -- Name: program_studi; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -629,6 +685,7 @@ CREATE TABLE public.program_studi (
 ALTER TABLE public.program_studi OWNER TO postgres;
 
 --
+-- TOC entry 243 (class 1259 OID 17653)
 -- Name: program_studi_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -643,6 +700,8 @@ CREATE SEQUENCE public.program_studi_id_seq
 ALTER TABLE public.program_studi_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3507 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: program_studi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -650,6 +709,7 @@ ALTER SEQUENCE public.program_studi_id_seq OWNED BY public.program_studi.id;
 
 
 --
+-- TOC entry 247 (class 1259 OID 17666)
 -- Name: role_has_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -662,6 +722,7 @@ CREATE TABLE public.role_has_permissions (
 ALTER TABLE public.role_has_permissions OWNER TO postgres;
 
 --
+-- TOC entry 246 (class 1259 OID 17660)
 -- Name: roles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -677,6 +738,7 @@ CREATE TABLE public.roles (
 ALTER TABLE public.roles OWNER TO postgres;
 
 --
+-- TOC entry 245 (class 1259 OID 17659)
 -- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -691,6 +753,8 @@ CREATE SEQUENCE public.roles_id_seq
 ALTER TABLE public.roles_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3508 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -698,6 +762,7 @@ ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
 
 
 --
+-- TOC entry 249 (class 1259 OID 17672)
 -- Name: standard; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -712,6 +777,7 @@ CREATE TABLE public.standard (
 ALTER TABLE public.standard OWNER TO postgres;
 
 --
+-- TOC entry 248 (class 1259 OID 17671)
 -- Name: standard_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -726,6 +792,8 @@ CREATE SEQUENCE public.standard_id_seq
 ALTER TABLE public.standard_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3509 (class 0 OID 0)
+-- Dependencies: 248
 -- Name: standard_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -733,6 +801,7 @@ ALTER SEQUENCE public.standard_id_seq OWNED BY public.standard.id;
 
 
 --
+-- TOC entry 3268 (class 2604 OID 17533)
 -- Name: bobot id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -740,6 +809,7 @@ ALTER TABLE ONLY public.bobot ALTER COLUMN id SET DEFAULT nextval('public.bobot_
 
 
 --
+-- TOC entry 3270 (class 2604 OID 17539)
 -- Name: bookdocs id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -747,6 +817,7 @@ ALTER TABLE ONLY public.bookdocs ALTER COLUMN id SET DEFAULT nextval('public.boo
 
 
 --
+-- TOC entry 3275 (class 2604 OID 17550)
 -- Name: bookmanual id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -754,6 +825,7 @@ ALTER TABLE ONLY public.bookmanual ALTER COLUMN id SET DEFAULT nextval('public.b
 
 
 --
+-- TOC entry 3277 (class 2604 OID 17558)
 -- Name: bookstandard id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -761,6 +833,7 @@ ALTER TABLE ONLY public.bookstandard ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
+-- TOC entry 3278 (class 2604 OID 17565)
 -- Name: fakultas id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -768,6 +841,7 @@ ALTER TABLE ONLY public.fakultas ALTER COLUMN id SET DEFAULT nextval('public.fak
 
 
 --
+-- TOC entry 3280 (class 2604 OID 17571)
 -- Name: indikator id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -775,6 +849,7 @@ ALTER TABLE ONLY public.indikator ALTER COLUMN id SET DEFAULT nextval('public.in
 
 
 --
+-- TOC entry 3285 (class 2604 OID 17582)
 -- Name: indikator_jenis id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -782,6 +857,7 @@ ALTER TABLE ONLY public.indikator_jenis ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
+-- TOC entry 3286 (class 2604 OID 17587)
 -- Name: jenis id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -789,6 +865,7 @@ ALTER TABLE ONLY public.jenis ALTER COLUMN id SET DEFAULT nextval('public.jenis_
 
 
 --
+-- TOC entry 3288 (class 2604 OID 17593)
 -- Name: migrations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -796,6 +873,7 @@ ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.m
 
 
 --
+-- TOC entry 3289 (class 2604 OID 17608)
 -- Name: nilai id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -803,6 +881,7 @@ ALTER TABLE ONLY public.nilai ALTER COLUMN id SET DEFAULT nextval('public.nilai_
 
 
 --
+-- TOC entry 3291 (class 2604 OID 17616)
 -- Name: pegawai id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -810,6 +889,7 @@ ALTER TABLE ONLY public.pegawai ALTER COLUMN id SET DEFAULT nextval('public.pega
 
 
 --
+-- TOC entry 3295 (class 2604 OID 17626)
 -- Name: pengisian id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -817,6 +897,7 @@ ALTER TABLE ONLY public.pengisian ALTER COLUMN id SET DEFAULT nextval('public.pe
 
 
 --
+-- TOC entry 3298 (class 2604 OID 17633)
 -- Name: pengisian_berkas id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -824,6 +905,7 @@ ALTER TABLE ONLY public.pengisian_berkas ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
+-- TOC entry 3302 (class 2604 OID 17643)
 -- Name: permissions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -831,6 +913,7 @@ ALTER TABLE ONLY public.permissions ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
+-- TOC entry 3303 (class 2604 OID 17650)
 -- Name: personal_access_tokens id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -838,6 +921,7 @@ ALTER TABLE ONLY public.personal_access_tokens ALTER COLUMN id SET DEFAULT nextv
 
 
 --
+-- TOC entry 3304 (class 2604 OID 17657)
 -- Name: program_studi id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -845,6 +929,7 @@ ALTER TABLE ONLY public.program_studi ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
+-- TOC entry 3306 (class 2604 OID 17663)
 -- Name: roles id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -852,6 +937,7 @@ ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_
 
 
 --
+-- TOC entry 3307 (class 2604 OID 17675)
 -- Name: standard id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -859,6 +945,8 @@ ALTER TABLE ONLY public.standard ALTER COLUMN id SET DEFAULT nextval('public.sta
 
 
 --
+-- TOC entry 3449 (class 0 OID 17530)
+-- Dependencies: 212
 -- Data for Name: bobot; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -939,6 +1027,8 @@ COPY public.bobot (id, indikator_id, bobot) FROM stdin;
 
 
 --
+-- TOC entry 3451 (class 0 OID 17536)
+-- Dependencies: 214
 -- Data for Name: bookdocs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -948,6 +1038,8 @@ COPY public.bookdocs (id, standard_id, jenis, nama, jenis_file, nama_file) FROM 
 
 
 --
+-- TOC entry 3453 (class 0 OID 17547)
+-- Dependencies: 216
 -- Data for Name: bookmanual; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -957,6 +1049,8 @@ COPY public.bookmanual (id, standard_id, pegawai_id, jenis, visi_misi, tujuan, r
 
 
 --
+-- TOC entry 3455 (class 0 OID 17555)
+-- Dependencies: 218
 -- Data for Name: bookstandard; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -966,6 +1060,8 @@ COPY public.bookstandard (id, standard_id, pegawai_id, visi_misi, tujuan, rasion
 
 
 --
+-- TOC entry 3457 (class 0 OID 17562)
+-- Dependencies: 220
 -- Data for Name: fakultas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -978,6 +1074,8 @@ COPY public.fakultas (id, nama) FROM stdin;
 
 
 --
+-- TOC entry 3459 (class 0 OID 17568)
+-- Dependencies: 222
 -- Data for Name: indikator; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1058,6 +1156,8 @@ COPY public.indikator (id, standard_id, pegawai_id, isi, strategi, indikator, sa
 
 
 --
+-- TOC entry 3461 (class 0 OID 17579)
+-- Dependencies: 224
 -- Data for Name: indikator_jenis; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1066,6 +1166,8 @@ COPY public.indikator_jenis (id, jenis_id, indikator_id) FROM stdin;
 
 
 --
+-- TOC entry 3463 (class 0 OID 17584)
+-- Dependencies: 226
 -- Data for Name: jenis; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1074,6 +1176,8 @@ COPY public.jenis (id, nama, status) FROM stdin;
 
 
 --
+-- TOC entry 3465 (class 0 OID 17590)
+-- Dependencies: 228
 -- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1084,6 +1188,8 @@ COPY public.migrations (id, migration, batch) FROM stdin;
 
 
 --
+-- TOC entry 3466 (class 0 OID 17594)
+-- Dependencies: 229
 -- Data for Name: model_has_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1092,6 +1198,8 @@ COPY public.model_has_permissions (permission_id, model_type, model_id) FROM std
 
 
 --
+-- TOC entry 3467 (class 0 OID 17599)
+-- Dependencies: 230
 -- Data for Name: model_has_roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1118,6 +1226,8 @@ COPY public.model_has_roles (role_id, model_type, model_id) FROM stdin;
 
 
 --
+-- TOC entry 3469 (class 0 OID 17605)
+-- Dependencies: 232
 -- Data for Name: nilai; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1413,6 +1523,8 @@ COPY public.nilai (id, indikator_id, deskripsi, nilai, status) FROM stdin;
 
 
 --
+-- TOC entry 3471 (class 0 OID 17613)
+-- Dependencies: 234
 -- Data for Name: pegawai; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1439,6 +1551,8 @@ COPY public.pegawai (id, prodi_id, nama, email, password, status, created_at, re
 
 
 --
+-- TOC entry 3473 (class 0 OID 17623)
+-- Dependencies: 236
 -- Data for Name: pengisian; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1475,6 +1589,8 @@ COPY public.pengisian (id, indikator_id, pegawai_id, program_studi, audhitor, ni
 
 
 --
+-- TOC entry 3475 (class 0 OID 17630)
+-- Dependencies: 238
 -- Data for Name: pengisian_berkas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1515,27 +1631,31 @@ COPY public.pengisian_berkas (id, indikator_id, pengisian_id, program_studi_id, 
 
 
 --
+-- TOC entry 3477 (class 0 OID 17640)
+-- Dependencies: 240
 -- Data for Name: permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.permissions (id, name, guard_name, created_at, updated_at) FROM stdin;
-1	kelola fakultas	web	2023-12-25 20:34:01+00	2023-12-25 20:34:01+00
-2	kelola prodi	web	2023-12-25 21:53:25+00	2023-12-25 21:53:25+00
-3	kelola pegawai	web	2023-12-25 21:53:33+00	2023-12-25 21:53:33+00
-4	kelola jabatan	web	2023-12-25 22:51:53+00	2023-12-25 22:51:53+00
-5	kelola standard	web	2023-12-26 17:14:06+00	2023-12-26 17:14:06+00
-6	kelola bookmanual	web	2023-12-26 17:17:14+00	2023-12-26 17:17:14+00
-7	kelola bookstandard	web	2023-12-26 17:17:30+00	2023-12-26 17:17:30+00
-8	kelola bookdocs	web	2023-12-26 17:17:49+00	2023-12-26 17:17:49+00
-9	kelola indikator	web	2023-12-26 17:18:05+00	2023-12-26 17:18:05+00
-11	kelola nilai	web	2023-12-26 17:18:38+00	2023-12-26 17:18:38+00
-12	kelola berkas	web	2023-12-26 17:18:58+00	2023-12-26 17:18:58+00
-14	kelola bobot	web	2024-02-07 06:48:50+00	2024-02-07 06:48:50+00
-15	kelola statistik	web	2024-02-14 07:08:16+00	2024-02-14 07:08:16+00
+1	kelola fakultas	web	2023-12-26 03:34:01+07	2023-12-26 03:34:01+07
+2	kelola prodi	web	2023-12-26 04:53:25+07	2023-12-26 04:53:25+07
+3	kelola pegawai	web	2023-12-26 04:53:33+07	2023-12-26 04:53:33+07
+4	kelola jabatan	web	2023-12-26 05:51:53+07	2023-12-26 05:51:53+07
+5	kelola standard	web	2023-12-27 00:14:06+07	2023-12-27 00:14:06+07
+6	kelola bookmanual	web	2023-12-27 00:17:14+07	2023-12-27 00:17:14+07
+7	kelola bookstandard	web	2023-12-27 00:17:30+07	2023-12-27 00:17:30+07
+8	kelola bookdocs	web	2023-12-27 00:17:49+07	2023-12-27 00:17:49+07
+9	kelola indikator	web	2023-12-27 00:18:05+07	2023-12-27 00:18:05+07
+11	kelola nilai	web	2023-12-27 00:18:38+07	2023-12-27 00:18:38+07
+12	kelola berkas	web	2023-12-27 00:18:58+07	2023-12-27 00:18:58+07
+14	kelola bobot	web	2024-02-07 13:48:50+07	2024-02-07 13:48:50+07
+15	kelola statistik	web	2024-02-14 14:08:16+07	2024-02-14 14:08:16+07
 \.
 
 
 --
+-- TOC entry 3479 (class 0 OID 17647)
+-- Dependencies: 242
 -- Data for Name: personal_access_tokens; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1544,6 +1664,8 @@ COPY public.personal_access_tokens (id, tokenable_type, tokenable_id, name, toke
 
 
 --
+-- TOC entry 3481 (class 0 OID 17654)
+-- Dependencies: 244
 -- Data for Name: program_studi; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1557,6 +1679,8 @@ COPY public.program_studi (id, fakultas_id, nama) FROM stdin;
 
 
 --
+-- TOC entry 3484 (class 0 OID 17666)
+-- Dependencies: 247
 -- Data for Name: role_has_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1579,23 +1703,27 @@ COPY public.role_has_permissions (permission_id, role_id) FROM stdin;
 
 
 --
+-- TOC entry 3483 (class 0 OID 17660)
+-- Dependencies: 246
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.roles (id, name, guard_name, created_at, updated_at) FROM stdin;
-1	Admin	web	2023-12-25 20:32:45+00	2023-12-26 00:58:52+00
-6	Auditor Informatika	web	2024-01-06 20:24:49+00	2024-01-15 03:27:12+00
-7	Auditor RPL	web	2024-01-06 20:24:49+00	2024-01-15 03:27:24+00
-8	Auditor Manajemen	web	2024-01-06 20:24:50+00	2024-01-15 03:27:34+00
-9	Auditor Hukum	web	2024-01-06 20:24:50+00	2024-01-15 03:27:44+00
-10	Auditor Agroteknologi	web	2024-01-06 20:24:50+00	2024-01-15 03:27:54+00
-11	PPM	web	2024-01-17 07:32:39+00	2024-01-17 07:32:39+00
-12	Ketua Program Studi	web	2024-01-17 07:33:01+00	2024-01-17 07:33:01+00
-13	Dosen	web	2024-01-30 21:04:12+00	2024-01-30 21:04:12+00
+1	Admin	web	2023-12-26 03:32:45+07	2023-12-26 07:58:52+07
+6	Auditor Informatika	web	2024-01-07 03:24:49+07	2024-01-15 10:27:12+07
+7	Auditor RPL	web	2024-01-07 03:24:49+07	2024-01-15 10:27:24+07
+8	Auditor Manajemen	web	2024-01-07 03:24:50+07	2024-01-15 10:27:34+07
+9	Auditor Hukum	web	2024-01-07 03:24:50+07	2024-01-15 10:27:44+07
+10	Auditor Agroteknologi	web	2024-01-07 03:24:50+07	2024-01-15 10:27:54+07
+11	PPM	web	2024-01-17 14:32:39+07	2024-01-17 14:32:39+07
+12	Ketua Program Studi	web	2024-01-17 14:33:01+07	2024-01-17 14:33:01+07
+13	Dosen	web	2024-01-31 04:04:12+07	2024-01-31 04:04:12+07
 \.
 
 
 --
+-- TOC entry 3486 (class 0 OID 17672)
+-- Dependencies: 249
 -- Data for Name: standard; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1628,6 +1756,8 @@ COPY public.standard (id, pegawai_id, nama, status) FROM stdin;
 
 
 --
+-- TOC entry 3510 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: bobot_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1635,6 +1765,8 @@ SELECT pg_catalog.setval('public.bobot_id_seq', 72, true);
 
 
 --
+-- TOC entry 3511 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: bookdocs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1642,6 +1774,8 @@ SELECT pg_catalog.setval('public.bookdocs_id_seq', 1, true);
 
 
 --
+-- TOC entry 3512 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: bookmanual_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1649,6 +1783,8 @@ SELECT pg_catalog.setval('public.bookmanual_id_seq', 1, true);
 
 
 --
+-- TOC entry 3513 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: bookstandard_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1656,6 +1792,8 @@ SELECT pg_catalog.setval('public.bookstandard_id_seq', 1, true);
 
 
 --
+-- TOC entry 3514 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: fakultas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1663,6 +1801,8 @@ SELECT pg_catalog.setval('public.fakultas_id_seq', 5, true);
 
 
 --
+-- TOC entry 3515 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: indikator_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1670,6 +1810,8 @@ SELECT pg_catalog.setval('public.indikator_id_seq', 72, true);
 
 
 --
+-- TOC entry 3516 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: indikator_jenis_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1677,6 +1819,8 @@ SELECT pg_catalog.setval('public.indikator_jenis_id_seq', 1, true);
 
 
 --
+-- TOC entry 3517 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: jenis_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1684,6 +1828,8 @@ SELECT pg_catalog.setval('public.jenis_id_seq', 1, true);
 
 
 --
+-- TOC entry 3518 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1691,6 +1837,8 @@ SELECT pg_catalog.setval('public.migrations_id_seq', 2, true);
 
 
 --
+-- TOC entry 3519 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: nilai_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1698,6 +1846,8 @@ SELECT pg_catalog.setval('public.nilai_id_seq', 288, true);
 
 
 --
+-- TOC entry 3520 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: pegawai_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1705,6 +1855,8 @@ SELECT pg_catalog.setval('public.pegawai_id_seq', 18, true);
 
 
 --
+-- TOC entry 3521 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: pengisian_berkas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1712,6 +1864,8 @@ SELECT pg_catalog.setval('public.pengisian_berkas_id_seq', 75, true);
 
 
 --
+-- TOC entry 3522 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: pengisian_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1719,6 +1873,8 @@ SELECT pg_catalog.setval('public.pengisian_id_seq', 81, true);
 
 
 --
+-- TOC entry 3523 (class 0 OID 0)
+-- Dependencies: 239
 -- Name: permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1726,6 +1882,8 @@ SELECT pg_catalog.setval('public.permissions_id_seq', 15, true);
 
 
 --
+-- TOC entry 3524 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: personal_access_tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1733,6 +1891,8 @@ SELECT pg_catalog.setval('public.personal_access_tokens_id_seq', 1, true);
 
 
 --
+-- TOC entry 3525 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: program_studi_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1740,6 +1900,8 @@ SELECT pg_catalog.setval('public.program_studi_id_seq', 5, true);
 
 
 --
+-- TOC entry 3526 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1747,543 +1909,15 @@ SELECT pg_catalog.setval('public.roles_id_seq', 13, true);
 
 
 --
+-- TOC entry 3527 (class 0 OID 0)
+-- Dependencies: 248
 -- Name: standard_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.standard_id_seq', 24, true);
 
 
---
--- Name: bobot idx_16798_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bobot
-    ADD CONSTRAINT idx_16798_primary PRIMARY KEY (id);
-
-
---
--- Name: bookdocs idx_16804_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookdocs
-    ADD CONSTRAINT idx_16804_primary PRIMARY KEY (id);
-
-
---
--- Name: bookmanual idx_16813_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookmanual
-    ADD CONSTRAINT idx_16813_primary PRIMARY KEY (id);
-
-
---
--- Name: bookstandard idx_16821_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookstandard
-    ADD CONSTRAINT idx_16821_primary PRIMARY KEY (id);
-
-
---
--- Name: fakultas idx_16828_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.fakultas
-    ADD CONSTRAINT idx_16828_primary PRIMARY KEY (id);
-
-
---
--- Name: indikator idx_16834_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator
-    ADD CONSTRAINT idx_16834_primary PRIMARY KEY (id);
-
-
---
--- Name: indikator_jenis idx_16843_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator_jenis
-    ADD CONSTRAINT idx_16843_primary PRIMARY KEY (id);
-
-
---
--- Name: jenis idx_16848_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.jenis
-    ADD CONSTRAINT idx_16848_primary PRIMARY KEY (id);
-
-
---
--- Name: migrations idx_16854_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.migrations
-    ADD CONSTRAINT idx_16854_primary PRIMARY KEY (id);
-
-
---
--- Name: model_has_permissions idx_16858_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.model_has_permissions
-    ADD CONSTRAINT idx_16858_primary PRIMARY KEY (permission_id, model_id, model_type);
-
-
---
--- Name: model_has_roles idx_16863_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.model_has_roles
-    ADD CONSTRAINT idx_16863_primary PRIMARY KEY (role_id, model_id, model_type);
-
-
---
--- Name: nilai idx_16869_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.nilai
-    ADD CONSTRAINT idx_16869_primary PRIMARY KEY (id);
-
-
---
--- Name: pegawai idx_16877_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pegawai
-    ADD CONSTRAINT idx_16877_primary PRIMARY KEY (id);
-
-
---
--- Name: pengisian idx_16887_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian
-    ADD CONSTRAINT idx_16887_primary PRIMARY KEY (id);
-
-
---
--- Name: pengisian_berkas idx_16894_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian_berkas
-    ADD CONSTRAINT idx_16894_primary PRIMARY KEY (id);
-
-
---
--- Name: permissions idx_16904_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.permissions
-    ADD CONSTRAINT idx_16904_primary PRIMARY KEY (id);
-
-
---
--- Name: personal_access_tokens idx_16909_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.personal_access_tokens
-    ADD CONSTRAINT idx_16909_primary PRIMARY KEY (id);
-
-
---
--- Name: program_studi idx_16916_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.program_studi
-    ADD CONSTRAINT idx_16916_primary PRIMARY KEY (id);
-
-
---
--- Name: roles idx_16922_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.roles
-    ADD CONSTRAINT idx_16922_primary PRIMARY KEY (id);
-
-
---
--- Name: role_has_permissions idx_16926_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.role_has_permissions
-    ADD CONSTRAINT idx_16926_primary PRIMARY KEY (permission_id, role_id);
-
-
---
--- Name: standard idx_16932_primary; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.standard
-    ADD CONSTRAINT idx_16932_primary PRIMARY KEY (id);
-
-
---
--- Name: idx_16798_fk_bobot_indikator; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16798_fk_bobot_indikator ON public.bobot USING btree (indikator_id);
-
-
---
--- Name: idx_16804_fk_book_standard; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16804_fk_book_standard ON public.bookdocs USING btree (standard_id);
-
-
---
--- Name: idx_16813_fk_bookmanual_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16813_fk_bookmanual_pegawai ON public.bookmanual USING btree (pegawai_id);
-
-
---
--- Name: idx_16813_fk_bookmanual_standard; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16813_fk_bookmanual_standard ON public.bookmanual USING btree (standard_id);
-
-
---
--- Name: idx_16821_fk_bookstandard_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16821_fk_bookstandard_pegawai ON public.bookstandard USING btree (pegawai_id);
-
-
---
--- Name: idx_16821_fk_bookstandard_standard; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16821_fk_bookstandard_standard ON public.bookstandard USING btree (standard_id);
-
-
---
--- Name: idx_16834_fk_indikator_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16834_fk_indikator_pegawai ON public.indikator USING btree (pegawai_id);
-
-
---
--- Name: idx_16834_fk_indikator_standard; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16834_fk_indikator_standard ON public.indikator USING btree (standard_id);
-
-
---
--- Name: idx_16843_fk_indikator; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16843_fk_indikator ON public.indikator_jenis USING btree (indikator_id);
-
-
---
--- Name: idx_16843_fk_jenis; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16843_fk_jenis ON public.indikator_jenis USING btree (jenis_id);
-
-
---
--- Name: idx_16858_model_has_permissions_model_id_model_type_index; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16858_model_has_permissions_model_id_model_type_index ON public.model_has_permissions USING btree (model_id, model_type);
-
-
---
--- Name: idx_16863_model_has_roles_model_id_model_type_index; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16863_model_has_roles_model_id_model_type_index ON public.model_has_roles USING btree (model_id, model_type);
-
-
---
--- Name: idx_16869_fk_nilai_indikator; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16869_fk_nilai_indikator ON public.nilai USING btree (indikator_id);
-
-
---
--- Name: idx_16877_fk_pegawai_prodi; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16877_fk_pegawai_prodi ON public.pegawai USING btree (prodi_id);
-
-
---
--- Name: idx_16887_fk_pengisian_audhitor; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16887_fk_pengisian_audhitor ON public.pengisian USING btree (audhitor);
-
-
---
--- Name: idx_16887_fk_pengisian_indikator; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16887_fk_pengisian_indikator ON public.pengisian USING btree (indikator_id);
-
-
---
--- Name: idx_16887_fk_pengisian_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16887_fk_pengisian_pegawai ON public.pengisian USING btree (pegawai_id);
-
-
---
--- Name: idx_16887_program_studi; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16887_program_studi ON public.pengisian USING btree (program_studi);
-
-
---
--- Name: idx_16894_fk_indikator_id; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16894_fk_indikator_id ON public.pengisian_berkas USING btree (indikator_id);
-
-
---
--- Name: idx_16894_fk_pengisian_berkas_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16894_fk_pengisian_berkas_pegawai ON public.pengisian_berkas USING btree (pegawai_id);
-
-
---
--- Name: idx_16894_fk_program_studi_id; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16894_fk_program_studi_id ON public.pengisian_berkas USING btree (program_studi_id);
-
-
---
--- Name: idx_16904_permissions_name_guard_name_unique; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE UNIQUE INDEX idx_16904_permissions_name_guard_name_unique ON public.permissions USING btree (name, guard_name);
-
-
---
--- Name: idx_16909_personal_access_tokens_token_unique; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE UNIQUE INDEX idx_16909_personal_access_tokens_token_unique ON public.personal_access_tokens USING btree (token);
-
-
---
--- Name: idx_16909_personal_access_tokens_tokenable_type_tokenable_id_in; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16909_personal_access_tokens_tokenable_type_tokenable_id_in ON public.personal_access_tokens USING btree (tokenable_type, tokenable_id);
-
-
---
--- Name: idx_16916_fk_program_studi_fakultas; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16916_fk_program_studi_fakultas ON public.program_studi USING btree (fakultas_id);
-
-
---
--- Name: idx_16922_roles_name_guard_name_unique; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE UNIQUE INDEX idx_16922_roles_name_guard_name_unique ON public.roles USING btree (name, guard_name);
-
-
---
--- Name: idx_16926_role_has_permissions_role_id_foreign; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16926_role_has_permissions_role_id_foreign ON public.role_has_permissions USING btree (role_id);
-
-
---
--- Name: idx_16932_fk_standard_pegawai; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX idx_16932_fk_standard_pegawai ON public.standard USING btree (pegawai_id);
-
-
---
--- Name: bobot fk_bobot_indikator; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bobot
-    ADD CONSTRAINT fk_bobot_indikator FOREIGN KEY (indikator_id) REFERENCES public.indikator(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: bookdocs fk_book_standard; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookdocs
-    ADD CONSTRAINT fk_book_standard FOREIGN KEY (standard_id) REFERENCES public.standard(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: bookmanual fk_bookmanual_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookmanual
-    ADD CONSTRAINT fk_bookmanual_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: bookmanual fk_bookmanual_standard; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookmanual
-    ADD CONSTRAINT fk_bookmanual_standard FOREIGN KEY (standard_id) REFERENCES public.standard(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: bookstandard fk_bookstandard_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookstandard
-    ADD CONSTRAINT fk_bookstandard_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: bookstandard fk_bookstandard_standard; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.bookstandard
-    ADD CONSTRAINT fk_bookstandard_standard FOREIGN KEY (standard_id) REFERENCES public.standard(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: indikator_jenis fk_indikator; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator_jenis
-    ADD CONSTRAINT fk_indikator FOREIGN KEY (indikator_id) REFERENCES public.indikator(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian_berkas fk_indikator_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian_berkas
-    ADD CONSTRAINT fk_indikator_id FOREIGN KEY (indikator_id) REFERENCES public.indikator(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: indikator fk_indikator_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator
-    ADD CONSTRAINT fk_indikator_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: indikator fk_indikator_standard; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator
-    ADD CONSTRAINT fk_indikator_standard FOREIGN KEY (standard_id) REFERENCES public.standard(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: indikator_jenis fk_jenis; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.indikator_jenis
-    ADD CONSTRAINT fk_jenis FOREIGN KEY (jenis_id) REFERENCES public.jenis(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: nilai fk_nilai_indikator; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.nilai
-    ADD CONSTRAINT fk_nilai_indikator FOREIGN KEY (indikator_id) REFERENCES public.indikator(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pegawai fk_pegawai_prodi; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pegawai
-    ADD CONSTRAINT fk_pegawai_prodi FOREIGN KEY (prodi_id) REFERENCES public.program_studi(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian fk_pengisian_audhitor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian
-    ADD CONSTRAINT fk_pengisian_audhitor FOREIGN KEY (audhitor) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian_berkas fk_pengisian_berkas_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian_berkas
-    ADD CONSTRAINT fk_pengisian_berkas_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian fk_pengisian_indikator; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian
-    ADD CONSTRAINT fk_pengisian_indikator FOREIGN KEY (indikator_id) REFERENCES public.indikator(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian fk_pengisian_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian
-    ADD CONSTRAINT fk_pengisian_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian_berkas fk_program_studi; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian_berkas
-    ADD CONSTRAINT fk_program_studi FOREIGN KEY (program_studi_id) REFERENCES public.program_studi(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: program_studi fk_program_studi_fakultas; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.program_studi
-    ADD CONSTRAINT fk_program_studi_fakultas FOREIGN KEY (fakultas_id) REFERENCES public.fakultas(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: standard fk_standard_pegawai; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.standard
-    ADD CONSTRAINT fk_standard_pegawai FOREIGN KEY (pegawai_id) REFERENCES public.pegawai(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
-
---
--- Name: pengisian pengisian_fk_prodi; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pengisian
-    ADD CONSTRAINT pengisian_fk_prodi FOREIGN KEY (program_studi) REFERENCES public.program_studi(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-
+-- Completed on 2025-08-27 12:15:54 WIB
 
 --
 -- PostgreSQL database dump complete
